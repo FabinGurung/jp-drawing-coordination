@@ -65,3 +65,12 @@ jobs:
           name: harisharan-svg-115-browser-qa
           path: /tmp/harisharan-svg-review-*.png
           if-no-files-found: warn
+
+      - name: Archive 115 editable SVGs and source-qualified index
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: harisharan-svg-115-reconstructed-review-bundle
+          path: |
+            public/projects/harisharan-adhikari/below-plinth-svg/
+          if-no-files-found: error
