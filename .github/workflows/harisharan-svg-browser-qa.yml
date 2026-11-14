@@ -1,0 +1,42 @@
+name: Harisharan below-plinth SVG browser and print QA
+on:
+  pull_request:
+    paths:
+      - 'public/projects/harisharan-adhikari/below-plinth-svg/**'
+      - 'public/projects/harisharan-adhikari/index.html'
+      - 'tools/site/harisharan-svg-index-smoke.mjs'
+      - 'tools/site/harisharan-svg-browser-smoke.mjs'
+      - '.github/workflows/harisharan-svg-browser-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-member-sheets:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: 'npm'}
+      - run: npm ci
+      - name: Verify 115 individual SVGs and SHA-256 manifest
+        run: node tools/site/harisharan-svg-index-smoke.mjs
+      - name: Build current renamed GitHub Pages base
+        run: npm run build -- --base=/jp-drawing-coordination/
+      - name: Install Chromium for browser and print QA
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Validate desktop/mobile filters, SVG previews, print and screenshots
+        env:
+          PROJECT_SITE_URL: http://127.0.0.1:5191/jp-drawing-coordination/
+        run: |
+          (npm run preview -- --host 127.0.0.1 --port 5191 --base=/jp-drawing-coordination/ > /tmp/harisharan-svg-preview.log 2>&1 &)
+          for i in $(seq 1 25); do curl -fsS http://127.0.0.1:5191/jp-drawing-coordination/projects/harisharan-adhikari/below-plinth-svg/ >/dev/null && break; sleep 2; done
+          node tools/site/harisharan-svg-browser-smoke.mjs
+      - name: Archive QA screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: harisharan-svg-115-browser-qa
+          path: /tmp/harisharan-svg-review-*.png
+          if-no-files-found: warn
