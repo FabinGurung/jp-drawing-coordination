@@ -20,6 +20,31 @@ jobs:
       - run: npm ci
       - name: Verify 115 individual SVGs and SHA-256 manifest
         run: node tools/site/harisharan-svg-index-smoke.mjs
+      - name: Parse every SVG as XML and verify printable accessibility metadata
+        run: |
+          python - <<'PY'
+          import json, pathlib, xml.etree.ElementTree as ET
+          root = pathlib.Path('public/projects/harisharan-adhikari/below-plinth-svg')
+          registry = json.loads((root/'registry.json').read_text())
+          manifest = json.loads((root/'manifest.json').read_text())
+          assert len(registry['entries']) == len(manifest['entries']) == 115
+          expected = {r['id'] for r in registry['entries']}
+          assert len(expected) == 115
+          observed = set()
+          for f in (root/'sheets').glob('*.svg'):
+              tree = ET.parse(f)
+              svg = tree.getroot()
+              assert svg.tag == '{http://www.w3.org/2000/svg}svg', f
+              assert svg.attrib.get('role') == 'img', f
+              assert svg.attrib.get('aria-labelledby') == 'title desc', f
+              assert svg.find('{http://www.w3.org/2000/svg}title') is not None, f
+              assert svg.find('{http://www.w3.org/2000/svg}desc') is not None, f
+              assert svg.attrib.get('viewBox') == '0 0 1120 790', f
+              assert not any(e.tag.lower().endswith('script') for e in svg.iter()), f
+              observed.add(f.stem)
+          assert observed == expected, (sorted(expected-observed), sorted(observed-expected))
+          print('HARISHARAN_115_SVG_XML_ACCESSIBILITY_PASS', len(observed))
+          PY
       - name: Build current renamed GitHub Pages base
         run: npm run build -- --base=/jp-drawing-coordination/
       - name: Install Chromium for browser and print QA
