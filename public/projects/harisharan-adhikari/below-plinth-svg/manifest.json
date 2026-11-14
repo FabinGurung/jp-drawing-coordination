@@ -1,0 +1,715 @@
+{
+  "schema": "jp-cad://harisharan-below-plinth-svg-review/1",
+  "project": "INTAKE-20260826-HARISHARAN",
+  "sourceKernelRevision": "R000001",
+  "sourceKernelFile": "public/data/projects/harisharan-adhikari/takeoff.json",
+  "sourceKernelGitBlobSha": "d4ab4a534c6a5bd795c3399005ff19ba78ef6c6a",
+  "bundleIdentity": "R000001-RECONSTRUCTED-CANDIDATE-20261114",
+  "sameAsPriorChatZip": "NOT_VERIFIED__DO_NOT_ASSUME_BYTE_PARITY",
+  "engineeringApproval": false,
+  "originalPDFsPreserved": true,
+  "generatedFrom": "CURRENT_MAIN_SOURCE_KERNEL",
+  "coordinateFrame": "x/y plan mm; z vertical mm DGL=0; kernel native z = plan northing",
+  "counts": {
+    "PB": 27,
+    "ST": 12,
+    "COL": 18,
+    "PAD": 18,
+    "PCC": 18,
+    "DOWEL": 18,
+    "HOLD": 4
+  },
+  "total": 115,
+  "entries": [
+    {
+      "id": "PB-A1-A2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-A1-A2.svg",
+      "sha256": "65480fa3ce3b8fb011204887f90a058e302415d0fd4b585ef9027b2f99cd4ace",
+      "bytes": 5325
+    },
+    {
+      "id": "PB-A1-B1",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-A1-B1.svg",
+      "sha256": "38a1b6b6c5250242b6c906a9258b0f2f31aac91c42d6bbca3a4555519a198d3f",
+      "bytes": 5325
+    },
+    {
+      "id": "PB-A2-A3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-A2-A3.svg",
+      "sha256": "fa1b2e2f9b74bf8be78636a2a5b2fcb7c6117058ae1665cb80f69751bf8948f4",
+      "bytes": 5330
+    },
+    {
+      "id": "PB-A2-B2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-A2-B2.svg",
+      "sha256": "c13ad174a6a06b5b52504f2c4164293d83bd6aa15a09abc3a21f1311464d8244",
+      "bytes": 5333
+    },
+    {
+      "id": "PB-A3-A4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-A3-A4.svg",
+      "sha256": "9ff8ff33dae91089f45dce32f42dd8794ac5e09e991a1447c649d2d8759eb708",
+      "bytes": 5327
+    },
+    {
+      "id": "PB-A3-B3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-A3-B3.svg",
+      "sha256": "30e0c0ac3cce644824ffd5bb9ca42ad8445e3b89cd43db83f08a162c7bec8459",
+      "bytes": 5335
+    },
+    {
+      "id": "PB-A4-A5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-A4-A5.svg",
+      "sha256": "39f9a6f49acff88cbd81f63e598079f43213feabc1fffeb51de082abe37d7bf7",
+      "bytes": 5327
+    },
+    {
+      "id": "PB-A4-B4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-A4-B4.svg",
+      "sha256": "e9d8b0c0a1b6c38726dff4674fb865cff12f0a8634d2b4f5f06b62190fe7a561",
+      "bytes": 5331
+    },
+    {
+      "id": "PB-A5-A6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-A5-A6.svg",
+      "sha256": "1825279f19dc32e99097a80287247a4c0008047b8b3072b4d4fa6acebe8037fe",
+      "bytes": 5327
+    },
+    {
+      "id": "PB-A5-B5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-A5-B5.svg",
+      "sha256": "06d8ea85fc7e9e1bed2c297339eac33e06d6132aaa26368882c0437b2aab2d77",
+      "bytes": 5331
+    },
+    {
+      "id": "PB-A6-B6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-A6-B6.svg",
+      "sha256": "ff49645e5d1c8d99faf50da1eb56e773751d2abcc5ca884d72f1b0cd19edb1f8",
+      "bytes": 5335
+    },
+    {
+      "id": "PB-B1-B2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-B1-B2.svg",
+      "sha256": "7bd9b31cd3962ac8390feac4bf2ef4b95057e45a2ac1237c1a29a64d0909987f",
+      "bytes": 5333
+    },
+    {
+      "id": "PB-B1-F1",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-B1-F1.svg",
+      "sha256": "8baca7945eca03410b691896d1e2c69de87b74399d6f42223898fbfbb55e4885",
+      "bytes": 5330
+    },
+    {
+      "id": "PB-B2-B3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-B2-B3.svg",
+      "sha256": "402ba898800dd7f0d87125d216769bb1ccd62aa392cc87593d6946d0860c4e2b",
+      "bytes": 5338
+    },
+    {
+      "id": "PB-B2-F2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-B2-F2.svg",
+      "sha256": "85d2b524d77a4a9d5b1a154283d21cf96f80a0d821ca343317696c22d7cf8d16",
+      "bytes": 5338
+    },
+    {
+      "id": "PB-B3-B4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-B3-B4.svg",
+      "sha256": "21e812fe33b1db37d4adfd91eb7398736f84a75498409085737659c922154497",
+      "bytes": 5335
+    },
+    {
+      "id": "PB-B3-F3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-B3-F3.svg",
+      "sha256": "d33a0b09f695b204466e60125dd9ccd5cfbd08a1c08b994c395919f2acf65ae2",
+      "bytes": 5340
+    },
+    {
+      "id": "PB-B4-B5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-B4-B5.svg",
+      "sha256": "7c63f01d4e1965246a96ec33117034fff9f84e88f9a45ec695b5d232d1d33540",
+      "bytes": 5335
+    },
+    {
+      "id": "PB-B4-E4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-B4-E4.svg",
+      "sha256": "39daa2b5467fd2b02c6e7c91d0e75cdb23cc1b25c3e29675bc6369a1af911f9e",
+      "bytes": 5336
+    },
+    {
+      "id": "PB-B5-B6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-B5-B6.svg",
+      "sha256": "5bfb0fa750bd51a6ab1d86293a24aad7b540f1a4809ffd2293cfcde33cd2f539",
+      "bytes": 5335
+    },
+    {
+      "id": "PB-B5-D5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-B5-D5.svg",
+      "sha256": "0dcace09692975bcfc876e4adc73a8abf8979af74fdb4920a7eaff6174964a3a",
+      "bytes": 5336
+    },
+    {
+      "id": "PB-B6-C6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-B6-C6.svg",
+      "sha256": "93c71d83b42fd23380cb859016a36db6b8827a7e8b09ff1b751aae156e4d9b43",
+      "bytes": 5340
+    },
+    {
+      "id": "PB-D5-C6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-D5-C6.svg",
+      "sha256": "e3a00dddf6115446b83113b86cbf6016352f1644dcb1363164cf4f66a890fad2",
+      "bytes": 5337
+    },
+    {
+      "id": "PB-E4-D5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-E4-D5.svg",
+      "sha256": "371ee0a7a73162097278e6ef0bc493b9d3a6738c00ad918482c00b36b3a7e701",
+      "bytes": 5337
+    },
+    {
+      "id": "PB-F1-F2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-F1-F2.svg",
+      "sha256": "95b3a0ee3f73fe66c8fac241131378d19ad261f7e5d7533e246faf929aefe09c",
+      "bytes": 5335
+    },
+    {
+      "id": "PB-F2-F3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-F2-F3.svg",
+      "sha256": "c6dbcdffd1a17274c4355be2c4f1190c30da4dbc1659ba8e3f0b7123311a11cd",
+      "bytes": 5340
+    },
+    {
+      "id": "PB-F3-E4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PB-F3-E4.svg",
+      "sha256": "6c1f31909e5f5cb3d53667521e844bc9ec2b257847c1f59df2a1bf937c8556e3",
+      "bytes": 5337
+    },
+    {
+      "id": "ST-A1-B1",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/ST-A1-B1.svg",
+      "sha256": "510fa412115e5861beff48779638428dddf424154f0abc867debc16af4769603",
+      "bytes": 5396
+    },
+    {
+      "id": "ST-A2-B2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/ST-A2-B2.svg",
+      "sha256": "a230149ee02d8317ba898e03c6eaed51aa086924a2b18bb1cdf40680d58b4445",
+      "bytes": 5404
+    },
+    {
+      "id": "ST-A3-B3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/ST-A3-B3.svg",
+      "sha256": "bdda7700cbdce287412bfbaaa1fbf6f30485ebcb484c1982f2cc0484a3c5a700",
+      "bytes": 5406
+    },
+    {
+      "id": "ST-A4-B4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/ST-A4-B4.svg",
+      "sha256": "a6304263972201c163e96dc4b2a39792729f6d059d64638aadcc11f971ddea9a",
+      "bytes": 5402
+    },
+    {
+      "id": "ST-A5-B5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/ST-A5-B5.svg",
+      "sha256": "120bf023cb393629d82dbba5b3225483957ec177b457ba8d2966f0eeca9cd2b3",
+      "bytes": 5402
+    },
+    {
+      "id": "ST-A6-B6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/ST-A6-B6.svg",
+      "sha256": "7548e946abf86d3a6aacee62bc3cfabee70b43b569407acb2c5c4d28113d5ad4",
+      "bytes": 5406
+    },
+    {
+      "id": "ST-B1-F1",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/ST-B1-F1.svg",
+      "sha256": "8236fd031e4f98ba7a0e880d1abf4a7353a0d10c95e502e9cb3116f25e15f6f4",
+      "bytes": 5401
+    },
+    {
+      "id": "ST-B2-F2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/ST-B2-F2.svg",
+      "sha256": "7983db37438d4b0cd967d5a85fe72a572f702afde36b21e1c53965ecdb3d3e43",
+      "bytes": 5409
+    },
+    {
+      "id": "ST-B3-F3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/ST-B3-F3.svg",
+      "sha256": "c8aec760d2b6c6518ff632d4d77089a4566794d441ef8367051bdbce444ea753",
+      "bytes": 5411
+    },
+    {
+      "id": "ST-B4-E4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/ST-B4-E4.svg",
+      "sha256": "39200b7c30deb4a2b957ef0382e0e94ea461818f5e61a20f30440d2b1ac59e29",
+      "bytes": 5407
+    },
+    {
+      "id": "ST-B5-D5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/ST-B5-D5.svg",
+      "sha256": "d572838b554a01fa9f397f79e11e2d0566fa73f7534cd30592fcbc246e070cc2",
+      "bytes": 5407
+    },
+    {
+      "id": "ST-B6-C6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/ST-B6-C6.svg",
+      "sha256": "e52833c060f354a0a5ce497e802933c3c3e9d730df39d2bb57a1a2adb21f7c17",
+      "bytes": 5411
+    },
+    {
+      "id": "COL-A1",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-A1.svg",
+      "sha256": "cf9f329bbb9101117ec061121dd3a5f894230158a28f6b0925539dfdb433fe54",
+      "bytes": 5056
+    },
+    {
+      "id": "COL-A2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-A2.svg",
+      "sha256": "0c59a672e346e8e0945bedfdc584f62a35c94eb0824cb6b3a30e447cd1631108",
+      "bytes": 5064
+    },
+    {
+      "id": "COL-A3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-A3.svg",
+      "sha256": "277135226ca20fb0972de7e1f92bfd986f6bf2fd1378e16074f2203757bbcc67",
+      "bytes": 5066
+    },
+    {
+      "id": "COL-A4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-A4.svg",
+      "sha256": "41fb8499599c9c2afa619acd9090089d9b9817db6c6f1f029de4493c0fb5db5c",
+      "bytes": 5058
+    },
+    {
+      "id": "COL-A5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-A5.svg",
+      "sha256": "f8f54d380ed7913acae654f331d390dc31a70bd29f9e0a855c7fa89a68ad30a8",
+      "bytes": 5058
+    },
+    {
+      "id": "COL-A6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-A6.svg",
+      "sha256": "78af9fa337f7fbf3f6c7f6ce27f06117481779c254ca252893a640f9f71fa2ab",
+      "bytes": 5066
+    },
+    {
+      "id": "COL-B1",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-B1.svg",
+      "sha256": "d088267168565efdca31522d46402e6a072ca14f757f048091c03100b7edcea7",
+      "bytes": 5064
+    },
+    {
+      "id": "COL-B2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-B2.svg",
+      "sha256": "9632d3e321a8d85b416d93d564b1d963ff49d07b1089511001df8ebf5a92c64e",
+      "bytes": 5072
+    },
+    {
+      "id": "COL-B3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-B3.svg",
+      "sha256": "2e203f6f14ddb6abfe172af1ffafde1ffc1489dcf14db7acb8de3c62699a8f3a",
+      "bytes": 5074
+    },
+    {
+      "id": "COL-B4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-B4.svg",
+      "sha256": "ea0f0400beda24d6aac02b137bb94238d12881687ebe26be2de21b151af17806",
+      "bytes": 5066
+    },
+    {
+      "id": "COL-B5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-B5.svg",
+      "sha256": "cb89bedad3c292588feabc57ba1adc77874ac3c72795c597ffdd2ade237a788f",
+      "bytes": 5066
+    },
+    {
+      "id": "COL-B6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-B6.svg",
+      "sha256": "845b57dab56f031a619f4e3d15008f28eba3620f821b6b9db6291642e6bf2f03",
+      "bytes": 5074
+    },
+    {
+      "id": "COL-C6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-C6.svg",
+      "sha256": "4888e0afbfc464c320ace6846142be6237fa98082112696a80b200785533e983",
+      "bytes": 5076
+    },
+    {
+      "id": "COL-D5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-D5.svg",
+      "sha256": "d497234a2116f813fb84d472f62e1ec5a7d963405fc2b05e5ac75db7382b67e8",
+      "bytes": 5068
+    },
+    {
+      "id": "COL-E4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-E4.svg",
+      "sha256": "6494c8a686cb84b184ed74e707fad8b898c6fbbde5f66c160f077436cf23c7b1",
+      "bytes": 5068
+    },
+    {
+      "id": "COL-F1",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-F1.svg",
+      "sha256": "e49954e4ab115e4014b961ae60d6308de78adc130b84b177e36eb6949cb815e6",
+      "bytes": 5066
+    },
+    {
+      "id": "COL-F2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-F2.svg",
+      "sha256": "3e642b12ca1574d6998b6b89744fced97d9c20b96f58466b53098662a128fab5",
+      "bytes": 5074
+    },
+    {
+      "id": "COL-F3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/COL-F3.svg",
+      "sha256": "404a341d73d79de11b3bd0276d7da71526014b385fb99437163c3be94d48b5f6",
+      "bytes": 5076
+    },
+    {
+      "id": "PAD-A1",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-A1.svg",
+      "sha256": "540aa7979a57f08e774ce53987129fe580fa0e3f726667f993999f37a8ee1916",
+      "bytes": 5208
+    },
+    {
+      "id": "PAD-A2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-A2.svg",
+      "sha256": "5e6eb3bd15ba5f90c63e994ae2d547ead1126334b54ca938cd4f9a9cf52e32ba",
+      "bytes": 5216
+    },
+    {
+      "id": "PAD-A3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-A3.svg",
+      "sha256": "b8b0de29416e97798a0e632c09a3718a4163afbfa1432e08946cdbb54b85e224",
+      "bytes": 5218
+    },
+    {
+      "id": "PAD-A4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-A4.svg",
+      "sha256": "a74dcbe9a7c454266c1bcaba722b623c63008e43d5ba7236cd3646e7b4657dfc",
+      "bytes": 5210
+    },
+    {
+      "id": "PAD-A5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-A5.svg",
+      "sha256": "65be18256a0da3dc8afc46296d403adfa14e27b57e960866e0dd19c4d7e4c633",
+      "bytes": 5210
+    },
+    {
+      "id": "PAD-A6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-A6.svg",
+      "sha256": "56ac718acaa542bee8a61cd503b8dd1ea5defe60dfdf94daaa661f239451dddc",
+      "bytes": 5218
+    },
+    {
+      "id": "PAD-B1",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-B1.svg",
+      "sha256": "5db0a04dfc673f7c6a97349b5c5b99e3650013496e9b4d7943601e8965a5cf83",
+      "bytes": 5216
+    },
+    {
+      "id": "PAD-B2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-B2.svg",
+      "sha256": "3917321811347a74d5dc983dfefcb8d17cdbe5d0782e714ab70e741b5ce79f90",
+      "bytes": 5224
+    },
+    {
+      "id": "PAD-B3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-B3.svg",
+      "sha256": "13a62107fd6c152b3ab1b5da4e0d3990e80d25a75774d3e38c20842843182abf",
+      "bytes": 5226
+    },
+    {
+      "id": "PAD-B4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-B4.svg",
+      "sha256": "2e76a17d54b2717d0dd453cf13ef3bd3ba0e3e8804192a2bca78e0f1230002eb",
+      "bytes": 5218
+    },
+    {
+      "id": "PAD-B5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-B5.svg",
+      "sha256": "9c5902412ba4a4c5a19ef5c02437bb5a4ff1744a7fa5ecfa67e03d20d58bc960",
+      "bytes": 5218
+    },
+    {
+      "id": "PAD-B6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-B6.svg",
+      "sha256": "af8192787b6ddbe61792724b100e5d01a497b7f82c0ff05e59df021de7e54a07",
+      "bytes": 5226
+    },
+    {
+      "id": "PAD-C6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-C6.svg",
+      "sha256": "6d993b862f7e306c8ce9b439e602852ec1b62dc809fc4942829f7e1b91e4e6de",
+      "bytes": 5228
+    },
+    {
+      "id": "PAD-D5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-D5.svg",
+      "sha256": "c5f3548c80fb705f7c09bf671ecff58051d9b385e1defe0594f008dd50362c79",
+      "bytes": 5220
+    },
+    {
+      "id": "PAD-E4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-E4.svg",
+      "sha256": "d8a84861f368cdb4dcb0730f1625d3d3bc4d39974f5457ab4cdb7f45efe77ab9",
+      "bytes": 5220
+    },
+    {
+      "id": "PAD-F1",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-F1.svg",
+      "sha256": "f2cd704e5ff13975902cc10ba65292cdc82784f3ada3065e1d1e9148b4ec5088",
+      "bytes": 5218
+    },
+    {
+      "id": "PAD-F2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-F2.svg",
+      "sha256": "106f859c698e1c9ae379b0586129f3f3cee0898999c002113d2102d46a424cf6",
+      "bytes": 5226
+    },
+    {
+      "id": "PAD-F3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PAD-F3.svg",
+      "sha256": "58d6a2cade28584bcf72b6e304eb64c6babc82a880dc12e02e9a303bc57dcb69",
+      "bytes": 5228
+    },
+    {
+      "id": "PCC-A1",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-A1.svg",
+      "sha256": "150a1cc2dc63484eeb162d5934b9fd5da7b0cfa8f7038b5b6e5657bd3a76d7b7",
+      "bytes": 5031
+    },
+    {
+      "id": "PCC-A2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-A2.svg",
+      "sha256": "54711e43249e0fd0ac499ab67ef2045374960e29154629895892fec7ac627c9b",
+      "bytes": 5039
+    },
+    {
+      "id": "PCC-A3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-A3.svg",
+      "sha256": "cd9e2fe9c02b9b47084d1d8b1ebc4ba311475175cb0a4f3cce3a53f29f7d402e",
+      "bytes": 5041
+    },
+    {
+      "id": "PCC-A4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-A4.svg",
+      "sha256": "c21c4bbac6e71ff0cb90fbfa295be2194f9b61812aa44e3f438f34f70c3b1225",
+      "bytes": 5033
+    },
+    {
+      "id": "PCC-A5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-A5.svg",
+      "sha256": "6a861db606cd5d61fdd8288987e5f53f5f9e7b2ed857be97258bd7f00482636d",
+      "bytes": 5033
+    },
+    {
+      "id": "PCC-A6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-A6.svg",
+      "sha256": "084b0980a7849628e76f328d1a70e120929b992775b1878ebce4b2b69ff278e3",
+      "bytes": 5041
+    },
+    {
+      "id": "PCC-B1",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-B1.svg",
+      "sha256": "598d11f77a65d2f5057f7fde2257b8d6df31a97d0c185953daa536e761c4ac58",
+      "bytes": 5039
+    },
+    {
+      "id": "PCC-B2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-B2.svg",
+      "sha256": "5734599f07737f7e1d42d3b08975df8046b572629ee860a5f5093fac7ba64903",
+      "bytes": 5047
+    },
+    {
+      "id": "PCC-B3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-B3.svg",
+      "sha256": "b7a6548efcd0dbff7f878c3789a87319c189403103c416d5d554f526b8ae7fad",
+      "bytes": 5049
+    },
+    {
+      "id": "PCC-B4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-B4.svg",
+      "sha256": "07eabe16514ee5e9111037932df908b26ff391a3dff697814a812efe2eb3b267",
+      "bytes": 5041
+    },
+    {
+      "id": "PCC-B5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-B5.svg",
+      "sha256": "d69608d6c64b0141527bdf1f0e1fbc2f698502b00ed8b7872c375098b45124a1",
+      "bytes": 5041
+    },
+    {
+      "id": "PCC-B6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-B6.svg",
+      "sha256": "0426f1d29c0ebe3ab82efd39157a44aa341ed01936673f577d7399e62d694bcb",
+      "bytes": 5049
+    },
+    {
+      "id": "PCC-C6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-C6.svg",
+      "sha256": "bcdbe5cb5b065e1f8cbbc32c31b0230da39229da02d63148b9099741af8392e0",
+      "bytes": 5051
+    },
+    {
+      "id": "PCC-D5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-D5.svg",
+      "sha256": "ab4bf02a0782716d6f37f2259ee1354a37119ece9867008360d5a5486ee25990",
+      "bytes": 5043
+    },
+    {
+      "id": "PCC-E4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-E4.svg",
+      "sha256": "2afe4bdcaf8544ee3b0d6be45f3495bd6529a637d219235b7b95c7c701bbb5d1",
+      "bytes": 5043
+    },
+    {
+      "id": "PCC-F1",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-F1.svg",
+      "sha256": "b815dbc621a59da8ad95911288716f98e59e0ce3c5f7b5444f19d4d7c3f00645",
+      "bytes": 5041
+    },
+    {
+      "id": "PCC-F2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-F2.svg",
+      "sha256": "61cd8b34c4131a428f7b37b56ca78ba22c43694666ea9eca4b79ad9a5b2faac1",
+      "bytes": 5049
+    },
+    {
+      "id": "PCC-F3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/PCC-F3.svg",
+      "sha256": "764e69b55b471b93fd217af985c27422fd196a911fd77a4bd569416cf4211749",
+      "bytes": 5051
+    },
+    {
+      "id": "DOWEL-A1",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-A1.svg",
+      "sha256": "6ce65ed4482a209f91e0f61adcd15030ed5cf586427bc2574916fe1cbb883aa3",
+      "bytes": 5165
+    },
+    {
+      "id": "DOWEL-A2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-A2.svg",
+      "sha256": "5b6e28959c3694982714069af2a09246ee9a24fb4907ff984dcbd693e6e16495",
+      "bytes": 5173
+    },
+    {
+      "id": "DOWEL-A3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-A3.svg",
+      "sha256": "d80bdcfcdc187f404df6645699335c2c5b1041b0b7b8531f168de744177ed5d7",
+      "bytes": 5175
+    },
+    {
+      "id": "DOWEL-A4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-A4.svg",
+      "sha256": "8ce5f14435426ae5f596c8ecc48e4122da1dc778b84850e03936ac0c4cf0a4af",
+      "bytes": 5167
+    },
+    {
+      "id": "DOWEL-A5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-A5.svg",
+      "sha256": "f599c404aa7711794ff2b3b82af74708312d96f3bcaf38f7460df3efcb0835d9",
+      "bytes": 5167
+    },
+    {
+      "id": "DOWEL-A6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-A6.svg",
+      "sha256": "0461f6ee3f361c02f6845f0972ce329e8672dec5a02203bb7650f6788020ae4a",
+      "bytes": 5175
+    },
+    {
+      "id": "DOWEL-B1",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-B1.svg",
+      "sha256": "b2a0fec1eaeb65a433fdb8c84ca57e1802eba9a1ec2d501c749080c463154cb0",
+      "bytes": 5173
+    },
+    {
+      "id": "DOWEL-B2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-B2.svg",
+      "sha256": "b22be578e355e08dc2a58772722aeafd0feebc557259707a8089d866b5a9e2b0",
+      "bytes": 5181
+    },
+    {
+      "id": "DOWEL-B3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-B3.svg",
+      "sha256": "f78d8280eb5f4858bdc06934dab37f61e76b912f95f3dfe1956a531985ccd06e",
+      "bytes": 5183
+    },
+    {
+      "id": "DOWEL-B4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-B4.svg",
+      "sha256": "0640a94865bb70b21831aa94d6dc4ce0644bf0b8ac56c9aa2269d318953abc6b",
+      "bytes": 5175
+    },
+    {
+      "id": "DOWEL-B5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-B5.svg",
+      "sha256": "0effe2ce36413ea0646060a1cfaad7c39ea65d3ff013b47c034b4530df931cd0",
+      "bytes": 5175
+    },
+    {
+      "id": "DOWEL-B6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-B6.svg",
+      "sha256": "c57882e42c9a04d83b5ba248c275e2d2518e1c11daa5b84166fb93e2e01a26e3",
+      "bytes": 5183
+    },
+    {
+      "id": "DOWEL-C6",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-C6.svg",
+      "sha256": "dea111df36f46b4448e828d4c43078d34c1adca4910d137f6bbbdeb1c39dbacb",
+      "bytes": 5185
+    },
+    {
+      "id": "DOWEL-D5",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-D5.svg",
+      "sha256": "45556dc4d1c912d73fa7a1d2c10af8ad294db0731e62f26f6b61dbc4df7bd453",
+      "bytes": 5177
+    },
+    {
+      "id": "DOWEL-E4",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-E4.svg",
+      "sha256": "c0fe2171316480f857ba57674aca758e7d3d034d28f2e36ec243d380329dac41",
+      "bytes": 5177
+    },
+    {
+      "id": "DOWEL-F1",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-F1.svg",
+      "sha256": "0f54b99c34a77395643d7d00651aadfb4f58d708d590cfed10adfbdfebcd7d19",
+      "bytes": 5175
+    },
+    {
+      "id": "DOWEL-F2",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-F2.svg",
+      "sha256": "111d342defef081da0225272320fc6444a424869d9a220d53feb36e2d8d7a0e7",
+      "bytes": 5183
+    },
+    {
+      "id": "DOWEL-F3",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/DOWEL-F3.svg",
+      "sha256": "6af198e38d9c097b0e6185513a77616d0df95ab7adc6b711ac1b0238243a4e9f",
+      "bytes": 5185
+    },
+    {
+      "id": "HOLD-LIFT-SHEAR-FOUNDATION",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/HOLD-LIFT-SHEAR-FOUNDATION.svg",
+      "sha256": "2a593d9fe16a94db2b8f416f8104483c1e514a99e6eeb50b3516cda8c0d0c7ef",
+      "bytes": 4757
+    },
+    {
+      "id": "HOLD-SEPTIC-SOAK-PIT",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/HOLD-SEPTIC-SOAK-PIT.svg",
+      "sha256": "70dc64d3dad7ee7cf74e356620c3cf7ed9b6aa1bbfea97a7450b489a10a2a2e1",
+      "bytes": 4746
+    },
+    {
+      "id": "HOLD-TOE-DRAINS-SLEEVES",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/HOLD-TOE-DRAINS-SLEEVES.svg",
+      "sha256": "9a4f0415e17cda6530d1cbd8029759bb653a14c45c1edac9873c4b66b4e2be28",
+      "bytes": 4750
+    },
+    {
+      "id": "HOLD-WATER-TANK-16000L",
+      "path": "public/projects/harisharan-adhikari/below-plinth-svg/sheets/HOLD-WATER-TANK-16000L.svg",
+      "sha256": "290a23737af8a0eded68f49007783402a0b0597e1d4053a04c7cc96dee9ddbb9",
+      "bytes": 4744
+    }
+  ]
+}
