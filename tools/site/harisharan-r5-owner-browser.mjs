@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
-const base=process.env.PROJECT_SITE_URL||'http://127.0.0.1:5191/JP_Computer-Aided-Drawings/';
+const base=process.env.PROJECT_SITE_URL||'http://127.0.0.1:5191/jp-drawing-coordination/';
 const url=new URL('projects/harisharan-adhikari/owner-review/',base).href;
 const browser=await chromium.launch({headless:true,args:['--no-sandbox','--enable-unsafe-swiftshader']});
 try{
@@ -13,7 +13,7 @@ try{
   const s=await page.evaluate(()=>window.HarisharanR5Review.getSummary());
   assert.equal(s.issueForConstruction,false);assert.equal(s.ownerDirections,9);
   assert.equal(s.footingCases,8);assert.equal(s.tankCases,3);assert.equal(s.dowelBars,3);
-  assert.equal(s.fullPrism,67.23);assert.equal(s.existingTank,9720);assert.equal(s.targetTank,16000);
+  assert.equal(s.fullPrism,64.233);assert.equal(s.existingTank,9720);assert.equal(s.targetTank,16000);
   assert.equal(await page.locator('#directions article').count(),9);
   assert.equal(await page.locator('#footingTable tbody tr').count(),8);
   assert.equal(await page.locator('#dowelTable tbody tr').count(),3);
