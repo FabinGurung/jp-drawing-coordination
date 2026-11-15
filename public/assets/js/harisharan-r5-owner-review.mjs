@@ -11,7 +11,8 @@ export function rejectOrCheckSource(source){
  ||source.issueForConstruction!==false
  ||source.approvedByEngineer!==false)throw Error('Unadmitted engineering source or approval');
  if(source.footings.families.length!==2||source.ownerDirections.length!==9)throw Error('Wrong source scope');
- if(source.footings.families[0].count!==12||source.footings.families[1].count!==6)throw Error('Footing counts changed');
+ if(source.footings.families[0].mark!=='F1'||source.footings.families[0].count!==6||source.footings.families[1].mark!=='F2'||source.footings.families[1].count!==12)throw Error('STR-01 footing family counts or order changed');
+ if(source.footings.families[0].gridReferences?.join(',')!=='B1,B2,B3,B4,B5,B6'||source.footings.families[1].gridReferences?.join(',')!=='A1,A2,A3,A4,A5,A6,F1,F2,F3,E4,D5,C6')throw Error('STR-01 footing grid registration changed');
  if(source.tank.hasSourceRebarSchedule!==true)throw Error('Original tank design omitted');
  return true;
 }
