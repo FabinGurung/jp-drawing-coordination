@@ -149,21 +149,43 @@
     "families": [
       {
         "mark": "F1",
-        "count": 12,
+        "count": 6,
         "baseMm": [
           2550,
           2550
         ],
-        "sourceCentralThicknessMm": 600
+        "sourceCentralThicknessMm": 600,
+        "gridReferences": [
+          "B1",
+          "B2",
+          "B3",
+          "B4",
+          "B5",
+          "B6"
+        ]
       },
       {
         "mark": "F2",
-        "count": 6,
+        "count": 12,
         "baseMm": [
           2100,
           2700
         ],
-        "sourceCentralThicknessMm": 600
+        "sourceCentralThicknessMm": 600,
+        "gridReferences": [
+          "A1",
+          "A2",
+          "A3",
+          "A4",
+          "A5",
+          "A6",
+          "F1",
+          "F2",
+          "F3",
+          "E4",
+          "D5",
+          "C6"
+        ]
       }
     ],
     "known": {
@@ -193,7 +215,9 @@
       "slopesLinearInTwoDimensions": true
     },
     "model": "base_prism_plus_rectangular_transition_exact_integration_not_as_built",
-    "notAddedToBOQ": true
+    "notAddedToBOQ": true,
+    "sourceCountReconciliation": "STR-01 schedule: F1 at B1–B6 (6), F2 at A1–A6/F1–F3/E4/D5/C6 (12). Previous unmerged draft inadvertently inverted family counts.",
+    "fullPrismGrossM3": 64.233
   },
   "dowels": {
     "materialScenario": {
