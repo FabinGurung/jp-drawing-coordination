@@ -7,8 +7,11 @@ for(const x of s.sources)assert.equal(x.sha256,takeoff.sources.find(y=>x.id===y.
 const x=computeAll(s);
 assert.equal(s.issueForConstruction,false);assert.equal(s.approvedByEngineer,false);
 assert.equal(x.decisions.length,9);assert.equal(x.footing.cases.length,8);
-assert.equal(x.footing.fullPrismGrossM3,67.23);
-assert.ok(Math.abs(x.footing.recommendedScenario.totalGrossM3-45.385)<.003);
+assert.equal(x.footing.fullPrismGrossM3,64.233);
+assert.equal(s.footings.families[0].count,6);assert.equal(s.footings.families[1].count,12);
+assert.deepEqual(s.footings.families[0].gridReferences,['B1','B2','B3','B4','B5','B6']);
+assert.equal(s.footings.families[1].gridReferences.length,12);
+assert.ok(Math.abs(x.footing.recommendedScenario.totalGrossM3-43.485)<.003);
 assert.equal(x.footing.approvedConcreteM3,null);
 assert.equal(x.tank.originalNominalCapacityLitres,9720);
 assert.equal(x.tank.targetLitres,16000);
