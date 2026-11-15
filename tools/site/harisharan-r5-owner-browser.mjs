@@ -1,0 +1,29 @@
+import assert from 'node:assert/strict';
+import {chromium} from 'playwright';
+const base=process.env.PROJECT_SITE_URL||'http://127.0.0.1:5191/jp-drawing-coordination/';
+const url=new URL('projects/harisharan-adhikari/owner-review/',base).href;
+const browser=await chromium.launch({headless:true,args:['--no-sandbox','--enable-unsafe-swiftshader']});
+try{
+ for(const width of [390,1440]){
+  const page=await browser.newPage({viewport:{width,height:820}});
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  const response=await page.goto(url,{waitUntil:'domcontentloaded'});
+  assert.equal(response?.status(),200);
+  await page.waitForFunction(()=>Boolean(window.HarisharanR5Review),null,{timeout:20000});
+  const s=await page.evaluate(()=>window.HarisharanR5Review.getSummary());
+  assert.equal(s.issueForConstruction,false);assert.equal(s.ownerDirections,9);
+  assert.equal(s.footingCases,8);assert.equal(s.tankCases,3);assert.equal(s.dowelBars,3);
+  assert.equal(s.fullPrism,64.233);assert.equal(s.existingTank,9720);assert.equal(s.targetTank,16000);
+  assert.equal(await page.locator('#directions article').count(),9);
+  assert.equal(await page.locator('#footingTable tbody tr').count(),8);
+  assert.match(await page.locator('#footingTable thead').innerText(),/F1 ×6[\s\S]*F2 ×12/);
+  assert.equal(await page.locator('#dowelTable tbody tr').count(),3);
+  assert.equal(await page.locator('#tankTable tbody tr').count(),3);
+  const offenders=await page.evaluate(()=>[...document.querySelectorAll('*')].filter(el=>el.getBoundingClientRect().right>innerWidth+3||el.getBoundingClientRect().left< -3).slice(0,8).map(el=>({tag:el.tagName,id:el.id,className:typeof el.className==='string'?el.className:'',right:Math.round(el.getBoundingClientRect().right)})));
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+3),'horizontal overflow '+width+': '+JSON.stringify(offenders));
+  assert.deepEqual(errors,[]);
+  await page.screenshot({path:'/tmp/harisharan-r5-owner-scenarios-'+width+'.png',fullPage:true});
+  console.log('HARISHARAN_R5_OWNER_RESEARCH_BROWSER_PASS viewport='+width);
+  await page.close();
+ }
+}finally{await browser.close()}
