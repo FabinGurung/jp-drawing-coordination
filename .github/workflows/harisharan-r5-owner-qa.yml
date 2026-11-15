@@ -31,13 +31,13 @@ jobs:
           node tools/site/harisharan-r5-owner-smoke.mjs
       - name: Verify mobile and desktop R5 pages and render evidence
         run: |
-          npm run build -- --base=/JP_Computer-Aided-Drawings/
+          npm run build -- --base=/jp-drawing-coordination/
           python tools/site/check_public_routes.py dist
           npm install --no-save --no-package-lock playwright@1.55.0
           npx playwright install --with-deps chromium
-          (npm run preview -- --host 127.0.0.1 --port 5191 --base=/JP_Computer-Aided-Drawings/ > /tmp/har-r5-preview.log 2>&1 &)
+          (npm run preview -- --host 127.0.0.1 --port 5191 --base=/jp-drawing-coordination/ > /tmp/har-r5-preview.log 2>&1 &)
           for attempt in $(seq 1 35); do
-            if curl -fsS http://127.0.0.1:5191/JP_Computer-Aided-Drawings/projects/harisharan-adhikari/owner-review/ >/dev/null; then break; fi
+            if curl -fsS http://127.0.0.1:5191/jp-drawing-coordination/projects/harisharan-adhikari/owner-review/ >/dev/null; then break; fi
             sleep 2
           done
           node tools/site/harisharan-r5-owner-browser.mjs
