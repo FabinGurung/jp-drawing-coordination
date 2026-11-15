@@ -76,8 +76,8 @@ for row in d['rows']:
  p.append(tx(X(xx)+75,Y(yy)+6,row['rightGrid']+str(row['row']),14,subtle,'600'))
 for n in nodes:
  l,w=n['length'],n['width']
- # Conditional eccentric F2 display: inward-shift visual based on kernel's eccentric-pad assumption, not surveyed setting-out.
- off=0 if n['orient']=='center' else (525 if n['orient']=='left' else -525)
+ # All rectangles are type symbols centred on source grid; F2 real eccentric offsets are not admitted.
+ off=0
  px=X(n['x']+off-l/2);py=Y(n['y']+w/2)
  ww=l*sc;hh=w*sc
  color=teal if n['type']=='F1' else coral
@@ -114,19 +114,20 @@ for n in nodes:
   for k in range(ybar['each_mat']):
    xx=x0+(cover_mm+bar_d/2+k*ybar['each_layer_pitch'])*scale
    q.append(ln(round(xx,2),y0+cover_mm*scale,round(xx,2),y0+H-cover_mm*scale,magenta if not show_top else '#b264b8',1.7))
-  # column axis on pad; visually eccentric F2 but offsets must be checked
-  colx=cx if ft=='F1' else (cx-35 if n['orient']=='left' else cx+35)
-  q.append(rect(round(colx-225*scale,2),round(cy-225*scale,2),450*scale,450*scale,'#fdf5d6','#a98129',1,2.2))
-  q.append(ln(colx-12,cy,colx+12,cy,navy,1.4));q.append(ln(colx,cy-12,colx,cy+12,navy,1.4))
-  # Overall plan dimension with extension lines and arrowheads
+  # Central F1 column symbol only. F2 eccentric column coordinate is unverified: DO NOT invent.
+  if ft=='F1':
+   colx=cx
+   q.append(rect(round(colx-225*scale,2),round(cy-225*scale,2),450*scale,450*scale,'#fdf5d6','#a98129',1,2.2))
+   q.append(ln(colx-12,cy,colx+12,cy,navy,1.4));q.append(ln(colx,cy-12,colx,cy+12,navy,1.4))
+  # Overall plan dimensions. Place labels BELOW arrow line to avoid overlaps.
   dimY=y0+H+14
   q.append(ln(x0,y0+H,x0,dimY+6,'#607888',1.1))
   q.append(ln(x0+W,y0+H,x0+W,dimY+6,'#607888',1.1))
   q.append(ln(x0,dimY,x0+W,dimY,'#607888',1.15))
   q.append(f'<path d="M{x0+6} {dimY-4} L{x0} {dimY} L{x0+6} {dimY+4} M{x0+W-6} {dimY-4} L{x0+W} {dimY} L{x0+W-6} {dimY+4}" stroke="#607888" fill="none"/>')
-  # Direction and layering labels near the bar layout
-  q.append(tx(cx,topy+340,fmt(l)+' overall  •  X-direction bars',13,subtle,'600','middle'))
-  q.append(tx(cx,topy+362,fmt(w)+' overall  •  Y-direction bars',13,subtle,'600','middle'))
+  # Separate technical labels from dimension arrow. Never cross dimension lines.
+  q.append(tx(cx,topy+362,fmt(l)+' overall  •  X-direction bars',13,subtle,'600','middle'))
+  q.append(tx(cx,topy+382,(fmt(w)+' overall  •  Y-direction bars' if ft=='F1' else 'Y: '+fmt(w)+' overall  •  eccentric column set-out HOLD'),13,subtle,'600','middle'))
  mesh_plan(55,190,719,False);mesh_plan(792,190,751,True)
  # sections
  q.append(rect(55,606,719,246,'#ffffff',line));q.append(rect(792,606,751,246,'#ffffff',line))
