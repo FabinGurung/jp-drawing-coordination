@@ -18,7 +18,8 @@ try{
   assert.equal(await page.locator('#footingTable tbody tr').count(),8);
   assert.equal(await page.locator('#dowelTable tbody tr').count(),3);
   assert.equal(await page.locator('#tankTable tbody tr').count(),3);
-  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+3),'horizontal overflow '+width);
+  const offenders=await page.evaluate(()=>[...document.querySelectorAll('*')].filter(el=>el.getBoundingClientRect().right>innerWidth+3||el.getBoundingClientRect().left< -3).slice(0,8).map(el=>({tag:el.tagName,id:el.id,className:typeof el.className==='string'?el.className:'',right:Math.round(el.getBoundingClientRect().right)})));
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+3),'horizontal overflow '+width+': '+JSON.stringify(offenders));
   assert.deepEqual(errors,[]);
   await page.screenshot({path:'/tmp/harisharan-r5-owner-scenarios-'+width+'.png',fullPage:true});
   console.log('HARISHARAN_R5_OWNER_RESEARCH_BROWSER_PASS viewport='+width);
