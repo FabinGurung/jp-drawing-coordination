@@ -16,6 +16,7 @@ try{
   assert.equal(s.fullPrism,64.233);assert.equal(s.existingTank,9720);assert.equal(s.targetTank,16000);
   assert.equal(await page.locator('#directions article').count(),9);
   assert.equal(await page.locator('#footingTable tbody tr').count(),8);
+  assert.match(await page.locator('#footingTable thead').innerText(),/F1 ×6[\s\S]*F2 ×12/);
   assert.equal(await page.locator('#dowelTable tbody tr').count(),3);
   assert.equal(await page.locator('#tankTable tbody tr').count(),3);
   const offenders=await page.evaluate(()=>[...document.querySelectorAll('*')].filter(el=>el.getBoundingClientRect().right>innerWidth+3||el.getBoundingClientRect().left< -3).slice(0,8).map(el=>({tag:el.tagName,id:el.id,className:typeof el.className==='string'?el.className:'',right:Math.round(el.getBoundingClientRect().right)})));
