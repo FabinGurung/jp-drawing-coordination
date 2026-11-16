@@ -50,7 +50,7 @@ assert.equal(ng.floorGraph.openings.length,pg.floorGraph.openings.length+1);
 const gfWindow=ng.floorGraph.openings.find(x=>x.id==='GF-W008-C4-C2-OWNER-20261116');
 const ffWindow=nf.floorGraph.openings.find(x=>x.id==='FF-W009-C4-C2-OWNER-20261112');
 assert.ok(gfWindow&&ffWindow);
-for(const o of [gfWindow,ffWindow]){assert.equal(o.kind,'window');eq([o.width,o.height,o.sill,o.offset],[2.1,1.5,.9,2.816]);assert.match(o.status,/FIRE_PRIVACY_MUNICIPAL_HOLD/);assert.equal(12.085-o.offset-o.width/2,8.219)}
+for(const o of [gfWindow,ffWindow]){assert.equal(o.kind,'window');eq([o.width,o.height,o.sill,o.offset],[2.1,1.5,.9,2.816]);assert.match(o.status,/FIRE_PRIVACY_MUNICIPAL_HOLD/);assert.ok(Math.abs(12.085-o.offset-o.width/2-8.219)<0.000001)}
 assert.equal(gfWindow.wallId,'GF-EXT-04-1');assert.equal(ffWindow.wallId,'FF-EXT-04-1');
 for(const o of pf.floorGraph.openings){const now=nf.floorGraph.openings.find(n=>n.id===o.id);assert.ok(now);if(o.id!=='FF-W009-C4-C2-OWNER-20261112')eq(now,o,'Other existing FF windows and doors frozen');}
 const markers=next.presentation.elements.filter(e=>e.kind==='column'&&/-4$/.test(e.id));
