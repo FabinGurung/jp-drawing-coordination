@@ -61,8 +61,9 @@ for(const [id,sign] of Object.entries({'GF-BED1-FINISH':-1,'GF-KITCHEN-FINISH':-
 }
 const wardrobe=next.presentation.elements.find(x=>x.id==='GF-BED1-WARDROBE');assert.ok(wardrobe.z+wardrobe.dz/2<4.238);
 const siteIds=/^(SITE-|EXT-WC-|PLANT-|FIX-GF-EXT-PAN$|MEP-SOAK$)/;
-for(const e of next.presentation.elements){const o=prev.presentation.elements.find(x=>x.id===e.id);assert.ok(o,'No deleted/published member '+e.id);if(siteIds.test(e.id)){assert.ok(Math.abs(e.x-o.x-.127)<.0001,'Fixed plot context needs plot-relative shift: '+e.id)}else if(e.kind!=='column'&&!Object.hasOwn({'GF-BED1-WARDROBE':1,'GF-BED1-FINISH':1,'GF-KITCHEN-FINISH':1,'GF-BATH-FINISH':1,'GF-LOUNGE-FINISH':1,'GF-HALL-REV04-001-FINISH':1,'FF-MAIN-FINISH':1,'FF-ENS-FINISH':1,'FF-WIR-FINISH':1,'FF-LOUNGE-FINISH':1},e.id))eq(e,o,'Other building element must remain immutable: '+e.id)}
-assert.equal(e.dx,o.dx);if(e.id!=='SITE-PATH')assert.equal(e.dz,o.dz);}
+for(const e of next.presentation.elements){const o=prev.presentation.elements.find(x=>x.id===e.id);assert.ok(o,'No deleted/published member '+e.id);if(siteIds.test(e.id)){assert.ok(Math.abs(e.x-o.x-.127)<.0001,'Fixed plot context needs plot-relative shift: '+e.id)}else if(e.kind!=='column'&&!Object.hasOwn({'GF-BED1-WARDROBE':1,'GF-BED1-FINISH':1,'GF-KITCHEN-FINISH':1,'GF-BATH-FINISH':1,'GF-LOUNGE-FINISH':1,'GF-HALL-REV04-001-FINISH':1,'FF-MAIN-FINISH':1,'FF-ENS-FINISH':1,'FF-WIR-FINISH':1,'FF-LOUNGE-FINISH':1},e.id))eq(e,o,'Other building element must remain immutable: '+e.id);
+assert.equal(e.dx,o.dx);
+if(!['GF-BED1-FINISH','GF-KITCHEN-FINISH','GF-BATH-FINISH','GF-LOUNGE-FINISH','GF-HALL-REV04-001-FINISH','FF-MAIN-FINISH','FF-ENS-FINISH','FF-WIR-FINISH','FF-LOUNGE-FINISH'].includes(e.id))assert.equal(e.dz,o.dz);}
 const analysis=inspectColumnAxisGrid(next);assert.equal(analysis.grid.numberAxes.find(x=>x.label==='4').zMm,4238);
 const assembly=createAADWorkspace(next,{gf:ng,ff:nf}).snapshot().assembly;
 assert.ok(assembly.elements.some(x=>x.id.endsWith(gfWindow.id)),'GF right window must render as a shared model object');
