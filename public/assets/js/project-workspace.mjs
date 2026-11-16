@@ -232,7 +232,7 @@ function applyAshokGridVisibility(){
  // drawing tiles. Retain separate expert controls on the full editor route.
  const axes=inner.getElementById('aad-column-axes');
  const legend=inner.getElementById('aad-column-axes-label');
- if(edition.id==='v3-3'||edition.id==='v3-4'){
+ if(['v3-3','v3-4','v3-5'].includes(edition.id)){
   if(axes&&axes.checked===false){
    axes.checked=true;
    axes.dispatchEvent(new Event('change',{bubbles:true}));
