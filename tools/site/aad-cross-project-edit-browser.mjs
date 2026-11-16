@@ -13,7 +13,7 @@ async function open(page,slug){
 try{
  const page=await browser.newPage({viewport:{width:1400,height:900},acceptDownloads:true});
  const admitted={
-  "ashok-adhikari":"/data/projects/ashok-adhikari/aad-building-v3-4-review.json",
+  "ashok-adhikari":"/data/projects/ashok-adhikari/aad-building-v3-5-review.json",
   "narayani-parajuli":"/data/projects/narayani-parajuli/aad-building-v1.json"
  };
  for(const [slug,suffix] of Object.entries(admitted)){
@@ -28,7 +28,10 @@ try{
   assert.equal(await page.locator("#pw-request-status").textContent().then(s=>s.includes("0 local request(s)")),true);
  }
  await open(page,"ashok-adhikari");
- // Latest v3.4 is default; released v3.3 and v3.2 remain independently selectable.
+ // Latest v3.5 is default; v3.4, v3.3 and v3.2 remain independently selectable.
+ await page.locator("#pw-edition").selectOption("v3-4");
+ await page.waitForFunction(()=>document.getElementById("pw-edit-direct")?.href?.includes("aad-building-v3-4-review"));
+ assert(new URL(await page.locator("#pw-edit-direct").getAttribute("href")).searchParams.get("manifest").endsWith("aad-building-v3-4-review.json"));
  await page.locator("#pw-edition").selectOption("v3-3");
  await page.waitForFunction(()=>document.getElementById("pw-edit-direct")?.href?.includes("aad-building-v3-3-review"));
  assert(new URL(await page.locator("#pw-edit-direct").getAttribute("href")).searchParams.get("manifest").endsWith("aad-building-v3-3-review.json"));
