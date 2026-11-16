@@ -1,0 +1,63 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {PROJECTS} from '../../public/assets/js/project-workspace-config.mjs';
+const root='public/data/projects/ashok-adhikari/';
+const read=name=>JSON.parse(fs.readFileSync(root+name,'utf8'));
+const old=read('aad-building-v3-3-review.json'),next=read('aad-building-v3-4-review.json');
+const oldGrid=read('coordinate-grid-v1.json'),newGrid=read('coordinate-grid-v3-4-site-review.json');
+const eq=(a,b,label)=>assert.deepEqual(a,b,label);
+assert.equal(PROJECTS['ashok-adhikari'].editions[0].id,'v3-4');
+assert.equal(PROJECTS['ashok-adhikari'].editions[0].predecessorId,'v3-3');
+assert.equal(PROJECTS['ashok-adhikari'].editions[1].id,'v3-3');
+assert.equal(next.release.previous,'v3-3-review');
+assert.equal(next.release.version,'v3-4-review');
+assert.equal(next.restrictions.issueForConstruction,false);
+assert.equal(next.restrictions.engineeringApproval,'HOLD');
+eq(next.levels,old.levels,'Keep all three levels and same linked floor graph files');
+eq(next.presentation.roofAccess,old.presentation.roofAccess,'Preserve U-stair roof access');
+eq(next.presentation.columnAxisGrid,old.presentation.columnAxisGrid,'Preserve proposed column-grid geometry');
+eq(next.presentation.coordinateGrid.centrelineWallIdsByLevel,old.presentation.coordinateGrid.centrelineWallIdsByLevel);
+eq(newGrid.building,oldGrid.building);
+eq(newGrid.constraints,oldGrid.constraints);
+eq([newGrid.plot.widthMm,newGrid.plot.depthMm],[9144,18288]);
+eq(oldGrid.plot.buildingOriginInPlotMm,[1944,2000],'v3.3 predecessor grid must remain immutable');
+eq(newGrid.plot.buildingOriginInPlotMm,[1944,2364]);
+assert.equal(newGrid.plot.rearSetbackMm,1524,'Exactly 5 ft = 1524mm');
+assert.equal(newGrid.plot.frontSetbackMm,2364);
+assert.equal(18288-2364-14400,1524);
+assert.equal(9144-1944-7200,0,'No right setback change');
+assert.equal(newGrid.coordinateTransform.localToPlotYmm,'2364 + localYmm');
+eq(old.presentation.plotBounds,[-1.944,-1.888,7.2,16.4]);
+eq(next.presentation.plotBounds,[-1.944,-1.524,7.2,16.764]);
+assert.equal(next.presentation.sitePicker.originZ,16.764);
+assert.equal(next.services.siteFrame.originZ,16.764);
+assert.equal(next.services.siteFrame.buildingOffsetY,2364);
+eq(next.services.siteFrame.plinthRect,[1944,2364,9144,16764]);
+eq(next.services.siteFrame.outsideWCRect,old.services.siteFrame.outsideWCRect,'Keep plot-anchored WC site coordinates unchanged');
+eq(next.presentation.coordinateGrid.plotOriginMm,[1944,2364]);
+assert.equal(next.presentation.coordinateGrid.file,'coordinate-grid-v3-4-site-review.json');
+eq(next.presentation.stairBay,old.presentation.stairBay);
+eq(next.presentation.columnAxisMarkers,old.presentation.columnAxisMarkers);
+eq(next.services, {...old.services,siteFrame:next.services.siteFrame},'Only siteFrame services changed');
+const site=e=>e.id.startsWith('SITE-')||e.id.startsWith('EXT-WC-');
+const filtered=e=>e.filter(x=>!site(x));
+eq(filtered(next.presentation.elements),filtered(old.presentation.elements),'All 2D/3D building-local elements and non-site objects are unchanged');
+const before=Object.fromEntries(old.presentation.elements.filter(site).map(e=>[e.id,e]));
+const after=Object.fromEntries(next.presentation.elements.filter(site).map(e=>[e.id,e]));
+eq(Object.keys(after).sort(),Object.keys(before).sort());
+assert.equal(Object.keys(after).length,13);
+for(const [id,a] of Object.entries(after)){
+ const b=before[id];
+ const expected= +(b.z + (id==='SITE-PATH'?.182:.364)).toFixed(6);
+ assert.ok(Math.abs(a.z-expected)<1e-5,id+' property-relative Z re-registration');
+ if(id==='SITE-PATH'){assert.equal(a.dz,2.364);assert.equal(a.z-a.dz/2,14.4);assert.equal(a.z+a.dz/2,16.764)}
+ else if(id==='SITE-PLOT'){assert.equal(a.dx,9.144);assert.equal(a.dz,18.288)}
+ else assert.equal(a.dz,b.dz,id+' shape must not change');
+ if(a.parts)for(let i=0;i<a.parts.length;i++)assert.ok(Math.abs(a.parts[i].z - (b.parts[i].z+.364))<1e-5);
+}
+const wc=after['EXT-WC-B'];
+assert.ok(wc.z-wc.dz/2>=-1.524,'Outside WC must remain within rear plot line');
+assert.ok(next.sitePlacementReview.holds.includes('NOT_FOR_CONSTRUCTION'));
+const floor=['aad-gf-model-v3-grid-review.json','aad-ff-model-v3-3-review.json'];
+for(const p of floor){const v=read(p);assert.ok(v.floorGraph?.walls?.length>0)}
+console.log('ASHOK_V3_4_SITE_POSITION_5FT_PASS',JSON.stringify({rearMm:1524,frontMm:2364,plotMm:[9144,18288],buildingMm:[7200,14400],siteItems:Object.keys(after).length,indoorGeometryMutations:0}));
