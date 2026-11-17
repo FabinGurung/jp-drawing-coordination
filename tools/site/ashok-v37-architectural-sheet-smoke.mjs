@@ -28,7 +28,7 @@ assert.deepEqual(m.services.routes,[],'no invented effluent pipeline');
 assert.deepEqual(m.ownerSanitationOption20261117.siteTankRectMm,[6362,3676,8762,4776]);
 assert.deepEqual(m.presentation.roomEnvelopes.GF,gf.roomEnvelopes);
 assert.deepEqual(m.presentation.roomEnvelopes.FF,ff.roomEnvelopes);
-assert.match(svg,/^<\\?xml version="1.0"/);
+assert.ok(svg.startsWith('<?xml version="1.0"'),'final SVG has XML header');
 assert.match(svg,/<svg[^>]+width="420mm"[^>]+height="297mm"/);
 assert.equal(prop('data-edition'),'v3-7');
 assert.equal(Number(prop('data-gf-walls')),gf.floorGraph.walls.length);
