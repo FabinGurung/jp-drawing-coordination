@@ -1,0 +1,51 @@
+name: Ashok v3.6 AutoCAD 2007 DXF exchange
+on:
+  push:
+    branches: [main]
+    paths:
+      - "public/data/projects/ashok-adhikari/*v3-6-review.json"
+      - "tools/site/export-ashok-v36-autocad.py"
+      - ".github/workflows/ashok-v36-autocad-exchange.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  dxf-geometry-check-and-publish:
+    name: Validate and attach editable AC1021 DXF
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Python 3.11 for DXF export
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install independent DXF writer and auditor
+        run: python -m pip install "ezdxf==1.4.4"
+      - name: Check source geometry and produce four R2007 DXF drawings
+        run: |
+          node tools/site/ashok-v3-6-cascaded-room-smoke.mjs
+          python tools/site/export-ashok-v36-autocad.py --source-dir public/data/projects/ashok-adhikari --output-dir out/ashok-v3-6-cad
+      - name: Independent AC1021 open-and-audit readback
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import ezdxf
+          folder=Path("out/ashok-v3-6-cad")
+          files=sorted(folder.glob("*.dxf"))
+          assert len(files)==4, files
+          for file in files:
+              d=ezdxf.readfile(file)
+              assert d.dxfversion=="AC1021", file
+              assert d.units==4, file
+              assert len(d.audit().errors)==0, file
+              assert len(d.modelspace())>=10, file
+              assert any(e.dxftype()=="DIMENSION" for e in d.modelspace()), file
+              print("AC1021_VALIDATED",file.name,len(d.modelspace()))
+          PY
+      - name: Archive versioned AutoCAD exchange for browser-less access
+        uses: actions/upload-artifact@v4
+        with:
+          name: Ashok-v3.6-AutoCAD2007-DXF-Review
+          path: out/ashok-v3-6-cad/
+          retention-days: 90
+          if-no-files-found: error
