@@ -1,0 +1,166 @@
+{
+  "schema": "jp-cad://architectural-coordinate-grid/1.0",
+  "project": "Ashok Adhikari Residence",
+  "revision": "V3.6_CORRECTED_CASCADING_ROWS_4_3_2_1_AND_FRONT_RECESS_20261117",
+  "status": "DRAFT_COORDINATE_CONTROL_NOT_SURVEY_REGISTRATION",
+  "unit": "mm",
+  "horizontalPrecisionMm": 1,
+  "baseCellMm": 100,
+  "visibleMinorMm": 100,
+  "visibleMidMm": 500,
+  "visibleMajorMm": 1000,
+  "snapEnabled": false,
+  "method": "Building-local planar Cartesian. Building X increases to the right/eastward in the drawing, local Y increases towards the REAR/top. The renderer graph uses x metres and z metres increasing towards FRONT; building Y(mm) = 14400 - z(m)*1000. No geographic latitude/longitude assumed.",
+  "building": {
+    "boundsMm": [
+      0,
+      762,
+      7200,
+      14400
+    ],
+    "origin": "Inherited immutable source-local world origin Y=0; actual current v3.6 footprint starts at local Y=762mm (former 14,400mm front-world-Z datum).",
+    "xRight": true,
+    "yRear": true,
+    "axisNames": [
+      "X",
+      "Y"
+    ],
+    "zDatum": "0 mm GF relative; elevation +610 mm above ground",
+    "footprintWidthMm": 7200,
+    "footprintDepthMm": 13638
+  },
+  "plot": {
+    "widthMm": 9144,
+    "depthMm": 18288,
+    "origin": "Front-left plot corner",
+    "buildingOriginInPlotMm": [
+      1817,
+      3126
+    ],
+    "rearSetbackMm": 1524,
+    "rightSetbackMm": 127,
+    "notSurveyGeoreferenced": true,
+    "frontSetbackMm": 3126,
+    "leftSetbackMm": 1817
+  },
+  "sheet": {
+    "paper": "A3",
+    "sizeMm": [
+      420,
+      297
+    ],
+    "modelToPaper": "xSheetMm=xModelMm/scaleDenominator; ySheetMm=yModelMm/scaleDenominator; preserve uniform scale; viewport margins and title block independent",
+    "recommendedScaleDenominator": 100,
+    "scaleVerification": "Plot 9,144×18,288 mm at 1:100 occupies 91.44×182.88 mm; model 7,200×14,400 mm occupies 72×144 mm"
+  },
+  "addressing": {
+    "format": "BXnnn-BYnnn",
+    "example": "BX036-BY056",
+    "meaning": "Lower-left corner of 100 mm cell in building-local coordinates: X=3600 mm, Y=5600 mm",
+    "exactCoordinatesKept": true
+  },
+  "constraints": [
+    {
+      "id": "GF-PARTITION-X036",
+      "targetXmm": 3600,
+      "kind": "COLLINEAR_WALL_CENTERLINES",
+      "ownerDirected": true,
+      "source": "2026-11-07 screenshots and follow-up in project chat",
+      "wallIds": [
+        "GF-BED-KITCHEN",
+        "GF-BATH-LOUNGE-V3",
+        "GF-HALL-LOW-1"
+      ],
+      "zRangesMetres": [
+        [
+          0.115,
+          4.238
+        ],
+        [
+          4.238,
+          8.038
+        ],
+        [
+          8.038,
+          11.438
+        ]
+      ],
+      "approval": "USER_DIRECTED_COORDINATION_CANDIDATE_NOT_ISSUED"
+    },
+    {
+      "id": "GF-STAIR-SPLIT-HOLD",
+      "kind": "NOT_YET_ALIGNED_TO_X036",
+      "ownerDirected": true,
+      "source": "2026-11-07 screenshot stair-side mismatch",
+      "wallId": "GF-EXT-02-1",
+      "existingStairOuterFaceMm": 4290,
+      "existingStairBoundaryCentrelineXmm": 4175,
+      "targetInteriorPartitionCentrelineMm": 3600,
+      "centrelineOffsetMm": 575,
+      "outerFaceOffsetMm": 690,
+      "hold": "Changing stair bay touches landings, 18-riser design, porch, boundary and slab/MEP/structure; no unauthorized stair redesign or loss of usable stair clearance."
+    },
+    {
+      "id": "ASHOK-V3-5-AXIS-4",
+      "kind": "OWNER_DIRECTED_GRID_NUMBER_4_MOVE_TOWARD_5",
+      "source": "User instruction 2026-11-16; 4–4 2.5 feet rearward, connected GF/FF partitions and row 4 display markers follow",
+      "previousZmm": 5000,
+      "updatedZmm": 4238,
+      "deltaZmm": -762,
+      "ffWallOldZmm": 4800,
+      "ffWallNewZmm": 4038,
+      "approval": "ARCHITECTURAL_REVIEW_ONLY__STRUCTURAL_AND_MEP_QA_HOLD",
+      "correctedInEdition": "v3-6"
+    },
+    {
+      "id": "ASHOK-V3-6-CASCADE",
+      "kind": "CORRECT_GRID4_REAR_WITH_ALL_FRONT_ROOMS_TRANSLATED",
+      "ownerDirected": true,
+      "source": "Owner follow-up 2026-11-17: do not stretch rooms, 4–3, 3–2, 2–1 must translate with line 4; front setback increases",
+      "originalGridZmm": {
+        "1": 14250,
+        "2": 12200,
+        "3": 8800,
+        "4": 5000,
+        "5": 150
+      },
+      "newGridZmm": {
+        "1": 13488,
+        "2": 11438,
+        "3": 8038,
+        "4": 4238,
+        "5": 150
+      },
+      "unchangedSpanZmm": {
+        "4-3": 3800,
+        "3-2": 3400,
+        "2-1": 2050
+      },
+      "decreasedSpanZmm": {
+        "5-4": 762
+      },
+      "originalFrontSetbackMm": 2364,
+      "newFrontSetbackMm": 3126,
+      "approval": "REVIEW_ONLY_BEAM_COLUMN_MEP_SURVEY_AND_CODE_HOLD"
+    }
+  ],
+  "coordinateTransform": {
+    "graphXToLocalXmm": "1000 * xMetres",
+    "graphZToLocalYmm": "14400 - 1000 * zMetres",
+    "localToPlotXmm": "1817 + localXmm",
+    "localToPlotYmm": "3126 + (localYmm - 762)",
+    "newBuildingFrontAtSourceLocalYmm": 762,
+    "newBuildingFrontWorldZmm": 13638
+  },
+  "holds": [
+    "Grid is a local mathematical control, NOT surveyed latitude/longitude or structural grid registration.",
+    "Stair/porch 575 mm centreline offset remains flagged; retain original stair geometry until full re-coordination.",
+    "Actual external face / room clear dimensions must subtract applicable wall build-ups; not rounded to grid.",
+    "Not engineering-approved or construction-issued.",
+    "v3.4 site-position review: 5 ft nominal rear setback, front approaches 2364 mm; municipal survey and parking clearance remain HOLD.",
+    "v3.5: grid 4 moved from Z5000 to Z4238 and nominal room transitions shifted. Structural column markers are proposed only; beams/slabs/MEP unverified.",
+    "v3.5: entire enclosed building shifts left 127 mm in nominal 30 x 60 ft plot; 127 mm right-side clearance is NOT a municipal window opening approval.",
+    "v3.6 fixed v3.5's mistaken room stretching. 4–3/3–2/2–1 spaces translate 762mm intact; physical building frontage recedes 762mm; GF/FF stair and roof visual objects follow. Building footprint 7200x13638mm, nominal plot 9144x18288mm.",
+    "Architectural review only: column support, ribbed beam layout, seismic loads, MEP, actual cadastral front setback 3126mm, two right windows with 127mm property clearance are NOT engineering-approved."
+  ]
+}
