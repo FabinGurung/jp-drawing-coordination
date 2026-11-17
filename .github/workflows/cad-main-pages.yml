@@ -72,6 +72,7 @@ jobs:
           node tools/site/ashok-v3-4-site-placement-smoke.mjs
           node tools/site/ashok-v3-5-owner-grid-window-site-smoke.mjs
           node tools/site/ashok-v3-6-cascaded-room-smoke.mjs
+          node tools/site/ashok-cascade-regression-smoke.mjs
           node tools/site/ashok-window-colours-smoke.mjs
           node tools/site/project-design-edition-contract-smoke.mjs
           node tools/site/ashok-column-axes-smoke.mjs
