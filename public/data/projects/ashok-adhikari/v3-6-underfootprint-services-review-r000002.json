@@ -32,16 +32,21 @@
       7200,
       2962
     ],
-    "gfParkConvertedPlotRectAssumingLocalZFromRearMm": [
-      6107,
-      13802,
-      9017,
-      16002
-    ],
-    "gfParkLocationDiscrepancy": "The GF-PARK label says FRONT-RIGHT but converting the current room bbox through the site's rear-based world-Z transform places it toward the rear. DO NOT use label as an authoritative service-zone locator.",
+    "gfParkLocationDiscrepancy": "CORRECTED: earlier R000002 reverse floor-axis transformation incorrectly put the porch near rear. Actual GF-PARK-FINISH local world Z=12538mm and plot rear world Z=16764mm give site Y=4226mm (front-right). GF graph bbox Y=762..2962 maps by plotY=3126+(graphY-762) to Y=3126..5326. All still schematic; footing layout missing.",
     "footingLayout": "MISSING__ONLY_300MM_PROVISIONAL_COLUMN_MARKERS",
     "floorAndSlabDetails": "MISSING",
-    "sourceOfPlan": "aad-building-v3-6-review.json + aad-gf-model-v3-6-review.json"
+    "sourceOfPlan": "aad-building-v3-6-review.json + aad-gf-model-v3-6-review.json",
+    "gfParkConvertedPlotRectMm": [
+      6107,
+      3126,
+      9017,
+      5326
+    ],
+    "gfParkWorldZCenterMm": 12538,
+    "gfParkSiteCentreMm": [
+      7562,
+      4226
+    ]
   },
   "technicalSources": [
     {
