@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ashok Adhikari v3.6 — Engineering QA & Holds</title><meta name="description" content="Source-derived Ashok v3.6 CAD review and unresolved engineering coordination, not a construction approval.">
+<style>
+:root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#242237;background:#f7f6f0;font-size:16px}*{box-sizing:border-box}body{margin:0}a{color:#343a91}a:focus-visible{outline:3px solid #d54b63;outline-offset:3px}header{background:#fff;border-bottom:1px solid #ddd;padding:1rem max(1rem,calc((100vw - 1080px)/2))}header nav{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;font-weight:600}main{max-width:1080px;margin:0 auto;padding:clamp(1rem,4vw,2.5rem)}h1{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.15;margin:.2rem 0 1rem}h2{font-size:1.4rem;margin:0 0 .75rem}p{line-height:1.65}section{padding:1.4rem;background:#fff;border:1px solid #e5e2dc;border-radius:1rem;margin:1rem 0}small,.muted{color:#555565}.eyebrow{font-weight:750;letter-spacing:.075em;text-transform:uppercase;font-size:.76rem;color:#555565}.lead{font-size:1.12rem;max-width:78ch}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.75rem}.metric{padding:1rem;border:1px solid #e6e5e2;border-radius:.7rem}.metric strong{display:block;font-size:1.5rem;color:#262677}.metric span{font-size:.85rem;color:#444}table{border-collapse:collapse;width:100%;font-size:.95rem}th,td{padding:.85rem .7rem;text-align:left;vertical-align:top;border-bottom:1px solid #ddd}th{background:#f6f6f8}ul,ol{padding-left:1.25rem}li{margin:.5rem 0;line-height:1.5}.warning{border-left:4px solid #be7d27;padding-left:1rem}.status{display:inline-block;padding:.3rem .55rem;border-radius:100px;background:#f0ebe2;font-size:.8rem;font-weight:700}.h-scroll{overflow-x:auto}footer{color:#505060;margin:2rem 0;font-size:.88rem}@media(max-width:650px){header{padding:1rem}main{padding:1rem}section{padding:1rem}th,td{font-size:.85rem;padding:.6rem .4rem}}
+</style></head>
+<body>
+<header><nav><a href="../">Ashok v3.6 workspace</a><a href="../memory-wall/">Project memory</a><a href="../../../data/projects/ashok-adhikari/v3-6-engineering-debt-review-20261117.json">Machine-readable QA ledger</a></nav></header>
+<main><div class="eyebrow">17 November 2026 · independent source-derived review · R000001</div>
+<h1>Ashok Adhikari — v3.6 engineering QA &amp; holds</h1>
+<p class="lead">v3.6 is a preserved architectural review edition. The corrected 762 mm grid cascade is not being redesigned here. This register separates confirmed drawing measurements, superseded source notes and unresolved professional approvals.</p>
+<p class="warning"><strong>NOT FOR CONSTRUCTION.</strong> Neither GitHub CI nor editable DXF output is a structural design, a site survey, municipal permission or native AutoCAD acceptance.</p>
+<section><h2>Verified drawing facts</h2>
+<div class="grid">
+<div class="metric"><strong>7,200 × 13,638</strong><span>mm rectangular building envelope</span></div>
+<div class="metric"><strong>3,126 / 1,524</strong><span>mm front / rear setback, nominal plot</span></div>
+<div class="metric"><strong>1,817 / 127</strong><span>mm left / right clearance, nominal plot</span></div>
+<div class="metric"><strong>35</strong><span>GF + FF apertures: host-wall extent checks passed</span></div>
+<div class="metric"><strong>87.05176 m²</strong><span>source plan-perimeter area per floor, not approved built-up area</span></div>
+<div class="metric"><strong>98.1936 m²</strong><span>rectangular envelope area, different from perimeter area</span></div>
+</div><p class="muted">All measurements above are taken from public review geometry. The 9,144 × 18,288 mm nominal site boundary is <strong>not surveyed</strong>.</p>
+</section>
+<section><h2>Detected service-envelope collisions <span class="status">Unresolved</span></h2>
+<div class="h-scroll"><table><thead><tr><th>Flag</th><th>Source asset</th><th>Envelope intersection</th><th>Required next decision</th></tr></thead><tbody>
+<tr><td>SERV-01</td><td>Septic tank and house</td><td>579 mm × 2,300 mm</td><td>MEP + site design: re-evaluate location, tank dimensions, pipes and structural separation</td></tr>
+<tr><td>SERV-02</td><td>Soak pit and exterior WC</td><td>1,097 mm × 1,090 mm</td><td>Resolve interference with WC envelope</td></tr>
+<tr><td>SERV-03</td><td>Soak pit and house</td><td>213 mm × 611 mm</td><td>Resolve interference with house envelope and foundation proposal</td></tr>
+</tbody></table></div><p class="muted">These are positive 2D axis-aligned rectangular overlaps based on current public object envelopes; they are not authenticated survey positions or detailed excavation clearances. No object is automatically relocated.</p></section>
+<section><h2>Corrected metadata interpretation</h2><ul>
+<li><strong>CAD-QA-01:</strong> The services description still mentions legacy building offsets X=1944, Y=2000 mm; the current nominal placement is X=1817, Y=3126 mm.</li>
+<li><strong>CAD-QA-02:</strong> The coordinate-grid A3 scale note still describes a 7,200 × 14,400 mm building. Current v3.6 envelope at 1:100 is <strong>72 × 136.38 mm</strong>, while the plot is 91.44 × 182.88 mm.</li>
+<li><strong>CAD-QA-03:</strong> A drawn 7,200 × 13,638 mm site bounding rectangle is not the same as the model's 87.05176 m² source perimeter area. The AutoCAD exporter distinguishes envelope and area explicitly.</li>
+</ul><p class="muted">Immutable published v3.6 source files were retained unchanged. These corrections are derivative QA annotations, not a new building edition or a stealth replacement.</p></section>
+<section><h2>Outstanding engineering holds</h2><ol>
+<li><strong>Structure:</strong> Provisional A–C / 1–5 column markers, B1/stair collision, beams, ribbed beams, slab load paths, footings and seismic design need verified source and responsible engineer review.</li>
+<li><strong>Stair and clearances:</strong> Retained 575 mm X3600↔X4175 offset; 18-riser geometry, landing, slab cutout, guard and actual headroom are not approved.</li>
+<li><strong>Right-side windows:</strong> Matched GF/FF 2,100 × 1,500 mm openings face a nominal 127 mm property clearance; municipality, fire, privacy and lintel reviews are outstanding.</li>
+<li><strong>MEP / site:</strong> Septic, soak, external WC, branch and stack reroutes, percolation, drainage and vehicle turning require source-supported coordination.</li>
+<li><strong>Architecture:</strong> Door swings, wet-room accessible clearances, glazing, roof access and the actual surveyed setbacks need professional acceptance.</li>
+</ol></section>
+<section><h2>AutoCAD 2007 DXF acceptance</h2><p><span class="status">Automated AC1021 / ezdxf check passed previously</span> <span class="status">Real Autodesk AutoCAD not tested</span></p>
+<ol><li>Open all four generated DXFs in a real AutoCAD installation; record version/build and reviewer.</li><li>Run <code>AUDIT</code>. Check layer editability, text/dimensions, units (millimetres) and no missing entities or proxy objects.</li><li>Measure nominal plot 9,144 × 18,288 mm; drawing envelope 7,200 × 13,638 mm; all four setbacks.</li><li>Inspect A–C / 1–5 axes, door/window hosts, right-window alignment, print scale and dimension styles.</li><li>Archive screenshots, drawing digests, defects, plot tests and named reviewer acceptance.</li></ol>
+<p>Until those steps are evidenced, this is an <strong>exchange-ready review drawing</strong>, not a native-AutoCAD-accepted or construction-issued file.</p>
+<p><a href="https://drive.google.com/file/d/1vTx5rjpel05iCLebBEi-0q6TbOm8ADcp/view">Existing versioned v3.6 AutoCAD exchange in Drive</a> · <a href="../../../data/projects/ashok-adhikari/v3-6-cascade-correction-README.md">v3.6 correction explanation</a></p></section>
+<footer>Source: publicly versioned v3.6 architectural manifest, GF/FF floor graphs, coordinate grid and services asset envelopes. This CAD-side QA record does not alter A7, structural analysis, original Drive drawings or previously published design editions.</footer>
+</main></body></html>
