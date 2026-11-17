@@ -56,7 +56,7 @@ assert.equal(PROJECTS['ashok-adhikari'].editions[0].predecessorId,'v3-5');
 assert.equal(PROJECTS['ashok-adhikari'].editions[0].sourceRef,'data/projects/ashok-adhikari/aad-building-v3-6-review.json');
 assert.equal(PROJECTS['ashok-adhikari'].editions[1].predecessorId,'v3-4');
 assert.equal(PROJECTS['ashok-adhikari'].editions[1].sourceRef,'data/projects/ashok-adhikari/aad-building-v3-5-review.json');
-assert.equal(PROJECTS['ashok-adhikari'].editions[1].predecessorId,'v3-3');
+assert.equal(PROJECTS['ashok-adhikari'].editions[2].predecessorId,'v3-3');
 assert.equal(PROJECTS['ashok-adhikari'].editions[2].sourceRef,'data/projects/ashok-adhikari/aad-building-v3-4-review.json');
 assert.equal(PROJECTS['ashok-adhikari'].editions[3].lifecycle,'RELEASED_REVIEW');
 assert.equal(PROJECTS['ashok-adhikari'].editions[3].releaseTag,'ashok-v3.3.0-window-visibility-review.1');
