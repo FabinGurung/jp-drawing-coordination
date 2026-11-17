@@ -9,7 +9,8 @@ if(!config)throw Error('Unknown public project');
 validateEditionRegistries(ALL_WORKSPACE_PROJECTS);
 if(slug==='harisharan-adhikari'&&location.hash==='#materials')location.replace('plinth/#materials');
 if(slug==='narayani-parajuli'&&/^#(v02|v03|m40|m50|m60|m70|m80)$/.test(location.hash))location.replace('record.html'+location.hash);
-let edition=config.editions.find(e=>e.id===params.get('edition'))||config.editions[0],phase=params.get('phase')||config.defaultLevel,layout=['split','plan','building','source'].includes(params.get('layout'))?params.get('layout'):'split',panel=params.get('panel')||'views',section=params.get('section')||'',api=null,epoch=0,engineKey='',mounted=false,applying=false;
+const requestedEdition=slug==='ashok-adhikari'&&params.get('edition')==='v3-7-option'?'v3-7':params.get('edition');
+let edition=config.editions.find(e=>e.id===requestedEdition)||config.editions[0],phase=params.get('phase')||config.defaultLevel,layout=['split','plan','building','source'].includes(params.get('layout'))?params.get('layout'):'split',panel=params.get('panel')||'views',section=params.get('section')||'',api=null,epoch=0,engineKey='',mounted=false,applying=false;
 let stage=params.get('package')||params.get('stage')||firstPackageId(slug),packageQuery='',packageFilter='all',packageMode='list';
 if(panel==='views'&&section==='stages'){panel='packages';section='';}
 const oldHashes={'#studio':'views','#panel-studio':'views','#register':'boq','#studio-register':'boq','#programme':'gantt','#sources':'sources','#panel-plans':'sources','#panel-visuals':'sources','#panel-qa':'sources','#project-versions':'sources','#scenarios':'sources'};
@@ -164,11 +165,12 @@ function renderEditionProvenance(){
  box.dataset.editionId=d.id;box.dataset.kind=d.kind;box.dataset.lifecycle=d.lifecycle;
  box.dataset.sourceRef=d.sourceRef||'';
  const kindText={'architectural-design':'Architecture snapshot','design-option':'Design option','source-family':'Original source family','template':'Fictional template'}[d.kind];
- const statusText={'RELEASED_REVIEW':'Released for architectural review','FROZEN_REVIEW':'Preserved review version','FROZEN_BASELINE':'Preserved baseline','SOURCE_REVIEW':'Source interpretation only','SOURCE_PENDING':'Public model pending','TEMPLATE_ONLY':'No admitted geometry'}[d.lifecycle];
+ const statusText=slug==='ashok-adhikari'&&d.sourceRef ? (d.lifecycle==='ARCHITECTURAL_FINAL'?'Final architectural version':'Previous architectural version') : {'RELEASED_REVIEW':'Released for architectural review','FROZEN_REVIEW':'Preserved review version','FROZEN_BASELINE':'Preserved baseline','ARCHITECTURAL_FINAL':'Final architectural version','SOURCE_REVIEW':'Source interpretation only','SOURCE_PENDING':'Public model pending','TEMPLATE_ONLY':'No admitted geometry'}[d.lifecycle];
  const predecessor=d.predecessorId?' · Previous: '+d.predecessorId:'';
  const source=d.sourceRef?'<a href="'+esc(new URL(d.sourceRef,root).href)+'" target="_blank" rel="noopener">Read registered source/model</a>':'<span>Public model not admitted</span>';
  const released=edition.releaseTag?'<a href="https://github.com/FabinGurung/jp-drawing-coordination/releases/tag/'+encodeURIComponent(edition.releaseTag)+'" target="_blank" rel="noopener">Verified architectural review milestone</a>':'';
- box.innerHTML='<strong>'+esc(kindText)+'</strong><span>'+esc(statusText+predecessor)+'</span><span>Shared engine '+esc(AAD_WORKSPACE_ENGINE_VERSION)+'</span>'+source+released;
+ const architecturalSheet=slug==='ashok-adhikari'&&edition.id==='v3-7'?'<a href="'+esc(new URL('projects/ashok-adhikari/architectural-v3-7/',root).href)+'">Open final architectural sheet</a>':'';
+ box.innerHTML='<strong>'+esc(kindText)+'</strong><span>'+esc(statusText+predecessor)+'</span><span>Shared engine '+esc(AAD_WORKSPACE_ENGINE_VERSION)+'</span>'+source+released+architecturalSheet;
  $('pw-new-edition').disabled=config.synthetic===true;
  $('pw-new-edition').title=config.synthetic?'Fictional template cannot produce a real building edition':'Records a local request; a reviewed source-backed GitHub PR is required for a published edition';
 }
