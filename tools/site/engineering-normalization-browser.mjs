@@ -2,8 +2,8 @@ import {chromium} from 'playwright';
 import assert from 'node:assert/strict';
 const base=process.env.PROJECT_SITE_URL||'http://127.0.0.1:5191/JP_Computer-Aided-Drawings/';
 const widths=(process.env.PROJECT_WIDTHS||'390,1440').split(',').map(Number);
-const sites=['narayani-parajuli','harisharan-adhikari','ashok-adhikari','ramachandra-devkota','example-empty'];
-const count={'narayani-parajuli':7,'harisharan-adhikari':10,'ashok-adhikari':1,'ramachandra-devkota':0,'example-empty':0};
+const sites=['narayani-parajuli','harisharan-adhikari','ashok-adhikari','ramachandra-devkota','js-buddha-jewelers','example-empty'];
+const count={'narayani-parajuli':7,'harisharan-adhikari':10,'ashok-adhikari':1,'ramachandra-devkota':0,'js-buddha-jewelers':0,'example-empty':0};
 const browser=await chromium.launch({headless:true,args:['--no-sandbox','--enable-unsafe-swiftshader']});
 try{
  for(const width of widths){

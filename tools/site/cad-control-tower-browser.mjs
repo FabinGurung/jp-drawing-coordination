@@ -4,7 +4,7 @@ const base=process.env.PROJECT_SITE_URL||'http://127.0.0.1:5191/JP_Computer-Aide
 const b=await chromium.launch({headless:true,args:['--no-sandbox','--enable-unsafe-swiftshader']});
 try{
  for(const width of [1440,390]){
-  for(const slug of ['ashok-adhikari','harisharan-adhikari','narayani-parajuli','ramachandra-devkota','example-empty']){
+  for(const slug of ['ashok-adhikari','harisharan-adhikari','narayani-parajuli','ramachandra-devkota','js-buddha-jewelers','example-empty']){
    const p=await b.newPage({viewport:{width,height:900}});
    const errors=[];p.on('pageerror',e=>errors.push(e.message));
    const r=await p.goto(base+'projects/'+slug+'/',{waitUntil:'domcontentloaded'});
