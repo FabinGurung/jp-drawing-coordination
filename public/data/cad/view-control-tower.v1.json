@@ -329,7 +329,7 @@
         {
           "id": "SRC-02",
           "title": "Native CAD and A4 print fidelity",
-          "status": "SOURCE_REVIEW",
+          "status": "REVIEW_ONLY",
           "detail": "Ten A3 layouts preserved in source custody. True A4 plot, paper scale, CTB and font QA require native AutoCAD review.",
           "focus": "sources"
         },
