@@ -41,6 +41,8 @@ const gfw=gf.floorGraph.openings.find(x=>x.id==='GF-W008-C4-C2-OWNER-20261116');
 const ffw=ff.floorGraph.openings.find(x=>x.id==='FF-W009-C4-C2-OWNER-20261112');
 assert.ok(gfw&&ffw);
 eq([gfw.width,gfw.height,gfw.sill,gfw.offset],[ffw.width,ffw.height,ffw.sill,ffw.offset],'right windows match');
+assert.equal(Math.round((11.323-(gfw.offset+gfw.width/2))*1000),7838);
+assert.equal(report.qa.alignedRightWindowCentreWorldZmm,7838);
 for(const row of manifest.presentation.columnAxisGrid.numberAxes)assert.equal(row.zMm,report.qa.gridsWorldZmm[row.label]);
 const expected=[['SERV-01','SEPTIC',building,[579,2300]],['SERV-02','SOAK',wr,[1097,1090]],['SERV-03','SOAK',building,[213,611]]];
 for(const [id,which,against,depth] of expected){
@@ -54,6 +56,6 @@ for(const [id,which,against,depth] of expected){
 assert.ok(manifest.restrictions.issueForConstruction===false);
 assert.equal(report.constructionIssued,false);
 assert.equal(report.autocadAcceptance.nativeAutodesk,'NOT_RUN');
-assert.equal(report.detectedDraftingConflicts.length,3);
+assert.equal(report.detectedDraftingConflicts.length,5);
 assert.ok(report.externalEngineeringHolds.every(h=>h.status.startsWith('HOLD')));
 console.log('ASHOK_V36_ENGINEERING_DEBT_READBACK_PASS',JSON.stringify({envelopeAreaM2:envelopeArea,planAreaPerLevelM2:87.05176,apertures:gf.floorGraph.openings.length+ff.floorGraph.openings.length,collisions:report.collisionFlags.map(c=>[c.id,c.overlapMm]),nativeAutocad:'NOT_RUN'}));
