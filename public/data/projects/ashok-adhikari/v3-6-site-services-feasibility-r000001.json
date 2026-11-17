@@ -1,0 +1,375 @@
+{
+  "schema": "jp-cad://ashok-v36-site-services-feasibility/1",
+  "id": "ASHOK-SERVICES-FEASIBILITY-R000001",
+  "project": "Ashok Adhikari Residence",
+  "projectSlug": "ashok-adhikari",
+  "studyDate": "2026-11-17",
+  "basedOnEdition": "v3-6",
+  "kind": "PRE_DESIGN_COORDINATION_ONLY_NOT_AN_ARCHITECTURAL_EDITION",
+  "status": "MUNICIPAL_SETBACK_HOLD_OPTIONS_A_B_NON_ADMISSIBLE_AS_DRAWN_PENDING_2083_REVIEW",
+  "sourceAuthority": {
+    "cadManifest": "public/data/projects/ashok-adhikari/aad-building-v3-6-review.json",
+    "currentCollisionAudit": "public/data/projects/ashok-adhikari/v3-6-engineering-debt-review-20261117.json",
+    "foundationOwner": "FabinGurung/jp-structural-analysis",
+    "siteSurvey": "NOT_LOCATED_IN_INSPECTED_ASHOK_SOURCE_FOLDERS",
+    "foundationPlan": "NOT_LOCATED_IN_INSPECTED_CAD_OR_STRUCTURAL_REPOSITORY",
+    "municipalAuthority": "OFFICIAL_POKHARA_2081_CLAUSES_IDENTIFIED__2083_THIRD_AMENDMENT_NOT_SUBSTANTIVELY_VERIFIED",
+    "warning": "No plan is approved, no object has been moved, and site drawings are not construction instructions.",
+    "privateProviderCustody": "Original source and historical navigation remain in authenticated Ashok project Drive; provider-specific file and folder IDs are intentionally not copied into public GitHub.",
+    "driveAudit": "Canonical Ashok root, START HERE and approval holds examined 17 Nov 2026. Current plot remains described as nominal/not surveyed. Approval-holds folder had no admitted survey or foundation attachment at audit time."
+  },
+  "coordinates": {
+    "units": "mm",
+    "origin": "FRONT_LEFT_NOMINAL_PLOT",
+    "x": "RIGHT_ACROSS_PLOT",
+    "y": "FROM_ROAD_FRONT_TOWARD_REAR",
+    "plotRect": [
+      0,
+      0,
+      9144,
+      18288
+    ],
+    "houseBoundingRect": [
+      1817,
+      3126,
+      9017,
+      16764
+    ],
+    "externalWcRect": [
+      127,
+      16863,
+      1327,
+      18263
+    ],
+    "carDisplayRect": [
+      1911,
+      115,
+      6201,
+      1885
+    ],
+    "carIsReferenceOnly": true,
+    "siteStatus": "NOMINAL_NOT_SURVEYED",
+    "buildingRectIsBoundingEnvelopeNotSourcePerimeter": true
+  },
+  "existing": {
+    "septic": {
+      "id": "SEPTIC",
+      "widthMm": 1300,
+      "lengthMm": 2300,
+      "centreMm": [
+        1746,
+        8281
+      ],
+      "boundingRectMm": [
+        1096,
+        7131,
+        2396,
+        9431
+      ],
+      "houseOverlapMm": [
+        579,
+        2300
+      ]
+    },
+    "soak": {
+      "id": "SOAK",
+      "outerWidthMm": 1800,
+      "outerLengthMm": 1800,
+      "internalDiameterMm": 1500,
+      "effectiveInfiltrationDepthMm": 1500,
+      "centreMm": [
+        1130,
+        17053
+      ],
+      "boundingRectMm": [
+        230,
+        16153,
+        2030,
+        17953
+      ],
+      "houseOverlapMm": [
+        213,
+        611
+      ],
+      "wcOverlapMm": [
+        1097,
+        1090
+      ]
+    }
+  },
+  "sizingScreen": {
+    "designFlowAssumedLPerDay": 800,
+    "occupantsAssumed": 8,
+    "desludgingIntervalYearsAssumed": 2,
+    "septicRequiredLiquidStorageM3": 1.7064,
+    "availableModelInternalLiquidVolumeM3": 1.90225,
+    "volumeScreen": "PASS_ARITHMETIC_ONLY_NOT_FINAL_STORAGE_OR_LIQUID_DEPTH_CERTIFICATION",
+    "soakInfiltrationRequiredLPerM2Day": 113.17684842090335,
+    "soakInfiltrationAvailableLPerM2Day": null,
+    "percolationTestEvidence": null,
+    "soakScreen": "UNKNOWN_SOIL_RATE_AND_GROUNDWATER__DO_NOT_ASSUME_FINE_SAND",
+    "codeReferences": [
+      {
+        "title": "DWSSM/UWSSP Design Guidelines v4.0 §8.4.4, pp. 193-195",
+        "url": "https://www.uwssp.gov.np/medias/finalURBANWATERSUPPLYANDS_2022_08_18_05_56_49.pdf",
+        "scope": "1-day detention and user/sludge volume model; soak-pit circular sizing with measured infiltration"
+      },
+      {
+        "title": "Nepal NBC 208 sanitary and plumbing requirements, sewage disposal §2",
+        "url": "https://giwmscdnone.gov.np/media/pdf_upload/NBC%20208-2003%20SANITARY%20AND%20PLUMBING%20DESIGN%20REQUIREMENTS_c8hejnp.pdf",
+        "scope": "Public sewer connection if available and approved; otherwise approved onsite disposal. Pipe slopes and sanitation controls require further design."
+      },
+      {
+        "title": "Pokhara Metropolitan City published building standards (2080, first amended 2081) and listed third amendment 2083",
+        "url": "https://pokharamun.gov.np/act-law-directives",
+        "scope": "Prior text sections 10.14, 10.15 and setback note; third amendment posted 14 Oct 2026 but substantive effect not yet confirmed."
+      }
+    ],
+    "tankOuterLengthWidthRatio": 1.769231,
+    "tankNominalAspectScreen": "FAIL_PUBLISHED_2_TO_4_ENVELOPE_RATIO__ENGINEER_MUST_CHECK_ACTUAL_INTERNAL_DIMENSIONS",
+    "ventRoofProjectionRecordedM": 0.9,
+    "ventMinimumPublishedEarlierStandardM": 2,
+    "ventScreen": "HOLD__MODEL_VENT_0_9M_ABOVE_ROOF_SHORT_OF_PUBLISHED_2M__CONFIRM_CURRENT_RULE_AND_ROOF_LEVEL"
+  },
+  "options": [
+    {
+      "id": "A",
+      "name": "Front apron's two service edges; retain modeled vehicle approach",
+      "scenario": "DISPLAY_GEOMETRY_ONLY",
+      "screeningMinimumGeometricGapMm": 300,
+      "marginType": "INTERNAL_PRE_DESIGN_SENSITIVITY_NOT_CODE_CLEARANCE",
+      "septic": {
+        "orientation": "1300_WIDTH_X__2300_LENGTH_Y",
+        "centreMm": [
+          950,
+          1450
+        ],
+        "rectMm": [
+          300,
+          300,
+          1600,
+          2600
+        ]
+      },
+      "soak": {
+        "orientation": "1800_X__1800_Y_BOUNDING_SQUARE",
+        "centreMm": [
+          7500,
+          1400
+        ],
+        "rectMm": [
+          6600,
+          500,
+          8400,
+          2300
+        ]
+      },
+      "drawnClearancesMm": {
+        "septic": {
+          "propertyMin": 300,
+          "buildingEnvelope": 569,
+          "displayCar": 311
+        },
+        "soak": {
+          "propertyMin": 500,
+          "buildingEnvelope": 826,
+          "displayCar": 399
+        },
+        "septicToSoak": 5000
+      },
+      "engineeringEvaluation": "NOT_ADMISSIBLE_AS_DRAWN__PUBLISHED_SETBACK_RESTRICTION_AND_ENGINEERING_EVIDENCE_HOLD",
+      "concerns": [
+        "All tank/pit rectangles lie in the modeled front setback; prior published local standards prohibit septic/soak structures inside setbacks. Check 2083 amendments and municipal interpretation before any option can advance.",
+        "Only 300 mm or 500 mm to nominal property limits; legal excavation/permit clearance unknown",
+        "Septic near modeled driveway and house front; access, excavation, structural stress and loads unknown",
+        "Percolation, groundwater, neighboring wells, utilities and actual boundary unknown"
+      ],
+      "municipalScreen": "REJECT_AS_PLACED_IN_FRONT_SETBACK_UNDER_PUBLISHED_PRE_2083_TEXT__PENDING_LATEST_AMENDMENT_AND_MUNICIPAL_DECISION"
+    },
+    {
+      "id": "B",
+      "name": "Front-yard pair with greater geometric margins; parking changes needed",
+      "scenario": "DISPLAY_GEOMETRY_ONLY",
+      "screeningMinimumGeometricGapMm": 600,
+      "marginType": "INTERNAL_PRE_DESIGN_SENSITIVITY_NOT_CODE_CLEARANCE",
+      "septic": {
+        "orientation": "2300_WIDTH_X__1300_LENGTH_Y_ROTATED_90_DEG",
+        "centreMm": [
+          2600,
+          1500
+        ],
+        "rectMm": [
+          1450,
+          850,
+          3750,
+          2150
+        ]
+      },
+      "soak": {
+        "orientation": "1800_X__1800_Y_BOUNDING_SQUARE",
+        "centreMm": [
+          6500,
+          1550
+        ],
+        "rectMm": [
+          5600,
+          650,
+          7400,
+          2450
+        ]
+      },
+      "drawnClearancesMm": {
+        "septic": {
+          "propertyMin": 850,
+          "buildingEnvelope": 976,
+          "displayCar": 0
+        },
+        "soak": {
+          "propertyMin": 650,
+          "buildingEnvelope": 676,
+          "displayCar": 0
+        },
+        "septicToSoak": 1850
+      },
+      "parkingConflict": true,
+      "engineeringEvaluation": "NOT_ADMISSIBLE_AS_DRAWN__PUBLISHED_SETBACK_RESTRICTION_AND_ENGINEERING_EVIDENCE_HOLD",
+      "concerns": [
+        "All tank/pit rectangles lie in the modeled front setback; prior published local standards prohibit septic/soak structures inside setbacks. Check 2083 amendments and municipal interpretation before any option can advance.",
+        "Both occupy modeled vehicle area; must redesign turning, gate and driveway before choosing",
+        "600 mm sensitivity is not a verified foundation excavation separation",
+        "Invert levels, soil, groundwater, service route and neighboring water assets unknown"
+      ],
+      "municipalScreen": "REJECT_AS_PLACED_IN_FRONT_SETBACK_UNDER_PUBLISHED_PRE_2083_TEXT__PENDING_LATEST_AMENDMENT_AND_MUNICIPAL_DECISION"
+    },
+    {
+      "id": "C",
+      "name": "Check legal public-sewer service connection first",
+      "scenario": "NON_GEOMETRIC_STRATEGY",
+      "condition": "PUBLIC_SEWER_AVAILABLE_AND_AUTHORITY_APPROVES_AND_LEVELS_SUPPORT_CONNECTION",
+      "engineeringEvaluation": "INVESTIGATION_ONLY_NO_SERVICE_AVAILABILITY_CONFIRMED",
+      "notes": [
+        "Published prior Pokhara text indicates septic tank required for each house; NBC 208 national public-sewer option must not be treated as automatic exemption from local rule. Confirm municipality and the 2083 amendment.",
+        "If an approved sewer connection exists, avoid assuming onsite infiltration is necessary",
+        "No sewer alignment, capacity, invert level or permit is currently verified"
+      ]
+    }
+  ],
+  "criticalUnknowns": [
+    {
+      "id": "EVID-SURVEY",
+      "required": "Authenticated cadastral/survey plan with plot polygon, corners, surveyed offset and ROW/road elevation",
+      "status": "MISSING"
+    },
+    {
+      "id": "EVID-FOUNDATION",
+      "required": "Structural foundation plan with footing/grade beam edges, footing founding levels, excavation support and invert constraints",
+      "status": "MISSING"
+    },
+    {
+      "id": "EVID-GROUNDWATER",
+      "required": "Seasonal high groundwater level, neighbor wells/springs and flood/wet-season response",
+      "status": "MISSING"
+    },
+    {
+      "id": "EVID-PERC",
+      "required": "Site-specific measured percolation/infiltration test at intended pit location and invert",
+      "status": "MISSING"
+    },
+    {
+      "id": "EVID-MUNICIPAL",
+      "required": "Pokhara Ward 14 current municipality rules, septic/soak siting and permit eligibility",
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "EVID-SEWER",
+      "required": "Whether public sanitary sewer exists, authorized connection path and pipe invert",
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "EVID-CAR",
+      "required": "Actual vehicle, gate positions, turning templates, access and load rating of any tank covers",
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "EVID-MEP",
+      "required": "GF/FF stacks, cleanouts, hydraulic fall, setbacks from water services and pump alternatives if required",
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "EVID-WC",
+      "required": "Exterior WC actual walls/access and independent permit status",
+      "status": "UNVERIFIED"
+    },
+    {
+      "id": "EVID-2083-CODE",
+      "required": "Read exact 14 October 2026 Pokhara third-amendment text against 2080/2081 clauses 10.14, 10.15 and setbacks, with authority review",
+      "status": "MISSING"
+    }
+  ],
+  "decisionRule": "No front setback siting candidate can proceed on this screen. The earlier published Pokhara rule restricts septic/soak within setbacks; verify the 2083 amendment and current municipality interpretation. Do not alter immutable v3.6 source or approve construction without site survey, foundation, percolation, groundwater/wells, water tank, vehicle, pipe and engineer evidence.",
+  "deliverable": "COMPARATIVE_SCREENING_REVIEW_NOT_FOR_CONSTRUCTION",
+  "municipalRuleScreen": {
+    "status": "HOLD_POKHARA_2083_AMENDMENT_UNREAD__FOLLOW_PRIOR_PUBLISHED_RESTRICTIONS_UNTIL_CLARIFIED",
+    "discoveredOn": "2026-11-17",
+    "priorPublishedStandard": {
+      "document": "Pokhara Metropolitan City Building and Infrastructure Construction Standards 2080, first amendment 2081",
+      "sourceUrl": "https://pokharamun.gov.np/act-law-directives",
+      "clauses": [
+        {
+          "ref": "10.15 and 10.15.2(छ)",
+          "finding": "Septic/seepage pit near neighbour land: published text includes minimum 1 m separation subject to stated consent condition",
+          "appliesSubjectTo": "Exact local wording and legal interpretation"
+        },
+        {
+          "ref": "road standards note 2",
+          "finding": "Published note prohibits water tanks, septic tanks and soak pits within setbacks",
+          "appliesSubjectTo": "Actual road/ROW and whether current amended standard changes this note"
+        },
+        {
+          "ref": "10.15.1",
+          "finding": "Septic tank or underground wastewater arrangements at least 3 m from plot drinking-water tank"
+        },
+        {
+          "ref": "10.14.1",
+          "finding": "Water supply wells at least 16 m from listed waste disposal pits and above them"
+        },
+        {
+          "ref": "10.15.2(क)",
+          "finding": "Septic tank length to width ratio stated as 2 to 4, liquid capacity at least 1 m3, width at least 750 mm"
+        },
+        {
+          "ref": "10.15.2(ङ)",
+          "finding": "Septic ventilation pipe must rise at least 2 m above building top according to reviewed published standard"
+        }
+      ]
+    },
+    "latestAmendment": {
+      "name": "Pokhara Building and Infrastructure Standards, third amendment 2083",
+      "postedDateGregorian": "2026-10-14",
+      "listingUrl": "https://pokharamun.gov.np/act-law-directives",
+      "contentChecked": false,
+      "precedence": "UNVERIFIED__DO_NOT_CLAIM_2081_CONTROLS_UNMODIFIED"
+    },
+    "screenEffect": "PREVENT_ADMISSION_OF_FRONT_SETBACK_OPTIONS_A_AND_B",
+    "reason": "Both A and B locate the vessels wholly within the nominal 3126 mm front building setback. No approved exclusion or variance is evidenced.",
+    "unvalidatedAssumptions": [
+      "Real road setback boundary vs designed 3126 mm front yard",
+      "Neighbor consent exception, if applicable",
+      "Status of 2083 amendment provisions",
+      "Water-tank and well coordinates"
+    ]
+  },
+  "freeStripSensitivity": {
+    "status": "NO_SITE_SELECTION_PASS",
+    "note": "Assuming front setback cannot hold a vessel, no building relocation, unrotated modeled 1300x2300 septic and 1800x1800 soak envelopes, and a 1000 mm neighbour-border margin, remaining exterior bands are insufficient even BEFORE foundation clearance.",
+    "availableNominalBandsMm": {
+      "left": 1817,
+      "right": 127,
+      "rear": 1524,
+      "front": 3126
+    },
+    "septicMinRequiredSideBandMm": 2300,
+    "soakMinRequiredSideBandMm": 2800,
+    "condition": "This is a conditional envelope-width screen, not a finding of legal impossibility. It assumes the previously published border criterion applies; a different owner-approved design may need redesign or professional jurisdictional approval."
+  }
+}
