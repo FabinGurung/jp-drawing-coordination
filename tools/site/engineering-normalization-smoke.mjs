@@ -11,7 +11,7 @@ const register=JSON.parse(read('public/data/engineering/engineering-package-read
 const quantity=JSON.parse(read('public/data/engineering/quantity-posters.v1.json'));
 const demo=JSON.parse(read('public/templates/project-workspace/project-template.v1.json'));
 const real=Object.keys(PROJECTS).sort(),all=Object.keys(ALL_WORKSPACE_PROJECTS).sort();
-assert.deepEqual(real,['ashok-adhikari','harisharan-adhikari','narayani-parajuli','ramachandra-devkota']);
+assert.deepEqual(real,['ashok-adhikari','harisharan-adhikari','js-buddha-jewelers','narayani-parajuli','ramachandra-devkota']);
 assert.deepEqual(all,[...real,'example-empty'].sort());
 assert.equal(EMPTY_DUMMY_PROJECT.synthetic,true);
 assert.equal(EMPTY_DUMMY_PROJECT.editions[0].manifest,undefined);
@@ -27,7 +27,7 @@ assert.equal(new Set(NORMALIZED_PACKAGE_CATALOG.map(x=>x.id)).size,16);
 assert.deepEqual(register.catalog,NORMALIZED_PACKAGE_CATALOG,'JSON and deployed renderer must describe exactly the same package categories');
 assert.deepEqual(register.projects,NORMALIZED_PROJECTS,'No stale/competing machine register or UI status');
 assert.deepEqual(Object.keys(register.projects).sort(),all);
-const expectedCounts={'narayani-parajuli':7,'harisharan-adhikari':8,'ashok-adhikari':1,'ramachandra-devkota':0,'example-empty':0};
+const expectedCounts={'narayani-parajuli':7,'harisharan-adhikari':8,'ashok-adhikari':1,'ramachandra-devkota':0,'js-buddha-jewelers':0,'example-empty':0};
 for(const slug of all){
  const p=NORMALIZED_PROJECTS[slug],slots=normalizedSlots(slug);
  assert.equal(slots.length,16,slug);
