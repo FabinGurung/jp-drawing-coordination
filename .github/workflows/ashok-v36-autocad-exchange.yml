@@ -7,6 +7,12 @@ on:
       - "tools/site/export-ashok-v36-autocad.py"
       - "tools/site/audit-ashok-v36-autocad.py"
       - ".github/workflows/ashok-v36-autocad-exchange.yml"
+  pull_request:
+    paths:
+      - "public/data/projects/ashok-adhikari/*v3-6-review.json"
+      - "tools/site/export-ashok-v36-autocad.py"
+      - "tools/site/audit-ashok-v36-autocad.py"
+      - ".github/workflows/ashok-v36-autocad-exchange.yml"
   workflow_dispatch:
 permissions:
   contents: read
