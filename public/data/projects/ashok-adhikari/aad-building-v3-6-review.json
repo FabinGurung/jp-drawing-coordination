@@ -32,7 +32,7 @@
       "id": "gf",
       "model": "aad-gf-model-v3-6-review.json",
       "name": "Ground floor",
-      "sourceArea": 92.3629,
+      "sourceArea": 87.05176,
       "status": "V3_6_CORRECTED_CASCADE_GF_REVIEW_ONLY",
       "transform": {
         "rotationDeg": 0,
@@ -46,7 +46,7 @@
       "id": "ff",
       "model": "aad-ff-model-v3-6-review.json",
       "name": "First floor",
-      "sourceArea": 92.3629,
+      "sourceArea": 87.05176,
       "status": "V3_6_CORRECTED_CASCADE_FF_REVIEW_ONLY",
       "transform": {
         "rotationDeg": 0,
@@ -7543,6 +7543,10 @@
     {
       "code": "V3_6_PROJECTION_AND_MODEL_HOLD",
       "message": "2D floor partitions and corresponding presentation-only furniture, floor plates, stairs/roof and column markers updated. MEP connecting runs need engineering reroute; visual adjustments not valid services design. No approved foundation, beam, headroom, cadastral or setback certification."
+    },
+    {
+      "code": "V3_6_REDUCED_ENCLOSED_PERIMETER_AREA",
+      "message": "Owner-directed 762mm front-footprint retreat changes source floor perimeter area 92.3629 → 87.05176 m² per modeled level (shoelace verified). Model display floor plate/roof remains nonstructural. Contractual built-up area, FAR, local measurement and survey remain unverified."
     }
   ],
   "revision": "CORRECTED_CASCADE_ROW_4_3_2_1_20261117__PRESERVE_ROOM_DEPTHS",
@@ -8625,6 +8629,8 @@
     "nestedChanges": {
       "parts": 178,
       "pipeRoute": 55
-    }
+    },
+    "sourcePerimeterAreaSqM": 87.05176,
+    "predecessorSourceAreaSqM": 92.3629
   }
 }
