@@ -168,7 +168,7 @@ function renderEditionProvenance(){
  const statusText=slug==='ashok-adhikari'&&d.sourceRef ? (d.lifecycle==='ARCHITECTURAL_FINAL'?'Final architectural version':'Previous architectural version') : {'RELEASED_REVIEW':'Released for architectural review','FROZEN_REVIEW':'Preserved review version','FROZEN_BASELINE':'Preserved baseline','ARCHITECTURAL_FINAL':'Final architectural version','SOURCE_REVIEW':'Source interpretation only','SOURCE_PENDING':'Public model pending','TEMPLATE_ONLY':'No admitted geometry'}[d.lifecycle];
  const predecessor=d.predecessorId?' · Previous: '+d.predecessorId:'';
  const source=d.sourceRef?'<a href="'+esc(new URL(d.sourceRef,root).href)+'" target="_blank" rel="noopener">Read registered source/model</a>':'<span>Public model not admitted</span>';
- const released=edition.releaseTag?'<a href="https://github.com/FabinGurung/jp-drawing-coordination/releases/tag/'+encodeURIComponent(edition.releaseTag)+'" target="_blank" rel="noopener">Verified architectural review milestone</a>':'';
+ const released=edition.releaseTag?'<a href="https://github.com/FabinGurung/jp-drawing-coordination/releases/tag/'+encodeURIComponent(edition.releaseTag)+'" target="_blank" rel="noopener">'+(slug==='ashok-adhikari'?'Architectural version milestone':'Verified architectural review milestone')+'</a>':'';
  const architecturalSheet=slug==='ashok-adhikari'&&edition.id==='v3-7'?'<a href="'+esc(new URL('projects/ashok-adhikari/architectural-v3-7/',root).href)+'">Open final architectural sheet</a>':'';
  box.innerHTML='<strong>'+esc(kindText)+'</strong><span>'+esc(statusText+predecessor)+'</span><span>Shared engine '+esc(AAD_WORKSPACE_ENGINE_VERSION)+'</span>'+source+released+architecturalSheet;
  $('pw-new-edition').disabled=config.synthetic===true;
