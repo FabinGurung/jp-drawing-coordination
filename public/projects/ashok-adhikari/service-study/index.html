@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ashok Adhikari v3.6 — Septic, soak &amp; exterior WC feasibility</title>
+<meta name="description" content="Source-derived R000001 septic, soak-pit and exterior WC geometric feasibility study. All options pending survey, groundwater, foundation and municipal evidence.">
+<style>
+:root{font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#2c283e;background:#f9f7f1}*{box-sizing:border-box}body{margin:0}a{color:#343a91}a:focus-visible{outline:3px solid #c74354;outline-offset:3px}header{background:white;border-bottom:1px solid #dedce1;padding:.9rem max(1rem,calc((100vw - 1050px)/2))}nav{display:flex;flex-wrap:wrap;gap:1.2rem;font-weight:650}main{max-width:1050px;margin:auto;padding:clamp(1rem,4vw,2.5rem)}h1{font-size:clamp(1.8rem,4vw,2.65rem);line-height:1.2;margin:.2rem 0 1rem}h2{font-size:1.36rem;margin:.2rem 0 .8rem}h3{font-size:1.07rem;margin:1rem 0 .4rem}p{margin:.6rem 0 1rem}section{background:white;border:1px solid #e2dde5;border-radius:12px;padding:1.25rem;margin:1.15rem 0}.lead{font-size:1.12rem;max-width:75ch}.eyebrow{text-transform:uppercase;color:#666071;letter-spacing:.065em;font-size:.76rem;font-weight:750}.warning{border-left:4px solid #b7821e;padding:.8rem 1rem;background:#f9f4e7}.options{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:1rem}.option{padding:1rem;background:#faf9f7;border:1px solid #d9d5d4;border-radius:10px}.plan{display:flex;justify-content:center;background:#f0f0ee;border:1px solid #dedede;border-radius:9px;padding:1rem}.plan svg{width:min(100%,310px);height:auto;max-height:510px}.plot{fill:#fff;stroke:#333;stroke-width:100}.house{fill:#d5dae4;stroke:#58616b;stroke-width:90}.wc{fill:#c6b7a6;stroke:#826f63;stroke-width:90}.car{fill:#eee9d7;stroke:#a2794f;stroke-width:100;stroke-dasharray:230 170}.tank{fill:#a6caad;fill-opacity:.76;stroke:#246e3d;stroke-width:120}.soak{fill:#b4c6ea;fill-opacity:.84;stroke:#3f5e9c;stroke-width:120}.side-label{font:700 440px system-ui;fill:#29235c}.legend{display:flex;flex-wrap:wrap;gap:.6rem 1rem;font-size:.85rem;padding:.7rem 0}.legend span:before{content:"";display:inline-block;width:.8rem;height:.8rem;margin-right:.4rem;border:1px solid #555;vertical-align:baseline}.sw-house:before{background:#d5dae4}.sw-wc:before{background:#c6b7a6}.sw-car:before{background:#eee9d7}.sw-tank:before{background:#a6caad}.sw-soak:before{background:#b4c6ea}table{width:100%;border-collapse:collapse;font-size:.92rem}th,td{padding:.72rem .65rem;border-bottom:1px solid #e0dce3;vertical-align:top;text-align:left}th{background:#f7f6f9}ul,ol{padding-left:1.3rem}li{margin:.4rem 0}.scroll{overflow:auto}.note{font-size:.89rem;color:#555264}.pill{font-size:.78rem;border-radius:99px;padding:.25rem .55rem;background:#eee9e0;font-weight:650;display:inline-block;margin-bottom:.6rem}footer{margin:2rem 0;font-size:.87rem;color:#5b5764}
+</style></head><body>
+<header><nav><a href="../">Ashok workspace</a><a href="../engineering-review/">v3.6 debt review</a><a href="../../../data/projects/ashok-adhikari/v3-6-site-services-feasibility-r000001.json">Source-linked machine study</a></nav></header>
+<main><div class="eyebrow">17 November 2026 · Ashok v3.6 · Engineering coordination R000001</div>
+<h1>Septic tank, soak pit and exterior WC — site feasibility</h1>
+<p class="lead">Two alternative placements have been screened against the <strong>nominal</strong> Ashok v3.6 site and displayed vehicle envelope. Neither alternative is approved. The existing house, WC and all original design edition files remain unchanged.</p>
+<p class="warning"><strong>NOT FOR CONSTRUCTION.</strong> No surveyed plot boundary, foundation geometry, percolation test, groundwater levels, or municipal approval was located in the inspected Ashok source folders. An apparently empty 2D rectangle does not establish a safe excavation, adequate wastewater treatment, legal separation or an approved design.</p>
+<section><h2>Source-derived plot and clash facts</h2>
+<div class="scroll"><table><thead><tr><th>Element</th><th>Nominal plot X, Y extents (mm)</th><th>Finding</th></tr></thead><tbody>
+<tr><td>Plot</td><td>X 0–9,144 · Y 0–18,288</td><td>Reference only; NOT surveyed</td></tr>
+<tr><td>House bounding envelope</td><td>X 1,817–9,017 · Y 3,126–16,764</td><td>v3.6; not the polygon's exact wall perimeter</td></tr>
+<tr><td>Exterior WC</td><td>X 127–1,327 · Y 16,863–18,263</td><td>Proposed / municipal HOLD</td></tr>
+<tr><td>Reference car</td><td>X 1,911–6,201 · Y 115–1,885</td><td>Rendered vehicle; not a verified turning envelope</td></tr>
+<tr><td>Current septic</td><td>X 1,096–2,396 · Y 7,131–9,431</td><td>579 × 2,300 mm building-envelope overlap</td></tr>
+<tr><td>Current soak</td><td>X 230–2,030 · Y 16,153–17,953</td><td>Overlaps both house (213 × 611) and WC (1,097 × 1,090) mm</td></tr>
+</tbody></table></div>
+<p class="note">Axes: plot X increases to the right, plot Y increases from front road toward rear. North is approximately 45° clockwise from page-up when the rear/NW is drawn at the top. All rectangles below are schematic site-coordinate envelopes; no GIS georeferencing is implied.</p></section>
+<section><h2>Alternative placement screening</h2>
+<p><strong>Internal test margins of 300 mm and 600 mm are NOT building-code, foundation or excavation clearance standards.</strong> They are only sensitivities used to detect simple geometric conflicts.</p>
+<div class="legend"><span class="sw-house">House</span><span class="sw-wc">External WC</span><span class="sw-car">Reference car</span><span class="sw-tank">Candidate septic</span><span class="sw-soak">Candidate soak</span></div>
+<div class="options">
+<article class="option"><div class="pill">Option A · layout screen only</div>
+<h3>Retain the displayed vehicle approach</h3><div class="plan"><svg role="img" aria-label="Not-surveyed Ashok site, rear at top and road at bottom, showing existing house, exterior WC and reference car, plus A proposed only septic and soak rectangles." viewBox="-850 -700 10900 19700">
+ <g transform="translate(0 18288) scale(1 -1)">
+ <rect x="0" y="0" width="9144" height="18288" class="plot"><title>Nominal 9144 by 18288 mm property rectangle</title></rect>
+ <rect x="1817" y="3126" width="7200" height="13638" class="house"><title>Current v3.6 7200 by 13638 mm house bounding rectangle</title></rect>
+ <rect x="127" y="16863" width="1200" height="1400" class="wc"><title>External WC current box</title></rect>
+ <rect x="1911" y="115" width="4290" height="1770" class="car"><title>Existing reference car envelope</title></rect>
+ <rect x="300" y="300" width="1300" height="2300" class="tank"><title>Option A septic candidate; NOT approved</title></rect>
+ <rect x="6600" y="500" width="1800" height="1800" class="soak"><title>Option A soak candidate; NOT approved</title></rect>
+ </g>
+ <text x="4650" y="900" class="side-label" text-anchor="middle">REAR · NW</text>
+ <text x="4650" y="17850" class="side-label" text-anchor="middle">FRONT · SE / ROAD</text>
+ <path d="M7950 2800 L8550 2200 M8550 2200 L8370 2220 M8550 2200 L8530 2380" fill="none" stroke="#29235c" stroke-width="130" stroke-linecap="round"/>
+ <text x="8640" y="2080" class="side-label">N</text>
+ </svg></div>
+<p>Septic centre <strong>(950, 1,450)</strong> mm; outer box X 300–1,600, Y 300–2,600. Soak centre <strong>(7,500, 1,400)</strong> mm; outer box X 6,600–8,400, Y 500–2,300.</p>
+<p>Both are inside the nominal plot and do not overlap the displayed car, house or WC. The tank has only <strong>300 mm</strong> to the plot edge and <strong>311 mm</strong> to the car envelope; its closest calculated rectangle-to-house distance is <strong>569 mm</strong>. The soak pit is 399 mm from the car and 826 mm from the house.</p>
+<p><strong>Judgment:</strong> excessively tight for approval without survey, excavation/foundation separation and access/traffic engineering. Do not install based on this illustration.</p>
+</article>
+<article class="option"><div class="pill">Option B · parking redesign required</div><h3>More room around service vessels</h3><div class="plan"><svg role="img" aria-label="Not-surveyed Ashok site, rear at top and road at bottom, showing existing house, exterior WC and reference car, plus B proposed only septic and soak rectangles." viewBox="-850 -700 10900 19700">
+ <g transform="translate(0 18288) scale(1 -1)">
+ <rect x="0" y="0" width="9144" height="18288" class="plot"><title>Nominal 9144 by 18288 mm property rectangle</title></rect>
+ <rect x="1817" y="3126" width="7200" height="13638" class="house"><title>Current v3.6 7200 by 13638 mm house bounding rectangle</title></rect>
+ <rect x="127" y="16863" width="1200" height="1400" class="wc"><title>External WC current box</title></rect>
+ <rect x="1911" y="115" width="4290" height="1770" class="car"><title>Existing reference car envelope</title></rect>
+ <rect x="1450" y="850" width="2300" height="1300" class="tank"><title>Option B septic candidate; NOT approved</title></rect>
+ <rect x="5600" y="650" width="1800" height="1800" class="soak"><title>Option B soak candidate; NOT approved</title></rect>
+ </g>
+ <text x="4650" y="900" class="side-label" text-anchor="middle">REAR · NW</text>
+ <text x="4650" y="17850" class="side-label" text-anchor="middle">FRONT · SE / ROAD</text>
+ <path d="M7950 2800 L8550 2200 M8550 2200 L8370 2220 M8550 2200 L8530 2380" fill="none" stroke="#29235c" stroke-width="130" stroke-linecap="round"/>
+ <text x="8640" y="2080" class="side-label">N</text>
+ </svg></div>
+<p>Septic rotated 90°: centre <strong>(2,600, 1,500)</strong> mm; box X 1,450–3,750, Y 850–2,150. Soak centre <strong>(6,500, 1,550)</strong> mm; box X 5,600–7,400, Y 650–2,450.</p>
+<p>Minimum nominal plot-edge distance is 850 mm for septic and 650 mm for soak; nearest house gaps are 976 mm and 676 mm respectively. However <strong>both vessels overlap the existing displayed car envelope</strong>.</p>
+<p><strong>Judgment:</strong> cannot retain the published car arrangement. Requires independent parking/gate redesign, load-rated service covers where appropriate, and full structural/MEP review.</p></article>
+</div>
+<h3>Alternative C · investigate public sewerage</h3><p>Before forcing onsite infiltration into a restricted site, check whether an approved public sanitary-sewer connection is available and whether its invert level permits gravity drainage. Nepal NBC 208 allows connection with the concerned authority's approval when public sewerage exists; no availability or approval has been verified for this property.</p></section>
+<section><h2>Source-based sizing check</h2>
+<div class="scroll"><table><thead><tr><th>Test</th><th>Recalculation</th><th>Engineering meaning</th></tr></thead><tbody>
+<tr><td>Septic retention/storage</td><td>0.8 × 1 + 0.0425 × 8 + 0.0708 × 8 = <strong>1.7064 m³</strong></td><td>Reproduces assumed 8-person, 800 L/d, 2-year emptying interval source calculation. Modeled 1.90225 m³ internal liquid capacity exceeds it on paper. Does not certify construction dimensions, watertightness, inlet/outlet or sludge performance.</td></tr>
+<tr><td>Soak infiltration demand</td><td>800 ÷ (π × 1.5 × 1.5) = <strong>113.18 L/m²/day</strong></td><td>Assumes 1.5 m internal diameter and 1.5 m effective depth. Actual infiltration rate, high groundwater, well locations and treatment performance are unknown.</td></tr>
+</tbody></table></div>
+<p>Guidance: <a href="https://www.uwssp.gov.np/medias/finalURBANWATERSUPPLYANDS_2022_08_18_05_56_49.pdf">Nepal UWSSP Design Guidelines v4.0, §8.4.4, pages 193–195</a> and <a href="https://giwmscdnone.gov.np/media/pdf_upload/NBC%20208-2003%20SANITARY%20AND%20PLUMBING%20DESIGN%20REQUIREMENTS_c8hejnp.pdf">NBC 208 sewage and drainage requirements</a>. Final capacity must be recalculated against real site and jurisdiction conditions.</p></section>
+<section><h2>Required evidence before choosing a location</h2>
+<ol><li>Surveyed boundary coordinates, road edge/right of way, site levels and confirmed owner parcel.</li><li>Foundation layout: actual footing/grade beam/founding levels, basement or excavations (if any), safe distances and temporary excavation support.</li><li>Measured site percolation and seasonal high-groundwater table; drinking-water well/spring locations on and near the property.</li><li>Exterior WC status: permitted location, wall geometry, doorway, plumbing and maintenance access.</li><li>Existing sanitation collection layout: drains, cleanouts, gravity slope/inverts, venting and inspection access.</li><li>Vehicle/entry model: correct automobile envelope, parking, actual gate/driveway, turning path and load protection.</li><li>Municipal permission for the selected treatment and discharge strategy; sewer network availability and approval.</li></ol>
+<p><strong>Decision gate:</strong> responsible architect, structural engineer and sanitary/MEP engineer review the selected candidate against original records. No actual tank relocation, model revision, dimensioned construction detail or v3.7 edition is authorized by this feasibility screen.</p></section>
+<footer>Original Ashok v3.6 sources preserved · Research belongs to CAD domain · A7 and peer Structural repository remain untouched. Review source at <a href="../../../data/projects/ashok-adhikari/v3-6-site-services-feasibility-r000001.json">R000001 JSON</a>.</footer>
+</main></body></html>
