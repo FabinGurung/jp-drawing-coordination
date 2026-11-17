@@ -1,0 +1,215 @@
+{
+  "schema": "jp-cad://ashok-v36-engineering-debt-readback/1",
+  "id": "ASHOK-V36-ENGINEERING-DEBT-R000001",
+  "project": "Ashok Adhikari Residence",
+  "edition": "v3-6",
+  "dateNpt": "2026-11-17",
+  "basis": "Independent read of merged v3.6 source graph and presentation at commit 8e7b8c50c32a716a5e0e683894f137311d3bbba7. Rectangular envelope intersections are drafting collision flags, not survey-verified solid interference.",
+  "baselineCommit": "8e7b8c50c32a716a5e0e683894f137311d3bbba7",
+  "reviewOnly": true,
+  "constructionIssued": false,
+  "sourceFiles": [
+    "aad-building-v3-6-review.json",
+    "aad-gf-model-v3-6-review.json",
+    "aad-ff-model-v3-6-review.json",
+    "coordinate-grid-v3-6-review.json"
+  ],
+  "qa": {
+    "footprintEnvelopeMm": [
+      7200,
+      13638
+    ],
+    "envelopeAreaM2": 98.1936,
+    "sourcePerimeterAreaPerLevelM2": 87.05176,
+    "areaMeaning": "Source polygon area per level is NOT the rectangular site envelope, approved built-up area, FAR or BOQ measurement.",
+    "nominalPlotMm": [
+      9144,
+      18288
+    ],
+    "buildingSiteRectMm": [
+      1817,
+      3126,
+      9017,
+      16764
+    ],
+    "setbacksMm": {
+      "front": 3126,
+      "rear": 1524,
+      "left": 1817,
+      "right": 127
+    },
+    "surveyAdmitted": false,
+    "gridsWorldZmm": {
+      "1": 13488,
+      "2": 11438,
+      "3": 8038,
+      "4": 4238,
+      "5": 150
+    },
+    "checkResults": {
+      "roomDepthRegressions": "PASS_IN_MERGED_V36_CASCADE_SMOKE",
+      "floorGraphOpenings": "PASS_ALL_35_STATIC_HOST_EXTENTS",
+      "windows": "PASS_GF_FF_STATIONS_MATCH",
+      "actualAutocadTest": "NOT_PERFORMED"
+    },
+    "floors": {
+      "gf": {
+        "nodes": 18,
+        "walls": 22,
+        "openings": 17,
+        "roomEnvelopes": 7
+      },
+      "ff": {
+        "nodes": 18,
+        "walls": 24,
+        "openings": 18,
+        "roomEnvelopes": 8
+      }
+    }
+  },
+  "detectedDraftingConflicts": [
+    {
+      "id": "CAD-QA-01",
+      "kind": "HISTORICAL_COORDINATE_DESCRIPTION",
+      "sourceField": "aad-building-v3-6-review.json/services.coordinateBasis",
+      "historicalText": "Building source X=plotX-1944; Y=plotY-2000",
+      "correctCurrentSiteOffsetMm": [
+        1817,
+        3126
+      ],
+      "state": "CORRECTED_IN_QA_RECORD__IMMUTABLE_SNAPSHOT_RETAINED",
+      "risk": "Do not derive v3.6 service plot positions from the legacy offsets."
+    },
+    {
+      "id": "CAD-QA-02",
+      "kind": "HISTORICAL_SHEET_SCALE_DESCRIPTION",
+      "sourceField": "coordinate-grid-v3-6-review.json/sheet.scaleVerification",
+      "historicalReferenceMm": [
+        7200,
+        14400
+      ],
+      "correctCurrentEnvelopeMm": [
+        7200,
+        13638
+      ],
+      "correctCurrentA3At1To100Mm": [
+        72,
+        136.38
+      ],
+      "state": "CORRECTED_IN_QA_RECORD__IMMUTABLE_SNAPSHOT_RETAINED",
+      "risk": "The original 72 x 144 mm sheet note is v3.4-sized; does not describe the v3.6 envelope."
+    },
+    {
+      "id": "CAD-QA-03",
+      "kind": "SITE_PLAN_ENVELOPE_VS_SOURCE_PERIMETER",
+      "sourceField": "AutoCAD site-plan rectangular drawing",
+      "currentEnvelopeAreaM2": 98.1936,
+      "currentSourcePerimeterAreaM2": 87.05176,
+      "state": "CAD_LABEL_CORRECTION_PROPOSED",
+      "risk": "A bounding rectangle is not an approved physical building area; plan perimeter and covered area require independent measurement."
+    }
+  ],
+  "collisionFlags": [
+    {
+      "id": "SERV-01",
+      "asset": "SEPTIC",
+      "against": "buildingEnvelope",
+      "assetRectMm": [
+        1096,
+        7131,
+        2396,
+        9431
+      ],
+      "overlapMm": [
+        579,
+        2300
+      ],
+      "status": "ENGINEERING_HOLD__DO_NOT_RELOCATE_BY_ASSUMPTION",
+      "impact": "Legacy 452 mm penetration used former 1944 mm left offset; 579 mm is the revised envelope overlap."
+    },
+    {
+      "id": "SERV-02",
+      "asset": "SOAK",
+      "against": "outsideWCEnvelope",
+      "assetRectMm": [
+        230,
+        16153,
+        2030,
+        17953
+      ],
+      "overlapMm": [
+        1097,
+        1090
+      ],
+      "status": "ENGINEERING_HOLD__DO_NOT_RELOCATE_BY_ASSUMPTION"
+    },
+    {
+      "id": "SERV-03",
+      "asset": "SOAK",
+      "against": "buildingEnvelope",
+      "assetRectMm": [
+        230,
+        16153,
+        2030,
+        17953
+      ],
+      "overlapMm": [
+        213,
+        611
+      ],
+      "status": "ENGINEERING_HOLD__DO_NOT_RELOCATE_BY_ASSUMPTION"
+    }
+  ],
+  "externalEngineeringHolds": [
+    {
+      "id": "ENG-01",
+      "scope": "14 provisional column markers, B1/stair intersection and actual GF/FF roof/load-path + seismic/foundation member design",
+      "owner": "Responsible structural engineer / JP Structural Analysis",
+      "status": "HOLD_NO_ENGINEER_SIGNOFF"
+    },
+    {
+      "id": "ENG-02",
+      "scope": "18-riser stair, 575 mm X3600–X4175 offset, landing, slab cutout, headroom and guard",
+      "owner": "Responsible architect and structural engineer",
+      "status": "HOLD_SOURCE_DETAIL_REQUIRED"
+    },
+    {
+      "id": "ENG-03",
+      "scope": "Two 2100 x 1500 mm GF/FF right-side windows at 127 mm nominal clearance: municipal, fire/privacy, lintel and egress review",
+      "owner": "Municipal authority and responsible design professionals",
+      "status": "HOLD_PERMISSION_AND_DESIGN"
+    },
+    {
+      "id": "ENG-04",
+      "scope": "Septic/soak/WC clashes, percolation, drainage/MEP reroutes and site services",
+      "owner": "Site/MEP designer + surveyed source custodian",
+      "status": "HOLD_ORIGINALS_AND_REDESIGN"
+    },
+    {
+      "id": "ENG-05",
+      "scope": "Real site survey, setbacks, parking turning/gate operation, external WC compliance",
+      "owner": "Survey/architect/municipal authority",
+      "status": "HOLD_SURVEY_AND_MUNICIPAL"
+    },
+    {
+      "id": "ENG-06",
+      "scope": "Stair/bedroom/bath clearances, door swings and accessibility, finished openings",
+      "owner": "Responsible architect",
+      "status": "HOLD_DIMENSIONED_REVIEW"
+    }
+  ],
+  "autocadAcceptance": {
+    "machine": "AC1021_EZDXF_AUDIT_REPORTED_PASS_20261117",
+    "nativeAutodesk": "NOT_RUN",
+    "reviewStatus": "BLOCKED_FROM_IFC_BY_NATIVE_QA_AND_ENGINEERING",
+    "nativeChecklist": [
+      "Open each of four DXFs in Autodesk AutoCAD 2007 or later; record version/build and screenshot",
+      "AUDIT each file; verify 1 unit = 1 millimetre, no proxy elements, independent editable lines/text/layers",
+      "Measure plot 9144 x 18288 mm; site envelope 7200 x 13638 mm; setbacks 3126/1524/1817/127 mm",
+      "Verify dimensions and A-C / 1-5 axis numbers, GF/FF right window station and layers",
+      "Review hatch, fonts, dimension style regeneration and A3 printed scale on test plots",
+      "Archive native QA screenshots/logs, named reviewer, file digest, date and acceptance/rejection"
+    ]
+  },
+  "closurePolicy": "QA inconsistencies corrected in this derivative register; frozen v3.6 design snapshots remain byte-unchanged. Site-service and professional approval holds remain open until authenticated new evidence and engineering sign-off are admitted."
+}
