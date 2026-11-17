@@ -65,7 +65,8 @@
         "openings": 18,
         "roomEnvelopes": 8
       }
-    }
+    },
+    "alignedRightWindowCentreWorldZmm": 7838
   },
   "detectedDraftingConflicts": [
     {
@@ -107,6 +108,31 @@
       "currentSourcePerimeterAreaM2": 87.05176,
       "state": "CAD_LABEL_CORRECTION_PROPOSED",
       "risk": "A bounding rectangle is not an approved physical building area; plan perimeter and covered area require independent measurement."
+    },
+    {
+      "id": "CAD-QA-04",
+      "kind": "HISTORICAL_RIGHT_WINDOW_STATION",
+      "sourceField": "GF/FF v3.6 opening provenance.host + inherited manifest reviewHolds",
+      "historicalCentreWorldZmm": 8219,
+      "correctCurrentCentreWorldZmm": 7838,
+      "correctCurrentHostOffsetMm": 2435,
+      "status": "CORRECTED_IN_QA_RECORD__IMMUTABLE_SNAPSHOT_RETAINED",
+      "risk": "Provenance host-string descriptions are inherited from an earlier station; draw from live floorGraph opening offset and host geometry, not old string."
+    },
+    {
+      "id": "CAD-QA-05",
+      "kind": "HISTORICAL_SITE_PLACEMENT_MILESTONE",
+      "sourceField": "aad-building-v3-6-review.json/sitePlacementReview.after",
+      "historicalStageSetbacksMm": {
+        "front": 2364,
+        "rear": 1524
+      },
+      "correctCurrentSetbacksMm": {
+        "front": 3126,
+        "rear": 1524
+      },
+      "state": "HISTORICAL_REVIEW_STAGE_NOT_CURRENT_SITE_PLACEMENT",
+      "risk": "Use current services.siteFrame / coordinate-grid v3.6 for plot geometry; 16 Nov site stage is history."
     }
   ],
   "collisionFlags": [
