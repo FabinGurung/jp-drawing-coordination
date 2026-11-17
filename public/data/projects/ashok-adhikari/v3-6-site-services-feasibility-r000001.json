@@ -10,14 +10,13 @@
   "sourceAuthority": {
     "cadManifest": "public/data/projects/ashok-adhikari/aad-building-v3-6-review.json",
     "currentCollisionAudit": "public/data/projects/ashok-adhikari/v3-6-engineering-debt-review-20261117.json",
-    "driveStartHere": "https://docs.google.com/document/d/1FMqR3s0-fRY7OkGblyk29FhQJzFoR9eWNpRTls-07D0/edit",
-    "driveRoot": "https://drive.google.com/drive/folders/1gPcLmiAjlyv3Dn_5v8MlxhvWLD6yOs6X",
-    "driveApprovalHolds": "https://drive.google.com/drive/folders/1MQlbV4wb5mThcb1owdkYoe3Bw09LI0x4",
     "foundationOwner": "FabinGurung/jp-structural-analysis",
     "siteSurvey": "NOT_LOCATED_IN_INSPECTED_ASHOK_SOURCE_FOLDERS",
     "foundationPlan": "NOT_LOCATED_IN_INSPECTED_CAD_OR_STRUCTURAL_REPOSITORY",
     "municipalAuthority": "UNVERIFIED",
-    "warning": "No plan is approved, no object has been moved, and site drawings are not construction instructions."
+    "warning": "No plan is approved, no object has been moved, and site drawings are not construction instructions.",
+    "privateProviderCustody": "Original source and historical navigation remain in authenticated Ashok project Drive; provider-specific file and folder IDs are intentionally not copied into public GitHub.",
+    "driveAudit": "Canonical Ashok root, START HERE and approval holds examined 17 Nov 2026. Current plot remains described as nominal/not surveyed. Approval-holds folder had no admitted survey or foundation attachment at audit time."
   },
   "coordinates": {
     "units": "mm",
