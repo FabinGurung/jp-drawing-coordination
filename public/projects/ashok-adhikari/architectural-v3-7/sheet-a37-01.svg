@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 1600 1130" role="img" aria-label="Ashok Adhikari Version 3.7 final architectural drawing sheet with site, ground-floor and first-floor plans">
+<title>Ashok Adhikari — Final Architectural Drawings v3.7 — Sheet A37-01</title>
+<desc>Versioned architectural drawing generated solely from Ashok v3.7 final model and preserved v3.6 GF/FF floor graphs. Nominal plot. No structural design or engineered wastewater route represented.</desc>
+<rect width="1600" height="1130" fill="#f0f3f5"/>
+<rect width="1600" height="129" fill="#162a3a"/>
+<text x="56" y="58" font-size="40" text-anchor="start" fill="#fff" font-weight="800" >ASHOK ADHIKARI RESIDENCE</text>
+<text x="56" y="94" font-size="24" text-anchor="start" fill="#dfebf4" font-weight="650" >ARCHITECTURAL DRAWINGS  /  VERSION 3.7</text>
+<text x="1540" y="61" font-size="31" text-anchor="end" fill="#ffe2bc" font-weight="900" >A37 — 01</text>
+<text x="1540" y="94" font-size="16" text-anchor="end" fill="#c8d5dc" font-weight="600" >17 NOV 2026   •   A3 LANDSCAPE</text>
+<rect x="52" y="152" width="445" height="780" rx="9" fill="#fff" stroke="#dae1e9" stroke-width="2"/><text x="72" y="186" font-size="22" text-anchor="start" fill="#142d46" font-weight="800" >GROUND FLOOR</text><text x="72" y="208" font-size="13" text-anchor="start" fill="#6d7f90" font-weight="500" >Inherited floor graph • shared bathroom</text>
+<polygon points="134.00,836.25 310.61,836.25 310.61,745.55 310.61,740.55 437.20,740.55 437.20,432.35 437.20,253.00 285.60,253.00 134.00,253.00 134.00,432.35 134.00,597.65 134.00,745.55" fill="#f9fbff" stroke="#c4d0dc" stroke-width="1.5"/>
+<rect x="129.00" y="248.00" width="156.60" height="184.35" rx="0" fill="#e9edf9" stroke="none" stroke-width="0"/>
+<text x="207.3" y="340.17650000000003" font-size="13" text-anchor="middle" fill="#4c6173" font-weight="650" >BED 1</text>
+<rect x="285.60" y="248.00" width="156.60" height="184.35" rx="0" fill="#f4ead7" stroke="none" stroke-width="0"/>
+<text x="363.90000000000003" y="340.17650000000003" font-size="13" text-anchor="middle" fill="#4c6173" font-weight="650" >KITCHEN</text>
+<rect x="129.00" y="432.35" width="156.60" height="165.30" rx="0" fill="#def4ef" stroke="none" stroke-width="0"/>
+<text x="207.3" y="515.0029999999999" font-size="13" text-anchor="middle" fill="#4c6173" font-weight="650" >COMMON BATH</text>
+<rect x="129.00" y="597.65" width="156.60" height="147.90" rx="0" fill="#eef0fa" stroke="none" stroke-width="0"/>
+<text x="207.3" y="671.6030000000001" font-size="13" text-anchor="middle" fill="#4c6173" font-weight="650" >BED 2</text>
+<rect x="285.60" y="432.35" width="156.60" height="313.20" rx="0" fill="#fff0c9" stroke="none" stroke-width="0"/>
+<text x="363.90000000000003" y="588.953" font-size="13" text-anchor="middle" fill="#4c6173" font-weight="650" >LIVING</text>
+<rect x="129.00" y="745.55" width="186.62" height="95.70" rx="0" fill="#ffe1bd" stroke="none" stroke-width="0"/>
+<text x="222.3075" y="793.4029999999999" font-size="13" text-anchor="middle" fill="#4c6173" font-weight="650" >U-STAIR</text>
+<rect x="315.62" y="745.55" width="126.59" height="95.70" rx="0" fill="#faeedf" stroke="none" stroke-width="0"/>
+<text x="378.9075" y="793.4029999999999" font-size="11.2" text-anchor="middle" fill="#4c6173" font-weight="650" >CAR PORCH</text>
+<line x1="134.00" y1="836.25" x2="310.61" y2="836.25" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="310.61" y1="836.25" x2="310.61" y2="745.55" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="310.61" y1="745.55" x2="310.61" y2="740.55" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="310.61" y1="740.55" x2="437.20" y2="740.55" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="437.20" y1="740.55" x2="437.20" y2="432.35" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="437.20" y1="432.35" x2="437.20" y2="253.00" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="437.20" y1="253.00" x2="285.60" y2="253.00" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="285.60" y1="253.00" x2="134.00" y2="253.00" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="134.00" y1="253.00" x2="134.00" y2="432.35" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="134.00" y1="432.35" x2="134.00" y2="597.65" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="134.00" y1="597.65" x2="134.00" y2="745.55" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="134.00" y1="745.55" x2="134.00" y2="836.25" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="134.00" y1="432.35" x2="220.87" y2="432.35" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="220.87" y1="432.35" x2="285.60" y2="432.35" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="285.60" y1="432.35" x2="437.20" y2="432.35" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="285.60" y1="432.35" x2="285.60" y2="253.00" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="134.00" y1="597.65" x2="220.87" y2="597.65" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="220.87" y1="597.65" x2="285.60" y2="597.65" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="285.60" y1="745.55" x2="285.60" y2="597.65" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="134.00" y1="745.55" x2="285.60" y2="745.55" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="285.60" y1="745.55" x2="310.61" y2="745.55" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="285.60" y1="597.65" x2="285.60" y2="432.35" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="322.21" y1="740.55" x2="368.62" y2="740.55" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="322.21" y1="740.55" x2="368.62" y2="740.55" stroke="#e49d4a" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="332.88" y1="253.00" x2="293.13" y2="253.00" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="332.88" y1="253.00" x2="293.13" y2="253.00" stroke="#e49d4a" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="240.45" y1="253.00" x2="174.15" y2="253.00" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="240.45" y1="253.00" x2="174.15" y2="253.00" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="134.00" y1="323.60" x2="134.00" y2="389.90" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="134.00" y1="323.60" x2="134.00" y2="389.90" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="390.41" y1="253.00" x2="337.39" y2="253.00" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="390.41" y1="253.00" x2="337.39" y2="253.00" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="134.00" y1="501.74" x2="134.00" y2="528.27" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="134.00" y1="501.74" x2="134.00" y2="528.27" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="134.00" y1="642.81" x2="134.00" y2="709.10" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="134.00" y1="642.81" x2="134.00" y2="709.10" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="374.36" y1="740.55" x2="427.39" y2="740.55" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="374.36" y1="740.55" x2="427.39" y2="740.55" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="177.57" y1="836.25" x2="223.98" y2="836.25" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="177.57" y1="836.25" x2="223.98" y2="836.25" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="134.00" y1="764.61" x2="134.00" y2="830.90" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="134.00" y1="764.61" x2="134.00" y2="830.90" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="412.73" y1="253.00" x2="403.90" y2="253.00" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="412.73" y1="253.00" x2="403.90" y2="253.00" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="310.61" y1="820.96" x2="310.61" y2="774.55" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="310.61" y1="820.96" x2="310.61" y2="774.55" stroke="#e49d4a" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="285.60" y1="306.20" x2="285.60" y2="266.43" stroke="#fff" stroke-width="6.95" stroke-linecap="butt"/>
+<line x1="285.60" y1="306.20" x2="285.60" y2="266.43" stroke="#e49d4a" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="296.48" y1="432.35" x2="336.25" y2="432.35" stroke="#fff" stroke-width="6.95" stroke-linecap="butt"/>
+<line x1="296.48" y1="432.35" x2="336.25" y2="432.35" stroke="#e49d4a" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="285.60" y1="586.78" x2="285.60" y2="545.45" stroke="#fff" stroke-width="6.95" stroke-linecap="butt"/>
+<line x1="285.60" y1="586.78" x2="285.60" y2="545.45" stroke="#e49d4a" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="285.60" y1="693.35" x2="285.60" y2="653.58" stroke="#fff" stroke-width="6.95" stroke-linecap="butt"/>
+<line x1="285.60" y1="693.35" x2="285.60" y2="653.58" stroke="#e49d4a" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="437.20" y1="634.63" x2="437.20" y2="543.28" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="437.20" y1="634.63" x2="437.20" y2="543.28" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<rect x="326.71" y="769.48" width="104.40" height="47.85" rx="2" fill="#efc4ae88" stroke="#cd754a" stroke-width="3.1"/>
+<path d="M331.7,774.5l94.4,37.9m0,-37.9l-94.4,37.9" stroke="#cd754a" stroke-width="1.2" opacity=".6"/>
+<text x="378.90749999999997" y="799.4029999999999" font-size="15" text-anchor="middle" fill="#8a3d1b" font-weight="900" >ST</text>
+<text x="378.90749999999997" y="759.478" font-size="13" text-anchor="middle" fill="#8a3d1b" font-weight="700" >2 400 × 1 100</text>
+<line x1="129" y1="859.253" x2="442.2" y2="859.253" stroke="#7e91a3" stroke-width="1.2"/>
+<text x="285.6" y="882.253" font-size="17" text-anchor="middle" fill="#33465a" font-weight="750" >7 200 mm</text>
+<text x="104" y="544.6265000000001" font-size="16" text-anchor="middle" fill="#33465a" font-weight="700" transform="rotate(-90 104 544.6265000000001)">13 638 mm</text>
+<text x="70" y="895" font-size="14" text-anchor="start" fill="#546a7c" font-weight="550" >Septic shown below car-porch footprint</text>
+<rect x="532" y="152" width="445" height="780" rx="9" fill="#fff" stroke="#dae1e9" stroke-width="2"/><text x="552" y="186" font-size="22" text-anchor="start" fill="#142d46" font-weight="800" >FIRST FLOOR</text><text x="552" y="208" font-size="13" text-anchor="start" fill="#6d7f90" font-weight="500" >Original first-floor layout retained</text>
+<polygon points="614.00,836.25 790.61,836.25 790.61,745.55 790.61,740.55 917.20,740.55 917.20,423.65 917.20,253.00 614.00,253.00 614.00,423.65 614.00,519.35 614.00,595.48 614.00,745.55" fill="#f9fbff" stroke="#c4d0dc" stroke-width="1.5"/>
+<rect x="609.00" y="248.00" width="313.20" height="175.65" rx="0" fill="#e3e9fb" stroke="none" stroke-width="0"/>
+<text x="765.6" y="335.8265" font-size="13" text-anchor="middle" fill="#4c6173" font-weight="650" >MAIN BED</text>
+<rect x="609.00" y="423.65" width="71.77" height="95.70" rx="0" fill="#d9f4f6" stroke="none" stroke-width="0"/>
+<text x="644.8875" y="471.50300000000004" font-size="11.2" text-anchor="middle" fill="#4c6173" font-weight="650" >ENSUITE</text>
+<rect x="680.77" y="423.65" width="84.83" height="95.70" rx="0" fill="#ece6ff" stroke="none" stroke-width="0"/>
+<text x="723.1875" y="471.50300000000004" font-size="11.2" text-anchor="middle" fill="#4c6173" font-weight="650" >WALK-IN ROBE</text>
+<rect x="609.00" y="519.35" width="156.60" height="76.13" rx="0" fill="#def4ef" stroke="none" stroke-width="0"/>
+<text x="687.3" y="557.4155" font-size="13" text-anchor="middle" fill="#4c6173" font-weight="650" >MAIN BATHROOM</text>
+<rect x="609.00" y="595.48" width="156.60" height="150.08" rx="0" fill="#e9edf9" stroke="none" stroke-width="0"/>
+<text x="687.3" y="670.5155" font-size="13" text-anchor="middle" fill="#4c6173" font-weight="650" >BED 2</text>
+<rect x="765.60" y="423.65" width="156.60" height="321.90" rx="0" fill="#fff0c9" stroke="none" stroke-width="0"/>
+<text x="843.9" y="584.6030000000001" font-size="13" text-anchor="middle" fill="#4c6173" font-weight="650" >LOUNGE</text>
+<rect x="609.00" y="745.55" width="186.62" height="95.70" rx="0" fill="#ffe1bd" stroke="none" stroke-width="0"/>
+<text x="702.3075" y="793.4029999999999" font-size="13" text-anchor="middle" fill="#4c6173" font-weight="650" >U-STAIR</text>
+<rect x="795.62" y="745.55" width="126.59" height="95.70" rx="0" fill="#e6f4d8" stroke="none" stroke-width="0"/>
+<text x="858.9075" y="793.4029999999999" font-size="11.2" text-anchor="middle" fill="#4c6173" font-weight="650" >BALCONY</text>
+<line x1="614.00" y1="836.25" x2="790.61" y2="836.25" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="790.61" y1="836.25" x2="790.61" y2="745.55" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="790.61" y1="745.55" x2="790.61" y2="740.55" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="790.61" y1="740.55" x2="917.20" y2="740.55" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="917.20" y1="740.55" x2="917.20" y2="423.65" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="917.20" y1="423.65" x2="917.20" y2="253.00" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="917.20" y1="253.00" x2="614.00" y2="253.00" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="614.00" y1="253.00" x2="614.00" y2="423.65" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="614.00" y1="423.65" x2="614.00" y2="519.35" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="614.00" y1="519.35" x2="614.00" y2="595.48" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="614.00" y1="595.48" x2="614.00" y2="745.55" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="614.00" y1="745.55" x2="614.00" y2="836.25" stroke="#304259" stroke-width="10.01" stroke-linecap="square"/>
+<line x1="614.00" y1="423.65" x2="680.77" y2="423.65" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="680.77" y1="423.65" x2="765.60" y2="423.65" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="765.60" y1="423.65" x2="917.20" y2="423.65" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="680.77" y1="519.35" x2="680.77" y2="423.65" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="614.00" y1="519.35" x2="680.77" y2="519.35" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="680.77" y1="519.35" x2="765.60" y2="519.35" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="614.00" y1="595.48" x2="765.60" y2="595.48" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="765.60" y1="745.55" x2="765.60" y2="595.48" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="765.60" y1="595.48" x2="765.60" y2="519.35" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="765.60" y1="519.35" x2="765.60" y2="423.65" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="614.00" y1="745.55" x2="765.60" y2="745.55" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="765.60" y1="745.55" x2="790.61" y2="745.55" stroke="#304259" stroke-width="4.35" stroke-linecap="square"/>
+<line x1="802.21" y1="740.55" x2="848.62" y2="740.55" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="802.21" y1="740.55" x2="848.62" y2="740.55" stroke="#e49d4a" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="789.52" y1="423.65" x2="829.28" y2="423.65" stroke="#fff" stroke-width="6.95" stroke-linecap="butt"/>
+<line x1="789.52" y1="423.65" x2="829.28" y2="423.65" stroke="#e49d4a" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="730.15" y1="253.00" x2="638.80" y2="253.00" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="730.15" y1="253.00" x2="638.80" y2="253.00" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="887.40" y1="253.00" x2="796.05" y2="253.00" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="887.40" y1="253.00" x2="796.05" y2="253.00" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="614.00" y1="319.25" x2="614.00" y2="385.55" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="614.00" y1="319.25" x2="614.00" y2="385.55" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="614.00" y1="458.24" x2="614.00" y2="484.77" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="614.00" y1="458.24" x2="614.00" y2="484.77" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="614.00" y1="544.15" x2="614.00" y2="570.68" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="614.00" y1="544.15" x2="614.00" y2="570.68" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="614.00" y1="650.42" x2="614.00" y2="716.71" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="614.00" y1="650.42" x2="614.00" y2="716.71" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="854.36" y1="740.55" x2="907.39" y2="740.55" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="854.36" y1="740.55" x2="907.39" y2="740.55" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="657.57" y1="836.25" x2="703.98" y2="836.25" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="657.57" y1="836.25" x2="703.98" y2="836.25" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="614.00" y1="764.61" x2="614.00" y2="830.90" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="614.00" y1="764.61" x2="614.00" y2="830.90" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="626.40" y1="423.65" x2="663.38" y2="423.65" stroke="#fff" stroke-width="6.95" stroke-linecap="butt"/>
+<line x1="626.40" y1="423.65" x2="663.38" y2="423.65" stroke="#e49d4a" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="765.60" y1="576.99" x2="765.60" y2="540.02" stroke="#fff" stroke-width="6.95" stroke-linecap="butt"/>
+<line x1="765.60" y1="576.99" x2="765.60" y2="540.02" stroke="#e49d4a" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="765.60" y1="665.38" x2="765.60" y2="625.62" stroke="#fff" stroke-width="6.95" stroke-linecap="butt"/>
+<line x1="765.60" y1="665.38" x2="765.60" y2="625.62" stroke="#e49d4a" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="790.61" y1="820.96" x2="790.61" y2="774.55" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="790.61" y1="820.96" x2="790.61" y2="774.55" stroke="#e49d4a" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="698.17" y1="423.65" x2="735.15" y2="423.65" stroke="#fff" stroke-width="6.95" stroke-linecap="butt"/>
+<line x1="698.17" y1="423.65" x2="735.15" y2="423.65" stroke="#e49d4a" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="670.23" y1="745.55" x2="709.38" y2="745.55" stroke="#fff" stroke-width="6.95" stroke-linecap="butt"/>
+<line x1="670.23" y1="745.55" x2="709.38" y2="745.55" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="917.20" y1="634.63" x2="917.20" y2="543.28" stroke="#fff" stroke-width="12.61" stroke-linecap="butt"/>
+<line x1="917.20" y1="634.63" x2="917.20" y2="543.28" stroke="#1476ad" stroke-width="2.96" stroke-linecap="butt"/>
+<line x1="609" y1="859.253" x2="922.2" y2="859.253" stroke="#7e91a3" stroke-width="1.2"/>
+<text x="765.6" y="882.253" font-size="17" text-anchor="middle" fill="#33465a" font-weight="750" >7 200 mm</text>
+<text x="584" y="544.6265000000001" font-size="16" text-anchor="middle" fill="#33465a" font-weight="700" transform="rotate(-90 584 544.6265000000001)">13 638 mm</text>
+<text x="550" y="895" font-size="14" text-anchor="start" fill="#546a7c" font-weight="550" >First-floor geometry inherited unchanged</text>
+<rect x="1028" y="152" width="445" height="780" rx="9" fill="#fff" stroke="#dae1e9" stroke-width="2"/><text x="1048" y="186" font-size="22" text-anchor="start" fill="#142d46" font-weight="800" >SITE / SERVICE LOCATION</text><text x="1048" y="208" font-size="13" text-anchor="start" fill="#6d7f90" font-weight="500" >Nominal plot dimensions · millimetres</text>
+<rect x="1079.00" y="238.00" width="317.30" height="634.59" rx="0" fill="#f5faf5" stroke="#1d4750" stroke-width="2"/>
+<polygon points="1146.04,760.13 1286.92,760.13 1286.92,687.78 1286.92,683.79 1387.90,683.79 1387.90,437.94 1387.90,294.87 1266.97,294.87 1146.04,294.87 1146.04,437.94 1146.04,569.80 1146.04,687.78" fill="#dce7ed" stroke="#526579" stroke-width="2.4"/>
+<rect x="1290.91" y="687.78" width="100.98" height="76.34" rx="0" fill="#f7e5d0" stroke="#cd9a6f" stroke-width="1.5"/>
+<rect x="1299.76" y="706.87" width="83.28" height="38.17" rx="0" fill="#dd9358c9" stroke="#cd754a" stroke-width="1.5"/>
+<text x="1341.4014" y="730.9514" font-size="14" text-anchor="middle" fill="#632e19" font-weight="900" >ST</text>
+<text x="1237.6484" y="897.5936" font-size="18" text-anchor="middle" fill="#344e61" font-weight="800" >FRONT / ROAD</text>
+<text x="1237.6484" y="224" font-size="16" text-anchor="middle" fill="#344e61" font-weight="750" >REAR</text>
+<text x="1237.6484" y="918.5936" font-size="14" text-anchor="middle" fill="#4b6072" font-weight="500" >9 144 mm plot width</text>
+<text x="1059" y="555.2968000000001" font-size="15" text-anchor="middle" fill="#344e61" font-weight="650" transform="rotate(-90 1059 555.2968000000001)">18 288 mm</text>
+<text x="1048" y="901" font-size="14" text-anchor="start" fill="#a15032" font-weight="750" >Sealed septic footprint inside porch</text>
+<rect x="52" y="954" width="1492" height="128" rx="10" fill="#fff" stroke="#cdd8e1" stroke-width="1.5"/>
+<text x="75" y="984" font-size="19" text-anchor="start" fill="#1e3b4b" font-weight="800" >DRAWING NOTES</text>
+<text x="75" y="1010" font-size="16" text-anchor="start" fill="#324b5e" font-weight="520" >01  v3.7 is the final architectural version; v3.6 is preserved as a previous numbered edition.</text>
+<text x="75" y="1035" font-size="16" text-anchor="start" fill="#324b5e" font-weight="520" >02  GF shared bathroom retained; separate exterior WC and soak pit are not shown.</text>
+<text x="75" y="1060" font-size="16" text-anchor="start" fill="#324b5e" font-weight="520" >03  ST = reserved sealed-septic footprint below porch. No underground pipe, discharge or structure is designed on this sheet.</text>
+<text x="1530" y="985" font-size="18" text-anchor="end" fill="#1e3b4b" font-weight="750" >LEGEND</text>
+<line x1="1300" y1="1013" x2="1330" y2="1013" stroke="#e49d4a" stroke-width="6"/>
+<text x="1342" y="1019" font-size="15" text-anchor="start" fill="#435a6a" font-weight="500" >Door</text>
+<line x1="1422" y1="1013" x2="1452" y2="1013" stroke="#1476ad" stroke-width="6"/>
+<text x="1464" y="1019" font-size="15" text-anchor="start" fill="#435a6a" font-weight="500" >Window</text>
+<rect x="1299" y="1038" width="30" height="12" fill="#dd9358" stroke="#ba6133"/>
+<text x="1342" y="1050" font-size="15" text-anchor="start" fill="#435a6a" font-weight="500" >Tank</text>
+<text x="1530" y="1105" font-size="15" text-anchor="end" fill="#607084" font-weight="550" >A37–01  |  Model dimensions in millimetres</text>
+</svg>
