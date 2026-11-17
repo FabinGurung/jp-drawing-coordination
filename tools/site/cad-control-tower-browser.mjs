@@ -70,7 +70,7 @@ try{
  await p.locator('#ct-gates li').first().waitFor({timeout:20000});
  assert.equal(await p.locator('a[href="../../../memory-wall/"]').count(),1);
  assert.equal(await p.locator('a[href="../../../projects/ashok-adhikari/memory-wall/"]').count(),1);
- assert.equal(await p.locator('#ct-project option').count(),5);
+ assert.equal(await p.locator('#ct-project option').count(),6);
  await p.locator('#ct-project').selectOption('ashok-adhikari');
  assert.equal(await p.locator('#ct-gates li').count(),4);
  assert.match(await p.locator('#ct-state').innerText(),/V3_2_DISPLAY_ONLY/);
