@@ -1,0 +1,28 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const source=JSON.parse(fs.readFileSync('public/data/codes/pokhara-codal-source-custody.v000001.json','utf8'));
+const registry=JSON.parse(fs.readFileSync('public/data/codes/nepal-pokhara.json','utf8'));
+const page=fs.readFileSync('public/codes/pokhara/index.html','utf8');
+const original=source.source_2081;
+assert.equal(source.schema,'jp-cad://pokhara-codal-source-custody/1');
+assert.equal(original.pdf_pages,139);
+assert.match(original.sha256,/^[a-f0-9]{64}$/);
+assert.equal(original.sections.setback.pdf_page_1_based,29);
+assert.equal(original.sections.road_row.pdf_page_1_based,31);
+assert.equal(source.machine_draft.page_records,139);
+assert.equal(source.machine_draft.clause_records,44);
+assert.equal(source.cad_policy.automatic_numeric_compliance,'BLOCKED_PENDING_2083_AND_SITE_EVIDENCE');
+assert.equal(source.cad_policy.project_geometry_modified,false);
+assert.equal(source.source_2083.status,'OFFICIAL_LISTING_VERIFIED_PDF_CLAUSES_UNRETRIEVED');
+assert.equal(source.source_2080.status,'MIRROR_KNOWN_OFFICIAL_BINARY_NOT_ARCHIVED');
+assert.equal(registry.sources.find(s=>s.id==='PKR2081').sha256,original.sha256);
+assert.equal(registry.sources.find(s=>s.id==='PKR2083').sha256,null);
+assert.equal(registry.sources.find(s=>s.id==='PKR2081').retrieval,'VERIFIED_PDF');
+assert.equal(registry.rules.filter(r=>r.source==='PKR2081').length,0,'Do not silently make historic rule numbers active');
+assert.equal(registry.revision,3);
+for(const url of [original.pdf_drive_url,source.readable.index,source.readable.english_2081_draft])
+ assert(page.includes(url),'Missing source provenance link '+url);
+assert(page.includes('not')&&page.includes('2083'));
+const text=fs.readFileSync('governance/codal/POKHARA_MUNICIPAL_LIBRARY_SOURCE_CUSTODY_V000001.md','utf8');
+assert(text.includes('139 pages')&&text.includes('44 proposed machine records'));
+console.log('POKHARA_CODAL_SOURCE_CUSTODY_V000001_PASS',JSON.stringify({sourceSha:original.sha256,pages:139,draftRecords:44,currentNumericMunicipalRules:0,latestAmendmentGate:'HOLD'}));
