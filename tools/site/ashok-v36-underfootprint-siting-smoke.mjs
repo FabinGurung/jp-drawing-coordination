@@ -16,9 +16,12 @@ eq(study.sourceGeometry.gfParkSourceRoomBboxMm,parking.bbox,'floor graph room bb
 const p=parking.bbox;
 const x=model.services.siteFrame.buildingOffsetX;
 const zOrigin=model.services.siteFrame.plinthRect[3];
-eq(study.sourceGeometry.gfParkConvertedPlotRectAssumingLocalZFromRearMm,
- [x+p[0],zOrigin-p[3],x+p[2],zOrigin-p[1]],'room bbox site transform');
-assert.match(study.sourceGeometry.gfParkLocationDiscrepancy,/FRONT-RIGHT/);
+eq(study.sourceGeometry.gfParkConvertedPlotRectMm,
+ [x+p[0],model.services.siteFrame.plinthRect[1]+p[1]-762,x+p[2],model.services.siteFrame.plinthRect[1]+p[3]-762],
+ 'front-relative graph to site bbox');
+eq(study.sourceGeometry.gfParkSiteCentreMm,[7562,4226],'site centre based on rendered GF-PARK-FINISH');
+assert.equal(study.sourceGeometry.gfParkWorldZCenterMm,12538);
+assert.match(study.sourceGeometry.gfParkLocationDiscrepancy,/CORRECTED/);
 assert.match(study.sourceGeometry.footingLayout,/MISSING/);
 assert.match(study.status,/REVIEW_ONLY/);
 const comps=Object.fromEntries(study.components.map(o=>[o.id,o]));
