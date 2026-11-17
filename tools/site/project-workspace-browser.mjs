@@ -2,18 +2,19 @@ import {chromium} from 'playwright';
 import assert from 'node:assert/strict';
 const base=process.env.PROJECT_SITE_URL||'http://127.0.0.1:5191/JP_Computer-Aided-Drawings/';
 const widths=(process.env.PROJECT_WIDTHS||'390,1440').split(',').map(Number);
+const sourceOnly=slug=>['ramachandra-devkota','js-buddha-jewelers'].includes(slug);
 const browser=await chromium.launch({headless:true,args:['--no-sandbox','--enable-unsafe-swiftshader']});
-async function ready(p,slug){if(slug==='ramachandra-devkota')return;await p.waitForFunction(()=>window.ProjectWorkspace?.getDrawing()?.getState().ready,null,{timeout:60000});await p.waitForFunction(()=>document.querySelector('iframe')?.contentDocument?.body?.dataset.projectEngine);}
+async function ready(p,slug){if(sourceOnly(slug))return;await p.waitForFunction(()=>window.ProjectWorkspace?.getDrawing()?.getState().ready,null,{timeout:60000});await p.waitForFunction(()=>document.querySelector('iframe')?.contentDocument?.body?.dataset.projectEngine);}
 async function chapter(p,id){await p.locator('#pw-tab-'+id).click();await p.waitForFunction(id=>window.ProjectWorkspace.getState().panel===id,id);}
 try{
- for(const width of widths)for(const slug of ['harisharan-adhikari','ashok-adhikari','narayani-parajuli','ramachandra-devkota']){
+ for(const width of widths)for(const slug of ['harisharan-adhikari','ashok-adhikari','narayani-parajuli','ramachandra-devkota','js-buddha-jewelers']){
   const p=await browser.newPage({viewport:{width,height:1000},acceptDownloads:true}),errors=[];p.on('pageerror',e=>errors.push(e.message));
   const response=await p.goto(base+'projects/'+slug+'/',{waitUntil:'networkidle'});assert.equal(response.status(),200);await ready(p,slug);
   assert.equal(await p.locator('.pw-chapter-bar [role=tab]').count(),5);assert.equal(await p.locator('#pw-layout').inputValue(),'split');
   assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'outer overflow '+slug+'/'+width);
   if(width<760){await p.locator('#pw-menu').click();assert.equal(await p.locator('#pw-rail').isVisible(),true);await p.keyboard.press('Escape');assert.equal(await p.locator('#pw-rail').isVisible(),false);}
   const fr=p.frameLocator('iframe.pw-frame');
-  if(slug!=='ramachandra-devkota'){
+  if(!sourceOnly(slug)){
    const har=slug==='harisharan-adhikari';assert.equal(await fr.locator(har?'#plan':'#viewer2d').isVisible(),true);assert.equal(await fr.locator(har?'#viewport canvas':'#viewer3d canvas').isVisible(),true);
    const positions=await p.locator('iframe').evaluate((f,har)=>{const d=f.contentDocument,a=d.querySelector(har?'#plan':'#viewport2d').getBoundingClientRect(),b=d.querySelector(har?'#viewport':'#viewport3d').getBoundingClientRect();return{ax:a.x,ay:a.y,bx:b.x,by:b.y};},har);if(width>=1440)assert.ok(positions.ax<positions.bx,'plan must be left');else assert.ok(positions.ay<positions.by,'mobile plan must precede model');
    const next=har?'first':'ff';await p.locator('#pw-phase').selectOption(next);assert.equal(await p.evaluate(()=>window.ProjectWorkspace.getDrawing().getState().phase),next);
@@ -80,7 +81,7 @@ try{
   await p.waitForFunction(()=>window.ProjectWorkspace?.getState().panel==='packages');
   assert.match(p.url(),/panel=packages/);
   await chapter(p,'views');
-  if(slug!=='ramachandra-devkota')await ready(p,slug);
+  if(!sourceOnly(slug))await ready(p,slug);
 
   await chapter(p,'sources');await p.locator('#pw-source-0').waitFor();assert.ok(await p.locator('.pw-resource').count()>0);if(slug==='harisharan-adhikari'||slug==='narayani-parajuli')assert.doesNotMatch(await p.locator('#pw-content').innerText(),/4\.2 · Detailed material module|4\.2 · Work-package records/);assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2));
   await chapter(p,'views');await p.screenshot({path:`/tmp/project-standard-${slug}-${width}.png`});await p.reload({waitUntil:'networkidle'});await ready(p,slug);assert.equal(await p.locator('#pw-layout').inputValue(),'split');assert.deepEqual(errors,[]);await p.close();console.log('PROJECT_STANDARD_BROWSER_PASS',slug,width);

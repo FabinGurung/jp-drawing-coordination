@@ -2,7 +2,7 @@
 import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
 import {PROJECTS,ALL_WORKSPACE_PROJECTS} from "../../public/assets/js/project-workspace-config.mjs";
-const modelProjects=["narayani-parajuli","ashok-adhikari"],sourceOnly=["harisharan-adhikari","ramachandra-devkota","example-empty"];
+const modelProjects=["narayani-parajuli","ashok-adhikari"],sourceOnly=["harisharan-adhikari","ramachandra-devkota","js-buddha-jewelers","example-empty"];
 for(const slug of modelProjects){
  const p=ALL_WORKSPACE_PROJECTS[slug];assert(p&&p.editions?.length>0);
  assert(p.editions.some(e=>e.manifest?.startsWith("data/projects/"+slug+"/")),slug+" expected exact model-owned source");

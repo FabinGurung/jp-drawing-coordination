@@ -310,6 +310,37 @@
           "focus": "sources"
         }
       ]
+    },
+    "js-buddha-jewelers": {
+      "axisEvidence": "SOURCE_TITLE_BLOCK_CONFLICT__AXES_NOT_ADMITTED",
+      "gateIds": [
+        "ID-01",
+        "SRC-02",
+        "AX-03"
+      ],
+      "gates": [
+        {
+          "id": "ID-01",
+          "title": "Reconcile Ward 11 project identity and source title block",
+          "status": "HOLD",
+          "detail": "The received inserted title-block owner/ward differs from the provided project identity; no unapproved correction or project municipality inference.",
+          "focus": "sources"
+        },
+        {
+          "id": "SRC-02",
+          "title": "Native CAD and A4 print fidelity",
+          "status": "REVIEW_ONLY",
+          "detail": "Ten A3 layouts preserved in source custody. True A4 plot, paper scale, CTB and font QA require native AutoCAD review.",
+          "focus": "sources"
+        },
+        {
+          "id": "AX-03",
+          "title": "Register real letter/number structural axes",
+          "status": "HOLD",
+          "detail": "No published source-registered structural member axes, supports or geometry admitted; preserve nulls.",
+          "focus": "views"
+        }
+      ]
     }
   },
   "viewTemplate": {

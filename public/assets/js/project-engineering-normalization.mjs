@@ -322,6 +322,15 @@ export const NORMALIZED_PACKAGE_CATALOG=Object.freeze([
   }
 ]);
 export const NORMALIZED_PROJECT_METADATA=Object.freeze({
+  "js-buddha-jewelers": {
+  "title": "JS Buddha Jewelers",
+  "synthetic": false,
+  "overallApproval": "NO PUBLIC ENGINEERING ADMISSION",
+  "notice": "Original CAD family received. Title-block owner/ward differs from intake; municipality, geometry, engineering member axes and approved quantities remain held.",
+  "sourceBasis": "Authenticated Fishtail Builders DWG/DXF received 2026-11-17; restricted originals and title-block reconciliation pending.",
+  "rawGeometryAdmitted": false,
+  "normalizationStatus": "SCHEMA_NORMALIZED_NOT_ENGINEERING_APPROVED"
+},
   "narayani-parajuli": {
     "title": "Narayani Parajuli",
     "synthetic": false,
@@ -364,6 +373,7 @@ export const NORMALIZED_PROJECT_METADATA=Object.freeze({
   }
 });
 export const NORMALIZED_EVIDENCE=Object.freeze({
+  "js-buddha-jewelers": {},
   "narayani-parajuli": {
     "pcc": [
       "V02 · v0.8",
@@ -454,6 +464,225 @@ export const NORMALIZED_EVIDENCE=Object.freeze({
   "example-empty": {}
 });
 export const NORMALIZED_PROJECTS=Object.freeze({
+  "js-buddha-jewelers": {
+  "title": "JS Buddha Jewelers",
+  "synthetic": false,
+  "overallApproval": "NO PUBLIC ENGINEERING ADMISSION",
+  "notice": "Original CAD family received. Title-block owner/ward differs from intake; municipality, geometry, engineering member axes and approved quantities remain held.",
+  "sourceBasis": "Authenticated Fishtail Builders DWG/DXF received 2026-11-17; restricted originals and title-block reconciliation pending.",
+  "rawGeometryAdmitted": false,
+  "normalizationStatus": "SCHEMA_NORMALIZED_NOT_ENGINEERING_APPROVED",
+  "slots": [
+    {
+      "slotId": "survey",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "excavation",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "soling",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "pcc",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "footing-rebar",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "footing-rcc",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "dowels",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "columns",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "plinth",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "upper-floors",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "stairs",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "masonry",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "roof-waterproofing",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "tank",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "mep-services",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "qa-closeout",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    }
+  ]
+},
   "narayani-parajuli": {
     "title": "Narayani Parajuli",
     "synthetic": false,

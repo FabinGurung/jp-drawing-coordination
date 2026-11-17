@@ -45,7 +45,7 @@ try{
  await page.waitForFunction(()=>document.getElementById("pw-edit-direct")?.href?.includes("aad-building-v3-grid-review"));
  assert(new URL(await page.locator("#pw-edit-direct").getAttribute("href")).searchParams.get("manifest").endsWith("aad-building-v3-grid-review.json"),
  "Changing Ashok edition must retarget the model, not mix earlier client editions");
- const readOnly=["harisharan-adhikari","ramachandra-devkota","example-empty"];
+ const readOnly=["harisharan-adhikari","ramachandra-devkota","js-buddha-jewelers","example-empty"];
  for(const slug of readOnly){
   await open(page,slug);
   assert.equal(await page.locator("#pw-edit-direct").isVisible(),false,"Source-only project must not claim live editable model: "+slug);

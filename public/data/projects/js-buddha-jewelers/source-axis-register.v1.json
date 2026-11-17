@@ -1,0 +1,20 @@
+{
+  "schema": "jp-cad://source-axis-register/1",
+  "projectSlug": "js-buddha-jewelers",
+  "sourceFamily": "received-2026-11-17",
+  "sourceRef": "data/projects/js-buddha-jewelers/source-intake.v1.json",
+  "revisionId": null,
+  "coordinateFrame": null,
+  "orientation": null,
+  "letters": null,
+  "numbers": null,
+  "intersections": null,
+  "levels": null,
+  "structuralAuthority": "NOT_ADMITTED",
+  "reviewHolds": [
+    "SOURCE_TITLE_BLOCK_CONFLICT",
+    "AXES_NOT_ADMITTED",
+    "MUNICIPALITY_NOT_VERIFIED",
+    "NO_REGISTERED_MODEL"
+  ]
+}

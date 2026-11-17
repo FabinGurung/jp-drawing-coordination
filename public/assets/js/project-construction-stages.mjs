@@ -36,13 +36,15 @@ export const PROJECT_STAGE_EVIDENCE=Object.freeze({
  'narayani-parajuli':NARAYANI,
  'harisharan-adhikari':HARISHARAN,
  'ashok-adhikari':ASHOK,
- 'ramachandra-devkota':{}
+ 'ramachandra-devkota':{},
+ 'js-buddha-jewelers':{}
 });
 const INTRO={
  'narayani-parajuli':'The seven frozen V02–M80 work packages are preserved as original detailed viewers. They remain work-package records, not alternative design editions.',
  'harisharan-adhikari':'Seven separate source-qualified V02–M80 stage pages link through the original 18-column takeoff. M50 dowels and M80 tank explicitly remain unadmitted as fabrication packages; all actual material quantities are provisional.',
  'ashok-adhikari':'Architectural and MEP coordination is published. Stage-specific structural reinforcement, materials and fabrication orders are not admitted.',
- 'ramachandra-devkota':'REV02 is the current source family, but public stage-specific geometry, quantities and approved work packages have not been admitted.'
+ 'ramachandra-devkota':'REV02 is the current source family, but public stage-specific geometry, quantities and approved work packages have not been admitted.',
+ 'js-buddha-jewelers':'Received original DWG/DXF includes floor plans and ten A3 layouts. Title-block identity and structural engineering admission remain on HOLD; no stage workbench is ready.'
 };
 export function availableConstructionStages(slug){
  return CONSTRUCTION_STAGES.filter(s=>Boolean(PROJECT_STAGE_EVIDENCE[slug]?.[s.id]?.href));

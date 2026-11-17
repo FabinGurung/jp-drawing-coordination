@@ -1,0 +1,87 @@
+{
+  "schema": "jp-cad://project-source-intake/1",
+  "project": {
+    "logicalId": "INTAKE-20261117-JS-BUDDHA-JEWELERS",
+    "officialProjectNumber": null,
+    "name": "JS Buddha Jewelers",
+    "contractor": "Fishtail Builders",
+    "wardUserProvided": 11,
+    "municipality": null,
+    "municipalityVerified": false,
+    "useClass": null,
+    "approval": "SOURCE_REVIEW_ONLY"
+  },
+  "receivedDate": "2026-11-17",
+  "sources": {
+    "custody": "Restricted original CAD folder in the owning Fishtail Builders Google Drive project directory",
+    "publishedOriginals": false,
+    "files": [
+      "DWG",
+      "DXF",
+      "BAK backup"
+    ],
+    "temporaryDwlFilesIgnored": true
+  },
+  "verifiedDXF": {
+    "version": "AC1027 / AutoCAD 2013 DXF",
+    "drawingUnits": "mm",
+    "insunits": 4,
+    "modelSpaceEntityCount": 1108,
+    "modelSpaceTypes": {
+      "LINE": 488,
+      "ARC": 291,
+      "LWPOLYLINE": 132,
+      "INSERT": 106,
+      "DIMENSION": 52,
+      "MTEXT": 33,
+      "CIRCLE": 3,
+      "ELLIPSE": 2,
+      "HATCH": 1
+    },
+    "paperSpaceLayouts": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "A",
+      "B",
+      "C"
+    ],
+    "originalPaperSizeMm": [
+      420,
+      297
+    ],
+    "originalOrientation": "landscape",
+    "plotDevice": "DWG To PDF.pc3",
+    "plotStyleSheet": "monochrome.ctb",
+    "floorTitlesDetected": [
+      "GROUND FLOOR PLAN",
+      "FIRST FLOOR PLAN",
+      "TOP FLOOR PLAN"
+    ],
+    "fontDependencies": "Original SHX and TrueType styles require verification on a native AutoCAD workstation",
+    "xrefDependencyPaths": []
+  },
+  "sourceReview": {
+    "status": "HOLD",
+    "identity": "SOURCE_TITLE_BLOCK_CONFLICT",
+    "detail": "The received layout title block contains a different owner and ward from the user-provided intake identity. The inherited or incorrect title block must be checked against an authorized source; its private details are not published here.",
+    "structuralAxes": "AXES_NOT_ADMITTED",
+    "realGeometryToPublicModel": "NOT_ADMITTED",
+    "quantityApproval": false,
+    "constructionApproval": false,
+    "titleBlockCorrection": "NO_UNAPPROVED_EDITS",
+    "floorAreasAccepted": false,
+    "jurisdictionAndROW": "NOT_VERIFIED"
+  },
+  "printing": {
+    "originalSheetSize": "A3 landscape",
+    "a4PrintStatus": "READY_FOR_NATIVE_AUTOCAD_PLOT_QA_NOT_EXPORTED_AS_FIDELITY_CONFIRMED_PDF",
+    "fullSheetA4": "Set A4 landscape and center/fit the complete original layout; printed scale changes approximately 70.7% versus original A3",
+    "closeupA4": "From Model use Plot Window around only the required floor drawing, A4 landscape, Fit to Paper, Center the Plot; preserve original source, and visibly label review proof if crop excludes title block",
+    "notToInfer": "Fit to Paper and browser PDF zoom do not retain a fixed engineer-verified scale"
+  }
+}
