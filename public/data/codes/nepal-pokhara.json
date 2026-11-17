@@ -1,8 +1,8 @@
 {
   "schema": "jp-cad://jurisdiction-code-register/1",
   "id": "AAD-NP-PKR-CODES-001",
-  "revision": 2,
-  "checkedOn": "2026-10-29",
+  "revision": 3,
+  "checkedOn": "2026-11-17",
   "jurisdiction": {
     "country": "Nepal",
     "municipality": "Pokhara Metropolitan City",
@@ -92,6 +92,15 @@
       "sha256": "07a1e3de6648ce9e49eb772c1f0659757605a6febdb5bfc7422f7dd7a45d42ad",
       "retrieval": "VERIFIED_PDF",
       "applicability": "Government project guideline; local approval remains necessary"
+    },
+    {
+      "id": "PKR2081",
+      "title": "Pokhara building/infrastructure standards, first amendment 2081",
+      "subject": "Source-verified 139-page municipal standards, archived PDF; later amendment review OPEN",
+      "url": "https://drive.google.com/file/d/1VVklkANVN8a37AR-jiT_e2CXyFyCW-Bc/view",
+      "sha256": "f8f25a43f15ae55574c4f01a2dbb1704df523803532da66d1019d4e4587cb731",
+      "retrieval": "VERIFIED_PDF",
+      "applicability": "Historic 2080/2081 text; NOT current legal values until 2083 amendment, road classification and cadastral survey are verified"
     },
     {
       "id": "PKR2083",
@@ -490,7 +499,7 @@
   "parameters": {
     "nbc105": {
       "pokharaZoneFactor": 0.35,
-      "ordinaryResidentialImportanceFactor": 1.0,
+      "ordinaryResidentialImportanceFactor": 1,
       "soilClassFromWardAllowed": false
     },
     "nbc205": {
@@ -522,10 +531,10 @@
       "detentionDays": 1,
       "digestionM3PerPerson": 0.0425,
       "sludgeStorageM3PerPerson": {
-        "0.5": 0.0283,
         "1": 0.049,
         "2": 0.0708,
-        "3": 0.085
+        "3": 0.085,
+        "0.5": 0.0283
       },
       "liquidDepthMinM": 1,
       "freeboardRangeM": [
@@ -687,5 +696,6 @@
       "url": "https://www.autodesk.com/learn/ondemand/module/build-plumbing-systems-in-revit",
       "meaning": "Separate sanitary, vent and other systems; model gravity falls and roof penetrations; not a Nepal code."
     }
-  }
+  },
+  "sourceInventoryUpdatedOn": "2026-11-17"
 }
