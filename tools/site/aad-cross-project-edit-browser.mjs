@@ -13,7 +13,7 @@ async function open(page,slug){
 try{
  const page=await browser.newPage({viewport:{width:1400,height:900},acceptDownloads:true});
  const admitted={
-  "ashok-adhikari":"/data/projects/ashok-adhikari/aad-building-v3-7-underporch-option.json",
+  "ashok-adhikari":"/data/projects/ashok-adhikari/aad-building-v3-7-architectural-final.json",
   "narayani-parajuli":"/data/projects/narayani-parajuli/aad-building-v1.json"
  };
  for(const [slug,suffix] of Object.entries(admitted)){
@@ -28,7 +28,7 @@ try{
   assert.equal(await page.locator("#pw-request-status").textContent().then(s=>s.includes("0 local request(s)")),true);
  }
  await open(page,"ashok-adhikari");
- // Owner-approved v3.7 is the default DESIGN OPTION. Frozen v3.6 and superseded v3.5 are independently selectable.
+ // Owner-approved v3.7 is the default ARCHITECTURAL VERSION. Frozen v3.6 and superseded v3.5 are independently selectable.
  await page.locator("#pw-edition").selectOption("v3-6");
  await page.waitForFunction(()=>document.getElementById("pw-edit-direct")?.href?.includes("aad-building-v3-6-review"));
  assert(new URL(await page.locator("#pw-edit-direct").getAttribute("href")).searchParams.get("manifest").endsWith("aad-building-v3-6-review.json"));
