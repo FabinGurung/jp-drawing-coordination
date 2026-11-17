@@ -7317,7 +7317,7 @@
       "originZ": 16.764,
       "widthMm": 9144
     },
-    "sourceGeometryHash": "318239d8d3c582e8fc313466e7416f730bc724cfc4e36692f7dff7b88ef90f85",
+    "sourceGeometryHash": "01e391f144cfad73830ecc6bdafb88e32248bea4c38a65e5dcec7d067fe68f42",
     "sourceYLength": 14.4,
     "stairBay": [
       4.29,
@@ -7434,7 +7434,7 @@
       "countPerLevel": 14,
       "caution": "Reference rows moved to preserve depths 4-3, 3-2 and 2-1. Do not interpret as engineered beams/columns. Building front face recedes 762 mm, structural/rebar coordination not admitted."
     },
-    "sourceGeometryHashBasis": "SHA256 UTF-8 JSON of {gf:floorGraph,ff:floorGraph,site:{originInPlotMm:[1817,3126],gridWorldZmm:{1:13488,2:11438,3:8038,4:4238,5:150}}}"
+    "sourceGeometryHashBasis": "Verified Node.js SHA256 of UTF-8 JSON.stringify canonical {gf:floorGraph,ff:floorGraph,site:{originInPlotMm:[1817,3126],gridWorldZmm:{1:13488,2:11438,3:8038,4:4238,5:150}}}; independent GitHub Actions check. The earlier V8 isolate digest was replaced after failing independent SHA-256 validation."
   },
   "projectId": "ashok-adhikari",
   "release": {
