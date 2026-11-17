@@ -312,18 +312,26 @@
       ]
     },
     "js-buddha-jewelers": {
-      "axisEvidence": "SOURCE_TITLE_BLOCK_CONFLICT__AXES_NOT_ADMITTED",
+      "axisEvidence": "OWNER_IDENTITY_CONFIRMED__SOURCE_TITLE_BLOCK_CORRECTION_PENDING__AXES_NOT_ADMITTED",
       "gateIds": [
         "ID-01",
+        "TB-02",
         "SRC-02",
         "AX-03"
       ],
       "gates": [
         {
           "id": "ID-01",
-          "title": "Reconcile Ward 11 project identity and source title block",
+          "title": "Project identity confirmed by owner — JS Buddhal Jewelers, Ward 11",
+          "status": "VERIFIED_SOURCE",
+          "detail": "Owner directly confirmed Fishtail Builders JS Buddhal Jewelers Ward 11. The old source title block was copied from other CAD work and does not override the user-confirmed project registration. Municipality and design approvals are not confirmed.",
+          "focus": "sources"
+        },
+        {
+          "id": "TB-02",
+          "title": "Correct copied old DWG/DXF title-block in controlled source revision",
           "status": "HOLD",
-          "detail": "The received inserted title-block owner/ward differs from the provided project identity; no unapproved correction or project municipality inference.",
+          "detail": "Original files and fingerprints are preserved. Update title-block name and site fields only in a separately named source revision after municipality/parcel details are verified; run native AutoCAD source and plot QA.",
           "focus": "sources"
         },
         {

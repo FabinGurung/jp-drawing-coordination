@@ -1422,11 +1422,11 @@
       ]
     },
     "js-buddha-jewelers": {
-      "title": "JS Buddha Jewelers",
+      "title": "JS Buddhal Jewelers",
       "synthetic": false,
       "overallApproval": "NO PUBLIC ENGINEERING ADMISSION",
-      "notice": "Original CAD family received. Title-block owner/ward differs from intake; municipality, geometry, engineering member axes and approved quantities remain held.",
-      "sourceBasis": "Authenticated Fishtail Builders DWG/DXF received 2026-11-17; restricted originals and title-block reconciliation pending.",
+      "notice": "Project identity JS Buddhal Jewelers / Fishtail Builders / Ward 11 confirmed by owner. Existing original DWG/DXF title block was copied from old working files and requires a new revised drawing. Structural axes, municipality, geometry, materials and approved quantities remain held.",
+      "sourceBasis": "Owner identity confirmation 2026-11-17 plus preserved authenticated Fishtail Builders received DWG/DXF. Old copied title-block mismatch is not a project identity dispute.",
       "rawGeometryAdmitted": false,
       "normalizationStatus": "SCHEMA_NORMALIZED_NOT_ENGINEERING_APPROVED",
       "slots": [
