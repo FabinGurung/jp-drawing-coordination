@@ -67,6 +67,21 @@ for(const option of study.options.filter(x=>x.septic&&x.soak)){
  }
  assert.match(option.engineeringEvaluation,/HOLD|APPROVAL/);
 }
+// Regulatory screening is distinct from collision screening: geometric fit is never site approval.
+assert.match(study.status,/MUNICIPAL_SETBACK_HOLD/);
+assert.equal(study.municipalRuleScreen.latestAmendment.contentChecked,false);
+assert.match(study.municipalRuleScreen.screenEffect,/PREVENT_ADMISSION/);
+assert.equal(study.sizingScreen.tankOuterLengthWidthRatio,Number((oldSeptic.lengthMm/oldSeptic.widthMm).toFixed(6)));
+assert.ok(study.sizingScreen.tankOuterLengthWidthRatio < 2,'Model tank aspect still outside published 2-to-4 test');
+assert.ok(study.sizingScreen.ventRoofProjectionRecordedM < study.sizingScreen.ventMinimumPublishedEarlierStandardM,'Roof vent height remains HOLD');
+assert.equal(study.freeStripSensitivity.availableNominalBandsMm.left,1817);
+assert.equal(study.freeStripSensitivity.availableNominalBandsMm.right,127);
+assert.equal(study.freeStripSensitivity.availableNominalBandsMm.rear,1524);
+for (const option of study.options.filter(x=>x.septic&&x.soak)){
+  assert.match(option.municipalScreen,/REJECT_AS_PLACED_IN_FRONT_SETBACK/);
+  assert.ok(option.septic.rectMm[3] < f.plinthRect[1],'Septic must lie wholly inside front band for screen');
+  assert.ok(option.soak.rectMm[3] < f.plinthRect[1],'Soak must lie wholly inside front band for screen');
+}
 assert.equal(study.kind,'PRE_DESIGN_COORDINATION_ONLY_NOT_AN_ARCHITECTURAL_EDITION');
 assert.equal(model.restrictions.issueForConstruction,false);
 assert.ok(study.criticalUnknowns.length>=8);
