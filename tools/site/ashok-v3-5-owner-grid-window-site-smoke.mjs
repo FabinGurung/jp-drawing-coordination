@@ -10,7 +10,7 @@ const pg=read('aad-gf-model-v3-grid-review.json'),ng=read('aad-gf-model-v3-5-rev
 const pf=read('aad-ff-model-v3-3-review.json'),nf=read('aad-ff-model-v3-5-review.json');
 const oldSite=read('coordinate-grid-v3-4-site-review.json'),site=read('coordinate-grid-v3-5-review.json');
 const eq=(a,b,msg)=>assert.deepEqual(a,b,msg);
-assert.equal(PROJECTS['ashok-adhikari'].editions[0].id,'v3-7-option','new v3.7 concept is selectable as current');
+assert.equal(PROJECTS['ashok-adhikari'].editions[0].id,'v3-7','new v3.7 concept is selectable as current');
 assert.equal(PROJECTS['ashok-adhikari'].editions[1].id,'v3-6','v3.6 corrected source preserved');
 assert.equal(PROJECTS['ashok-adhikari'].editions[2].id,'v3-5');
 assert.equal(PROJECTS['ashok-adhikari'].editions[2].predecessorId,'v3-4');
