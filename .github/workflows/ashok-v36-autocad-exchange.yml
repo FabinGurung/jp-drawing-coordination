@@ -5,6 +5,7 @@ on:
     paths:
       - "public/data/projects/ashok-adhikari/*v3-6-review.json"
       - "tools/site/export-ashok-v36-autocad.py"
+      - "tools/site/audit-ashok-v36-autocad.py"
       - ".github/workflows/ashok-v36-autocad-exchange.yml"
   workflow_dispatch:
 permissions:
@@ -43,6 +44,8 @@ jobs:
               assert any(e.dxftype()=="DIMENSION" for e in d.modelspace()), file
               print("AC1021_VALIDATED",file.name,len(d.modelspace()))
           PY
+      - name: Independent semantic site / axes / opening-entity DXF acceptance
+        run: python tools/site/audit-ashok-v36-autocad.py --folder out/ashok-v3-6-cad
       - name: Archive versioned AutoCAD exchange for browser-less access
         uses: actions/upload-artifact@v4
         with:
