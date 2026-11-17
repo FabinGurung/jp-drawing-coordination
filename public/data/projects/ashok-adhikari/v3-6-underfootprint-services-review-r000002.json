@@ -1,0 +1,169 @@
+{
+  "schema": "jp-cad://ashok-underfootprint-wastewater-siting-review/1",
+  "id": "ASHOK-V36-UNDERFOOTPRINT-R000002",
+  "dateNpt": "2026-11-17",
+  "project": "Ashok Adhikari Residence",
+  "preservesEdition": "v3-6",
+  "studyType": "OWNER_PROPOSED_ALTERNATIVE_EVALUATION_NOT_DESIGN_EDITION",
+  "userProposal": "Could septic tank and soak pit be located within/below the building footprint instead of the restricted open setbacks?",
+  "status": "REVIEW_ONLY__FOOTPRINT_DOES_NOT_AUTOMATICALLY_SATISFY_CODE",
+  "sourceGeometry": {
+    "nominalSiteRectMm": [
+      0,
+      0,
+      9144,
+      18288
+    ],
+    "houseBoundingRectMm": [
+      1817,
+      3126,
+      9017,
+      16764
+    ],
+    "exteriorWcRectMm": [
+      127,
+      16863,
+      1327,
+      18263
+    ],
+    "gfParkSourceRoomBboxMm": [
+      4290,
+      762,
+      7200,
+      2962
+    ],
+    "gfParkLocationDiscrepancy": "CORRECTED: earlier R000002 reverse floor-axis transformation incorrectly put the porch near rear. Actual GF-PARK-FINISH local world Z=12538mm and plot rear world Z=16764mm give site Y=4226mm (front-right). GF graph bbox Y=762..2962 maps by plotY=3126+(graphY-762) to Y=3126..5326. All still schematic; footing layout missing.",
+    "footingLayout": "MISSING__ONLY_300MM_PROVISIONAL_COLUMN_MARKERS",
+    "floorAndSlabDetails": "MISSING",
+    "sourceOfPlan": "aad-building-v3-6-review.json + aad-gf-model-v3-6-review.json",
+    "gfParkConvertedPlotRectMm": [
+      6107,
+      3126,
+      9017,
+      5326
+    ],
+    "gfParkWorldZCenterMm": 12538,
+    "gfParkSiteCentreMm": [
+      7562,
+      4226
+    ]
+  },
+  "technicalSources": [
+    {
+      "title": "Indian Standard IS 2470 Part 1 (1985) - design/criteria/construction",
+      "url": "https://law.resource.org/pub/in/bis/S03/is.2470.1.1985.pdf",
+      "clause": "3.3.1",
+      "finding": "Normal septic location open to sky, as far away from exterior building wall as possible, accessible for cleaning.",
+      "sourceStatus": "TECHNICAL_REFERENCE__NOT_PROVEN_CURRENT_POKHARA_LEGAL_BASIS"
+    },
+    {
+      "title": "Indian Standard IS 2470 Part 2 (1985) - effluent disposal",
+      "url": "https://law.resource.org/pub/in/bis/S03/is.2470.2.1985.pdf",
+      "clause": "5.3",
+      "finding": "Subsurface absorption field at least 6 m from nearest habitable building; 18 m from drinking water source; ground bearing must be protected from effluent.",
+      "sourceStatus": "TECHNICAL_REFERENCE__NOT_PROVEN_CURRENT_POKHARA_LEGAL_BASIS"
+    },
+    {
+      "title": "Nepal NBC 208 - sanitary and plumbing design requirements",
+      "url": "https://giwmscdnone.gov.np/media/pdf_upload/NBC%20208-2003%20SANITARY%20AND%20PLUMBING%20DESIGN%20REQUIREMENTS_c8hejnp.pdf",
+      "clause": "Sanitary drainage, water tank contamination controls",
+      "finding": "NBC sanitary/plumbing requirements apply; exact underbuilding tank permission has not been admitted.",
+      "sourceStatus": "NATIONAL_REFERENCE__NO_UNDERFOOTPRINT_PERMISSION_FOUND"
+    },
+    {
+      "title": "Pokhara building and infrastructure standards third amendment 2083",
+      "url": "https://www.pokharamun.gov.np/act-law-directives",
+      "clause": "AMENDMENT_POSTED_2026_10_14__FULL_TEXT_NOT_RETRIEVED",
+      "finding": "Latest amendment publicly listed; its precise effect on underbuilding septic, soak pit, access and setback provisions remains unverified.",
+      "sourceStatus": "MUNICIPAL_PRIMARY_SOURCE_LISTING_ONLY__LEGAL_INTERPRETATION_HOLD"
+    }
+  ],
+  "components": [
+    {
+      "id": "D1",
+      "name": "Watertight septic under load-isolated structure / floor",
+      "proposedPosition": "INSIDE_BUILDING_FOOTPRINT__NO_APPROVED_COORDINATES",
+      "geometryScreen": "REMOVES_FOOTPRINT_SITING_FROM_FRONT_REAR_SIDE_OPEN_SETBACKS_ONLY",
+      "codeScreen": "CONFLICTS_WITH_NORMAL_IS2470_PART1_OPEN_TO_SKY_AND_AWAY_FROM_WALL_SITING_RECOMMENDATION__LOCAL_EXCEPTION_NOT_SHOWN",
+      "engineeringStatus": "RESEARCH_ALTERNATIVE_NOT_APPROVED",
+      "requiredDesignEvidence": [
+        "Responsible engineer must establish foundation/grade-beam and excavation exclusion zones, relative founding elevations, groundwater uplift, soil stability and waterproofing",
+        "Tank is fully sealed and has engineered slab/foundation load path isolated from its walls and cover as applicable",
+        "Accessible independent external desludging path and chamber manholes; no access that requires entering living rooms",
+        "Safe vent termination above roof/openings with local code verification and inspection access",
+        "Sanitary grade, gravity invert, cleanouts, maintenance and odor/gas sealing",
+        "Municipal written acceptance of an exception or engineered alternative to normal open-to-sky positioning"
+      ]
+    },
+    {
+      "id": "D2",
+      "name": "Soak/infiltration pit beneath supporting foundation soils",
+      "proposedPosition": "INSIDE_BUILDING_FOOTPRINT__NOT_PLOTTED",
+      "geometryScreen": "NOT_A_VALID_STRUCTURAL_SCREEN__SOIL_ABSORPTION_DIRECTLY_BELOW_BUILDING",
+      "codeScreen": "DISFAVORED_BY_IS2470_PART2_CLAUSE_5_3_NEAREST_HABITABLE_BUILDING_AND_SOIL_BEARING_WARNINGS",
+      "engineeringStatus": "DO_NOT_ADVANCE_AS_STANDARD_SOAK_PIT",
+      "rationale": [
+        "Infiltrating effluent into soil supporting foundations introduces settlement, contamination, groundwater and maintenance risks.",
+        "Near a habitable building the quoted guidance has a 6m minimum, so a pit underneath it cannot satisfy this technical reference.",
+        "Do not call a sealed wastewater tank a 'soak pit'; an impermeable tank has no soil infiltration and needs a separately approved effluent destination."
+      ],
+      "alternativePath": [
+        "Investigate sewer availability and authority permission",
+        "Assess a non-infiltrating engineered treatment/holding system with lawful discharge/regular removal if approved",
+        "Investigate external soil absorption only once survey, actual municipal standards and percolation are available"
+      ]
+    },
+    {
+      "id": "D3",
+      "name": "Relocate separate exterior WC as an integrated internal washroom",
+      "proposedPosition": "INSIDE_ARCHITECTURAL_FLOORPLAN__NO_AUTHORIZED_ROOM_CHANGE",
+      "geometryScreen": "ARCHITECTURAL_OPTION_ONLY",
+      "codeScreen": "MUNICIPAL_SANITATION_AND_HABITABLE_ROOM_REQUIREMENTS_TO_REVIEW",
+      "engineeringStatus": "ARCHITECT_OWNER_REVIEW_BEFORE_NEW_EDITION",
+      "requiredDesignEvidence": [
+        "Usable clear size, door swing, privacy, plumbing and accessible exit",
+        "Structure, slab and sanitary vent coordination",
+        "Proof existing common wet-core can serve demand or review actual new interior footprint",
+        "Retain exterior WC until new owner-approved revision"
+      ]
+    },
+    {
+      "id": "D4",
+      "name": "Keep sealed vessel but relocate absorption/disposal separately",
+      "proposedPosition": "SPLIT_TREATMENT_FROM_DISPOSAL",
+      "geometryScreen": "NOT_GEOMETRY_SELECTED",
+      "codeScreen": "FINAL_EFFLUENT_DESTINATION_REQUIRES_ENGINEERED_LEGAL_ACCEPTANCE",
+      "engineeringStatus": "INVESTIGATE_WITH_MUNICIPAL_AND_MEP",
+      "requiredDesignEvidence": [
+        "Public sewer, municipal approved treatment/export, or off-building infiltration route",
+        "Percolation/seasonal groundwater and drinking-water source separation",
+        "Hydraulic invert/slope or engineered pumping if needed"
+      ]
+    }
+  ],
+  "clearanceDecision": {
+    "siteSetback": "INSIDE_BUILDING_ENVELOPE_MAY_REMOVE_SETBACK_CLASSIFICATION_FOR_LAYOUT_BUT_NOT_MUNICIPAL_LEGAL_APPROVAL",
+    "structural": "UNVERIFIED__FOUNDATIONS_MISSING",
+    "septic": "NO_GO_FOR_STANDARD_OPEN_SKY_LAYOUT__SPECIAL_REVIEW_ONLY",
+    "soak": "NO_GO_BENEATH_FOUNDATION_SOIL_ABSORPTION",
+    "exteriorWc": "CONDITIONAL_ARCHITECTURAL_REDESIGN_OPTION",
+    "municipal2083": "UNVERIFIED_FURTHER_OFFICIAL_REVIEW_REQUIRED",
+    "constructionIssued": false
+  },
+  "requiredNextDocuments": [
+    "Signed surveyed plot boundary, ROW and flood/water-table evidence",
+    "Approved footing/foundation plan, plinth/grade beams, bearing areas, access and excavation profiles",
+    "Local 2083 amended Pokhara clauses concerning under-building tanks / outfalls",
+    "Percolation test and groundwater/well assessment of any actual soil-absorption site",
+    "Real septic chamber sizes, baffle/access, invert, vent, watertight slab and deslugging plan",
+    "Client/architect decision on separate outside WC versus integration"
+  ],
+  "doNotChange": [
+    "v3.6 house dimensions and grid cascade",
+    "Original septic/soak/WC object coordinates",
+    "Original DWG/DXF PDFs and source snapshots",
+    "Published municipal no-go on options A/B",
+    "Structural approval status"
+  ],
+  "decision": "Study D1, D3 and D4 with real original engineering evidence; do not adopt D2 as ordinary soak pit under the habitable structure. No exact underground location can be chosen without footings and municipal approval."
+}
