@@ -43,7 +43,7 @@ assert.ok(route.includes('R000002 machine-readable review'),'R000002 not linked'
 assert.ok(route.includes('NO APPROVED UNDER-SLAB LOCATION'),'Under-building construction hold missing');
 for (const path of ['v3-6-site-services-feasibility-r000001.json','v3-6-underfootprint-services-review-r000002.json']){
  const text=fs.readFileSync(dir+path,'utf8');
- assert.ok(!/drive\\.google|docs\\.google|drive.?id|sandbox:|sediment:/i.test(text),'Private provider identifier found: '+path);
+ assert.ok(!/drive[.]google|docs[.]google|drive.?id|sandbox:|sediment:/i.test(text),'Private provider identifier found: '+path);
 }
 console.log('ASHOK_UNDERFOOTPRINT_SITING_REVIEW_PASS',JSON.stringify({
  sourceEdition:'v3-6',proposals:Object.keys(comps),
