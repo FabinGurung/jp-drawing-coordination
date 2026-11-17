@@ -5,6 +5,13 @@ on:
     paths:
       - "public/data/projects/ashok-adhikari/*v3-6-review.json"
       - "tools/site/export-ashok-v36-autocad.py"
+      - "tools/site/audit-ashok-v36-autocad.py"
+      - ".github/workflows/ashok-v36-autocad-exchange.yml"
+  pull_request:
+    paths:
+      - "public/data/projects/ashok-adhikari/*v3-6-review.json"
+      - "tools/site/export-ashok-v36-autocad.py"
+      - "tools/site/audit-ashok-v36-autocad.py"
       - ".github/workflows/ashok-v36-autocad-exchange.yml"
   workflow_dispatch:
 permissions:
@@ -24,6 +31,7 @@ jobs:
       - name: Check source geometry and produce four R2007 DXF drawings
         run: |
           node tools/site/ashok-v3-6-cascaded-room-smoke.mjs
+          node tools/site/ashok-v36-engineering-debt-smoke.mjs
           python tools/site/export-ashok-v36-autocad.py --source-dir public/data/projects/ashok-adhikari --output-dir out/ashok-v3-6-cad
       - name: Independent AC1021 open-and-audit readback
         run: |
@@ -42,6 +50,8 @@ jobs:
               assert any(e.dxftype()=="DIMENSION" for e in d.modelspace()), file
               print("AC1021_VALIDATED",file.name,len(d.modelspace()))
           PY
+      - name: Independent semantic site / axes / opening-entity DXF acceptance
+        run: python tools/site/audit-ashok-v36-autocad.py --folder out/ashok-v3-6-cad
       - name: Archive versioned AutoCAD exchange for browser-less access
         uses: actions/upload-artifact@v4
         with:
