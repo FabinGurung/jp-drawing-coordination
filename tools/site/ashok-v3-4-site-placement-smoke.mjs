@@ -7,11 +7,12 @@ const old=read('aad-building-v3-3-review.json'),next=read('aad-building-v3-4-rev
 const oldGrid=read('coordinate-grid-v1.json'),newGrid=read('coordinate-grid-v3-4-site-review.json');
 const eq=(a,b,label)=>assert.deepEqual(a,b,label);
 const editions=PROJECTS['ashok-adhikari'].editions;
-assert.equal(editions[0].id,'v3-6','v3.6 corrected version is current');
-assert.equal(editions[1].id,'v3-5','v3.5 mistake is preserved for audit');
-assert.equal(editions[2].id,'v3-4','v3.4 remains frozen and selectable');
-assert.equal(editions[2].predecessorId,'v3-3');
-assert.equal(editions[3].id,'v3-3');
+assert.equal(editions[0].id,'v3-7-option','new owner-approved sanitation concept is current');
+assert.equal(editions[1].id,'v3-6','previous corrected v3.6 stays selectable');
+assert.equal(editions[2].id,'v3-5','v3.5 mistake remains auditable');
+assert.equal(editions[3].id,'v3-4','v3.4 remains frozen and selectable');
+assert.equal(editions[3].predecessorId,'v3-3');
+assert.equal(editions[4].id,'v3-3');
 assert.equal(next.release.previous,'v3-3-review');
 assert.equal(next.release.version,'v3-4-review');
 assert.equal(next.restrictions.issueForConstruction,false);

@@ -76,6 +76,7 @@ jobs:
           node tools/site/ashok-v36-engineering-debt-smoke.mjs
           node tools/site/ashok-v36-site-services-feasibility-smoke.mjs
           node tools/site/ashok-v36-underfootprint-siting-smoke.mjs
+          node tools/site/ashok-v37-underporch-option-smoke.mjs
           node tools/site/ashok-window-colours-smoke.mjs
           node tools/site/project-design-edition-contract-smoke.mjs
           node tools/site/js-buddhal-registration-smoke.mjs
@@ -158,6 +159,7 @@ jobs:
           node tools/site/ashok-v3-4-site-placement-browser.mjs
           node tools/site/ashok-v3-5-owner-grid-window-site-browser.mjs
           node tools/site/ashok-v3-6-cascade-browser.mjs
+          node tools/site/ashok-v37-underporch-option-browser.mjs
           node tools/site/ashok-window-colours-browser.mjs
           node tools/site/project-design-edition-contract-browser.mjs
           node tools/site/ashok-column-axes-browser.mjs
