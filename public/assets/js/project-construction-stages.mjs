@@ -44,7 +44,7 @@ const INTRO={
  'harisharan-adhikari':'Seven separate source-qualified V02–M80 stage pages link through the original 18-column takeoff. M50 dowels and M80 tank explicitly remain unadmitted as fabrication packages; all actual material quantities are provisional.',
  'ashok-adhikari':'Architectural and MEP coordination is published. Stage-specific structural reinforcement, materials and fabrication orders are not admitted.',
  'ramachandra-devkota':'REV02 is the current source family, but public stage-specific geometry, quantities and approved work packages have not been admitted.',
- 'js-buddha-jewelers':'Received original DWG/DXF includes floor plans and ten A3 layouts. Title-block identity and structural engineering admission remain on HOLD; no stage workbench is ready.'
+ 'js-buddha-jewelers':'JS Buddhal Jewelers Ward 11 identity is owner-confirmed. Received DXF/DWG has ten A3 layouts; old copied title block needs a controlled drawing revision, and structural engineering admission remains on HOLD.'
 };
 export function availableConstructionStages(slug){
  return CONSTRUCTION_STAGES.filter(s=>Boolean(PROJECT_STAGE_EVIDENCE[slug]?.[s.id]?.href));

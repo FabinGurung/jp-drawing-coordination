@@ -47,6 +47,7 @@ jobs:
           node tools/site/ashok-v36-engineering-debt-smoke.mjs
           node tools/site/ashok-window-colours-smoke.mjs
           node tools/site/project-design-edition-contract-smoke.mjs
+          node tools/site/js-buddhal-registration-smoke.mjs
           node tools/site/ashok-column-axes-smoke.mjs
           node tools/site/ashok-register-smoke.mjs
           node tools/site/ashok-v2-services-smoke.mjs
