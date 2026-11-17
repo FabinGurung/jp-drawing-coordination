@@ -50,12 +50,12 @@ for(const [slug,project] of Object.entries(ALL_WORKSPACE_PROJECTS)){
  assert.equal(req.requests.length,1);
  assert.ok(req.instructions.includes('NEW project-owned manifest'));
 }
-assert.deepEqual(PROJECTS['ashok-adhikari'].editions.map(x=>x.id),['v3-7-option','v3-6','v3-5','v3-4','v3-3','v3-2','v3-grid','v3','v2','v1']);
+assert.deepEqual(PROJECTS['ashok-adhikari'].editions.map(x=>x.id),['v3-7','v3-6','v3-5','v3-4','v3-3','v3-2','v3-grid','v3','v2','v1']);
 const ashokEditions=Object.fromEntries(PROJECTS['ashok-adhikari'].editions.map(x=>[x.id,x]));
-assert.equal(ashokEditions['v3-7-option'].kind,'design-option');
-assert.equal(ashokEditions['v3-7-option'].lifecycle,'SOURCE_REVIEW');
-assert.equal(ashokEditions['v3-7-option'].predecessorId,'v3-6');
-assert.equal(ashokEditions['v3-7-option'].sourceRef,'data/projects/ashok-adhikari/aad-building-v3-7-underporch-option.json');
+assert.equal(ashokEditions['v3-7'].kind,'architectural-design');
+assert.equal(ashokEditions['v3-7'].lifecycle,'ARCHITECTURAL_FINAL');
+assert.equal(ashokEditions['v3-7'].predecessorId,'v3-6');
+assert.equal(ashokEditions['v3-7'].sourceRef,'data/projects/ashok-adhikari/aad-building-v3-7-architectural-final.json');
 assert.equal(ashokEditions['v3-6'].lifecycle,'FROZEN_REVIEW');
 assert.equal(ashokEditions['v3-6'].predecessorId,'v3-5');
 assert.equal(ashokEditions['v3-6'].sourceRef,'data/projects/ashok-adhikari/aad-building-v3-6-review.json');

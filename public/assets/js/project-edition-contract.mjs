@@ -2,7 +2,7 @@
 // This controls UI/source lineage, not construction/engineering approval.
 export const AAD_WORKSPACE_ENGINE_VERSION='1.4.0';
 export const EDITION_KINDS=Object.freeze(['architectural-design','design-option','source-family','template']);
-export const EDITION_LIFECYCLES=Object.freeze(['RELEASED_REVIEW','FROZEN_REVIEW','FROZEN_BASELINE','SOURCE_REVIEW','SOURCE_PENDING','TEMPLATE_ONLY']);
+export const EDITION_LIFECYCLES=Object.freeze(['RELEASED_REVIEW','FROZEN_REVIEW','FROZEN_BASELINE','ARCHITECTURAL_FINAL','SOURCE_REVIEW','SOURCE_PENDING','TEMPLATE_ONLY']);
 export const EDITION_SNAPSHOT_POLICIES=Object.freeze(['IMMUTABLE_MODEL_PATH','PROJECT_CONTROLLED_SOURCE','SOURCE_POINTER','NO_REAL_DESIGN']);
 const slugPattern=/^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 

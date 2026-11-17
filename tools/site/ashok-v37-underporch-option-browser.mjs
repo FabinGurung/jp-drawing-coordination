@@ -6,10 +6,10 @@ try{
  for(const viewport of [{width:1440,height:900},{width:390,height:844}]){
   const page=await browser.newPage({viewport}),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
-  const response=await page.goto(root+'projects/ashok-adhikari/?edition=v3-7-option&panel=views&phase=gf&layout=split#views',{waitUntil:'domcontentloaded'});
+  const response=await page.goto(root+'projects/ashok-adhikari/?edition=v3-7&panel=views&phase=gf&layout=split#views',{waitUntil:'domcontentloaded'});
   assert.equal(response?.status(),200);
   await page.waitForFunction(()=>window.ProjectWorkspace?.getDrawing()?.getState()?.ready,null,{timeout:65000});
-  assert.equal(await page.locator('#pw-edition').inputValue(),'v3-7-option');
+  assert.equal(await page.locator('#pw-edition').inputValue(),'v3-7');
   const snapshot=await page.locator('#ashok-engine').evaluate(frame=>{
    const p=frame.contentWindow.AADStudio.getSnapshot();
    const manifest=p.manifest,e=manifest.presentation.elements;
@@ -27,7 +27,7 @@ try{
     permissions:manifest.restrictions
    };
   });
-  assert.equal(snapshot.release,'v3-7-owner-service-option');
+  assert.equal(snapshot.release,'v3-7-architectural-final');
   assert.equal(snapshot.tank.xMm,7562);assert.equal(snapshot.tank.yMm,4226);
   assert.equal(snapshot.tank.widthMm,2400);assert.equal(snapshot.tank.lengthMm,1100);
   assert.ok(snapshot.tankElement&&snapshot.hatch,'actual tank and visible hatch are in viewer model');

@@ -8,7 +8,7 @@ const base=load('aad-building-v3-4-review.json'),bad=load('aad-building-v3-5-rev
 const gf0=load('aad-gf-model-v3-grid-review.json'),ff0=load('aad-ff-model-v3-3-review.json');
 const gf=load('aad-gf-model-v3-6-review.json'),ff=load('aad-ff-model-v3-6-review.json'),site=load('coordinate-grid-v3-6-review.json');
 const eq=(a,b,k)=>assert.deepEqual(a,b,k),cl=x=>Math.round(x*1e6)/1e6;
-assert.equal(PROJECTS['ashok-adhikari'].editions[0].id,'v3-7-option');
+assert.equal(PROJECTS['ashok-adhikari'].editions[0].id,'v3-7');
 assert.equal(PROJECTS['ashok-adhikari'].editions[1].id,'v3-6');
 eq(PROJECTS['ashok-adhikari'].editions.slice(2,5).map(x=>x.id),['v3-5','v3-4','v3-3']);
 assert.equal(cur.release.previous,'v3-5-review');assert.equal(cur.release.version,'v3-6-review');
