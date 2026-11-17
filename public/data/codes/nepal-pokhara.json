@@ -499,7 +499,7 @@
   "parameters": {
     "nbc105": {
       "pokharaZoneFactor": 0.35,
-      "ordinaryResidentialImportanceFactor": 1,
+      "ordinaryResidentialImportanceFactor": 1.0,
       "soilClassFromWardAllowed": false
     },
     "nbc205": {
@@ -531,10 +531,10 @@
       "detentionDays": 1,
       "digestionM3PerPerson": 0.0425,
       "sludgeStorageM3PerPerson": {
+        "0.5": 0.0283,
         "1": 0.049,
         "2": 0.0708,
-        "3": 0.085,
-        "0.5": 0.0283
+        "3": 0.085
       },
       "liquidDepthMinM": 1,
       "freeboardRangeM": [
@@ -676,6 +676,7 @@
   "excludedAuthority": {
     "M08": "Excluded from active design inputs by user instruction; no dependency on missing native bytes. Retained history is not an active design basis."
   },
+  "sourceInventoryUpdatedOn": "2026-11-17",
   "mepInterpretations": {
     "source": "NBC208",
     "clauses": {
@@ -697,5 +698,4 @@
       "meaning": "Separate sanitary, vent and other systems; model gravity falls and roof penetrations; not a Nepal code."
     }
   },
-  "sourceInventoryUpdatedOn": "2026-11-17"
 }
