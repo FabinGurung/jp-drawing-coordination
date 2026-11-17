@@ -24,6 +24,7 @@ jobs:
       - name: Check source geometry and produce four R2007 DXF drawings
         run: |
           node tools/site/ashok-v3-6-cascaded-room-smoke.mjs
+          node tools/site/ashok-v36-engineering-debt-smoke.mjs
           python tools/site/export-ashok-v36-autocad.py --source-dir public/data/projects/ashok-adhikari --output-dir out/ashok-v3-6-cad
       - name: Independent AC1021 open-and-audit readback
         run: |
