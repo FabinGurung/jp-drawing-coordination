@@ -39,7 +39,7 @@ export const PROJECTS={
   sourceGroups:[{title:'5.1 · Authorized workspaces',links:[{title:'Restricted live Estimate / BOQ',href:'https://docs.google.com/spreadsheets/d/1JoCVJnHHMAAe42uvpGK6PydJ6p85apWwVqIYCzlkYrc/edit',note:'Google named-account access applies. Internal preliminary estimate; not a contract sum.'},{title:'Restricted current project state',href:'https://docs.google.com/document/d/13tFNFy0MX2ZbXRW3KlkgzsafitPKS8rrVJnmcqKFx1M/edit',note:'Google named-account access applies.'}]},{title:'5.2 · Source and publication gates',links:[archive]}]
  }
 };
-export const CHAPTERS=[['views','01','Views'],['boq','02','Quantities / BOQ'],['gantt','03','Programme / Gantt'],['packages','04','Packages / Site Modules'],['sources','05','Sources & records']];
+export const CHAPTERS=[['views','01','Drawings'],['boq','02','Quantity takeoff'],['packages','04','Packages'],['sources','05','Sources & records'],['more','⋯','More']];
 
 /**
  * This is a deliberately EMPTY, FICTIONAL sample. It must never appear in
