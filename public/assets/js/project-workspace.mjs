@@ -242,8 +242,9 @@ function applyAshokGridVisibility(){
  }else if(legend)legend.hidden=false; // Historic review editions keep their original inspection toggles.
 }
 let clientUnits='m',clientRows=[],clientPicked=null;
-const unitsSelect=()=>'<label class="pw-client-units">Measurements <select id="pw-unit-picker" aria-label="Measurement units"><option value="m"'+(clientUnits==='m'?' selected':'')+'>Metres (m)</option><option value="ft"'+(clientUnits==='ft'?' selected':'')+'>Feet (ft)</option></select></label>';
+const unitsSelect=(id='pw-unit-picker')=>'<label class="pw-client-units">Measurements <select id="'+id+'" aria-label="Measurement units"><option value="m"'+(clientUnits==='m'?' selected':'')+'>Metres (m)</option><option value="ft"'+(clientUnits==='ft'?' selected':'')+'>Feet (ft)</option></select></label>';
 function clientRowFor(state){
+ if(panel==='boq'&&clientPicked)return clientPicked;
  const selected=state?.elements?.find(e=>e.id===state.selectedId);
  if(selected){
   const found=clientRows.find(r=>r.elementId===selected.id);
@@ -347,55 +348,69 @@ async function sources(){let groups=config.sourceGroups.map(g=>({...g,links:[...
  * construction progress, actual site work, priced BOQ or structural acceptance. */
 const ashokGraphs=new Map();
 async function ashokLevelTable(){
- const m=await readEditionModel();
- if(!m?.presentation||!edition.manifest)return '<section class="pw-card">No source-admitted building register for this edition.</section>';
- const baseUrl=new URL(edition.manifest,root),rows=[],warnings=[];
- const add=(level,type,id,source,status,info)=>rows.push({level,type,id:String(id),source:String(source||''),status:String(status||'REVIEW ONLY'),info:String(info||'')});
- for(const level of m.levels||[]){
-  if(!level.model){warnings.push(level.id+': no source floor model');continue;}
+ const manifest=await readEditionModel();
+ if(!manifest?.presentation||!edition.manifest)return '<section class="pw-card"><h2>Quantity takeoff</h2><p>No geometric measurements are available for this version.</p></section>';
+ const baseUrl=new URL(edition.manifest,root),graphs={},errors=[];
+ for(const level of manifest.levels||[]){
+  if(!level.model)continue;
   const url=new URL(level.model,new URL('.',baseUrl));
   if(!ashokGraphs.has(url.href))ashokGraphs.set(url.href,fetch(url).then(async r=>{
    if(!r.ok)throw Error('HTTP '+r.status);
-   const j=await r.json();if(!Array.isArray(j.floorGraph?.walls)||!Array.isArray(j.floorGraph?.openings))throw Error('No admitted floorGraph');return j;
+   return await r.json();
   }).catch(e=>({error:String(e.message||e)})));
-  const floor=await ashokGraphs.get(url.href);
-  if(floor.error){warnings.push(level.id+': '+floor.error);continue;}
-  for(const x of floor.floorGraph.walls)add(level.id,'Wall',x.id,level.model,x.status,'Thickness '+(Number.isFinite(x.thickness)?Math.round(x.thickness*1000)+' mm':'unknown'));
-  for(const x of floor.floorGraph.openings)add(level.id,x.kind||'Opening',x.id,level.model,x.status,'Host '+(x.wallId||'unknown')+' · width '+(Number.isFinite(x.width)?Math.round(x.width*1000)+' mm':'unknown'));
+  const graph=await ashokGraphs.get(url.href);
+  if(graph?.error)errors.push(level.name+': '+graph.error);
+  else graphs[level.id]=graph;
  }
- for(const x of m.presentation.elements||[]){
-  const level=(x.roofPart||x.roofAccess||x.kind==='roof')?'roof':x.level;
-  if(!['gf','ff','roof'].includes(level))continue;
-  add(level,x.kind||'Model item',x.id,x.source,x.status,x.name||'Model presentation item');
+ clientRows=takeoffRows(manifest,graphs);
+ const shown=clientRows.filter(r=>phase==='all'||r.floor===phase||(phase==='roof'&&r.floor==='roof'));
+ const groups=[['gf','Ground floor'],['ff','First floor'],['roof','Roof']].filter(([id])=>phase==='all'||id===phase);
+ const columns=['L','B','H','area','volume'];
+ const fmt=(row,key)=>measure(row[key],clientUnits,key==='area'?2:key==='volume'?3:1);
+ const table=([id,name])=>{
+  const rows=shown.filter(r=>r.floor===id);
+  if(!rows.length)return '';
+  return '<details class="pw-card pw-client-floor-group" open><summary><strong>'+esc(name)+'</strong><span>'+rows.length+' drawing items</span></summary>'+
+   '<div class="pw-element-scroll"><table class="pw-element-table pw-client-takeoff"><thead><tr><th>No.</th><th>Item</th><th>Length</th><th>Breadth</th><th>Height</th><th>Area</th><th>Volume</th><th></th></tr></thead><tbody>'+
+   rows.map((r,i)=>'<tr class="pw-model-record" data-client-key="'+esc(r.key)+'" data-filter="'+esc([r.name,r.type,r.floor,r.id].join(' ').toLowerCase())+'">'+
+    '<td>'+(i+1)+'</td><td><strong>'+esc(r.name)+'</strong><small>'+esc(humanKind(r.type))+'</small></td>'+
+    columns.map(key=>'<td data-measure="'+key+'">'+esc(fmt(r,key))+'</td>').join('')+
+    '<td><button type="button" data-client-inspect="'+esc(r.key)+'" aria-label="Inspect '+esc(r.name)+'">View</button></td></tr>').join('')+
+   '</tbody></table></div></details>';
+ };
+ return '<section class="pw-card pw-level-register pw-client-register">'+
+  '<div class="pw-eyebrow">02 · Quantity takeoff</div><h2>Drawing item measurements</h2>'+
+  '<p>Individual lengths, areas and volumes derived from the selected drawing. These are item measurements, not contractor prices or a material bill.</p>'+
+  '<div class="pw-client-filters"><label>Find an item<input type="search" id="pw-element-search" placeholder="Search walls, doors, rooms…" autocomplete="off"></label>'+
+   unitsSelect('pw-takeoff-unit')+'</div>'+
+  '<p id="pw-element-matches" role="status">'+shown.length+' items</p>'+
+  (errors.length?'<p class="pw-note">'+esc(errors.join(' · '))+'</p>':'')+'</section>'+
+  groups.map(table).join('')+
+  '<p class="pw-takeoff-footnote">Select <strong>View</strong> to open a measured item in the right pane. Item IDs, source records, and model relationships remain inside Technical record.</p>';
+}
+function refreshTakeoffUnits(){
+ for(const tr of document.querySelectorAll('.pw-client-takeoff tr[data-client-key]')){
+  const row=clientRows.find(r=>r.key===tr.dataset.clientKey);
+  if(!row)continue;
+  for(const el of tr.querySelectorAll('[data-measure]'))el.textContent=measure(row[el.dataset.measure],clientUnits,el.dataset.measure==='area'?2:el.dataset.measure==='volume'?3:1);
  }
- rows.sort((a,b)=>a.level.localeCompare(b.level)||a.type.localeCompare(b.type)||a.id.localeCompare(b.id));
- const groups=[
-  ['below','Below plinth / foundations','No source-admitted foundation, excavation, PCC, footing or rebar work-package quantities for Ashok v3.3. Unknown does not mean zero.'],
-  ['plinth','Plinth level','The model uses a 0.61 m reference elevation, not evidence of completed plinth construction.'],
-  ['gf','Ground floor','Architectural floor-graph walls/openings and associated model elements. Provisional axes are not approved structural members.'],
-  ['ff','First floor','Selected v3.3 owner window/door changes. Structural, glazing and stair approval remain HOLD.'],
-  ['roof','Roof / staircase access','Only the roof and access elements expressly present in the model; not a verified roof framing or site completion register.']
- ];
- const show=(phase==='all'?groups:groups.filter(g=>g[0]===phase||(phase==='gf'&&['below','plinth'].includes(g[0]))));
- const sections=show.map(([id,title,note])=>{
-  const a=rows.filter(x=>x.level===id);
-  return '<details class="pw-card pw-level-group" open><summary><strong>'+esc(title)+'</strong> · '+a.length+' source model records</summary><p>'+esc(note)+'</p>'+
-    (a.length?'<div class="pw-element-scroll"><table class="pw-element-table"><thead><tr><th>Type</th><th>ID</th><th>Model detail</th><th>Review status</th></tr></thead><tbody>'+
-     a.map(x=>'<tr class="pw-model-record" data-filter="'+esc([title,x.id,x.type,x.info,x.status].join(' ').toLocaleLowerCase())+'"><td>'+esc(x.type)+'</td><td><code>'+esc(x.id)+'</code></td><td>'+esc(x.info)+'</td><td>'+esc(x.status)+'</td></tr>').join('')+'</tbody></table></div>':
-     '<p class="pw-note">Not source-admitted in the selected edition. No constructed quantity or completion status inferred.</p>')+'</details>';
- }).join('');
- return '<section class="pw-card pw-level-register"><div class="pw-eyebrow">02 · Source item / work-stage distinction</div><h2>Floor-by-floor element table</h2>'+
- '<p><strong>DRAWING OBJECTS, NOT COMPLETED CONSTRUCTION.</strong> There is no verified as-built work log, construction progress status, material takeoff or priced BOQ in the v3.3 architectural model.</p>'+
- '<p>Selected '+esc(edition.name)+' · '+rows.length+' floor-graph and presentation records · below-plinth/plinth evidence explicitly held.</p>'+
- '<label>Search item ID / type / status<input id="pw-element-search" type="search" placeholder="GF-EXT-01, door, roof, HOLD"></label>'+
- '<p id="pw-element-matches" role="status">Filtered rows will be counted here.</p>'+
- (warnings.length?'<p class="pw-note">Source load hold: '+esc(warnings.join('; '))+'</p>':'')+'</section>'+sections+
- '<section class="pw-card"><h3>What are M30, M32, M33 and M34?</h3><p>They are <strong>Narayani Parajuli</strong> original-DXF investigation checkpoints: M30 sheet inventory, M32 paired-strip candidates, M33 source-frame alignment, M34 owner clarifications at G2 and C6–F6. They are neither Ashok design editions nor executed construction stages. They remain in Narayani source workbenches.</p></section>';
+ const select=$('pw-takeoff-unit');if(select)select.value=clientUnits;
+ const inspector=$('pw-unit-picker');if(inspector)inspector.value=clientUnits;
 }
 function bindAshokTable(){
  const input=$('pw-element-search');if(!input)return;
- const update=()=>{let count=0;const needle=input.value.trim().toLocaleLowerCase();document.querySelectorAll('.pw-model-record').forEach(row=>{row.hidden=!!needle&&!row.dataset.filter.includes(needle);if(!row.hidden)count++;});$('pw-element-matches').textContent=count+' matching model row(s) · no site completion implied';};
- input.oninput=update;update();
+ const filter=()=>{
+  const q=input.value.trim().toLowerCase();let count=0;
+  document.querySelectorAll('.pw-model-record').forEach(tr=>{tr.hidden=Boolean(q&&!tr.dataset.filter.includes(q));if(!tr.hidden)count++;});
+  $('pw-element-matches').textContent=count+' drawing item'+(count===1?'':'s');
+ };
+ input.oninput=filter;filter();
+ $('pw-content').querySelectorAll('[data-client-inspect]').forEach(button=>button.onclick=()=>{
+  clientPicked=clientRows.find(r=>r.key===button.dataset.clientInspect)||null;
+  $('pw-content').querySelectorAll('.pw-model-record').forEach(tr=>tr.dataset.selected=String(tr.dataset.clientKey===clientPicked?.key));
+  refreshAshokInspector();
+ });
+ $('pw-content').querySelectorAll('#pw-takeoff-unit').forEach(select=>select.onchange=()=>{clientUnits=select.value;refreshTakeoffUnits();refreshAshokInspector();});
 }
 
 async function choose(next,push=true){panel=next;section=(panel==='sources'||panel==='views')?section:'';if(panel==='packages'&&!packageById(slug,stage))stage=firstPackageId(slug);share(push);closeMenu();$('pw-edition-basis').textContent=edition.basis;$('pw-chapter-title').textContent=CHAPTERS.find(c=>c[0]===panel)[2]+' / '+edition.name;document.querySelectorAll('[data-west-chapter]').forEach(n=>{n.dataset.current=String(n.dataset.westChapter===panel);});document.querySelectorAll('[data-chapter]').forEach(b=>{const on=b.dataset.chapter===panel;b.setAttribute(b.getAttribute('role')==='tab'?'aria-selected':'aria-current',String(on));if(b.classList.contains('pw-link'))on?b.setAttribute('aria-current','page'):b.removeAttribute('aria-current');});phaseOptions();renderEditionProvenance();refreshProjectEditEntry();syncAshokNav();$('pw-sub-sources').innerHTML=config.sourceGroups.map((g,i)=>`<button data-source="${i}">${esc(g.title)}</button><small>5.${i+1}.1 · Source evidence entries</small>`).join('');$('pw-sub-sources').querySelectorAll('button').forEach(b=>b.onclick=async()=>{section='';await choose('sources');$('pw-source-'+b.dataset.source)?.scrollIntoView({block:'start'});});$('pw-sub-boq').innerHTML='<small>2.1 · Phase measurements<br>2.1.1 · Measurement source/units<br>2.2 · Component register<br>2.2.1 · Floor member rows</small>';$('pw-sub-gantt').innerHTML='<small>3.1 · Activity sequence<br>3.1.1 · Calendar and durations<br>3.2 · Dependencies and basis<br>3.2.1 · Source planning assumptions</small>';$('pw-sub-packages').innerHTML='<strong class="pw-tree-section">4.1 · Original workbenches</strong>'+(packageRecords(slug).length?packageRecords(slug).map((r,i)=>`<button data-rail-package="${esc(r.id)}" aria-current="${panel==='packages'&&stage===r.id}">4.1.${i+1} · ${esc(r.title)}</button>`).join(''):'<small>4.1.1 · No original admitted modules</small>')+'<details class="pw-stage-tree"><summary>4.2 · Engineering normalization</summary>'+NORMALIZED_PACKAGE_CATALOG.map(x=>`<button data-normal-slot="${esc(x.id)}">${esc(x.number)} · ${esc(x.title)}</button>`).join('')+'</details>';$('pw-sub-packages').querySelectorAll('[data-rail-package]').forEach(b=>b.onclick=()=>{stage=b.dataset.railPackage;choose('packages');});$('pw-sub-packages').querySelectorAll('[data-normal-slot]').forEach(b=>b.onclick=async()=>{await choose('packages');const node=$('package-slot-'+b.dataset.normalSlot);if(node){node.open=true;node.scrollIntoView({block:'start'});}});
