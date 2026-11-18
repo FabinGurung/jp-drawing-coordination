@@ -44,6 +44,14 @@ async function readEditionModel(){
 }
 async function renderReviewNavigation(){
  const token=++reviewUpdateToken;
+ if(panel==='more'){
+  currentLineage=null;
+  $('pw-axis-proof').hidden=true;
+  $('pw-dock').hidden=true;
+  return;
+ }
+ $('pw-axis-proof').hidden=false;
+ $('pw-dock').hidden=false;
  const [tower,manifest]=await Promise.all([towerPromise,readEditionModel()]);
  const nativeRegister=await readNativeAxisRegister(tower);
  if(token!==reviewUpdateToken)return;
