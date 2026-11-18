@@ -12,7 +12,8 @@ try{
   assert.equal(await p.evaluate(()=>window.ProjectWorkspace.getState().edition),'v3-3');
   assert.equal(await p.locator('#pw-phase').inputValue(),'ff');
   const frame=p.frameLocator('#ashok-engine');
-  await frame.locator('#aad-grid-hud').waitFor({state:'visible',timeout:20000});
+  await frame.locator('#aad-grid-hud').waitFor({state:'attached',timeout:20000});
+  assert.equal(await frame.locator('#aad-grid-hud').isVisible(),false,'Client hides duplicate coordinate tools');
   assert.equal(await frame.locator('#viewer2d').isVisible(),true);
   assert.equal(await frame.locator('#viewer3d canvas').isVisible(),true);
   // The coordinate HUD must be in the east inspector, never over or beneath the drawing.
@@ -24,7 +25,7 @@ try{
     footCoordinateVisible:getComputedStyle(doc.getElementById('aad-coordinate-readout')).display!=='none',
     hasVerboseStairCaption:svg.textContent.includes('STAIR OFFSET HOLD'),
     hasVerboseAxisCaption:svg.textContent.includes('COLUMN AXES · PROVISIONAL'),
-    stair:doc.getElementById('aad-stair-values')?.innerText||''};
+    stair:doc.getElementById('aad-stair-values')?.textContent||''};
   });
   assert.equal(pane.inEast,true,'coordinate HUD must be in the east inspector');
   assert.equal(pane.in2d,false,'coordinate HUD must not appear within the floor drawing');
