@@ -425,7 +425,7 @@ function bindAshokTable(){
 
 function clientMore(){
  const L=(path)=>esc(new URL(path,root).href);
- const schedule='https://github.com/FabinGurung/JP_Scheduling_Work_and_Resources_Management';
+ const schedule='https://github.com/FabinGurung/jp-scheduling-resources-management';
  return '<section class="pw-card pw-client-more" id="more-top"><div class="pw-eyebrow">Project reference</div><h2>More · Guides, codes and project memory</h2>'+
  '<p>Everything for reading the drawings and following their version history, without editing tools.</p>'+
  '<nav class="pw-more-toc" aria-label="More chapter table of contents">'+
