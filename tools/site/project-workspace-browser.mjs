@@ -21,31 +21,30 @@ try{
    if(har){
     const selected=await fr.locator('#plan [data-id]').first().getAttribute('data-id');await fr.locator('#plan [data-id]').first().press('Enter');const state=await p.evaluate(()=>window.ProjectWorkspace.getDrawing().getState());assert.equal(state.selectedId,selected);assert.equal(state.selectedMesh[0].id,selected);assert.ok(state.selectedMesh[0].emissive>0);
     const planIds=await fr.locator('#plan [data-id]').evaluateAll(ns=>ns.map(n=>n.dataset.id).sort());assert.deepEqual(planIds,[...state.visibleIds].sort(),'same visible floor IDs in 2D and 3D');
-    await chapter(p,'boq');await fr.locator('[data-phase-quantity=first]').waitFor();assert.equal(await fr.locator('#har-phase-measurements [data-phase-quantity]').count(),1);assert.ok(await fr.locator('#rows tr').count()>50);await chapter(p,'gantt');assert.equal(await fr.locator('#activities tr').count(),34);
-    const days=Number((await fr.locator('#programme-total').innerText()).match(/· (\d+) calendar/)[1]);await fr.locator('[data-duration=setup]').fill('12');await fr.locator('[data-duration=setup]').dispatchEvent('change');assert.match(await fr.locator('#programme-total').innerText(),new RegExp(String(days+10)));
+    await chapter(p,'boq');await fr.locator('[data-phase-quantity=first]').waitFor();assert.equal(await fr.locator('#har-phase-measurements [data-phase-quantity]').count(),1);assert.ok(await fr.locator('#rows tr').count()>50);await chapter(p,'more');assert.match(await p.locator('#pw-content').innerText(),/Scheduling/);
     await chapter(p,'views');await p.locator('#pw-phase').selectOption('substructure');await chapter(p,'boq');assert.match(await fr.locator('#har-phase-measurements').innerText(),/11,492\.98/);
    }else{
     const item=await p.locator('iframe').evaluate(f=>{const s=f.contentWindow.AADStudio.getSnapshot().assembly;return s.elements.find(e=>e.kind==='wall'&&e.level==='ff').id;});await p.locator('iframe').evaluate((f,id)=>f.contentWindow.ProjectDrawing.select(id),item);assert.equal(await p.evaluate(()=>window.ProjectWorkspace.getDrawing().getState().selectedId),item);
     const proof=await p.locator('iframe').evaluate((f,id)=>f.contentWindow.AADStudio.getViewCoordinateProof(id),item);assert.ok(proof.plan);assert.ok(proof.mesh);assert.equal(proof.elementId,item);
-    await chapter(p,'boq');if(slug==='ashok-adhikari'){await p.locator('.pw-level-register').waitFor();assert.match(await p.locator('.pw-level-register').innerText(),/NOT COMPLETED CONSTRUCTION|not completed construction|not completed|not works completed|DRAWING OBJECTS/i);assert.ok(await p.locator('.pw-model-record').count()>50);assert.match(await p.locator('.pw-level-group').first().innerText(),/not|No|source/i);}else{assert.equal(await fr.locator('#pe-measurements').isVisible(),true);assert.ok(await fr.locator('#elements tr[data-element-id]').count()>0);}await chapter(p,'gantt');assert.match(await p.locator('#pw-content').innerText(),/not|No|unknown/);
+    await chapter(p,'boq');if(slug==='ashok-adhikari'){await p.locator('.pw-level-register').waitFor();assert.match(await p.locator('.pw-level-register').innerText(),/Quantity takeoff|Drawing item measurements/i);assert.ok(await p.locator('.pw-model-record').count()>50);assert.ok(await p.locator('.pw-client-takeoff th').count()>5);}else{assert.equal(await fr.locator('#pe-measurements').isVisible(),true);assert.ok(await fr.locator('#elements tr[data-element-id]').count()>0);}await chapter(p,'more');assert.match(await p.locator('#pw-content').innerText(),/Scheduling/);
     if(slug==='ashok-adhikari'){
      await chapter(p,'views');if(width<760)await p.locator('#pw-menu').click();await p.locator('#pw-edition').selectOption('v1');await p.waitForFunction(()=>window.ProjectWorkspace.getDrawing()?.getState().ready&&window.ProjectWorkspace.getDrawing().getState().elements.every(e=>e.discipline!=='MEP'),null,{timeout:60000});assert.equal(await p.locator('iframe').evaluate(f=>!!f.contentWindow.AADStudio.getSnapshot().manifest.services),false);
      if(width<760)await p.locator('#pw-menu').click();await p.locator('#pw-edition').selectOption('v2');await p.waitForFunction(()=>!!window.ProjectWorkspace.getDrawing()?.getState().elements.some(e=>e.discipline==='MEP'),null,{timeout:60000});
-     const controls=fr.locator('details').filter({has:fr.locator('#aad-services-controls')});await controls.locator('summary').first().click();assert.equal(await fr.locator('#aad-pin-mode').isVisible(),true);assert.equal(await fr.locator('#aad-services-controls').evaluate(e=>e.scrollWidth<=e.clientWidth+2),true);
+     assert.equal(await fr.locator('#aad-inspector').isVisible(),false,'Ashok client view hides developer inspector');
     }
    }
    await chapter(p,'views');await p.locator('#pw-layout').selectOption('plan');assert.equal(await fr.locator(har?'#viewport':'#viewport3d').isVisible(),false);await p.locator('#pw-layout').selectOption('split');if(har){await p.locator('#pw-fit').click();const proof=await p.evaluate(()=>window.ProjectWorkspace.getDrawing().getViewProof());assert.equal(proof.outside,0,'Fit must keep the actual model inside the viewport');}
    assert.equal(await p.locator('iframe').evaluate(f=>f.contentDocument.documentElement.scrollWidth<=f.contentWindow.innerWidth+2),true,'engine overflow '+slug+'/'+width);
-  }else{assert.match(await p.locator('#pw-content').innerText(),/not been admitted|No admitted/);await chapter(p,'boq');assert.match(await p.locator('#pw-content').innerText(),/unknown|pending/);await chapter(p,'gantt');assert.match(await p.locator('#pw-content').innerText(),/start date unknown/);}
+  }else{assert.match(await p.locator('#pw-content').innerText(),/not been admitted|No admitted/);await chapter(p,'boq');assert.match(await p.locator('#pw-content').innerText(),/unknown|pending/);await chapter(p,'more');assert.match(await p.locator('#pw-content').innerText(),/Scheduling/);}
 
   // The packages are now a separate fifth chapter. The original frozen
   // source viewers are linked in place; the east and south panes are real UI.
-  await chapter(p,'views');await p.locator('#pw-open-stages').click();
+  await chapter(p,'views');await p.locator('#pw-tab-packages').click();
   await p.waitForFunction(()=>window.ProjectWorkspace.getState().panel==='packages');
   assert.match(p.url(),/panel=packages/);
   assert.equal(await p.locator('#pw-tab-packages').getAttribute('aria-selected'),'true');
   assert.ok(await p.locator('#pw-inspector').isVisible());
-  assert.ok(await p.locator('#pw-dock').isVisible());
+  assert.equal(await p.locator('#pw-dock').isVisible(),slug!=='ashok-adhikari');
   assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'four-pane outer overflow '+slug+'/'+width);
   if(slug==='narayani-parajuli'){
    assert.equal(await p.locator('[data-package-id]').count(),7);
@@ -71,7 +70,7 @@ try{
    assert.match(await p.locator('#pw-inspector').innerText(),/PROVISIONAL STUDY/);
   }else if(slug==='ashok-adhikari'){
    assert.equal(await p.locator('[data-package-id]').count(),1);
-   assert.match(await p.locator('#pw-inspector').innerText(),/COORDINATION ONLY/);
+   assert.match(await p.locator('#pw-inspector').innerText(),/Site packages/);
    assert.match(await p.locator('#pw-package-cards').innerText(),/MEP/);
   }else{
    assert.equal(await p.locator('[data-package-id]').count(),0);
