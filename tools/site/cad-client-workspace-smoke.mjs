@@ -39,7 +39,7 @@ assert.match(source,/data-more-jump/);
 assert.match(source,/panel==='more'/);
 assert.match(source,/applyAshokClientFrame/);
 assert.match(source,/Technical record/);
-assert.match(css,/body\\[data-project-ui="ashok-client-v2"\\]/);
+assert.ok(css.includes('body[data-project-ui="ashok-client-v2"]'),'client stylesheet must exist');
 for(const old of ['#pw-axis-proof','#pw-dock','#pw-stage-shortcut','#pw-edit-direct','#pw-change-request','#pw-open-local-history'])
  assert.ok(css.includes(old),'legacy UI must be visually excluded: '+old);
 const index=json('public/data/cad/memory-palace-level-1.v1.json');
