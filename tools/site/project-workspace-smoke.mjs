@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 import {PROJECTS,CHAPTERS} from '../../public/assets/js/project-workspace-config.mjs';
 import {CONSTRUCTION_STAGES,PROJECT_STAGE_EVIDENCE,availableConstructionStages,preferredConstructionStage,renderConstructionStages} from '../../public/assets/js/project-construction-stages.mjs';
-assert.equal(Object.keys(PROJECTS).length,5);assert.equal(CHAPTERS.length,5);assert.deepEqual(CHAPTERS.map(c=>c[0]),['views','boq','gantt','packages','sources']);
+assert.equal(Object.keys(PROJECTS).length,5);assert.equal(CHAPTERS.length,5);assert.deepEqual(CHAPTERS.map(c=>c[0]),['views','boq','packages','sources','more']);
 for(const [slug,c] of Object.entries(PROJECTS)){
  const page=fs.readFileSync('public/projects/'+slug+'/index.html','utf8');assert.match(page,new RegExp('data-project="'+slug+'"'));assert.match(page,/project-workspace\.mjs/);assert.match(page,/project-workspace\.css/);
  assert.equal(new Set(c.editions.map(e=>e.id)).size,c.editions.length);
