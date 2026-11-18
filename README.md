@@ -39,3 +39,8 @@ governance/                GitHub lifecycle and A9 evidence
 GitHub Pages is static hosting; it does not run the Python bridge. A later authenticated worker/API will be needed for browser-triggered IFC/STEP/DXF export. No automatic engineering approval, QTO authority or solved constraint system is implied.
 
 Project viewers and history are deliberately retained as useful reference modules. Narayani M80 remains `CODAL_NOT_VERIFIED / HOLD`. Public-source restrictions on private Drive IDs and client records continue to apply.
+
+
+## CAD Level 1 Memory Palace and client drawing workspace (2026-11-18)
+
+The local AI-readable Memory Wall index is at `public/data/cad/memory-palace-level-1.v1.json` and the three-level poster page is at `public/memory-wall/level-1/`. It summarizes CAD source authority, numbered architectural editions, client drawings, Quantity Takeoff, modules, publication and historical technical editing records. A7 remains a read-only cross-repository catalogue; the CAD repository owns these domain rules. The Ashok client workspace hides old edit-request/history, axis audit and component provenance tables from ordinary users; old code and Git commits preserve them for technical maintenance.
