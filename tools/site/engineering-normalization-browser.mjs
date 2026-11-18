@@ -17,7 +17,7 @@ try{
    assert.equal(await p.locator('.pw-package-card').count(),count[slug],slug);
    assert.equal(await p.locator('.pw-chapter-bar [role=tab]').count(),5,slug);
    assert.ok(await p.locator('#pw-inspector').isVisible());
-   assert.ok(await p.locator('#pw-dock').isVisible());
+   assert.equal(await p.locator('#pw-dock').isVisible(),slug!=='ashok-adhikari','client hides review-route UI; source remains in CAD control tower');
    assert.equal(await p.locator('#pw-tab-packages').getAttribute('aria-selected'),'true');
    assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'workspace overflow '+slug+'/'+width);
    await p.locator('#package-slot-columns summary').click();
