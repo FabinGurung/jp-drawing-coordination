@@ -19,7 +19,7 @@ try{
  for(const [slug,suffix] of Object.entries(admitted)){
   await open(page,slug);
   const link=page.locator("#pw-edit-direct");
-  assert.equal(await link.isVisible(),true,slug+" should expose the same shared editor");
+  assert.equal(await link.isVisible(),slug!=="ashok-adhikari",slug+" technical editor route stays functional but hidden from Ashok client navigation");
   const href=await link.getAttribute("href"),url=new URL(href);
   assert(url.pathname.endsWith("/cad/aad/multistorey/"),"Must use one shared viewer");
   assert(url.searchParams.get("manifest").endsWith(suffix),"Wrong source model for "+slug);
