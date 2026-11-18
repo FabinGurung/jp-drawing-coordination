@@ -1,6 +1,7 @@
 import {PROJECTS,ALL_WORKSPACE_PROJECTS,CHAPTERS} from './project-workspace-config.mjs?v=1.4.0';
 import {AAD_WORKSPACE_ENGINE_VERSION,validateEditionRegistries,describeEdition,nextEditionRequest} from './project-edition-contract.mjs?v=1.4.0';
 import {NORMALIZED_PACKAGE_CATALOG} from './project-engineering-normalization.mjs';
+import {takeoffRows,dimensionsFor,measure,humanKind,miniPlanSvg,miniVolumeSvg,toDisplayPosition} from './cad-client-takeoff.mjs';
 import {validateControlTower,inspectAxisEvidence,reviewGate,modelLineage} from './cad-view-control-tower.mjs';
 import {packageRecords,firstPackageId,packageById,renderPackages,renderPackageCards,renderPackageInspector,filterPackageRecords} from './project-site-packages.mjs';
 const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -13,7 +14,8 @@ const requestedEdition=slug==='ashok-adhikari'&&params.get('edition')==='v3-7-op
 let edition=config.editions.find(e=>e.id===requestedEdition)||config.editions[0],phase=params.get('phase')||config.defaultLevel,layout=['split','plan','building','source'].includes(params.get('layout'))?params.get('layout'):'split',panel=params.get('panel')||'views',section=params.get('section')||'',api=null,epoch=0,engineKey='',mounted=false,applying=false;
 let stage=params.get('package')||params.get('stage')||firstPackageId(slug),packageQuery='',packageFilter='all',packageMode='list';
 if(panel==='views'&&section==='stages'){panel='packages';section='';}
-const oldHashes={'#studio':'views','#panel-studio':'views','#register':'boq','#studio-register':'boq','#programme':'gantt','#sources':'sources','#panel-plans':'sources','#panel-visuals':'sources','#panel-qa':'sources','#project-versions':'sources','#scenarios':'sources'};
+if(panel==='gantt'){panel='more';section='scheduling';}
+const oldHashes={'#studio':'views','#panel-studio':'views','#register':'boq','#studio-register':'boq','#programme':'more','#sources':'sources','#panel-plans':'sources','#panel-visuals':'sources','#panel-qa':'sources','#project-versions':'sources','#scenarios':'sources'};
 if(!params.has('panel')&&oldHashes[location.hash])panel=oldHashes[location.hash];if(!CHAPTERS.some(c=>c[0]===panel))panel='views';
 document.title=config.name+' · Project workspace';
 const towerPromise=fetch(new URL('data/cad/view-control-tower.v1.json',root))
@@ -183,22 +185,19 @@ const gridStorageKey='cad:ashok:plan-grid-visible:v1';
 let drawingGridVisible=true;
 try{drawingGridVisible=localStorage.getItem(gridStorageKey)!=='false';}catch(_){}
 if(ashokWorkspace){
- document.body.dataset.projectUi='ashok-v33-navigation';
+ document.body.dataset.projectUi='ashok-client-v2';
  const west=document.createElement('section');
  west.className='pw-west-controls';
  west.setAttribute('aria-label','Ashok drawing and project navigation');
- west.innerHTML='<h3>Workspace navigation</h3>'+
+ west.innerHTML='<h3>Browse this project</h3>'+
   '<nav id="pw-west-chapters" aria-label="Project chapters">'+
   CHAPTERS.map(([id,n,name])=>'<button type="button" data-west-open="'+esc(id)+'" aria-current="false"><small>'+esc(n)+'</small> '+esc(name)+'</button>').join('')+'</nav>'+
-  '<div class="pw-west-fields"><label for="pw-west-phase">Floor / construction level<select id="pw-west-phase"></select></label>'+
-  '<label for="pw-west-layout">2D / 3D drawing layout<select id="pw-west-layout">'+
-  '<option value="split">2D and 3D</option><option value="plan">2D plan</option><option value="building">3D model</option></select></label></div>'+
-  '<button type="button" id="pw-grid-visibility" aria-pressed="true" aria-controls="ashok-engine">Hide 100 mm drawing grid</button>'+
-  '<p class="pw-grid-note">Drawing tiles: 100 / 500 / 1000 mm. Column axes A–C / 1–5 remain shown independently, as <strong>provisional markers</strong>.</p>'+
-  '<a id="pw-west-editor" class="pw-west-editor" href="#" target="_blank" rel="noopener" hidden>Open working edit studio + operation log</a>'+ 
-  '<button type="button" id="pw-open-element-register">Floor-by-floor element table</button>'+
-  '<button type="button" id="pw-open-local-history">Edit requests &amp; local history</button>'+
-  '<small class="pw-review-warning">Current design: architectural review only. No site-completion records or engineered structural columns admitted.</small>';
+  '<div class="pw-west-fields"><label for="pw-west-phase">Floor<select id="pw-west-phase"></select></label>'+
+  '<label for="pw-west-layout">View<select id="pw-west-layout">'+
+  '<option value="split">2D + 3D</option><option value="plan">2D floor plan</option><option value="building">3D building</option></select></label></div>'+
+  '<button type="button" id="pw-grid-visibility" aria-pressed="true" aria-controls="ashok-engine">Hide plan grid</button>'+
+  '<button type="button" id="pw-open-element-register">Quantity takeoff</button>'+
+  '<a href="'+esc(new URL('projects/ashok-adhikari/architectural-v3-7/',root).href)+'" class="pw-west-sheet">Open architectural drawing sheet</a>';
  $('pw-rail').querySelector('.pw-edition-card').before(west);
  const drawer=$('pw-change-request');
  drawer.classList.add('pw-request-drawer');
@@ -215,7 +214,7 @@ function syncAshokNav(){
  if(fp){fp.innerHTML=$('pw-phase').innerHTML;fp.value=phase;}
  if(fl)fl.value=layout;
  const editor=$('pw-west-editor'),sourceEditor=$('pw-edit-direct');
- if(editor&&sourceEditor){editor.hidden=sourceEditor.hidden;if(!sourceEditor.hidden)editor.href=sourceEditor.href;}
+ if(editor&&sourceEditor){editor.hidden=true;}
  for(const b of document.querySelectorAll('[data-west-open]'))b.setAttribute('aria-current',String(b.dataset.westOpen===panel));
  const grid=$('pw-grid-visibility');
  grid.setAttribute('aria-pressed',String(drawingGridVisible));
@@ -234,7 +233,7 @@ function applyAshokGridVisibility(){
  // drawing tiles. Retain separate expert controls on the full editor route.
  const axes=inner.getElementById('aad-column-axes');
  const legend=inner.getElementById('aad-column-axes-label');
- if(['v3-3','v3-4','v3-5','v3-6'].includes(edition.id)){
+ if(['v3-3','v3-4','v3-5','v3-6','v3-7'].includes(edition.id)){
   if(axes&&axes.checked===false){
    axes.checked=true;
    axes.dispatchEvent(new Event('change',{bubbles:true}));
@@ -242,24 +241,70 @@ function applyAshokGridVisibility(){
   if(legend)legend.hidden=true;
  }else if(legend)legend.hidden=false; // Historic review editions keep their original inspection toggles.
 }
-function refreshAshokInspector(){
- if(!ashokWorkspace||panel==='packages')return;
- const state=api?.getState?.(),selected=state?.elements?.find(e=>e.id===state.selectedId);
- const selectedLine=selected?'<strong>'+esc(selected.name||selected.kind||selected.id)+'</strong><code>'+esc(selected.id)+'</code><small>'+esc(selected.kind||'component')+' · '+esc(selected.level||phase)+' · '+esc(selected.status||'review')+'</small>':'<span>No component selected. Select an object in 2D/3D to inspect its registered identity.</span>';
- const floor=edition.levels.find(x=>x.id===phase)?.name||'Whole building';
- $('pw-inspector').innerHTML='<div class="pw-inspector-inner pw-context-inspector">'+
-  '<div class="pw-inspector-heading"><h2>Drawing context</h2></div>'+
-  '<dl><dt>Current edition</dt><dd>'+esc(edition.name)+'</dd><dt>Floor</dt><dd>'+esc(floor)+'</dd><dt>Approval</dt><dd>REVIEW / ENGINEERING HOLD</dd></dl>'+
-  '<h3>Selected element</h3><div class="pw-inspected-object">'+selectedLine+'</div>'+
-  '<h3>Useful actions</h3><div class="pw-inspector-actions">'+
-  '<button type="button" id="pw-inspect-register">Open floor item table</button>'+
-  '<button type="button" id="pw-inspect-history">Open change requests</button>'+
-  '<button type="button" id="pw-inspect-source">Open source records</button></div>'+
-  '<p class="pw-inspector-disclaimer">This pane reports model context, not construction progress. The detailed sortable element register is in the floor table and embedded AAD viewer. No direct source mutation or server-side edit journal is claimed.</p></div>';
- $('pw-inspect-register').onclick=()=>choose('boq');
- $('pw-inspect-history').onclick=()=>{$('pw-change-request').open=true;};
- $('pw-inspect-source').onclick=()=>choose('sources');
+let clientUnits='m',clientRows=[],clientPicked=null;
+const unitsSelect=()=>'<label class="pw-client-units">Measurements <select id="pw-unit-picker" aria-label="Measurement units"><option value="m"'+(clientUnits==='m'?' selected':'')+'>Metres (m)</option><option value="ft"'+(clientUnits==='ft'?' selected':'')+'>Feet (ft)</option></select></label>';
+function clientRowFor(state){
+ const selected=state?.elements?.find(e=>e.id===state.selectedId);
+ if(selected){
+  const found=clientRows.find(r=>r.elementId===selected.id);
+  if(found)return found;
+  return {key:selected.id,id:selected.id,elementId:selected.id,name:selected.name||humanKind(selected.kind),type:selected.kind,
+   floor:selected.level||phase,L:selected.dx,B:selected.dz,H:selected.dy,
+   area:Number.isFinite(selected.dx)&&Number.isFinite(selected.dz)?selected.dx*selected.dz:null,
+   volume:Number.isFinite(selected.dx)&&Number.isFinite(selected.dz)&&Number.isFinite(selected.dy)?selected.dx*selected.dz*selected.dy:null,
+   center:{x:selected.x,y:selected.y,z:selected.z},
+   technical:{id:selected.id,source:selected.source,status:selected.status,provenance:selected.provenance?.basis,ifcType:selected.ifcType}};
+ }
+ return clientPicked;
 }
+function refreshAshokInspector(){
+ if(!ashokWorkspace)return;
+ const container=$('pw-inspector');
+ if(!['views','boq'].includes(panel)){
+  container.innerHTML='<section class="pw-client-inspector"><h2>'+esc(panel==='sources'?'Sources & records':panel==='packages'?'Site packages':'Project reference')+'</h2><p>Open a document or package in the centre to read its full information.</p><a href="'+esc(new URL('memory-wall/level-1/',root).href)+'">CAD memory wall · Level 1</a></section>';
+  return;
+ }
+ const row=clientRowFor(api?.getState?.()),info=row?.technical||{};
+ const dimensions=row?dimensionsFor(row,clientUnits):[];
+ const metrics=dimensions.map(([k,v])=>'<div><dt>'+esc(k)+'</dt><dd>'+esc(v)+'</dd></div>').join('');
+ const technical=row?'<details class="pw-client-technical"><summary>Technical record</summary><dl>'+
+ Object.entries({ID:info.id||row.id,Source:info.source,Status:info.status,Host:info.host,Classification:info.ifcType,Provenance:info.provenance,NodeA:info.nodeA,NodeB:info.nodeB}).filter(([,v])=>v!=null&&v!=='').map(([k,v])=>'<div><dt>'+esc(k)+'</dt><dd>'+esc(v)+'</dd></div>').join('')+
+ '</dl></details>':'';
+ container.innerHTML='<section class="pw-client-inspector"><div class="pw-client-inspector-top"><h2>Selected item</h2>'+unitsSelect()+'</div>'+
+ (row?'<strong class="pw-client-item-title">'+esc(row.name)+'</strong><small>'+esc((row.floor||phase).toUpperCase()+' · '+humanKind(row.type))+'</small>'+
+ '<figure class="pw-client-mini"><figcaption>2D · Location on plan</figcaption>'+miniPlanSvg(row)+'</figure>'+
+ '<figure class="pw-client-mini"><figcaption>3D · Item size</figcaption>'+miniVolumeSvg(row)+'</figure>'+
+ '<dl class="pw-client-metrics">'+metrics+'</dl>'+
+ '<p class="pw-client-pin"><strong>Pinned location</strong><span>'+esc(toDisplayPosition(row,clientUnits))+'</span></p>'+
+ technical:
+ '<div class="pw-client-empty"><p>Click a wall, door, window or other drawing item. Its location and dimensions will stay here.</p></div>')+
+ '<button type="button" id="pw-client-takeoff-link">Open quantity takeoff</button></section>';
+ const unit=$('pw-unit-picker');if(unit)unit.onchange=()=>{clientUnits=unit.value;refreshAshokInspector();if(panel==='boq')refreshTakeoffUnits();};
+ const link=$('pw-client-takeoff-link');if(link)link.onclick=()=>choose('boq');
+}
+function applyAshokClientFrame(){
+ if(!ashokWorkspace)return;
+ const d=frame?.contentDocument;if(!d?.head)return;
+ d.body.dataset.clientEmbed='true';
+ if(!d.getElementById('aad-client-embed-css')){
+  const style=d.createElement('style');style.id='aad-client-embed-css';style.textContent=`
+ /* Client-facing embedding only: native editor and provenance stay in their source route. */
+ #aad-edit-history-panel,#aad-inspector,#aad-grid-hud,#aad-coordinate-readout,
+ #aad-derived-room-panel,#aad-audit-register,#aad-m29-controls,#aad-m30-source,
+ #aad-m32-source,#aad-m33-source,#aad-m34-source,#aad-plan-authoring,
+ #aad-selected-details,.audit,.foot,.view-foot,.unified-toolbar,.head,
+ #aad-services-controls,#aad-presentation-controls {display:none!important}
+ .workspace{grid-template-columns:minmax(0,1fr)!important;gap:0!important}
+ .linked-views{grid-template-columns:minmax(0,1fr) minmax(0,1.04fr)!important}
+ .viewport{border-radius:12px!important}
+ #viewer2d,#viewer3d{min-height:330px!important;height:min(63vh,630px)!important}
+ @media(max-width:920px){.linked-views{grid-template-columns:1fr!important}
+ #viewer2d,#viewer3d{height:390px!important}}
+ `;
+  d.head.append(style);
+ }
+}
+
 
 $('pw-edition').value=edition.id;$('pw-layout').value=layout;
 const validPhase=()=>phase==='all'||edition.levels.some(l=>l.id===phase);
@@ -289,10 +334,10 @@ async function renderOwnerRevision(){
  }catch(e){target.hidden=false;target.textContent='Owner revision record could not load; retain v2 as the authoritative working reference. '+String(e.message||e);}
 }
 
-function resizeFrame(){try{const d=frame.contentDocument;if(d?.body&&frame.src&&frame.offsetWidth){const h=Math.max(680,Math.ceil(d.querySelector('main').getBoundingClientRect().height)+12);if(Math.abs(frame.clientHeight-h)>3)frame.style.height=h+'px';applyAshokGridVisibility();}}catch{}}
+function resizeFrame(){try{const d=frame.contentDocument;if(d?.body&&frame.src&&frame.offsetWidth){const h=Math.max(680,Math.ceil(d.querySelector('main').getBoundingClientRect().height)+12);if(Math.abs(frame.clientHeight-h)>3)frame.style.height=h+'px';applyAshokGridVisibility();applyAshokClientFrame();}}catch{}}
 function syncEngine(){if(!api)return;applying=true;const wanted=phase;api.setPanel(panel==='boq'?'boq':section==='scenarios'?'scenarios':section==='evidence'?'sources':panel);api.setLevel(wanted);api.setLayout(layout);applying=false;context();setTimeout(resizeFrame,50);}
 async function ensureEngine(){if(!edition.manifest&&!edition.engine)return false;const key=edition.id;if(key===engineKey&&api){syncEngine();return true;}if(key===engineKey&&mounted)return true;api=null;mounted=true;engineKey=key;const token=++epoch;const u=edition.engine==='harisharan'?new URL('workspace/',location.href):new URL('cad/aad/multistorey/',root);u.searchParams.set('embed','1');u.searchParams.set('workspace','standard');if(edition.manifest)u.searchParams.set('manifest',new URL(edition.manifest,root).pathname);if(edition.structure)u.searchParams.set('structure',edition.structure);frame.src=u.href;
- for(let i=0;i<150&&token===epoch;i++){await new Promise(r=>setTimeout(r,300));const candidate=frame.contentWindow?.ProjectDrawing;if(candidate?.getState()?.ready){api=candidate;mounted=false;syncEngine();frame.contentDocument.addEventListener('project-drawing-state',()=>{context();resizeFrame();refreshAshokInspector();});new ResizeObserver(resizeFrame).observe(frame.contentDocument.body);applyAshokGridVisibility();refreshAshokInspector();return true;}}
+ for(let i=0;i<150&&token===epoch;i++){await new Promise(r=>setTimeout(r,300));const candidate=frame.contentWindow?.ProjectDrawing;if(candidate?.getState()?.ready){api=candidate;mounted=false;syncEngine();frame.contentDocument.addEventListener('project-drawing-state',()=>{context();resizeFrame();refreshAshokInspector();});new ResizeObserver(resizeFrame).observe(frame.contentDocument.body);applyAshokGridVisibility();applyAshokClientFrame();refreshAshokInspector();return true;}}
  if(token===epoch){$('pw-context').textContent='The drawing engine could not load. Source records remain available.';$('pw-context').classList.add('pw-error');mounted=false;engineKey='';}return false;}
 function emptyViews(){return `<div class="pw-card"><h2>1 · Views · ${esc(edition.name)}</h2><p>${esc(edition.basis)}</p><div class="pw-empty-grid"><div class="pw-empty"><strong>2D plan</strong><p>Current private CAD sources have not been admitted as a public plan.</p></div><div class="pw-empty"><strong>3D model</strong><p>No admitted public geometry for this phase. An empty view does not imply zero work.</p></div></div><p><a href="?panel=sources#sources" data-open="sources">Open source and access records →</a></p></div>`;}
 async function sources(){let groups=config.sourceGroups.map(g=>({...g,links:[...g.links]}));if(slug==='harisharan-adhikari'){const r=await fetch(new URL('data/projects/harisharan-adhikari/building.json',root));if(r.ok){const d=await r.json();groups.find(g=>g.harisharanSources).links=d.levels.map(l=>({title:l.name+' · original plan',href:new URL('data/projects/harisharan-adhikari/'+l.sourceSvg,root).href,image:true}));}}
@@ -368,7 +413,7 @@ if(ashokWorkspace){
   syncAshokNav();applyAshokGridVisibility();
  };
  $('pw-open-element-register').onclick=()=>choose('boq');
- $('pw-open-local-history').onclick=()=>{$('pw-change-request').open=true;};
+ // Browser-local editing/history remains archived in source history, not the client navigation.
  $('pw-close-request').onclick=()=>{$('pw-change-request').open=false;};
 }const chapterTabs=[...document.querySelectorAll('.pw-chapter-bar button')];chapterTabs.forEach((b,i)=>b.onkeydown=e=>{const count=chapterTabs.length,n=e.key==='ArrowRight'?(i+1)%count:e.key==='ArrowLeft'?(i+count-1)%count:e.key==='Home'?0:e.key==='End'?count-1:null;if(n!==null){e.preventDefault();chapterTabs[n].focus();section='';choose(chapterTabs[n].dataset.chapter);}});
 $('pw-phase').onchange=()=>{phase=$('pw-phase').value;share();phaseOptions();refreshProjectEditEntry();syncEngine();context();renderReviewNavigation();$('pw-scope').textContent=edition.levels.find(l=>l.id===phase)?.note||config.quantities;syncAshokNav();if(ashokWorkspace&&panel==='boq')choose('boq');else refreshAshokInspector();};$('pw-layout').onchange=()=>{layout=$('pw-layout').value;share();refreshProjectEditEntry();api?.setLayout(layout);setTimeout(resizeFrame,50);syncAshokNav();};$('pw-fit').onclick=()=>api?.fit();
