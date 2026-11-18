@@ -11,7 +11,8 @@ try {
   assert.equal(await p.evaluate(()=>window.ProjectWorkspace.getState().edition),'v3-2');
   assert.equal(await p.locator('#pw-phase').inputValue(),'ff');
   const frame=p.frameLocator('#ashok-engine');
-  await frame.locator('#aad-grid-hud').waitFor({state:'visible',timeout:20000});
+  await frame.locator('#aad-grid-hud').waitFor({state:'attached',timeout:20000});
+  assert.equal(await frame.locator('#aad-grid-hud').isVisible(),false,'No duplicate coordinate HUD in client reader');
   assert.equal(await frame.locator('#viewer2d').isVisible(),true);
   assert.equal(await frame.locator('#viewer3d canvas').isVisible(),true);
   const proof=await p.locator('#ashok-engine').evaluate(el=>{
@@ -42,7 +43,10 @@ try {
   assert.match(pin.preview,/Preview \(not pinned\)/);
   const editorHref=await p.locator('#pw-edit-direct').getAttribute('href');
   assert.equal(new URL(editorHref).searchParams.get('phase'),'ff');
-  const [editor]=await Promise.all([p.waitForEvent('popup'),p.locator('#pw-edit-direct').click()]);
+  assert.equal(await p.locator('#pw-edit-direct').isVisible(),false,'Technical editor remains a separate route, not a client action');
+  const editor=await browser.newPage({viewport});
+  const editorResponse=await editor.goto(editorHref,{waitUntil:'domcontentloaded'});
+  assert.equal(editorResponse?.status(),200);
   editor.on('pageerror',e=>errors.push(e.message));
   await editor.waitForFunction(()=>window.AADStudio?.getSnapshot()&&document.getElementById('aad-storey')?.value==='ff',null,{timeout:65000});
   assert.equal(await editor.locator('#aad-storey').inputValue(),'ff');
