@@ -45,7 +45,7 @@
     "north": "client chapters (drawings, quantity takeoff, packages, sources and More)",
     "west": "versions-and-chapter-tree",
     "east": "selected item mini 2D and 3D, dimensions, pinned location; expandable technical record",
-    "south": "optional client detail dock; historical review/checkpoint data remains in Sources & records"
+    "south": "optional client detail dock; no duplicate chapter or package menu; historical review checkpoints remain in Sources & records"
   },
   "packages": [],
   "sourceBoundary": {
