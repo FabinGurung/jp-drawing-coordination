@@ -78,6 +78,7 @@ jobs:
           node tools/site/ashok-v36-underfootprint-siting-smoke.mjs
           node tools/site/ashok-v37-underporch-option-smoke.mjs
           node tools/site/ashok-v37-architectural-sheet-smoke.mjs
+          node tools/site/cad-client-workspace-smoke.mjs
           node tools/site/ashok-window-colours-smoke.mjs
           node tools/site/project-design-edition-contract-smoke.mjs
           node tools/site/js-buddhal-registration-smoke.mjs
