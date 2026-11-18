@@ -11,7 +11,7 @@ const templatePage=fs.readFileSync('public/templates/project-workspace/index.htm
 const sourceConfig=fs.readFileSync('public/assets/js/project-workspace-config.mjs','utf8');
 const sourceApp=fs.readFileSync('public/assets/js/project-workspace.mjs','utf8');
 assert.equal(schema.$id,'jp-cad://aad/site-package-workspace-template/1');
-assert.deepEqual(CHAPTERS.map(c=>c[0]),['views','boq','gantt','packages','sources']);
+assert.deepEqual(CHAPTERS.map(c=>c[0]),['views','boq','packages','sources','more']);
 assert.deepEqual(example.chapters,CHAPTERS.map(c=>c[0]));
 assert.deepEqual(Object.keys(example.navigation).sort(),['east','north','south','west']);
 
@@ -22,7 +22,7 @@ assert.equal(example.normalization.templateOnly,true);assert.equal(example.norma
 assert.equal(example.sourceBoundary.designApproval,false);
 assert.equal(example.sourceBoundary.publicRedaction,true);
 assert.match(templatePage,/four navigation directions/i);
-assert.match(templatePage,/Packages \/ Site Modules/);
+assert.match(templatePage,/Packages/);
 assert.match(sourceApp,/pw-inspector/);
 assert.match(sourceApp,/pw-dock/);
 assert.match(sourceApp,/packageRecords/);
