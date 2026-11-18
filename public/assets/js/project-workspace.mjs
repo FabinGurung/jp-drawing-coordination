@@ -249,22 +249,23 @@ function applyAshokGridVisibility(){
   if(legend)legend.hidden=true;
  }else if(legend)legend.hidden=false; // Historic review editions keep their original inspection toggles.
 }
-let clientUnits='m',clientRows=[],clientPicked=null;
+let clientUnits='m',clientRows=[],clientPicked=null,clientLastPinned=null;
 const unitsSelect=(id='pw-unit-picker')=>'<label class="pw-client-units">Measurements <select id="'+id+'" aria-label="Measurement units"><option value="m"'+(clientUnits==='m'?' selected':'')+'>Metres (m)</option><option value="ft"'+(clientUnits==='ft'?' selected':'')+'>Feet (ft)</option></select></label>';
 function clientRowFor(state){
  if(panel==='boq'&&clientPicked)return clientPicked;
  const selected=state?.elements?.find(e=>e.id===state.selectedId);
  if(selected){
   const found=clientRows.find(r=>r.elementId===selected.id);
-  if(found)return found;
-  return {key:selected.id,id:selected.id,elementId:selected.id,name:selected.name||humanKind(selected.kind),type:selected.kind,
+  if(found){clientLastPinned=found;return found;}
+  const fallback={key:selected.id,id:selected.id,elementId:selected.id,name:selected.name||humanKind(selected.kind),type:selected.kind,
    floor:selected.level||phase,L:selected.dx,B:selected.dz,H:selected.dy,
    area:Number.isFinite(selected.dx)&&Number.isFinite(selected.dz)?selected.dx*selected.dz:null,
    volume:Number.isFinite(selected.dx)&&Number.isFinite(selected.dz)&&Number.isFinite(selected.dy)?selected.dx*selected.dz*selected.dy:null,
    center:{x:selected.x,y:selected.y,z:selected.z},
    technical:{id:selected.id,source:selected.source,status:selected.status,provenance:selected.provenance?.basis,ifcType:selected.ifcType}};
+  clientLastPinned=fallback;return fallback;
  }
- return clientPicked;
+ return clientLastPinned||clientPicked;
 }
 function refreshAshokInspector(){
  if(!ashokWorkspace)return;
@@ -415,6 +416,7 @@ function bindAshokTable(){
  input.oninput=filter;filter();
  $('pw-content').querySelectorAll('[data-client-inspect]').forEach(button=>button.onclick=()=>{
   clientPicked=clientRows.find(r=>r.key===button.dataset.clientInspect)||null;
+  if(clientPicked){clientLastPinned=clientPicked;api?.select?.(clientPicked.elementId);}
   $('pw-content').querySelectorAll('.pw-model-record').forEach(tr=>tr.dataset.selected=String(tr.dataset.clientKey===clientPicked?.key));
   refreshAshokInspector();
  });
@@ -510,7 +512,7 @@ $('pw-request-export').onclick=()=>{
  document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);
  requestStatus("Downloaded proposal-only request history. Nothing has been written to GitHub or Drive.");
 };
-$('pw-open-stages').onclick=()=>{stage=stage||firstPackageId(slug);choose('packages');};$('pw-edition').onchange=()=>{edition=config.editions.find(e=>e.id===$('pw-edition').value);reviewIndex=0;engineKey='';mounted=false;epoch++;section='';choose(panel);};$('pw-project').onchange=()=>location.assign(new URL('projects/'+$('pw-project').value+'/',root));$('pw-menu').onclick=()=>{const open=document.body.dataset.menu!=='open';document.body.dataset.menu=open?'open':'closed';$('pw-menu').setAttribute('aria-expanded',String(open));};addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});addEventListener('popstate',()=>{const p=new URL(location.href).searchParams;edition=config.editions.find(e=>e.id===p.get('edition'))||config.editions[0];$('pw-edition').value=edition.id;phase=p.get('phase')||config.defaultLevel;layout=p.get('layout')||'split';$('pw-layout').value=layout;section=p.get('section')||'';stage=p.get('package')||p.get('stage')||firstPackageId(slug);const next=p.get('panel')==='views'&&section==='stages'?'packages':p.get('panel')||'views';if(next==='packages')section='';choose(next,false);});
+$('pw-open-stages').onclick=()=>{stage=stage||firstPackageId(slug);choose('packages');};$('pw-edition').onchange=()=>{edition=config.editions.find(e=>e.id===$('pw-edition').value);clientPicked=null;clientLastPinned=null;clientRows=[];reviewIndex=0;engineKey='';mounted=false;epoch++;section='';choose(panel);};$('pw-project').onchange=()=>location.assign(new URL('projects/'+$('pw-project').value+'/',root));$('pw-menu').onclick=()=>{const open=document.body.dataset.menu!=='open';document.body.dataset.menu=open?'open':'closed';$('pw-menu').setAttribute('aria-expanded',String(open));};addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});addEventListener('popstate',()=>{const p=new URL(location.href).searchParams;edition=config.editions.find(e=>e.id===p.get('edition'))||config.editions[0];$('pw-edition').value=edition.id;phase=p.get('phase')||config.defaultLevel;layout=p.get('layout')||'split';$('pw-layout').value=layout;section=p.get('section')||'';stage=p.get('package')||p.get('stage')||firstPackageId(slug);const next=p.get('panel')==='views'&&section==='stages'?'packages':p.get('panel')||'views';if(next==='packages')section='';choose(next,false);});
 frame.addEventListener('load',()=>{resizeFrame();setTimeout(applyAshokGridVisibility,250);});window.ProjectWorkspace={getState:()=>({slug,edition:edition.id,phase,layout,panel,section,stage,package:stage,ready:!!api}),getDrawing:()=>api,getLineage:()=>currentLineage?JSON.parse(JSON.stringify(currentLineage)):null,getReviewGate:()=>document.getElementById('pw-dock')?.dataset.reviewId||null,getChangeRequests:()=>requestBundle(),getEditableManifest:()=>edition.manifest||null,showDrawingGrid:()=>drawingGridVisible};choose(panel,false);
 
 addEventListener('message',e=>{if(e.origin===location.origin&&e.source===frame.contentWindow&&e.data?.type==='project-workspace-section'&&['scenarios','evidence'].includes(e.data.section)){section=e.data.section;choose('sources');}});
