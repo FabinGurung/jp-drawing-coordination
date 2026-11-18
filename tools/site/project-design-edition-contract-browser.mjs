@@ -17,7 +17,7 @@ try{
    const status=await p.evaluate(()=>{
     const prov=document.getElementById('pw-edition-provenance');
     return{edition:document.getElementById('pw-edition').value,source:prov.dataset.sourceRef,kind:prov.dataset.kind,
-     lifecycle:prov.dataset.lifecycle,contract:prov.innerText,
+     lifecycle:prov.dataset.lifecycle,contract:prov.textContent,
      urlEdition:new URL(location.href).searchParams.get('edition'),requestDisabled:document.getElementById('pw-new-edition').disabled,
      sourceHref:prov.querySelector('a')?.href||null,options:[...document.getElementById('pw-edition').options].map(o=>o.value)};
    });
@@ -41,7 +41,10 @@ try{
    if(edition.sourceRef){
     assert.ok(status.sourceHref?.endsWith('/'+edition.sourceRef),slug+' source link must preserve unique registered source');
    }else assert.equal(status.sourceHref,null);
-   if(!project.synthetic){
+   if(slug==='ashok-adhikari'){
+    assert.equal(await p.locator('#pw-new-edition').isVisible(),false,'client does not expose local draft edition requests');
+    assert.equal(await p.locator('#pw-change-request').isVisible(),false,'client does not expose developer change journal');
+   }else if(!project.synthetic){
     await p.locator('#pw-new-edition').click();
     assert.equal(await p.locator('#pw-change-request').evaluate(n=>n.open),true);
     assert.equal(await p.locator('#pw-request-type').inputValue(),'request-modify');
@@ -63,19 +66,19 @@ try{
     await ensureEditionRail();
     await p.locator('#pw-edition').selectOption('v3-2');
     await p.waitForFunction(()=>document.getElementById('pw-edition-provenance')?.dataset.editionId==='v3-2',{timeout:10000});
-    assert.ok((await p.locator('#pw-edition-provenance').innerText()).includes('Previous: v3-grid'));
+    assert.ok((await p.locator('#pw-edition-provenance').textContent()).includes('Previous: v3-grid'));
     assert.equal(new URL(p.url()).searchParams.get('edition'),'v3-2');
     assert.ok((await p.locator('#pw-edit-direct').getAttribute('href')).includes('aad-building-v3-2-review.json'));
     await ensureEditionRail();
     await p.locator('#pw-edition').selectOption('v3-3');
     await p.waitForFunction(()=>document.getElementById('pw-edition-provenance')?.dataset.editionId==='v3-3',{timeout:10000});
-    assert.ok((await p.locator('#pw-edition-provenance').innerText()).includes('Previous architectural version'));
-    assert.ok((await p.locator('#pw-edition-provenance').innerText()).includes('Architectural version milestone'));
+    assert.ok((await p.locator('#pw-edition-provenance').textContent()).includes('Previous architectural version'));
+    assert.ok((await p.locator('#pw-edition-provenance').textContent()).includes('Architectural version milestone'));
     assert.ok((await p.locator('#pw-edition-provenance a').last().getAttribute('href')).includes('ashok-v3.3.0-window-visibility-review.1'));
    }
    if(slug==='ramachandra-devkota'){
     assert.equal(await p.locator('#pw-edit-direct').isHidden(),true);
-    assert.ok((await p.locator('#pw-edition-provenance').innerText()).includes('Public model not admitted'));
+    assert.ok((await p.locator('#pw-edition-provenance').textContent()).includes('Public model not admitted'));
    }
    assert.deepEqual(errors,[],slug+' browser page errors');
    console.log('PROJECT_EDITION_1_4_BROWSER_PASS',viewport.width,slug,edition.id,edition.kind);
