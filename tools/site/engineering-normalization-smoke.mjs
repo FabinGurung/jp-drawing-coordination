@@ -21,7 +21,7 @@ assert.equal(demo.packages.length,0,'dummy must be actually empty, not carry fak
 assert.equal(demo.sourceBoundary.designApproval,false);
 assert.equal(demo.normalization.engineeringApproval,false);
 assert.equal(demo.normalization.requiredPackageSlots,16);
-assert.deepEqual(CHAPTERS.map(c=>c[0]),['views','boq','gantt','packages','sources']);
+assert.deepEqual(CHAPTERS.map(c=>c[0]),['views','boq','packages','sources','more']);
 assert.equal(NORMALIZED_PACKAGE_CATALOG.length,16);
 assert.equal(new Set(NORMALIZED_PACKAGE_CATALOG.map(x=>x.id)).size,16);
 assert.deepEqual(register.catalog,NORMALIZED_PACKAGE_CATALOG,'JSON and deployed renderer must describe exactly the same package categories');
