@@ -9,8 +9,9 @@ try{
  await p.waitForFunction(()=>window.ProjectWorkspace?.getDrawing()?.getState()?.ready,null,{timeout:65000});
  assert.equal(await p.evaluate(()=>window.ProjectWorkspace.getState().edition),'v3-grid');
  const frame=p.frameLocator('#ashok-engine');
- await frame.locator('#aad-grid-hud').waitFor({state:'visible',timeout:20000});
- assert.match(await frame.locator('#aad-grid-hud').innerText(),/100 mm|100mm/);
+ await frame.locator('#aad-grid-hud').waitFor({state:'attached',timeout:20000});
+ assert.equal(await frame.locator('#aad-grid-hud').isVisible(),false,'Client does not show duplicate coordinate HUD');
+ assert.match(await frame.locator('#aad-grid-hud').textContent(),/100 mm|100mm/);
  const proof=await p.locator('#ashok-engine').evaluate(el=>{
  const w=el.contentWindow,doc=el.contentDocument,s=w.AADStudio.getSnapshot(),g=s.models.gf.floorGraph,ns=Object.fromEntries(g.nodes.map(n=>[n.id,n]));
  const walls=['GF-BED-KITCHEN','GF-BATH-LOUNGE-V3','GF-HALL-LOW-1'].map(id=>{const v=g.walls.find(x=>x.id===id);return[ns[v.a].x,ns[v.b].x];});
