@@ -351,7 +351,7 @@ body[data-project-ui="ashok-client-v2"] .pw-inspector{top:140px;border-color:#dd
  body[data-project-ui="ashok-client-v2"] .pw-work-area{grid-template-columns:1fr}
  body[data-project-ui="ashok-client-v2"] .pw-inspector{position:static}
  body[data-project-ui="ashok-client-v2"] .pw-toolbar{top:56px}
- body[data-project-ui="ashok-client-v2"] .pw-client-inspector{grid-template-columns:1fr 1fr;gap:10px}
+ body[data-project-ui="ashok-client-v2"] .pw-client-inspector{grid-template-columns:minmax(0,1fr);gap:10px}
  body[data-project-ui="ashok-client-v2"] .pw-client-inspector-top,.pw-client-inspector>.pw-client-item-title,.pw-client-inspector>small,.pw-client-inspector>.pw-client-metrics,
  .pw-client-inspector>.pw-client-pin,.pw-client-inspector>.pw-client-technical,.pw-client-inspector>.pw-client-empty,#pw-client-takeoff-link{grid-column:1/-1}
  .pw-client-mini svg{max-height:140px}
