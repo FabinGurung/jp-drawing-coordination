@@ -373,6 +373,7 @@ export const NORMALIZED_PROJECT_METADATA=Object.freeze({
   }
 });
 export const NORMALIZED_EVIDENCE=Object.freeze({
+  "14-amrit-hardware-1": {},
   "js-buddha-jewelers": {},
   "narayani-parajuli": {
     "pcc": [
@@ -464,6 +465,225 @@ export const NORMALIZED_EVIDENCE=Object.freeze({
   "example-empty": {}
 });
 export const NORMALIZED_PROJECTS=Object.freeze({
+  "14-amrit-hardware-1": {
+  "title": "14_Amrit_Hardware_1 — Plot 150",
+  "synthetic": false,
+  "overallApproval": "SOURCE REVIEW ONLY — NO ENGINEERING APPROVAL",
+  "notice": "Cadastral image and dimensioned PDF are preserved in governed project Drive. Red plot outline is PDF-vector traced with source-labelled edge lengths. Survey coordinates, true north, legal setbacks, site levels, structural plans, quantity approvals and construction stage packages are NOT admitted.",
+  "sourceBasis": "19 November 2026 dimensioned vector PDF and original cadastral map, with PDF fingerprint recorded in public review model; original source bytes restricted to project Drive.",
+  "rawGeometryAdmitted": false,
+  "normalizationStatus": "SCHEMA_NORMALIZED_NOT_ENGINEERING_APPROVED",
+  "slots": [
+    {
+      "slotId": "survey",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "excavation",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "soling",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "pcc",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "footing-rebar",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "footing-rcc",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "dowels",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "columns",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "plinth",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "upper-floors",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "stairs",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "masonry",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "roof-waterproofing",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "tank",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "mep-services",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    },
+    {
+      "slotId": "qa-closeout",
+      "sourceStatus": "NOT ADMITTED",
+      "originalSourceModule": null,
+      "publicSourceHref": null,
+      "sourceRevisionAccepted": null,
+      "engineeringApprovalEvidence": null,
+      "quantityBasisVerified": false,
+      "approvedBBS": false,
+      "calculatedValues": null,
+      "fieldInspection": null,
+      "reviewState": "REVIEW REQUIRED"
+    }
+  ]
+},
   "js-buddha-jewelers": {
   "title": "JS Buddhal Jewelers",
   "synthetic": false,
