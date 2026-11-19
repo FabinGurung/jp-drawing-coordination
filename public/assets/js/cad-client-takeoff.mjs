@@ -20,15 +20,19 @@ export function takeoffRows(manifest,floorGraphs={}){
   const graph=floorGraphs[f.id];
   if(!graph?.floorGraph)continue;
   const nodes=new Map(graph.floorGraph.nodes.map(n=>[n.id,n]));
+  const coords=[...nodes.values()].filter(n=>Number.isFinite(n.x)&&Number.isFinite(n.z));
+  const bounds=coords.length?{minX:Math.min(...coords.map(n=>n.x)),maxX:Math.max(...coords.map(n=>n.x)),minZ:Math.min(...coords.map(n=>n.z)),maxZ:Math.max(...coords.map(n=>n.z))}:null;
   const walls=new Map(graph.floorGraph.walls.map(w=>[w.id,w]));
   for(const w of graph.floorGraph.walls){
    const a=nodes.get(w.a),b=nodes.get(w.b);if(!a||!b)continue;
-   const length=Math.hypot(b.x-a.x,b.z-a.z),height=known(graph.height)?graph.height-.18:null;
+   // The legacy Ashok presentation uses a 180 mm wall-height deduction. Do not
+   // transfer this assumption to source-only projects such as Narayani.
+   const length=Math.hypot(b.x-a.x,b.z-a.z),height=known(graph.height)&&manifest.presentation?graph.height-.18:null;
    rows.push({key:f.id+':'+w.id,id:w.id,elementId:manifest.projectId+':'+f.id+':'+w.id,
     floor:f.id,type:'wall',name:w.id.includes('EXT')?'External wall':'Internal wall',
     L:length,B:w.thickness,H:height,area:known(height)?length*height:null,volume:known(height)&&known(w.thickness)?length*height*w.thickness:null,
     center:{x:(a.x+b.x)/2,z:(a.z+b.z)/2,y:(f.elevation||0)+(height||0)/2},
-    geom:{ax:a.x,az:a.z,bx:b.x,bz:b.z},technical:{id:w.id,source:w.source,status:w.status,host:'—',provenance:w.provenance?.basis||'',nodeA:w.a,nodeB:w.b}});
+    geom:{ax:a.x,az:a.z,bx:b.x,bz:b.z},bounds,technical:{id:w.id,source:w.source,status:w.status,host:'—',provenance:w.provenance?.basis||'',nodeA:w.a,nodeB:w.b}});
   }
   for(const o of graph.floorGraph.openings){
    const host=walls.get(o.wallId),a=nodes.get(host?.a),b=nodes.get(host?.b);
@@ -38,7 +42,7 @@ export function takeoffRows(manifest,floorGraphs={}){
    rows.push({key:f.id+':'+o.id,id:o.id,elementId:manifest.projectId+':'+f.id+':'+o.id,
     floor:f.id,type:o.kind,name:humanKind(o.kind),L:o.width,B:null,H:o.height,
     area:known(o.width)&&known(o.height)?o.width*o.height:null,volume:null,
-    center:{x,z,y:(f.elevation||0)+(o.sill||0)+(o.height||0)/2},
+    center:{x,z,y:(f.elevation||0)+(o.sill||0)+(o.height||0)/2},bounds,
     technical:{id:o.id,source:o.source,status:o.status,host:o.wallId,provenance:o.provenance?.basis||'',sill:o.sill,offset:o.offset}});
   }
  }
@@ -63,17 +67,23 @@ export function dimensionsFor(row,unit='m'){
 const clamp=(x,l,h)=>Math.max(l,Math.min(h,x));
 export function miniPlanSvg(row,width=7.2,depth=13.638){
  if(!row?.center||!Number.isFinite(row.center.x)||!Number.isFinite(row.center.z))return '<p>Location not available in model.</p>';
- const x=24+clamp(row.center.x/width,0,1)*192,y=18+clamp(1-row.center.z/depth,0,1)*138;
+ const bounds=row.bounds;
+ const minX=bounds?.minX??0,minZ=bounds?.minZ??0;
+ const spanX=bounds?.maxX>minX?bounds.maxX-minX:width;
+ const spanZ=bounds?.maxZ>minZ?bounds.maxZ-minZ:depth;
+ const projectX=n=>24+clamp((n-minX)/spanX,0,1)*192;
+ const projectZ=n=>18+clamp(1-(n-minZ)/spanZ,0,1)*138;
+ const x=projectX(row.center.x),y=projectZ(row.center.z);
  let shape=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="6" fill="#ea795c" stroke="#fff" stroke-width="2"/>`;
  if(row.geom){const a=row.geom,b={x:row.geom.bx,z:row.geom.bz};
-  const ax=24+clamp(a.ax/width,0,1)*192,ay=18+clamp(1-a.az/depth,0,1)*138,
-   bx=24+clamp(b.x/width,0,1)*192,by=18+clamp(1-b.z/depth,0,1)*138;
+  const ax=projectX(a.ax),ay=projectZ(a.az),
+   bx=projectX(b.x),by=projectZ(b.z);
   shape=`<line x1="${ax.toFixed(1)}" y1="${ay.toFixed(1)}" x2="${bx.toFixed(1)}" y2="${by.toFixed(1)}" stroke="#ea795c" stroke-width="5" stroke-linecap="round"/>`+shape;
  }
  return `<svg viewBox="0 0 240 177" role="img" aria-label="Selected item location within the building plan">
  <rect x="24" y="18" width="192" height="138" fill="#edf4f2" stroke="#4d7b78" stroke-width="2" rx="3"/>
  <path d="M120 18v138 M24 87h192" stroke="#b8d0cc" stroke-dasharray="4 5"/>${shape}
- <text x="120" y="171" text-anchor="middle" fill="#576e75" font-size="10">Front / entry direction</text></svg>`;
+ <text x="120" y="171" text-anchor="middle" fill="#576e75" font-size="10">Relative source-model bounds · orientation not surveyed</text></svg>`;
 }
 export function miniVolumeSvg(row){
  if(!row)return '<p>Choose an item.</p>';

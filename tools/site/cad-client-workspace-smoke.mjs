@@ -30,6 +30,19 @@ assert.ok(dimensionsFor(wall,'ft').some(x=>x[1].endsWith('ft³')));
 assert.ok(miniPlanSvg(wall).includes('role="img"'));
 assert.ok(miniVolumeSvg(wall).includes('Isometric'));
 assert.ok(toDisplayPosition(wall,'ft').includes('ft'));
+const npath='public/data/projects/narayani-parajuli/';
+const narayani=json(npath+'aad-building-v1.json');
+const narGraphs=Object.fromEntries(narayani.levels.map(l=>[l.id,json(npath+l.model)]));
+const narRows=takeoffRows(narayani,narGraphs);
+assert.equal(new Set(narRows.map(r=>r.floor)).size,3,'Narayani has three source-linked floors');
+for(const level of narayani.levels){
+ const expected=narGraphs[level.id].floorGraph.walls.length+narGraphs[level.id].floorGraph.openings.length;
+ assert.equal(narRows.filter(r=>r.floor===level.id).length,expected,'Source register matches '+level.id);
+}
+assert.ok(narRows.every(r=>r.bounds?.maxX>r.bounds?.minX),'all Narayani locations use source floor bounds');
+assert.ok(narRows.filter(r=>r.type==='wall').every(r=>r.H===null&&r.area===null&&r.volume===null),'unknown structural wall heights cannot be inferred from storey height');
+assert.ok(narRows.some(r=>r.type==='window'&&r.area>0),'source-backed opening measurements remain available');
+assert.ok(miniPlanSvg(narRows[0]).includes('orientation not surveyed'),'mini locator must not imply verified site orientation');
 const source=read('public/assets/js/project-workspace.mjs');
 const css=read('public/assets/css/project-workspace.css');
 assert.match(source,/cad-client-takeoff[.]mjs/);

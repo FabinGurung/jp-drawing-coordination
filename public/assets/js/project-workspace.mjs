@@ -359,7 +359,7 @@ async function sources(){let groups=config.sourceGroups.map(g=>({...g,links:[...
 const ashokGraphs=new Map();
 async function ashokLevelTable(){
  const manifest=await readEditionModel();
- if(!manifest?.presentation||!edition.manifest)return '<section class="pw-card"><h2>Quantity takeoff</h2><p>No geometric measurements are available for this version.</p></section>';
+ if(!manifest?.levels?.length||!edition.manifest)return '<section class="pw-card"><h2>Quantity takeoff</h2><p>No geometric measurements are available for this version.</p></section>';
  const baseUrl=new URL(edition.manifest,root),graphs={},errors=[];
  for(const level of manifest.levels||[]){
   if(!level.model)continue;
@@ -374,7 +374,7 @@ async function ashokLevelTable(){
  }
  clientRows=takeoffRows(manifest,graphs);
  const shown=clientRows.filter(r=>phase==='all'||r.floor===phase||(phase==='roof'&&r.floor==='roof'));
- const groups=[['gf','Ground floor'],['ff','First floor'],['roof','Roof']].filter(([id])=>phase==='all'||id===phase);
+ const groups=(manifest.levels||[]).map(l=>[l.id,l.name||l.id.toUpperCase()]).filter(([id])=>phase==='all'||id===phase);
  const columns=['L','B','H','area','volume'];
  const fmt=(row,key)=>measure(row[key],clientUnits,key==='area'?2:key==='volume'?3:1);
  const table=([id,name])=>{
@@ -390,7 +390,7 @@ async function ashokLevelTable(){
  };
  return '<section class="pw-card pw-level-register pw-client-register">'+
   '<div class="pw-eyebrow">02 · Quantity takeoff</div><h2>Drawing item measurements</h2>'+
-  '<p>Individual lengths, areas and volumes derived from the selected drawing. These are item measurements, not contractor prices or a material bill.</p>'+
+  '<p>Source-graph item measurements only, not an engineering-approved bill. Unverified wall heights, areas and volumes remain blank, never assumed zero. No material or contractor prices.</p>'+
   '<div class="pw-client-filters"><label>Find an item<input type="search" id="pw-element-search" placeholder="Search walls, doors, rooms…" autocomplete="off"></label>'+
    unitsSelect('pw-takeoff-unit')+'</div>'+
   '<p id="pw-element-matches" role="status">'+shown.length+' items</p>'+
