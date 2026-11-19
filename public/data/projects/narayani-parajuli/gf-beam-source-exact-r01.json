@@ -65,6 +65,12 @@
       "pdf_page": 15,
       "subject": "Typical slab chair detail",
       "source_exact_pdf": "https://drive.google.com/file/d/1vb6GLFSqgXyuREBQI3pmdxcrP8LDkgqs/view"
+    },
+    {
+      "sheet": "STR-17",
+      "pdf_page": 17,
+      "subject": "Typical general beam-junction details; not member-specific bar schedule",
+      "source_exact_pdf": "https://drive.google.com/file/d/1gzeYUh5BgrDP_tHJ11G9ebZE2FvmDNl9/view"
     }
   ],
   "comparison_document": "https://drive.google.com/file/d/1DvimHdw5GsnbADJ6uwzUN25RTgx_HilQ/view",
@@ -118,5 +124,9 @@
   "approval": "NOT_RECORDED",
   "existing_wbs_mutated": false,
   "existing_frozen_CAD_stages_mutated": false,
-  "build_dates_actuals_changed": false
+  "build_dates_actuals_changed": false,
+  "current_master_index": "https://docs.google.com/document/d/1SWfoA9dsJL_r_uPR9P0rJKGmzE7NsoSE94_rJHrQKxg/edit",
+  "current_beam_formwork_checklist": "https://docs.google.com/document/d/12zzM4IeRiEehTteSWPNzFeehpTSJBiae8v5n1klnmmw/edit",
+  "current_master_index_pdf": "https://drive.google.com/file/d/1Fyfut6avn79MJdk74bp6RVsUW9whX9_X/view",
+  "current_formwork_checklist_pdf": "https://drive.google.com/file/d/11UJVCzyLjbwheGLN9SKV-Bvuy8M6UlGV/view"
 }
