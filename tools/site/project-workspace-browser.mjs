@@ -70,7 +70,7 @@ try{
    assert.match(await p.locator('#pw-inspector').innerText(),/PROVISIONAL STUDY/);
   }else if(slug==='ashok-adhikari'){
    assert.equal(await p.locator('[data-package-id]').count(),1);
-   assert.match(await p.locator('#pw-inspector').innerText(),/Site packages/);
+   assert.match(await p.locator('#pw-inspector').innerText(),/Packages \\/ Site Modules/);
    assert.match(await p.locator('#pw-package-cards').innerText(),/MEP/);
   }else{
    assert.equal(await p.locator('[data-package-id]').count(),0);
