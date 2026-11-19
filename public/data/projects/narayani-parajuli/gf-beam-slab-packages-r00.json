@@ -1,0 +1,143 @@
+{
+  "schema": "jp-cad://narayani-gf-beam-slab-packages/1",
+  "project": "Narayani Parajuli Residence",
+  "project_id": "PRJ-000007",
+  "revision": "R00",
+  "issue_date": "2026-11-19",
+  "stage": "ground-floor beam and slab through first-floor deck",
+  "owner_reported_plinth_complete": true,
+  "plinth_evidence_verification": "PENDING",
+  "approval_status": "NOT_FOR_CONSTRUCTION",
+  "source_assertions": {
+    "structural_pdf_issue": "July 2026 - effective approved issue unverified",
+    "beam_section_examples_mm": [
+      [
+        230,
+        405
+      ],
+      [
+        230,
+        300
+      ]
+    ],
+    "slab_generic_mesh": "8mm at 150mm c/c in separate top/bottom source sheets; panel directions not verified",
+    "beam_strips_source_candidates": 17,
+    "column_marks_source_candidates": 23,
+    "engineer_verified_beam_supports": 0,
+    "structural_report_clear_cover_beam_mm": "25 or bar diameter, whichever greater",
+    "structural_report_clear_cover_slab_mm": "20 or bar diameter, whichever greater"
+  },
+  "docs_index": "https://docs.google.com/document/d/1v0w5hZ72CgfPUD4VbYGlwRzKGRmZqDAncHyrCjPbMhE/edit",
+  "drive_project_folder": "https://drive.google.com/drive/folders/1-QWxpu7CbQ8aGaQIh9CDUMqXlFIVJ2C8",
+  "vector_atlas": "https://drive.google.com/file/d/1lheIlsGHIQsKdi63AyIOseVShSsa0iJW/view",
+  "revision_register": "https://drive.google.com/file/d/1H9-6CnZIr5HA50c1AiIB0PUbjflf2wpP/view",
+  "text_distribution_folder": "https://drive.google.com/drive/folders/1OUiztvmH5YUuKuI4fNiuzFRuqDf2MJhg",
+  "sources": {
+    "architecture": "https://drive.google.com/file/d/19AyrQbMaZ4ze59ixqKMlMlR0UZ-1jDcB/view",
+    "structure": "https://drive.google.com/file/d/1zwmKrfwW9IN5ourLGFdfleJOCi7dcH2_/view",
+    "report": "https://drive.google.com/file/d/1TpWUmOdrcQqOpkN6qvmhZ12KrYaNABBM/view"
+  },
+  "holds": [
+    "Approved structural drawing/permit effective issue",
+    "Per-member verified beam support and axis schedule",
+    "Architectural-to-structural wall alignment",
+    "Slab panel thickness/support/directional mesh",
+    "Approved bar-bending and stirrup zoning",
+    "Temporary works and safe propping",
+    "Cover/chair support design and as-built evidence"
+  ],
+  "packages": [
+    {
+      "code": "BFW",
+      "title": "Beam formwork",
+      "work_package_doc": "https://docs.google.com/document/d/1iR8HIEpvxaf-0Zd9lIVO-JwQUAYKRks-qZjhnRsA7jA/edit",
+      "vector_pdf": "https://drive.google.com/file/d/1u-lh_aNW6hD1nm5OYPR5pCRvoVutbWEY/view",
+      "editable_svg": "https://drive.google.com/file/d/1Usvs_L19ZksdDG8VM3-LGdlJZn5RiHgC/view",
+      "linked_activities": [
+        "L070-GF",
+        "L090-GF"
+      ],
+      "review_status": "REVIEW_DRAFT_NOT_FOR_CONSTRUCTION",
+      "site_release": false
+    },
+    {
+      "code": "BWD",
+      "title": "Brickwork direction and beam-wall alignment",
+      "work_package_doc": "https://docs.google.com/document/d/1dFcnpYLFfnI4QCTGg_7qEJ-EzE4G9nV_6Sek1MAi65s/edit",
+      "vector_pdf": "https://drive.google.com/file/d/1dckMlTxI4jZXeRsQfHf9BMTQTqX_gaZg/view",
+      "editable_svg": "https://drive.google.com/file/d/10cpr_p7CFduQPV915Ne0DdICs1ovtH_N/view",
+      "linked_activities": [
+        "S020",
+        "L070-GF"
+      ],
+      "review_status": "REVIEW_DRAFT_NOT_FOR_CONSTRUCTION",
+      "site_release": false
+    },
+    {
+      "code": "BLR",
+      "title": "Longitudinal beam reinforcement",
+      "work_package_doc": "https://docs.google.com/document/d/1uXi0AJEDQs2FSpyTusCL7FV-uB9ezr6riRuBLL0I7us/edit",
+      "vector_pdf": "https://drive.google.com/file/d/1ZULw-eYK_D1Vdla374aCgtH8ewuxqvBa/view",
+      "editable_svg": "https://drive.google.com/file/d/1dn9h3Ii1A3O0Vb3Q64eUhvreyljK9o0d/view",
+      "linked_activities": [
+        "L080-GF",
+        "L090-GF"
+      ],
+      "review_status": "REVIEW_DRAFT_NOT_FOR_CONSTRUCTION",
+      "site_release": false
+    },
+    {
+      "code": "BST",
+      "title": "Beam stirrups",
+      "work_package_doc": "https://docs.google.com/document/d/1gfkZYaMyg5KydgMwp9kZj6UVqh0lQOelD54_JbIKWs8/edit",
+      "vector_pdf": "https://drive.google.com/file/d/1bJpKaC3q6ITq5_dMitgNQvC1ohoHDoh6/view",
+      "editable_svg": "https://drive.google.com/file/d/1u9j4MKKolRjqfUL-zeIMCf-3RNILKJTL/view",
+      "linked_activities": [
+        "L080-GF",
+        "L090-GF"
+      ],
+      "review_status": "REVIEW_DRAFT_NOT_FOR_CONSTRUCTION",
+      "site_release": false
+    },
+    {
+      "code": "SLB",
+      "title": "Slab reinforcement",
+      "work_package_doc": "https://docs.google.com/document/d/173kgusj9zUvG_ja_IFQX_OXa9fggV0XdxE5heJjxD-4/edit",
+      "vector_pdf": "https://drive.google.com/file/d/1PVK9f1uyBc8Q-bfoP9QjQZuxLD9ijJvd/view",
+      "editable_svg": "https://drive.google.com/file/d/1NmsQHiJ_pRoRNPY5Pta3k4_WJ7JOEeP8/view",
+      "linked_activities": [
+        "L070-GF",
+        "L080-GF",
+        "L090-GF"
+      ],
+      "review_status": "REVIEW_DRAFT_NOT_FOR_CONSTRUCTION",
+      "site_release": false
+    },
+    {
+      "code": "CHR",
+      "title": "Slab chairs",
+      "work_package_doc": "https://docs.google.com/document/d/1D4Mp0pzsadmTAjnJ3r6-B_4vwz0MBfsoiFhdvXupbQA/edit",
+      "vector_pdf": "https://drive.google.com/file/d/1K7SIYZge0y52d05sa2hwQXZu_OfcU5LS/view",
+      "editable_svg": "https://drive.google.com/file/d/1epIuiPwTZSbH3duafO-M_BwX5xiS7tQ_/view",
+      "linked_activities": [
+        "L080-GF",
+        "L090-GF"
+      ],
+      "review_status": "REVIEW_DRAFT_NOT_FOR_CONSTRUCTION",
+      "site_release": false
+    },
+    {
+      "code": "CBK",
+      "title": "Cover blocks and spacers",
+      "work_package_doc": "https://docs.google.com/document/d/1UDmw6WTasXM0J6VyVH5cKBEZIz9U0U2dqe3y24LvQWg/edit",
+      "vector_pdf": "https://drive.google.com/file/d/11FWYujnAt6fmqD6Iaa6-7fhwRzIML1_J/view",
+      "editable_svg": "https://drive.google.com/file/d/12AEyR0a11lyvsUlQektHiNVjUAP_dwPp/view",
+      "linked_activities": [
+        "L080-GF",
+        "L090-GF"
+      ],
+      "review_status": "REVIEW_DRAFT_NOT_FOR_CONSTRUCTION",
+      "site_release": false
+    }
+  ]
+}
