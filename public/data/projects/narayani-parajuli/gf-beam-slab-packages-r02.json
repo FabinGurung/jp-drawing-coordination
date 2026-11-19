@@ -201,5 +201,17 @@
   },
   "record_role": "CAD_DRAWING_PACKAGE_LINK_REGISTER",
   "drawing_repo_viewer": "https://fabingurung.github.io/jp-drawing-coordination/projects/narayani-parajuli/gf-beam-slab/",
-  "scheduling_repo_viewer": "https://fabingurung.github.io/jp-scheduling-resources-management/projects/narayani/gf-beam-slab.html"
+  "scheduling_repo_viewer": "https://fabingurung.github.io/jp-scheduling-resources-management/projects/narayani/gf-beam-slab.html",
+  "full_field_distribution_zip": "https://drive.google.com/file/d/1osWoupJKsx62lyAhR-5KG1HmfqwXz_U9/view",
+  "current_revision_register": "https://drive.google.com/file/d/1XCuW37_MrciTf0L8-87p0J1twKL5wJKr/view",
+  "engineering_and_print_qa": "https://drive.google.com/file/d/1Fwy5jcnpDAEk6tdNI2BHLquxWZnrlTbh/view",
+  "master_index_site_pdf": "https://drive.google.com/file/d/1TNfRQfpBKDSLHVQKoRiKqnTh4yPvIJ1z/view",
+  "qa_result": {
+    "svg_drawings": 14,
+    "technical_pdf_pages": 17,
+    "technical_pdf_images": 0,
+    "page_size": "A2 landscape ~594x420mm",
+    "engineering_approval": false,
+    "source_pdf_unchanged": true
+  }
 }
