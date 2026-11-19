@@ -37,7 +37,8 @@ export const PROJECT_STAGE_EVIDENCE=Object.freeze({
  'harisharan-adhikari':HARISHARAN,
  'ashok-adhikari':ASHOK,
  'ramachandra-devkota':{},
- 'js-buddha-jewelers':{}
+ 'js-buddha-jewelers':{},
+ '14-amrit-hardware-1':{}
 });
 const INTRO={
  'narayani-parajuli':'The seven frozen V02–M80 work packages are preserved as original detailed viewers. They remain work-package records, not alternative design editions.',
