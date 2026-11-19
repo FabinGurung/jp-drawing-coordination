@@ -359,7 +359,7 @@ async function sources(){let groups=config.sourceGroups.map(g=>({...g,links:[...
 const ashokGraphs=new Map();
 async function ashokLevelTable(){
  const manifest=await readEditionModel();
- if(!manifest?.levels?.length||!edition.manifest)return '<section class="pw-card"><h2>Quantity takeoff</h2><p>No geometric measurements are available for this version.</p></section>';
+ if(!manifest?.levels?.length||!edition.manifest)return '<section class="pw-card"><h2>Quantity takeoff</h2><p>Measurements pending: no admitted public geometry is available for this version. Unknown quantities remain unknown.</p></section>';
  const baseUrl=new URL(edition.manifest,root),graphs={},errors=[];
  for(const level of manifest.levels||[]){
   if(!level.model)continue;
