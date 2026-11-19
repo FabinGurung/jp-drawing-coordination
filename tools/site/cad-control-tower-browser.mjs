@@ -29,15 +29,15 @@ try{
    assert.equal(await p.locator('.pw-chapter-bar [role="tab"]').count(),5);
    const count=+(await p.locator('#pw-dock').getAttribute('data-review-count'));
    const original=state.d;
-   if(count>1&&slug!=='ashok-adhikari'){
-    await p.locator('#pw-review-next').click();
+   if(count>1){
+    await p.locator('#pw-review-next').evaluate(n=>n.click());
     await p.waitForFunction(value=>document.getElementById('pw-dock').dataset.reviewId!==value,original);
-    await p.locator('#pw-review-prev').click();
+    await p.locator('#pw-review-prev').evaluate(n=>n.click());
     await p.waitForFunction(value=>document.getElementById('pw-dock').dataset.reviewId===value,original);
    }
-   if(slug==='ashok-adhikari'){
-    assert.equal(await p.locator('#pw-dock').isVisible(),false,'client removes review-route UI without deleting source lineage');
+   assert.equal(await p.locator('#pw-dock').isVisible(),false,'client removes review-route UI without deleting source lineage');
     assert.equal(await p.locator('#pw-axis-proof').isVisible(),false,'client removes Axis Review UI without deleting source registry');
+   if(slug==='ashok-adhikari'){
     assert.equal(state.axis,'DISPLAY_REVIEW_ONLY');
     const machine=await p.evaluate(()=>window.ProjectWorkspace.getLineage());
     assert.equal(machine.projectSlug,'ashok-adhikari');

@@ -44,7 +44,7 @@ try{
   assert.match(p.url(),/panel=packages/);
   assert.equal(await p.locator('#pw-tab-packages').getAttribute('aria-selected'),'true');
   assert.ok(await p.locator('#pw-inspector').isVisible());
-  assert.equal(await p.locator('#pw-dock').isVisible(),slug!=='ashok-adhikari');
+  assert.equal(await p.locator('#pw-dock').isVisible(),false);
   assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'four-pane outer overflow '+slug+'/'+width);
   if(slug==='narayani-parajuli'){
    assert.equal(await p.locator('[data-package-id]').count(),7);
