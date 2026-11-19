@@ -4,9 +4,9 @@
   "version": "0.5.0-m01",
   "type": "module",
   "scripts": {
-    "dev": "node scripts/copy-ifc-wasm.mjs && vite",
+    "dev": "node tools/site/generate-standard-studio-entries.mjs && node scripts/copy-ifc-wasm.mjs && vite",
     "typecheck": "tsc --noEmit",
-    "build": "node scripts/copy-ifc-wasm.mjs && tsc --noEmit && vite build",
+    "build": "node tools/site/generate-standard-studio-entries.mjs && node scripts/copy-ifc-wasm.mjs && tsc --noEmit && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
