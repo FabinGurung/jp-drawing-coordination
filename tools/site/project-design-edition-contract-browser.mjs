@@ -41,11 +41,10 @@ try{
    if(edition.sourceRef){
     assert.ok(status.sourceHref?.endsWith('/'+edition.sourceRef),slug+' source link must preserve unique registered source');
    }else assert.equal(status.sourceHref,null);
-   if(slug==='ashok-adhikari'){
-    assert.equal(await p.locator('#pw-new-edition').isVisible(),false,'client does not expose local draft edition requests');
-    assert.equal(await p.locator('#pw-change-request').isVisible(),false,'client does not expose developer change journal');
-   }else if(!project.synthetic){
-    await p.locator('#pw-new-edition').click();
+   assert.equal(await p.locator('#pw-new-edition').isVisible(),false,'all client readers hide draft edition requests');
+   assert.equal(await p.locator('#pw-change-request').isVisible(),false,'all client readers hide the developer change journal');
+   if(!project.synthetic){
+    await p.locator('#pw-new-edition').evaluate(n=>n.click());
     assert.equal(await p.locator('#pw-change-request').evaluate(n=>n.open),true);
     assert.equal(await p.locator('#pw-request-type').inputValue(),'request-modify');
     const handover=JSON.parse(await p.locator('#pw-request-export-preview').inputValue());
