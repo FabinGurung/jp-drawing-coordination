@@ -1,0 +1,122 @@
+{
+  "schema": "jp-cad://narayani-gf-beam-source-exact-r01/1",
+  "project_id": "PRJ-000007",
+  "project": "Narayani Parajuli Residence",
+  "revision": "R01",
+  "release_date": "2026-11-19",
+  "classification": "SOURCE_EXACT_VECTOR_REFERENCE_NOT_FOR_CONSTRUCTION",
+  "canonical_drive_path": "A9_Fabin_Gurung/01_JP/03 Fishtail Builders/Projects/Residential/Pokhara/Ward_15/Narayani_Parajuli_Residence/01 Working Files/Working Packages/GF Beam and Slab",
+  "canonical_project_folder": "https://drive.google.com/drive/folders/1mosr2gahKr4j7xj6BmrIjz4vdCxBYetF",
+  "canonical_working_folder": "https://drive.google.com/drive/folders/1CjDb-QVg4liXp7XadrCTFyYEenTe9YoP",
+  "package_folder": "https://drive.google.com/drive/folders/1-QWxpu7CbQ8aGaQIh9CDUMqXlFIVJ2C8",
+  "source": {
+    "name": "narayani str drg revised plan(1).pdf",
+    "drive_url": "https://drive.google.com/file/d/1zwmKrfwW9IN5ourLGFdfleJOCi7dcH2_/view",
+    "sha256": "b4b5ee8a64ceddf267c93a59ca95418d1d9c406c7a954bc43dfb36afca8f1c77",
+    "total_pages": 20,
+    "autocad_date": "2026-07-16",
+    "original_pdf_unchanged": true,
+    "source_page7_svg_has_embedded_images": false,
+    "source_page7_vector_paths": 32913,
+    "source_vs_extracted_pdf_render_exact_match": true
+  },
+  "items": [
+    {
+      "sheet": "STR-07",
+      "pdf_page": 7,
+      "discipline": "structure",
+      "subject": "Ground Floor Beam Layout Plan",
+      "source_exact_pdf": "https://drive.google.com/file/d/1AgL_1zLA2V4j5dLXG5WaoPwX9-r0fkhF/view",
+      "source_exact_svg": "https://drive.google.com/file/d/1BTnHchCi3u6klUmHy-SXEvxRU7p8bSop/view",
+      "status": "SOURCE_EXACT_REPRODUCTION"
+    },
+    {
+      "sheet": "STR-08",
+      "pdf_page": 8,
+      "subject": "Ground floor beam details",
+      "source_exact_pdf": "https://drive.google.com/file/d/1jrgmkJczgB6aHBJUn0aCJURBQ-xQChtI/view"
+    },
+    {
+      "sheet": "STR-09",
+      "pdf_page": 9,
+      "subject": "FIRST floor beam layout - NOT source for ground-floor beam shape",
+      "source_exact_pdf": "https://drive.google.com/file/d/1iS2OBPmR6A6y1zigoI0hrCeOJBKidkST/view"
+    },
+    {
+      "sheet": "STR-10",
+      "pdf_page": 10,
+      "subject": "First floor beam details",
+      "source_exact_pdf": "https://drive.google.com/file/d/10AmlFhzAuS7RbPFsQe_q1rsg-ST_hLCo/view"
+    },
+    {
+      "sheet": "STR-13",
+      "pdf_page": 13,
+      "subject": "Bottom bar slab reinforcement",
+      "source_exact_pdf": "https://drive.google.com/file/d/1B4qBh584lq4mlcc6Wd-Irti21U3HBYE/view"
+    },
+    {
+      "sheet": "STR-14",
+      "pdf_page": 14,
+      "subject": "Top bar slab reinforcement",
+      "source_exact_pdf": "https://drive.google.com/file/d/123C9wZKXZDEd5TkwAe8QJVLC4eCjDC_-/view"
+    },
+    {
+      "sheet": "STR-15",
+      "pdf_page": 15,
+      "subject": "Typical slab chair detail",
+      "source_exact_pdf": "https://drive.google.com/file/d/1vb6GLFSqgXyuREBQI3pmdxcrP8LDkgqs/view"
+    }
+  ],
+  "comparison_document": "https://drive.google.com/file/d/1DvimHdw5GsnbADJ6uwzUN25RTgx_HilQ/view",
+  "source_exact_atlas": "https://drive.google.com/file/d/15bWia4vPf8xGfHu3UVgtrcI03tr5cx_g/view",
+  "source_exact_folder": "https://drive.google.com/drive/folders/1YHhBQqPlo7_6-l9oi-FfkGMJogIDpOrn",
+  "r00_issue": "Previous R00 beam formwork was incorrectly derived from CAD M32 candidate strips, rather than the actual STR-07 source beam plan; source page STR-09 is first-floor not ground-floor.",
+  "r00_status": "SUPERSEDED_DRAWINGS_DO_NOT_USE_FOR_BEAM_LAYOUT",
+  "source_axis_chain_mm": {
+    "horizontal_top_A_I": [
+      2985,
+      1915,
+      585,
+      3263,
+      975,
+      4965,
+      4812,
+      1500
+    ],
+    "vertical_bottom_top_1_7": [
+      3600,
+      2825,
+      655,
+      2965,
+      655,
+      1850
+    ],
+    "letters": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I"
+    ],
+    "rows": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "note": "Dimension chains reproduced from printed sheet for cross-check only. Individual beams/column-face positions, spans, and reinforcement lengths require a verified member-by-member register and engineer acceptance.",
+  "member_dimension_conflict": "STR-07 beam labels show MB 230x405 and local MB 230x300, but STR-07 beam detail table prints 225x405. Do not silently normalize. Obtain designer clarification.",
+  "commercial_identity_note": "Current Drive project owner domain is Fishtail Builders. Some prior R00 documents refer to Histel Builders; verify company responsibility before issuing formal documents.",
+  "approval": "NOT_RECORDED",
+  "existing_wbs_mutated": false,
+  "existing_frozen_CAD_stages_mutated": false,
+  "build_dates_actuals_changed": false
+}
