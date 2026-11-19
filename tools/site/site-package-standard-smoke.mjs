@@ -28,7 +28,7 @@ assert.match(sourceApp,/pw-dock/);
 assert.match(sourceApp,/packageRecords/);
 assert.doesNotMatch(sourceConfig,/4\.2 · Detailed material module/);
 assert.doesNotMatch(sourceConfig,/4\.2 · Work-package records/);
-assert.equal(Object.keys(PROJECTS).length,5);
+assert.equal(Object.keys(PROJECTS).length,6);
 
 for(const slug of Object.keys(PROJECTS)){
  const records=packageRecords(slug);
