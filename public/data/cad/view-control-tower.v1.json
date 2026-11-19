@@ -349,6 +349,31 @@
           "focus": "views"
         }
       ]
+    },
+    "14-amrit-hardware-1": {
+      "axisEvidence": "SOURCE_ONLY_SITE_BOUNDARY_NO_STRUCTURAL_AXES_REGISTERED",
+      "gateIds": [
+        "P150-SETBACK-01",
+        "P150-SURVEY-02"
+      ],
+      "gates": [
+        {
+          "id": "P150-SETBACK-01",
+          "title": "Clarify printed setback notation",
+          "status": "HOLD",
+          "detail": "Dimensioned source PDF writes 6.5 inch-mark setback on three sides, but its hatched width visually corresponds to a materially larger strip. Do not assign a legal setback distance until the document author confirms the intended unit.",
+          "focus": "sources",
+          "sourceRef": "data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json"
+        },
+        {
+          "id": "P150-SURVEY-02",
+          "title": "Survey coordinates and site levels",
+          "status": "HOLD",
+          "detail": "PDF boundary vertices are scaled local drawing coordinates only. Obtain field survey or verified cadastral control for true north, georeferencing, area, right-of-way and terrain elevations. The linked 3D is planar review-only.",
+          "focus": "views",
+          "sourceRef": "data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json"
+        }
+      ]
     }
   },
   "viewTemplate": {
