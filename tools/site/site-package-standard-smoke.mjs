@@ -28,7 +28,7 @@ assert.match(sourceApp,/pw-dock/);
 assert.match(sourceApp,/packageRecords/);
 assert.doesNotMatch(sourceConfig,/4\.2 · Detailed material module/);
 assert.doesNotMatch(sourceConfig,/4\.2 · Work-package records/);
-assert.equal(Object.keys(PROJECTS).length,5);
+assert.equal(Object.keys(PROJECTS).length,6);
 
 for(const slug of Object.keys(PROJECTS)){
  const records=packageRecords(slug);
@@ -84,4 +84,4 @@ const expected={
 };
 for(const [stage,sha] of Object.entries(expected))
  assert.equal(execFileSync('git',['rev-parse','HEAD:public/stages/'+stage],{encoding:'utf8'}).trim(),sha,'frozen stage '+stage);
-console.log('SITE_PACKAGE_STANDARD_PASS five chapters, all five projects, four directions, original stage tree hashes, truthful missing stages');
+console.log('SITE_PACKAGE_STANDARD_PASS five chapters, all six projects, four directions, original stage tree hashes, truthful missing stages');

@@ -4,7 +4,7 @@ const base=process.env.PROJECT_SITE_URL||'http://127.0.0.1:5191/JP_Computer-Aide
 const b=await chromium.launch({headless:true,args:['--no-sandbox','--enable-unsafe-swiftshader']});
 try{
  for(const width of [1440,390]){
-  for(const slug of ['ashok-adhikari','harisharan-adhikari','narayani-parajuli','ramachandra-devkota','js-buddha-jewelers','example-empty']){
+  for(const slug of ['ashok-adhikari','harisharan-adhikari','narayani-parajuli','ramachandra-devkota','js-buddha-jewelers','14-amrit-hardware-1','example-empty']){
    const p=await b.newPage({viewport:{width,height:900}});
    const errors=[];p.on('pageerror',e=>errors.push(e.message));
    const r=await p.goto(base+'projects/'+slug+'/',{waitUntil:'domcontentloaded'});
@@ -73,7 +73,7 @@ try{
  await p.locator('#ct-gates li').first().waitFor({timeout:20000});
  assert.equal(await p.locator('a[href="../../../memory-wall/"]').count(),1);
  assert.equal(await p.locator('a[href="../../../projects/ashok-adhikari/memory-wall/"]').count(),1);
- assert.equal(await p.locator('#ct-project option').count(),6);
+ assert.equal(await p.locator('#ct-project option').count(),7);
  await p.locator('#ct-project').selectOption('ashok-adhikari');
  assert.equal(await p.locator('#ct-gates li').count(),4);
  assert.match(await p.locator('#ct-state').innerText(),/V3_2_DISPLAY_ONLY/);

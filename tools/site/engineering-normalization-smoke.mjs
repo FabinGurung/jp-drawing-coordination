@@ -11,7 +11,7 @@ const register=JSON.parse(read('public/data/engineering/engineering-package-read
 const quantity=JSON.parse(read('public/data/engineering/quantity-posters.v1.json'));
 const demo=JSON.parse(read('public/templates/project-workspace/project-template.v1.json'));
 const real=Object.keys(PROJECTS).sort(),all=Object.keys(ALL_WORKSPACE_PROJECTS).sort();
-assert.deepEqual(real,['ashok-adhikari','harisharan-adhikari','js-buddha-jewelers','narayani-parajuli','ramachandra-devkota']);
+assert.deepEqual(real,['14-amrit-hardware-1','ashok-adhikari','harisharan-adhikari','js-buddha-jewelers','narayani-parajuli','ramachandra-devkota']);
 assert.deepEqual(all,[...real,'example-empty'].sort());
 assert.equal(EMPTY_DUMMY_PROJECT.synthetic,true);
 assert.equal(EMPTY_DUMMY_PROJECT.editions[0].manifest,undefined);
@@ -27,7 +27,7 @@ assert.equal(new Set(NORMALIZED_PACKAGE_CATALOG.map(x=>x.id)).size,16);
 assert.deepEqual(register.catalog,NORMALIZED_PACKAGE_CATALOG,'JSON and deployed renderer must describe exactly the same package categories');
 assert.deepEqual(register.projects,NORMALIZED_PROJECTS,'No stale/competing machine register or UI status');
 assert.deepEqual(Object.keys(register.projects).sort(),all);
-const expectedCounts={'narayani-parajuli':7,'harisharan-adhikari':8,'ashok-adhikari':1,'ramachandra-devkota':0,'js-buddha-jewelers':0,'example-empty':0};
+const expectedCounts={'narayani-parajuli':7,'harisharan-adhikari':8,'ashok-adhikari':1,'ramachandra-devkota':0,'js-buddha-jewelers':0,'14-amrit-hardware-1':0,'example-empty':0};
 for(const slug of all){
  const p=NORMALIZED_PROJECTS[slug],slots=normalizedSlots(slug);
  assert.equal(slots.length,16,slug);
@@ -96,4 +96,4 @@ for(const stage of ['v02','v03','m40','m50','m60','m70','m80']){
  m80:'649ebd2a6964414fc11adbfe1ecacaf723d635e0'}[stage];
  assert.equal(execFileSync('git',['rev-parse','HEAD:public/stages/'+stage],{encoding:'utf8'}).trim(),expected);
 }
-console.log('ENGINEERING_NORMALIZATION_PASS 4 real projects + 1 fictional empty starter, 16 source-qualified stages each, 3-level memory walls, no invented approvals');
+console.log('ENGINEERING_NORMALIZATION_PASS 6 real projects + 1 fictional empty starter, 16 source-qualified stages each, 3-level memory walls, no invented approvals');
