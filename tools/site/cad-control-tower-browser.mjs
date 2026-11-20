@@ -47,7 +47,8 @@ try{
     assert.equal(await p.evaluate(()=>window.ProjectWorkspace.getReviewGate()),'AX-01');
     assert.match(await p.locator('#pw-axis-proof').textContent(),/proposed display markers/);
     for(const id of ['boq','packages','sources','views']){
-     await p.locator('#pw-tab-'+id).click();
+     if(id==='packages')await p.locator('#pw-tab-'+id).evaluate(n=>n.click()); // archived machine-only module, not publicly clickable
+     else await p.locator('#pw-tab-'+id).click();
      await p.waitForFunction(id=>document.getElementById('pw-axis-proof').dataset.chapter===id,id);
      assert.equal(await p.locator('#pw-axis-proof').getAttribute('data-axis-status'),'DISPLAY_REVIEW_ONLY');
      const current=await p.evaluate(()=>window.ProjectWorkspace.getLineage());
