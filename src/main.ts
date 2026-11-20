@@ -5,10 +5,10 @@ let registry:ProjectRegistry|null=null;
 function textEl(tag:string,content:string,cls?:string){const el=document.createElement(tag);el.textContent=content;if(cls)el.className=cls;return el;}
 function projectCard(p:ProjectEntry):HTMLElement {
   const card=document.createElement("article");card.className="card project-card";
-  card.append(textEl("div",p.project_id+(p.project_code?" · "+p.project_code:""),"stage"),textEl("h3",p.name),
-    textEl("p",p.organization+" · "+p.location,"project-subline"),textEl("p",p.summary));
+  card.append(textEl("div",p.organization,"stage"),textEl("h3",p.name),
+    textEl("p",p.location,"project-subline"),textEl("p",p.summary));
   const flags=document.createElement("div");flags.className="module-pills";
-  for(const item of p.modules)flags.append(textEl("span",item,"pill"));card.append(flags);
+  for(const item of p.modules.slice(0,3))flags.append(textEl("span",item,"pill"));card.append(flags);
   const controls=document.createElement("div");controls.className="project-actions";
   const link=document.createElement("a");link.className="button";link.textContent="Open project →";
   // Registry links are public-safe paths relative to the website root, never GitHub branches.
