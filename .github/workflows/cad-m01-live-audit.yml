@@ -23,11 +23,29 @@ jobs:
                grep -q 'OPEN ARCHITECTURE' /tmp/cad-live.html; then break; fi
             echo "Propagation wait: $attempt";sleep 10
           done
-          grep -q 'Open Architecture' /tmp/cad-live.html
-          curl -fsSL "${BASE}" -o /tmp/cad-root.html
-          grep -q 'How It Works' /tmp/cad-root.html
-          grep -q 'href="./cad/brief/"' /tmp/cad-root.html
-          grep -q 'href="./cad/"' /tmp/cad-root.html
+          grep -q 'OPEN ARCHITECTURE' /tmp/cad-live.html
+          # The client homepage now opens building projects, not archived editors.
+          # Poll this exact presentation before checking routes to avoid stale CDN content.
+          for attempt in $(seq 1 20); do
+            if curl --max-time 15 -fsSL "${BASE}" -o /tmp/cad-root.html &&
+               grep -q 'Your building projects' /tmp/cad-root.html; then break; fi
+            echo "Client homepage propagation wait: $attempt"; sleep 10
+          done
+          grep -q 'Your building projects' /tmp/cad-root.html
+          grep -q 'href="./projects/"' /tmp/cad-root.html
+          grep -q 'href="./guide/"' /tmp/cad-root.html
+          ! grep -q 'href="./cad/brief/"' /tmp/cad-root.html
+          ! grep -q 'href="./cad/"' /tmp/cad-root.html
+          ! grep -q 'id="capabilities"' /tmp/cad-root.html
+          curl -fsSL "${BASE}assets/js/cad-site-shell.js" -o /tmp/cad-client-shell.js
+          grep -Fq '["Projects","projects/"]' /tmp/cad-client-shell.js
+          ! grep -Fq '["Design Studio","cad/aad/"]' /tmp/cad-client-shell.js
+          curl -fsSL "${BASE}projects/ashok-adhikari/" -o /tmp/cad-ashok-client.html
+          grep -q 'data-project="ashok-adhikari"' /tmp/cad-ashok-client.html
+          grep -q 'project-workspace.mjs' /tmp/cad-ashok-client.html
+          curl -fsSL "${BASE}projects/14-amrit-hardware-1/" -o /tmp/cad-plot150-client.html
+          grep -q 'data-project="14-amrit-hardware-1"' /tmp/cad-plot150-client.html
+          echo "CAD_CLIENT_FIRST_LIVE_NAV_AND_PROJECT_ROUTES_PASS"
           curl -fsSL "${BASE}guide/" -o /tmp/cad-guide.html
           grep -q 'AI-Aided Drawing' /tmp/cad-guide.html
           grep -q '07 · TRACE' /tmp/cad-guide.html
@@ -43,7 +61,8 @@ jobs:
           assert len(m["elements"])>=8
           print("LIVE_CANONICAL_DEMO_PASS",len(m["elements"]))
           PY
-          curl -fsSI "${BASE}cad/web-ifc.wasm" | head -n 8
+          curl -fsSI "${BASE}cad/web-ifc.wasm" -o /tmp/cad-wasm-headers
+          head -n 8 /tmp/cad-wasm-headers
           python - <<'PY'
           from html.parser import HTMLParser
           from urllib.parse import urljoin
@@ -81,9 +100,10 @@ jobs:
           BASE="https://fabingurung.github.io/jp-drawing-coordination/"
           for attempt in $(seq 1 15); do
             if curl -fsSL --max-time 20 "${BASE}cad/aad/" -o /tmp/aad-template-live.html &&
-               grep -q "Canonical AI-Aided Building Design Studio" /tmp/aad-template-live.html; then break; fi
+               grep -q 'id="ds-editor"' /tmp/aad-template-live.html; then break; fi
             echo "AAD propagation: ${attempt}"; sleep 10
           done
+          grep -q 'id="ds-editor"' /tmp/aad-template-live.html
           grep -q 'location.replace(target.href)' /tmp/aad-template-live.html
           curl -fsSL --max-time 25 "${BASE}cad/aad/multistorey/" -o /tmp/aad-live-studio.html
           grep -q 'id="viewer2d"' /tmp/aad-live-studio.html
