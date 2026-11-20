@@ -1,103 +1,38 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="AI Design Studio: one connected building model, editable in both 2D and 3D. Earlier CAD tools and research are preserved in the archive.">
-<title>AI Design Studio · One Model, Every View</title>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Open building projects, linked 2D and 3D drawings, floor measurements and published architectural sheets.">
+<title>JP CAD · Project Drawings</title>
 <link rel="stylesheet" href="./assets/css/site.css">
 <link rel="stylesheet" href="./assets/css/consolidated-site.css">
 <link rel="stylesheet" href="./assets/css/cad-unified-theme.css">
-</head><body>
-<main class="cad-dashboard" id="cad-main-content">
-<section class="cad-intro" aria-label="Start designing">
-<div class="cad-intro-main">
-<div class="cad-kicker">AI-Aided Design & Drawing · One model, many views</div>
-<h1>One design workspace.<br>2D and 3D together.</h1>
-<p>Choose one to three rooms, move shared partition walls and doors, reuse bedroom/living/study templates, and inspect one shared model in 2D and 3D. The same workspace will grow into multi-room floor plans.</p>
-<figure class="cad-hero-proof" aria-label="Blueprint plan and related 3D room illustration">
-<svg viewBox="0 0 570 125" role="img" aria-label="A flat plan on the left maps to the same extruded room on the right">
-<g fill="none" stroke="#2563eb" stroke-width="1.8">
-<path d="M32 34 H208 V98 H32 Z M120 34 V98 M32 66 H120" stroke-linejoin="round"/>
-<path d="M120 59 H143" stroke="#e45253" stroke-width="3"/><path d="M184 34 V56" stroke="#fff" stroke-width="4"/>
-<circle cx="32" cy="34" r="4" fill="#2563eb"/><circle cx="208" cy="34" r="4" fill="#2563eb"/>
-<circle cx="32" cy="98" r="4" fill="#2563eb"/><circle cx="208" cy="98" r="4" fill="#2563eb"/>
-<path d="M230 65 H304 M297 59 L304 65 L297 71" stroke="#7b9cc4"/>
-</g>
-<g class="extrude" stroke="#3579c8" stroke-width="1.6" stroke-linejoin="round">
-<path d="M352 64 L449 30 L525 66 L428 101 Z" fill="#dbeaff" fill-opacity=".5"/>
-<path d="M352 64 V28 L449 5 V30 M449 30 V5 L525 31 V66 M525 31 L428 69 V101 M428 69 L352 28" fill="#f5faff" fill-opacity=".66"/>
-<path d="M380 47 V68 L404 79 V56 Z M482 48 V69 L505 60 V39 Z" fill="#a7cef5" fill-opacity=".8"/>
-<path d="M352 28 L428 69 L525 31 M449 5 L449 30" fill="none"/>
-</g>
-<text x="120" y="117" fill="#4a6e98" font-size="11" text-anchor="middle">2D FLOOR PLAN</text>
-<text x="441" y="117" fill="#4a6e98" font-size="11" text-anchor="middle">SAME MODEL · 3D</text>
-</svg><figcaption>2D ↔ 3D · one model</figcaption></figure>
-<a class="cad-button" href="./cad/aad/">Start designing →</a>
-<div class="cad-eyeline"><span>One shared model</span><span>2D + 3D linked</span><span>Save your draft</span><span>Illustrative only</span></div>
-</div>
-<aside class="cad-intro-side">
-<div class="cad-kicker">First visit · Try this</div>
-<h2>Try the actual product</h2>
-<ol class="cad-demo-steps">
-<li>Open <b>Design Studio</b> to see the same room in 2D and 3D.</li>
-<li>Change length from <b>8 m to 9 m</b>; watch both views update.</li>
-<li>Click the window or column in either view to inspect its shared ID.</li>
-</ol>
-<p>All example columns, walls, doors, windows and furniture are illustrative. No structural design or construction approval is implied.</p>
-<a href="./guide/">How It Works →</a>
-</aside>
-</section>
-
-<section class="cad-section" aria-label="Product overview">
-<div class="cad-section-head"><h2>What you can do today</h2><p>One workspace. Select a component to reveal its controls.</p></div>
-<div class="cad-capability-strip">
-<div><b>Describe</b><span>Set a simple room size or supported change</span></div>
-<div><b>Edit</b><span>Room templates, shared partitions, columns, beams, doors and furniture</span></div>
-<div><b>Explore</b><span>Linked 2D plan, 3D view and connected frame joints</span></div>
-<div><b>Save</b><span>Local versioned JSON draft</span></div>
-</div>
-<p class="cad-limit">Current scope: synthetic one-storey rectangular rooms; not a complete free-form BIM editor or approved construction drawing.</p>
-</section>
-
-<section class="cad-section" aria-label="Capability library">
-<div class="cad-section-head"><h2>Everything else we built</h2><p>Click any section to reveal more; no tools or history are discarded.</p></div>
-<div class="cad-disclosures">
-<details class="cad-disclosure" id="capabilities">
-<summary><div>Previous tools and advanced CAD capabilities<span>Earlier prototypes and engine proofs, preserved rather than promoted as separate products</span></div></summary>
-<div class="cad-detail"><div class="cad-detail-grid">
-<article class="cad-mini"><strong>Earlier CAD Studio</strong><p>Older standalone editor with plan/elevation cameras, snapping, clipping and IFC overlays. Kept as a research reference while useful functions are integrated into Design Studio.</p><a href="./cad/">Open previous CAD editor →</a></article>
-<article class="cad-mini"><strong>Earlier language-to-mass preview</strong><p>Standalone limited phrase parser with multi-storey mass visualization. This is not the single-model editing experience.</p><a href="./cad/brief/">Open earlier mass preview →</a></article>
-<article class="cad-mini"><strong>IFC, DXF and STEP pipeline</strong><p>web-ifc browser interrogation plus Python IfcOpenShell, ezdxf and OpenCascade/OCP bridges. Native generation operates in controlled Python/CI workflows; not directly through static GitHub Pages.</p><span class="cad-state">ENGINE PROOFS · RUNNER REQUIRED</span></article>
-<article class="cad-mini"><strong>Assemblies and multistorey models</strong><p>Completed synthetic multi-level geometry and native-format regression proofs (M11); these are not approved client building drawings.</p><span class="cad-state">SYNTHETIC ENGINE TESTS</span></article>
-<article class="cad-mini"><strong>Private source admission</strong><p>Authenticated source attestation boundary exists as tested code (M12.2A). No production Drive runner or verified Narayani DWG conversion is active.</p><span class="cad-state held">PRODUCTION CONNECTION PENDING</span></article>
-</div><p class="cad-panel-discreet">A7 is a read-only directory for CAD. The engineering algorithms, templates and design contracts remain owned by this repository.</p></div>
-</details>
-<details class="cad-disclosure" id="research">
-<summary><div>Research, generated drawings and older proofs<span>Open Architecture Engine v0.1/v0.2; original artefacts remain available</span></div></summary>
-<div class="cad-detail"><div class="cad-detail-grid">
-<article class="cad-mini"><strong>Open Architecture Engine v0.2</strong><p>Wall-hosted openings, room and dimension proof, SVG plan, DXF and glTF produced from one canonical research model.</p><a href="./research/open-architecture-engine/v0.2/">Open v0.2 research →</a></article>
-<article class="cad-mini"><strong>Original v0.1 model proof</strong><p>Preserved generated 2D plan and 3D model from early canonical-model research.</p><a href="./research/open-architecture-engine-v0.1/">Open v0.1 history →</a></article>
-<article class="cad-mini"><strong>Research collection</strong><p>The existing software research routes and their version boundaries, without adding them to the everyday drawing workflow.</p><a href="./research/">Browse research →</a></article>
-</div></div>
-</details>
-<details class="cad-disclosure" id="projects">
-<summary><div>Projects and previously published engineering viewers<span>Open existing Narayani, Ramachandra and preserved work-package screens</span></div></summary>
-<div class="cad-detail"><p>Project records remain under their source authority; the website displays only public-safe projections. Historical work-package viewers are retained with their original internal appearance.</p>
-<label for="projectSearch" class="search-label">Find project by name, ID or location</label>
-<input id="projectSearch" class="portal-search" type="search" placeholder="Search public project registry…" autocomplete="off">
-<div id="loadState" class="cad-state" aria-live="polite">Loading project directory…</div><div id="cards" class="cards project-cards" style="margin-top:12px"></div>
-<a class="cad-button alt" href="./projects/">Open project library →</a>
-</div>
-</details>
-<details class="cad-disclosure" id="releases">
-<summary><div>Release history and source catalogue<span>Versions, preserved artefacts, engineering authority and developer material</span></div></summary>
-<div class="cad-detail"><div class="cad-detail-grid">
-<article class="cad-mini"><strong>Releases and milestones</strong><p>Released research versions and preserved project milestones remain reachable from the site.</p><a href="./releases/">View releases →</a></article>
-<article class="cad-mini"><strong>Source registry</strong><p>Public code and provenance pointers. Restricted Google Drive originals and approvals are not published.</p><a href="./source/">Open source catalogue →</a></article>
-<article class="cad-mini"><strong>User and developer guide</strong><p>How AI interpretation, validation, deterministic geometry, models, output evidence and approvals fit together.</p><a href="./guide/">How It Works →</a></article>
-</div></div>
-</details>
-</div>
-</section>
-<footer class="cad-footer"><a href="./knowledge-centre/">CAD Knowledge Centre</a> · CAD / AI-Aided Design & Drawing · One active workspace, preserved historical research and projects · Engineering acceptance remains separate · <a href="./guide/">How It Works</a></footer>
+<style>
+.cad-public{max-width:1250px;margin:0 auto;padding:clamp(15px,3vw,36px);font:15px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;color:#203e49}
+.cad-public .welcome{padding:clamp(22px,4vw,44px);border:1px solid #d8e5e7;background:linear-gradient(125deg,#f1f8f7,#fff);border-radius:18px;margin:12px 0 28px}
+.cad-public .eyebrow{text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:.12em;color:#466b72}
+.cad-public h1{font-size:clamp(30px,4vw,51px);line-height:1.12;letter-spacing:-.04em;margin:10px 0}
+.cad-public .welcome p{max-width:760px;color:#536d76;font-size:17px}
+.cad-public .actions{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 0}
+.cad-public .actions a{padding:12px 18px;text-decoration:none;font-weight:750;border:1px solid #bed4d7;border-radius:8px;background:#fff;color:#215e68}
+.cad-public .actions a:first-child{background:#286f73;color:#fff;border-color:#286f73}
+.cad-public .library{padding:6px 4px}.cad-public .library h2{font-size:24px;margin:0 0 6px}
+.cad-public .library p{color:#58717b;max-width:760px}.cad-public label{display:block;font-weight:750;margin:18px 0 8px}
+.cad-public input{width:100%;max-width:510px;border:1px solid #bdd0d5;border-radius:9px;padding:12px 14px;font:inherit;background:#fff}
+.cad-public #cards{margin:18px 0}.cad-public .notice{border-top:1px solid #dce6e9;padding:18px 0;margin-top:25px;color:#576e77;font-size:13px}
+@media(max-width:720px){.cad-public .welcome{padding:19px}.cad-public .welcome p{font-size:15px}}
+</style></head>
+<body><main class="cad-public" id="cad-main-content">
+<section class="welcome" aria-label="Project drawings"><div class="eyebrow">JP CAD · Drawing workspace</div>
+<h1>Your building projects.<br>Clear 2D and 3D drawings.</h1>
+<p>Choose a project to inspect its current drawing, floor plans, 3D view and measurements. Select an item in a drawing to see its dimensions and position. Each project's geometry is independent; the drawing viewer is shared.</p>
+<div class="actions"><a href="./projects/">Browse projects</a><a href="./guide/">How to use the drawings</a></div></section>
+<section class="library" id="projects" aria-label="Project library"><h2>Projects</h2>
+<p>Find your building by name. Where a design is not yet available, the project will say so rather than display assumed measurements.</p>
+<label for="projectSearch">Find a project</label>
+<input id="projectSearch" type="search" placeholder="Search by project or company" autocomplete="off" aria-label="Search projects">
+<div id="loadState" role="status" aria-live="polite">Loading projects…</div>
+<div id="cards" class="cards project-cards"></div></section>
+<footer class="notice">Architectural drawings and measured geometry are separate from structural approval, site survey, statutory approvals and construction issue. <a href="./knowledge-centre/">Drawing reference library</a>.</footer>
 </main>
 <script defer src="./assets/js/cad-site-shell.js" data-cad-root="./"></script>
 <script type="module" src="/src/main.ts"></script>

@@ -9,8 +9,8 @@ try{
    const errors=[];p.on('pageerror',e=>errors.push(e.message));
    const r=await p.goto(base+'projects/'+slug+'/',{waitUntil:'domcontentloaded'});
    assert.equal(r.status(),200,slug+' routing');
-   await p.locator('#pw-dock[data-review-id]').waitFor({timeout:75000});
-   await p.locator('#pw-axis-proof[data-axis-status]').waitFor({timeout:15000});
+   await p.locator('#pw-dock[data-review-id]').waitFor({state:'attached',timeout:75000});
+   await p.locator('#pw-axis-proof[data-axis-status]').waitFor({state:'attached',timeout:15000});
    const state=await p.evaluate(()=>({
     d:document.getElementById('pw-dock').dataset.reviewId,
     axis:document.getElementById('pw-axis-proof').dataset.axisStatus,
@@ -30,11 +30,13 @@ try{
    const count=+(await p.locator('#pw-dock').getAttribute('data-review-count'));
    const original=state.d;
    if(count>1){
-    await p.locator('#pw-review-next').click();
+    await p.locator('#pw-review-next').evaluate(n=>n.click());
     await p.waitForFunction(value=>document.getElementById('pw-dock').dataset.reviewId!==value,original);
-    await p.locator('#pw-review-prev').click();
+    await p.locator('#pw-review-prev').evaluate(n=>n.click());
     await p.waitForFunction(value=>document.getElementById('pw-dock').dataset.reviewId===value,original);
    }
+   assert.equal(await p.locator('#pw-dock').isVisible(),false,'client removes review-route UI without deleting source lineage');
+    assert.equal(await p.locator('#pw-axis-proof').isVisible(),false,'client removes Axis Review UI without deleting source registry');
    if(slug==='ashok-adhikari'){
     assert.equal(state.axis,'DISPLAY_REVIEW_ONLY');
     const machine=await p.evaluate(()=>window.ProjectWorkspace.getLineage());
@@ -43,9 +45,10 @@ try{
     assert.equal(machine.constructionApproved,false);
     assert.ok(machine.axisIds.includes('A1')&&machine.axisIds.includes('C5'));
     assert.equal(await p.evaluate(()=>window.ProjectWorkspace.getReviewGate()),'AX-01');
-    assert.match(await p.locator('#pw-axis-proof').innerText(),/proposed display markers/);
-    for(const id of ['boq','gantt','packages','sources','views']){
-     await p.locator('#pw-tab-'+id).click();
+    assert.match(await p.locator('#pw-axis-proof').textContent(),/proposed display markers/);
+    for(const id of ['boq','packages','sources','views']){
+     if(id==='packages')await p.locator('#pw-tab-'+id).evaluate(n=>n.click()); // archived machine-only module, not publicly clickable
+     else await p.locator('#pw-tab-'+id).click();
      await p.waitForFunction(id=>document.getElementById('pw-axis-proof').dataset.chapter===id,id);
      assert.equal(await p.locator('#pw-axis-proof').getAttribute('data-axis-status'),'DISPLAY_REVIEW_ONLY');
      const current=await p.evaluate(()=>window.ProjectWorkspace.getLineage());

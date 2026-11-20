@@ -251,3 +251,8 @@ All four real projects and the fictional empty starter inherit the same `project
 A west-rail **Request next design edition** button opens a local-only change request and carries the selected source ID and predecessor. It never writes the original Drive, GitHub or a new model by itself. On admitted change, validate the new source-backed model, append the registered edition, review via a PR, and publish through staging QA → Pages → independent readback. Shared feature releases such as the v3.3 window colors remain engine history, **not a separate house design**.
 
 The CAD Memory Wall, publishing memory wall, reusable template guide and each project memory poster link to this single CAD authority. A7 is a read-only catalogue and must not be modified from this CAD workstream. Engineering/municipal issue status remains independent of interface release approval.
+
+
+## Client-first display revision — 18 November 2026
+
+Current client shell presents 01 Drawings, 02 Quantity Takeoff, 04 Packages, 05 Sources & Records, and More (Level 1 Memory Palace, codes, guidance, Scheduling, historical logs). CAD is not the schedule/Gantt owner. Ashok's shared 2D/3D viewer presents the selected item's compact location and size diagrams in the east and measured items in 02; stable IDs, host relationships and provenance remain accessible in the clicked item's expandable technical record, never deleted from canonical machine data. The historical edit request, axis review banner, checkpoint carousel, duplicate coordinate preview and embedded developer tables are not part of client navigation. Technical editor and old source review code remain in Git history.

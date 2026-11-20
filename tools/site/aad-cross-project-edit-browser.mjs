@@ -19,7 +19,7 @@ try{
  for(const [slug,suffix] of Object.entries(admitted)){
   await open(page,slug);
   const link=page.locator("#pw-edit-direct");
-  assert.equal(await link.isVisible(),true,slug+" should expose the same shared editor");
+  assert.equal(await link.isVisible(),false,slug+" technical editor stays machine-registered but hidden from the client interface");
   const href=await link.getAttribute("href"),url=new URL(href);
   assert(url.pathname.endsWith("/cad/aad/multistorey/"),"Must use one shared viewer");
   assert(url.searchParams.get("manifest").endsWith(suffix),"Wrong source model for "+slug);
@@ -51,34 +51,17 @@ try{
  const readOnly=["harisharan-adhikari","ramachandra-devkota","js-buddha-jewelers","example-empty"];
  for(const slug of readOnly){
   await open(page,slug);
-  assert.equal(await page.locator("#pw-edit-direct").isVisible(),false,"Source-only project must not claim live editable model: "+slug);
+  assert.equal(await page.locator("#pw-edit-direct").isVisible(),false,"Client editor must be hidden: "+slug);
+  assert.equal(await page.locator("#pw-change-request").isVisible(),false,"Client request journal must be hidden: "+slug);
+  assert.equal(await page.locator("#pw-edit-request-open").isVisible(),false,"Client technical action must be hidden: "+slug);
   assert.match(await page.locator("#pw-edit-readiness").textContent(),/SOURCE REVIEW HOLD/);
-  await page.locator("#pw-edit-request-open").click();
-  assert.equal(await page.locator("#pw-change-request").evaluate(node=>node.open),true);
-  await page.locator("#pw-request-type").selectOption("request-remove");
-  await page.locator("#pw-request-object").fill("WALL-REF-17");
-  await page.locator("#pw-request-note").fill("Please verify this wall against source drawings and review proposed removal.");
-  await page.locator("#pw-request-record").click();
-  const b=await page.evaluate(()=>window.ProjectWorkspace.getChangeRequests());
-  assert.equal(b.schema,"jp-cad://aad-project-change-requests/1");
-  assert.equal(b.projectSlug,slug);
-  assert.equal(b.requests.length,1);
-  assert.equal(b.requests[0].applied,false);
-  assert.equal(b.sourceManifestPath,null);
-  assert.equal(b.requests[0].status,"REVIEW_REQUIRED_NOT_APPLIED");
-  assert.match(await page.locator("#pw-request-export-preview").inputValue(),/CAD_AAD_PROJECT_CHANGE_REQUEST_HANDOVER_V1/);
-  const download=page.waitForEvent("download",{timeout:10000});
-  await page.locator("#pw-request-export").click();
-  const result=await download;
-  assert(result.suggestedFilename().startsWith(slug+"_"),"Wrong project export");
-  await page.reload({waitUntil:"domcontentloaded"});
-  await page.locator("#pw-request-list li").first().waitFor({state:"attached",timeout:30000});
-  assert.equal(await page.locator("#pw-request-list li").count(),1,"Request log should persist across reload");
+  const bundle=await page.evaluate(()=>window.ProjectWorkspace.getChangeRequests());
+  assert.equal(bundle.projectSlug,slug);
+  assert.equal(bundle.schema,"jp-cad://aad-project-change-requests/1");
  }
  const mobile=await browser.newPage({viewport:{width:390,height:844},hasTouch:true,isMobile:true});
  await open(mobile,"narayani-parajuli");
- assert.equal(await mobile.locator("#pw-edit-request-open").count(),1);
- await mobile.locator("#pw-edit-request-open").tap();
- assert.equal(await mobile.locator("#pw-change-request").evaluate(n=>n.open),true);
- console.log("AAD_PROJECT_WIDE_EDIT_ROUTE_PASS",JSON.stringify({admitted:Object.keys(admitted),sourceOnly:readOnly,editionRebinding:true,requestExport:true,mobile:true}));
+ assert.equal(await mobile.locator("#pw-edit-request-open").isVisible(),false);
+ assert.equal(await mobile.locator("#pw-change-request").isVisible(),false);
+ console.log("AAD_PROJECT_WIDE_EDIT_ROUTE_PASS",JSON.stringify({admitted:Object.keys(admitted),sourceOnly:readOnly,editionRebinding:true,clientReadOnly:true,mobile:true}));
 }finally{await browser.close();}

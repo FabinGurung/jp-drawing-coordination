@@ -1,0 +1,67 @@
+{
+  "schema": "jp-cad://memory-palace-l1/1",
+  "id": "CAD-L1",
+  "version": "1.0",
+  "ownerRepository": "FabinGurung/jp-drawing-coordination",
+  "a7Catalog": "https://github.com/FabinGurung/jp-a7-system-registry",
+  "updated": "2026-11-18",
+  "purpose": "Concise AI-readable source-location map, not a duplicate archive",
+  "chapters": [
+    {
+      "id": "1",
+      "title": "Ownership",
+      "rule": "A7 is cross-repo catalogue; CAD repo owns drawings, edition manifests, drawing UI and CAD memory. Drive owns originals. Actions tests. Pages presents.",
+      "refs": [
+        "governance/aad/README.md",
+        "public/memory-wall/index.html"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Client views",
+      "rule": "Views for floor 2D/3D and selected object; Quantity Takeoff for measured item table and m/ft units; Packages for WBS/site workbenches; Sources for evidence; More for codes, guides, memory and archived editing.",
+      "refs": [
+        "public/assets/js/project-workspace.mjs",
+        "public/assets/js/cad-client-takeoff.mjs",
+        "public/assets/css/project-workspace.css"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Entity data",
+      "rule": "Keep stable IDs, host wall relations, source references and provenance in machine-readable model and clicked item Technical record. Do not show provenance and internal IDs as ordinary quantity columns.",
+      "refs": [
+        "public/assets/js/aad-component-register.mjs",
+        "public/assets/js/cad-client-takeoff.mjs"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Architecture versions",
+      "rule": "Every numbered edition is a frozen complete architectural drawing edition; never overwrite. Ashok v3.7 is final architectural version, v3.6 frozen predecessor. Structural, civil and MEP approvals separate from an architectural version.",
+      "refs": [
+        "public/data/projects/ashok-adhikari/aad-building-v3-7-architectural-final.json",
+        "public/data/projects/ashok-adhikari/aad-building-v3-6-review.json",
+        "governance/aad/design-edition-lifecycle.v1.md"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Division of responsibilities",
+      "rule": "Programming, calendars and Gantt belong to the distinct Scheduling & Resources project, not the drawings nav; rates and BOQ ownership belongs to the Cost Estimation repository; CAD can display source-backed geometry takeoff.",
+      "refs": [
+        "public/assets/js/project-workspace-config.mjs"
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Publication and audit",
+      "rule": "Use separate branch + PR, source privacy, browser QA, exact SHA Pages deployment and independent live readback. The GitHub history archives local edit/change-request implementation; no client-side source mutation promised.",
+      "refs": [
+        ".github/workflows/cad-unified-website-qa.yml",
+        ".github/workflows/cad-main-pages.yml",
+        "governance/aad/browser-edit-handover.v1.md"
+      ]
+    }
+  ]
+}

@@ -19,10 +19,10 @@ try{
   assert.equal(await frame.locator('[data-column-axis-node="C1"]').count(),0);
   assert.equal(await frame.locator('[data-column-axis-id]').count(),14);
   await frame.locator('[data-column-axis-id="A1"]').click();
-  assert.match(await frame.locator('#aad-selected-details').innerText(),/Column-axis location A1/);
-  await frame.locator('#aad-column-axes').uncheck();
+  assert.match(await frame.locator('#aad-selected-details').textContent(),/Column-axis location A1/);
+  await frame.locator('#aad-column-axes').evaluate(e=>{e.checked=false;e.dispatchEvent(new Event('change',{bubbles:true}));});
   assert.equal(await frame.locator('[data-column-axis-overlay="review"]').count(),0);
-  await frame.locator('#aad-column-axes').check();
+  await frame.locator('#aad-column-axes').evaluate(e=>{e.checked=true;e.dispatchEvent(new Event('change',{bubbles:true}));});
   assert.equal(await frame.locator('[data-column-axis-node="B3"]').count(),1);
   assert.equal(await frame.locator('#viewer3d canvas').isVisible(),true);
   await p.locator('#pw-phase').selectOption('ff');

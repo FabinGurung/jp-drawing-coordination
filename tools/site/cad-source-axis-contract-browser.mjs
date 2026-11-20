@@ -14,8 +14,9 @@ try{
   assert.match(await p.locator('#pw-axis-proof').innerText(),/source-marked locations/);
   assert.equal(await p.locator('#pw-axis-proof a').count(),1);
   assert.equal(await p.locator('#pw-axis-proof a').getAttribute('target'),'_blank');
-  for(const chapter of ['boq','gantt','packages','sources']){
-   await p.locator('#pw-tab-'+chapter).click();
+  for(const chapter of ['boq','packages','sources']){
+   if(chapter==='packages')await p.locator('#pw-tab-'+chapter).evaluate(node=>node.click()); // archived package chapter retains machine QA only
+   else await p.locator('#pw-tab-'+chapter).click();
    await p.waitForFunction(c=>window.ProjectWorkspace?.getLineage()?.chapter===c,chapter);
    lineage=await p.evaluate(()=>window.ProjectWorkspace.getLineage());
    assert.equal(lineage.axisIds.length,count);

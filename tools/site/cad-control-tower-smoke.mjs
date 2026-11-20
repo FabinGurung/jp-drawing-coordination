@@ -4,7 +4,8 @@ import {PROJECTS,ALL_WORKSPACE_PROJECTS,CHAPTERS} from '../../public/assets/js/p
 import {validateControlTower,inspectAxisEvidence,modelLineage,reviewGate,REQUIRED_CHAPTERS} from '../../public/assets/js/cad-view-control-tower.mjs';
 const path='public/data/cad/view-control-tower.v1.json';
 const t=validateControlTower(JSON.parse(fs.readFileSync(path,'utf8')));
-assert.deepEqual(CHAPTERS.map(x=>x[0]),REQUIRED_CHAPTERS);
+assert.deepEqual(CHAPTERS.map(x=>x[0]),['views','boq','packages','sources','more']);
+assert.deepEqual(REQUIRED_CHAPTERS,['views','boq','gantt','packages','sources'],'internal historical data contracts remain source-compatible');
 assert.deepEqual(t.axisContract.displayIn,REQUIRED_CHAPTERS);
 assert.equal(t.viewTemplate.render2d.axisLine.style,'dashed');
 assert.equal(t.viewTemplate.render2d.axisBubble.shape,'circle');
