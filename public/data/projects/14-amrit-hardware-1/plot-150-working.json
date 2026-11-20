@@ -9,11 +9,20 @@
     "plotNumberDevanagari": "१५०"
   },
   "edition": {
-    "id": "plot150-owner-front-only-concept-v2",
-    "kind": "design-option",
-    "status": "OWNER_ORIENTATION_AND_SETBACK_UPDATED__CONCEPT_NOT_APPROVED",
+    "id": "plot150-owner-water-tank-inside-v3",
+    "enumeration": "AAD-14-AMRIT-P150-V003",
+    "versionSequence": 3,
+    "kind": "owner-concept-drawing-revision",
+    "status": "WATER_TANK_REPOSITIONED_WITHIN_ORIGINAL_BOUNDARY__CONCEPT_NOT_APPROVED",
     "date": "2026-11-20",
-    "predecessor": "pdf-trace-v1"
+    "predecessor": "plot150-owner-front-only-concept-v2",
+    "canonicalSource": "NATIVE_GOOGLE_DOC_SAME_ID",
+    "lineage": [
+      "pdf-trace-v1",
+      "plot150-owner-front-only-concept-v2",
+      "plot150-owner-water-tank-inside-v3"
+    ],
+    "sourceBoundaryPolicy": "ORIGINAL_PDF_QUADRILATERAL_UNCHANGED"
   },
   "geometry": {
     "units": "mm",
@@ -229,13 +238,16 @@
         "kind": "underground_water_tank_reservation",
         "rectMm": [
           3600,
-          15500,
+          15550,
           5800,
-          17000
+          16850
         ],
         "depthMm": null,
         "capacityL": null,
-        "approval": "HOLD"
+        "approval": "HOLD",
+        "sourceNote": "v3 water-tank rectangle moved/reduced toward the plot interior; inside immutable red PDF-derived cadastral outline. Original rear boundary not enlarged. Placement only: clearance and tank capacity unapproved.",
+        "rearMarginApproxMm": null,
+        "displayFootprintAreaSqm": 2.86
       },
       {
         "id": "ST-01",
@@ -305,7 +317,9 @@
     "derivedFrontBandAreaSqm": 21.84,
     "derivedBuildableAreaSqm": 103.9,
     "derivedHouseFootprintAreaSqm": 42.75,
-    "frontOffsetFromPDFReferenceApproxMm": 1977.3
+    "frontOffsetFromPDFReferenceApproxMm": 1977.3,
+    "waterTankConceptFootprintSqm": 2.86,
+    "rearBoundaryExtended": false
   },
   "source": {
     "documentName": "14_Amrit_Hardware_1.pdf",
@@ -326,7 +340,9 @@
     "status": "REFERENCE_SOURCE_NOT_FIELD_SURVEY",
     "previousEdition": "data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json",
     "ownerRevisionDate": "2026-11-20",
-    "ownerRevisionSummary": "Front-only setback + cardinal side labels + rectangle house concept + three separate underground service zones; original PDF and earlier trace unchanged."
+    "ownerRevisionSummary": "v3: reposition underground water tank entirely within unmodified source plot, with additional visible rear margin; retire duplicate v2 export copies to restricted Drive archive; same canonical Google Doc ID remains authoritative.",
+    "sourceBoundaryEditStatus": "UNCHANGED_ORIGINAL_VECTOR_PDF_PLOT_150; NO_CADASTRAL_EXTENSION",
+    "versionControlPolicy": "A7_AAD_EDITION_V003__ONE_STABLE_GOOGLE_DOC__HASH_SNAPSHOTS__REVIEWED_GITHUB_COMMIT"
   },
   "holds": [
     "Owner clarified plot sides: left=north, rear/top=east, right=south, road/front/bottom=west; survey bearing not supplied.",
@@ -334,12 +350,13 @@
     "Front setback line follows source PDF original drawn interior front edge; original 6.5 double-quote notation remains ambiguous and must be verified by survey/municipality.",
     "House rectangle 4.50×9.50 m is a conceptual candidate, not approved architecture, access, structural or fire separation; 2-storey 6m mass is visual assumption.",
     "Water tank, septic tank and soak pit are reservations only; no design capacities, depths, setbacks, disposal/percolation, drinking-water separation or structural clearances checked.",
-    "No certified coordinates, surveyed area, true bearing, terrain elevations or legal road width."
+    "No certified coordinates, surveyed area, true bearing, terrain elevations or legal road width.",
+    "v3: A visible rear-margin adjustment does not permit movement of the registered cadastral boundary; any lot extension requires certified survey evidence and a separately reviewed boundary revision."
   ],
   "links": {
-    "sourceSvg": "data/projects/14-amrit-hardware-1/plot-150-owner-concept-v2.svg",
-    "modelJson": "data/projects/14-amrit-hardware-1/plot-150-owner-concept-v2.json",
-    "sourceDxf": "data/projects/14-amrit-hardware-1/plot-150-owner-concept-v2.dxf",
+    "sourceSvg": "data/projects/14-amrit-hardware-1/plot-150-owner-concept-v3.svg",
+    "modelJson": "data/projects/14-amrit-hardware-1/plot-150-owner-concept-v3.json",
+    "sourceDxf": "data/projects/14-amrit-hardware-1/plot-150-owner-concept-v3.dxf",
     "sourceModel": "data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json"
   }
 }

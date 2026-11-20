@@ -1,0 +1,24 @@
+{
+  "project": "14_Amrit_Hardware_1",
+  "plot": "150",
+  "edition": "AAD-14-AMRIT-P150-V003",
+  "sourceSha256": "2336b53f62c00abcf5a1530154cafd4223772992e4ee839b05b95db0b1943ed4",
+  "previousSvgSha256": "0ae915b00d037c0683a5d7af11aa256391ff8b9ca0b6300719a539118c14b164",
+  "predecessor": "plot150-owner-front-only-concept-v2",
+  "date": "2026-11-20",
+  "changes": [
+    "Moved/shrank UWT conceptual zone to fit with visible rear margin entirely inside original plot",
+    "No movement of cadastral/rear/source boundary",
+    "Retained original full plot edge dimensions, front-only setback, house, septic, soak zone",
+    "Superseded/duplicate v2 raw exports archived in Drive; not deleted"
+  ],
+  "engineeringStatus": "HOLD_NOT_FOR_CONSTRUCTION",
+  "plotBoundaryVerified": false,
+  "websiteReleaseState": "AWAITING_GITHUB_QA",
+  "isDuplicateOfV2": false,
+  "canonicalDocIdVisibility": "AUTHENTICATED_PRIVATE_SOURCE_ONLY",
+  "immutableCadastre": "pdf-trace-v1",
+  "publicSourceDocs": {
+    "3dEngine": "Native HTML5 Canvas 2D context with custom projection; not Three.js"
+  }
+}
