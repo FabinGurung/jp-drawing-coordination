@@ -27,10 +27,10 @@ required=[
 missing=[x for x in required if not (root/x).is_file()]
 guide=(root/"guide/index.html").read_text() if (root/"guide/index.html").exists() else ""
 assert all(x in guide for x in ("How It Works","UNDERSTAND","RESOLVE","VALIDATE","EXECUTE","VERIFY","VIEW","TRACE","3D","2D","4D","5D","engineering acceptance","CAD-owned AAD template","AI_AIDED_DRAWING_GUIDE_ADOPTION_v0.1.md")), "AI aided CAD guide missing canonical policy or safety details"
-assert 'href="./guide/"' in (root/"index.html").read_text() and "How It Works" in (root/"index.html").read_text(),"home missing guide navigation"
+assert 'href="./guide/"' in (root/"index.html").read_text() and "How to use the drawings" in (root/"index.html").read_text(),"home missing guide navigation"
 assert 'href="../../guide/"' in (root/"cad/brief/index.html").read_text(),"brief must reach guide"
 assert 'href="../guide/"' in (root/"cad/index.html").read_text(),"CAD studio must reach guide"
-assert 'href="./cad/aad/"' in (root/"index.html").read_text(),"Homepage must link live AAD studio"
+assert 'href="./projects/"' in (root/"index.html").read_text(),"Homepage must open the project directory"
 assert 'href="./aad/"' in (root/"cad/index.html").read_text(),"CAD studio must link AAD"
 assert 'src="./main.ts"' not in (root/"cad/aad/index.html").read_text(),"AAD TypeScript must be compiled to deployable JavaScript"
 assert not missing,"missing built pages: "+", ".join(missing)
@@ -78,17 +78,14 @@ for page in current_pages:
         assert "cad-unified-theme.css" in content,(page,"missing shared theme")
         assert "cad-site-shell.js" in content,(page,"missing shared navigation")
 home=(root/"index.html").read_text()
-for anchor in ('id="capabilities"','id="research"','id="projects"','id="releases"','href="./cad/aad/"','href="./cad/brief/"','href="./cad/"'):
-    assert anchor in home, ("missing route or preserved legacy link", anchor)
-assert home.count('href="./cad/aad/"')==1,"Homepage must have one unambiguous primary Design Studio link"
-assert 'aria-label="Three main CAD tools"' not in home and "03 / ADVANCED WORKSPACE" not in home,"Old competing product launchers must be removed"
-assert 'aria-label="Product overview"' in home and 'class="cad-capability-strip"' in home,"Compact single-product overview missing"
-assert home.index('href="./cad/"')>home.index('id="capabilities"'),"Legacy CAD must only appear inside the advanced disclosure"
-assert home.index('href="./cad/brief/"')>home.index('id="capabilities"'),"Standalone language preview must not be a primary action"
+for anchor in ('id="projects"','id="projectSearch"','id="loadState"','id="cards"','href="./projects/"','href="./guide/"'):
+    assert anchor in home,("missing project-first public navigation",anchor)
+assert "Your building projects" in home and "Clear 2D and 3D drawings" in home,"public homepage must focus on real projects"
+assert "cad/aad/" not in home and 'id="capabilities"' not in home,"editor/prototype UI must not be promoted in client homepage"
 nav=(root/"assets/js/cad-site-shell.js").read_text()
-assert '["Design Studio","cad/aad/"]' in nav and '["CAD Studio","cad/"]' not in nav,"Legacy CAD should not be top-level navigation"
-assert '["Describe a building","cad/brief/"]' not in nav,"Previous mass preview must not be a top-level feature"
-assert "PRODUCTION CONNECTION PENDING" in home,"Do not conceal source-admission limitation"
+assert '["Projects","projects/"]' in nav and '["Knowledge Centre","knowledge-centre/"]' in nav,"project navigation must be clear"
+assert '["Design Studio","cad/aad/"]' not in nav and 'cad-global-more' not in nav,"legacy developer navigation must be retired"
+assert "/blob/" not in home and "/tree/" not in home,"GitHub source control links are not client navigation"
 
 # The fictional starter MUST remain outside the four-production-project registry.
 assert sum(p["slug"]=="example-empty" for p in project["projects"])==0, "template leaked into real client project registry"

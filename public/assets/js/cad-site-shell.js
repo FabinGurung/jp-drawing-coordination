@@ -10,7 +10,7 @@
  const skip=document.createElement("a");skip.className="cad-global-skip";skip.href="#cad-main-content";skip.textContent="Skip to content";nav.append(skip);
  const brand=link("JP CAD · Projects","");brand.className="cad-global-brand";nav.append(brand);
  const menu=document.createElement("div");menu.className="cad-global-links";
- for(const [label,slug] of [["Home",""],["Projects","projects/"],["How to use","guide/"],["Building codes","codes/pokhara/"]])menu.append(link(label,slug));
+ for(const [label,slug] of [["Home",""],["Projects","projects/"],["How to use","guide/"],["Knowledge Centre","knowledge-centre/"],["Building codes","codes/pokhara/"]])menu.append(link(label,slug));
  nav.append(menu);document.body.insertBefore(nav,document.body.firstChild);
  const main=document.querySelector("main")||document.querySelector(".app")||document.querySelector(".wrap");
  if(main&&!main.id)main.id="cad-main-content";

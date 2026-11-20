@@ -51,7 +51,7 @@ assert.match(source,/pw-client-takeoff/);
 assert.match(source,/data-more-jump/);
 assert.match(source,/panel==='more'/);
 assert.match(source,/applyAshokClientFrame/);
-assert.match(source,/Technical record/);
+assert.doesNotMatch(source,/Technical record/,'Client screen must not expose backend IDs or technical records');
 assert.ok(css.includes('body[data-studio-template="standard-client-v1"]'),'client stylesheet must exist');
 for(const old of ['#pw-axis-proof','#pw-dock','#pw-stage-shortcut','#pw-edit-direct','#pw-change-request','#pw-open-local-history'])
  assert.ok(css.includes(old),'legacy UI must be visually excluded: '+old);

@@ -19,7 +19,7 @@ try{
   if(await p.locator('body[data-project]').count()){
    await p.locator('.pw-top').waitFor({timeout:12000});
    if(await p.locator('link[href*="project-workspace.css"]').count()!==1)throw Error(title+' missing shared project stylesheet');
-   if(await p.locator('.pw-chapter-bar [role=tab]').count()!==4)throw Error(title+' missing common chapters');
+   if(await p.locator('.pw-chapter-bar [role=tab]').count()!==5)throw Error(title+' missing common chapters');
    if(await p.locator('#pw-edition option').count()<1)throw Error(title+' missing source edition');
    if(await p.locator('.pw-top-links a[href$="/projects/"]').count()!==1)throw Error(title+' missing return to project library');
    continue;
@@ -41,40 +41,23 @@ try{
     throw Error(title+" incorrectly promotes legacy mass preview to primary navigation");
  }
  await p.goto(prefix,{waitUntil:"networkidle"});
- const daylight=await p.locator("body").evaluate(e=>getComputedStyle(e).backgroundColor);
- if(!/rgb\(\s*248,\s*249,\s*250\s*\)/.test(daylight))throw Error("Home is not Lucid Blueprint daylight palette: "+daylight);
- const cards=await p.locator(".cad-tool").count();
- if(cards!==0)throw Error("Competing tool launcher cards still visible: "+cards);
- if(await p.locator('.cad-intro-main > a.cad-button').count()!==1)
-   throw Error("Homepage must have exactly one primary product launch action");
- if(await p.locator(".cad-capability-strip > div").count()!==4)
-   throw Error("Missing four concise steps for the single active product");
- if(await p.locator('a[href="./cad/"]').isVisible())
-   throw Error("Legacy editor should be hidden in the closed advanced section");
- if(await p.locator("#capabilities .cad-detail").isVisible())throw Error("Advanced content must start collapsed");
- await p.locator("#capabilities summary").click();
- if(!(await p.locator("#capabilities .cad-detail").isVisible()))throw Error("Details expansion failed");
- if(!(await p.locator('#capabilities a[href="./cad/"]').isVisible()))throw Error("Archived CAD editor route must remain discoverable");
- if(!(await p.locator('#capabilities a[href="./cad/brief/"]').isVisible()))throw Error("Archived language preview must remain discoverable");
- await p.locator("#projects summary").click();
+ await p.locator("#projects").waitFor();
+ if(await p.locator("#capabilities").count()!==0)throw Error("Deprecated prototype disclosure is still promoted");
+ if(await p.locator('#cad-global-navigation .cad-global-more').count()!==0)throw Error("Developer More menu is still promoted");
+ if(await p.locator('#cad-global-navigation a[href$="/cad/aad/"]').count()!==0)throw Error("Standalone editor should not be a primary route");
  await p.locator("#cards .project-card").first().waitFor({timeout:12000});
  await p.locator("#projectSearch").fill("narayani");
- if(await p.locator("#cards .project-card").count()!==1)throw Error("Preserved project search broken");
- await p.locator("#cad-global-navigation .cad-global-more > summary").click();
- for(const group of ["Older editors · experimental","Research & prototypes","Projects & history","Guides & reference"])
-   if(!(await p.locator(".cad-more-group > summary").filter({hasText:group}).isVisible()))throw Error("More section hidden: "+group);
- await p.locator(".cad-more-group > summary").filter({hasText:"Research & prototypes"}).click();
- if(!(await p.getByRole("link",{name:"Research catalogue"}).isVisible()))throw Error("Nested research links unavailable");
- await p.locator(".cad-more-group > summary").filter({hasText:"Older editors · experimental"}).click();
- if(!(await p.locator("#cad-global-navigation").getByRole("link",{name:"Older CAD editor · prototype"}).isVisible()))throw Error("Legacy CAD editor path missing");
+ if(await p.locator("#cards .project-card").count()!==1)throw Error("Client project search broken");
+ if(await p.locator("#cards .project-card .stage").first().innerText()!=="Fishtail Builders")throw Error("Backend IDs leaked into public card");
+ if((await p.locator("#cad-global-navigation .cad-global-links > a").count())<4)throw Error("Project navigation incomplete");
  if(errors.length)throw Error("Page errors: "+JSON.stringify(errors));
- await p.screenshot({path:"/tmp/cad-daylight-blueprint-home.png",fullPage:true});
+ await p.screenshot({path:"/tmp/cad-project-first-home.png",fullPage:true});
  const mobile=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1});
  await mobile.goto(prefix,{waitUntil:"networkidle"});
  await mobile.locator("#cad-global-navigation").waitFor();
  const noOverflow=await mobile.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+5);
  if(!noOverflow)throw Error("Mobile dashboard horizontal overflow");
- await mobile.screenshot({path:"/tmp/cad-daylight-blueprint-mobile.png",fullPage:true});
- console.log("CAD_UNIFIED_NAV_AND_PROGRESSIVE_DISCLOSURE_PASS",JSON.stringify({routes:routes.length,competingPrimaryTools:cards,search:"narayani",theme:daylight,mobileOverflow:false}));
+ await mobile.screenshot({path:"/tmp/cad-project-first-mobile.png",fullPage:true});
+ console.log("CAD_PROJECT_FIRST_NAV_QA_PASS",JSON.stringify({routes:routes.length,search:"narayani",mobileOverflow:false}));
  await mobile.close();await p.close();
 }finally{await browser.close();}
