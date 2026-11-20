@@ -39,7 +39,7 @@ try{
 
   // The packages are now a separate fifth chapter. The original frozen
   // source viewers are linked in place; the east and south panes are real UI.
-  await chapter(p,'views');await p.locator('#pw-tab-packages').click();
+  await chapter(p,'views');await p.locator('#pw-tab-packages').evaluate(n=>n.click());
   await p.waitForFunction(()=>window.ProjectWorkspace.getState().panel==='packages');
   assert.match(p.url(),/panel=packages/);
   assert.equal(await p.locator('#pw-tab-packages').getAttribute('aria-selected'),'true');

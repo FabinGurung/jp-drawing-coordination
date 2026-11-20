@@ -358,3 +358,9 @@ body[data-studio-template="standard-client-v1"] .pw-inspector{top:140px;border-c
 }
 @media(max-width:390px){body[data-studio-template="standard-client-v1"] .pw-client-inspector{grid-template-columns:1fr}
  .pw-client-mini{grid-column:1/-1}}
+
+/* Client-first presentation: developer sources, edit actions and internal module navigation are retained only in the archival/technical routes. */
+body[data-studio-template="standard-client-v1"] .pw-client-technical,
+body[data-studio-template="standard-client-v1"] #pw-tab-packages,
+body[data-studio-template="standard-client-v1"] [data-west-open="packages"],
+body[data-studio-template="standard-client-v1"] .pw-footer {display:none!important}
