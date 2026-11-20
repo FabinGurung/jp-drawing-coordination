@@ -1,3 +1,4 @@
+import './plot-150-source-geometry-smoke.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {PROJECTS,ALL_WORKSPACE_PROJECTS,EMPTY_DUMMY_PROJECT} from '../../public/assets/js/project-workspace-config.mjs';
@@ -20,8 +21,8 @@ assert.equal(template.editions[0].sourceRef,null);
 assert.equal(template.editionPolicy.newRealGeometry,'NEW_UNIQUE_EDITION_PLUS_NEW_IMMUTABLE_SOURCE_MODEL_PATH');
 
 const all=validateEditionRegistries(ALL_WORKSPACE_PROJECTS);
-assert.equal(all.length,6);
-assert.equal(Object.keys(PROJECTS).length,5);
+assert.equal(all.length,7);
+assert.equal(Object.keys(PROJECTS).length,6);
 assert.ok(EMPTY_DUMMY_PROJECT.synthetic);
 assert.deepEqual(all.map(p=>p.slug).sort(),policy.sharedProjects.concat(policy.syntheticFixture).sort());
 for(const [slug,project] of Object.entries(ALL_WORKSPACE_PROJECTS)){

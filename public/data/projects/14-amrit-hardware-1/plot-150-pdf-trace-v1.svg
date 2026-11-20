@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 5 360 540" role="img" aria-label="Plot 150 local vector boundary based on supplied dimensional PDF">
+ <defs><pattern id="setback" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="9" stroke="#cf8c66" stroke-width="1"/></pattern></defs>
+ <g fill="none" stroke-linejoin="round">
+ <path d="M 66.825,37.350 L 230.725,41.575 L 258.150,359.125 L 0.000,475.000 Z 9.000,416.775 L 205.725,328.325 L 185.100,90.000 L 59.425,86.575 Z" fill="url(#setback)" fill-rule="evenodd" stroke="none"/>
+ <polygon points="66.825,37.350 230.725,41.575 258.150,359.125 0.000,475.000" stroke="#bd394a" stroke-width="2.2"/>
+ <polygon points="59.425,86.575 185.100,90.000 205.725,328.325 9.000,416.775" stroke="#2b6472" stroke-width="1.8"/>
+ </g>
+ <text x="160" y="225" text-anchor="middle" font-family="Arial,sans-serif" fill="#263e4c" font-size="16" font-weight="bold">PLOT 150</text>
+ <text x="160" y="242" text-anchor="middle" font-family="Arial,sans-serif" fill="#3e5764" font-size="10">PDF-derived local geometry</text>
+ <g font-family="Arial,sans-serif" font-size="10" fill="#9b293a">
+  <text x="148.78" y="39.46" text-anchor="middle" dominant-baseline="middle">21'-6"</text>
+  <text x="244.44" y="200.35" text-anchor="middle" dominant-baseline="middle">41'-10"</text>
+  <text x="129.07" y="417.06" text-anchor="middle" dominant-baseline="middle">37'-2"</text>
+  <text x="33.41" y="256.18" text-anchor="middle" dominant-baseline="middle">58'-1"</text>
+ </g><text x="150" y="515" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#7d4852">REVIEW ONLY · no georeference, legal setbacks or elevations</text>
+</svg>

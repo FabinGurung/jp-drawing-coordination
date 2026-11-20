@@ -1,0 +1,17 @@
+{
+  "schema": "jp-cad://google-doc-svg-import/1",
+  "projectSlug": "14-amrit-hardware-1",
+  "sourceKind": "AUTHENTICATED_NATIVE_GOOGLE_DOC__STABLE_ID_IN_REPOSITORY_SECRET",
+  "sourceSha256": "2336b53f62c00abcf5a1530154cafd4223772992e4ee839b05b95db0b1943ed4",
+  "sourceBytes": 12666,
+  "sourceRevisionSnapshot": "2336b53f62c00abc",
+  "sourceSnapshotPath": "public/data/projects/14-amrit-hardware-1/snapshots/2336b53f62c00abc.svg",
+  "originalPdfSha256": "bb5921eb47275f5652b8e9378d05bc048e1e220752a395a90874fac640f8c4ba",
+  "surveyVerified": false,
+  "constructionApproved": false,
+  "publishPolicy": "GENERATE_REVIEW_PULL_REQUEST_ONLY__DO_NOT_BYPASS_MAIN_STAGING_QA",
+  "aadEdition": "AAD-14-AMRIT-P150-V003",
+  "previousEdition": "plot150-owner-front-only-concept-v2",
+  "sourceBoundaryPolicy": "PRESERVE_ORIGINAL_CADASTRAL_PDF_PLOT",
+  "waterTankPlacement": "INSIDE_UNCHANGED_SOURCE_PLOT"
+}

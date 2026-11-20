@@ -37,9 +37,11 @@ export const PROJECT_STAGE_EVIDENCE=Object.freeze({
  'harisharan-adhikari':HARISHARAN,
  'ashok-adhikari':ASHOK,
  'ramachandra-devkota':{},
- 'js-buddha-jewelers':{}
+ 'js-buddha-jewelers':{},
+ '14-amrit-hardware-1':{}
 });
 const INTRO={
+ '14-amrit-hardware-1':'Plot 150 has a PDF-derived boundary sketch only. No construction-stage plans, surveyed setting-out, levels, material quantities or approval have been admitted.',
  'narayani-parajuli':'The seven frozen V02–M80 work packages are preserved as original detailed viewers. They remain work-package records, not alternative design editions.',
  'harisharan-adhikari':'Seven separate source-qualified V02–M80 stage pages link through the original 18-column takeoff. M50 dowels and M80 tank explicitly remain unadmitted as fabrication packages; all actual material quantities are provisional.',
  'ashok-adhikari':'Architectural and MEP coordination is published. Stage-specific structural reinforcement, materials and fabrication orders are not admitted.',

@@ -1,0 +1,65 @@
+name: CAD Plot 150 — Google Docs SVG source review
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *' # UTC; GitHub schedule can be delayed, not an instant Drive webhook
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: cad-amrit-plot150-drive-svg-source
+  cancel-in-progress: false
+jobs:
+  import-review:
+    runs-on: ubuntu-24.04
+    env:
+      CAD_PLOT150_GOOGLE_DOC_ID: ${{ secrets.CAD_PLOT150_GOOGLE_DOC_ID }}
+      CAD_GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.CAD_GOOGLE_SERVICE_ACCOUNT_JSON }}
+    steps:
+      - name: Check whether private Google Docs integration is configured
+        id: setup
+        run: |
+          if [[ -n "$CAD_PLOT150_GOOGLE_DOC_ID" && -n "$CAD_GOOGLE_SERVICE_ACCOUNT_JSON" ]]; then
+            echo 'ready=yes' >> "$GITHUB_OUTPUT"
+          else
+            echo 'ready=no' >> "$GITHUB_OUTPUT"
+            echo '::notice::Set CAD_PLOT150_GOOGLE_DOC_ID and CAD_GOOGLE_SERVICE_ACCOUNT_JSON and share the native Google Doc with that service account. No public URL/token fallback is permitted.'
+          fi
+      - uses: actions/checkout@v4
+        if: steps.setup.outputs.ready == 'yes'
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        if: steps.setup.outputs.ready == 'yes'
+        with:
+          python-version: '3.12'
+      - name: Fetch stable Google Doc through authenticated Docs API and validate geometry
+        if: steps.setup.outputs.ready == 'yes'
+        run: |
+          python -m pip install --disable-pip-version-check google-auth requests
+          python tools/site/amrit-drive-svg-sync.py --google-doc --write
+          python tools/site/amrit-drive-svg-sync.py --source public/data/projects/14-amrit-hardware-1/plot-150-working.svg
+      - name: Open a source-reviewed pull request instead of overwriting main or public site
+        if: steps.setup.outputs.ready == 'yes'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ github.token }}
+          base: main
+          branch: sync/plot-150-drive-svg-source
+          delete-branch: true
+          add-paths: |
+            public/data/projects/14-amrit-hardware-1/plot-150-working.svg
+            public/data/projects/14-amrit-hardware-1/plot-150-working.json
+            public/data/projects/14-amrit-hardware-1/plot-150-source-provenance.json
+            public/data/projects/14-amrit-hardware-1/snapshots/**
+          commit-message: 'cad(plot150): import validated canonical SVG from stable Google Doc'
+          title: 'CAD Plot 150: Google Docs SVG source revision for review'
+          body: |
+            Automated authenticated native-Google-Docs SVG import.
+            - Plot boundary preserved against original vector-PDF baseline.
+            - Front-only setback, user-oriented cardinal directions, rectangular house concept, and three independent underground service reservations validated.
+            - Canonical SVG snapshot and exact-geometry JSON are versioned by SHA.
+            - Requires normal CAD staging QA and reviewed merge. No engineering, cadastral, municipal, building, drainage, or structural approval is implied.
+          labels: |
+            cad
+            source-review
