@@ -351,27 +351,36 @@
       ]
     },
     "14-amrit-hardware-1": {
-      "axisEvidence": "SOURCE_ONLY_SITE_BOUNDARY_NO_STRUCTURAL_AXES_REGISTERED",
+      "axisEvidence": "OWNER_CARDINAL_SIDES_AND_BOUNDARY_ONLY__STRUCTURAL_AXES_NOT_ADMITTED",
       "gateIds": [
         "P150-SETBACK-01",
-        "P150-SURVEY-02"
+        "P150-SURVEY-02",
+        "P150-SERVICES-03"
       ],
       "gates": [
         {
           "id": "P150-SETBACK-01",
-          "title": "Clarify printed setback notation",
+          "title": "Front-only drawn setback requires statutory review",
           "status": "HOLD",
-          "detail": "Dimensioned source PDF writes 6.5 inch-mark setback on three sides, but its hatched width visually corresponds to a materially larger strip. Do not assign a legal setback distance until the document author confirms the intended unit.",
-          "focus": "sources",
-          "sourceRef": "data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json"
+          "detail": "Owner specified only west/road-front setback on 20 November 2026. North, east and south have no drawn setback; legal clearances have not been evaluated. Retained PDF drawn front line implies approximately 1.98m offset but ambiguous printed 6.5 double-quote still requires confirmation.",
+          "focus": "views",
+          "sourceRef": "data/projects/14-amrit-hardware-1/plot-150-working.json"
         },
         {
           "id": "P150-SURVEY-02",
-          "title": "Survey coordinates and site levels",
+          "title": "Plot side directions and cadastral control",
           "status": "HOLD",
-          "detail": "PDF boundary vertices are scaled local drawing coordinates only. Obtain field survey or verified cadastral control for true north, georeferencing, area, right-of-way and terrain elevations. The linked 3D is planar review-only.",
+          "detail": "Owner supplies north=left/east=rear/south=right/west=road-front. Actual bearings, site elevations, verified land area and right-of-way must be independently surveyed before setting out.",
+          "focus": "sources",
+          "sourceRef": "data/projects/14-amrit-hardware-1/plot-150-working.json"
+        },
+        {
+          "id": "P150-SERVICES-03",
+          "title": "House and three underground services require design",
+          "status": "HOLD",
+          "detail": "4.50×9.50m rectangular house and G+1 illustrative mass, underground water tank, septic and soak pit are reservations. Architectural layout, foundation clearance, sewer and soak percolation, water source protection, tank volumes, ground water and engineer permits remain unknown.",
           "focus": "views",
-          "sourceRef": "data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json"
+          "sourceRef": "data/projects/14-amrit-hardware-1/plot-150-working.json"
         }
       ]
     }

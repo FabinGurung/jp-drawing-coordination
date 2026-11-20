@@ -4,14 +4,22 @@ const level=(id,name,note='')=>({id,name,note});
 const archive={title:'Earlier interface record',href:'record.html',note:'Retained navigation, explanations and source links. Interface history is not a new design edition.'};
 export const PROJECTS={
  '14-amrit-hardware-1':{
-  name:'14_Amrit_Hardware_1 · Plot 150',company:'Rohini Engineering and Builders · Pokhara Ward 14',status:'Source-qualified PDF plot boundary · not surveyed',workspaceEngineVersion:'1.4.0',defaultLevel:'site',
-  editions:[{id:'pdf-trace-v1',kind:'source-family',lifecycle:'SOURCE_REVIEW',snapshotPolicy:'SOURCE_POINTER',predecessorId:null,
+  name:'14_Amrit_Hardware_1 · Plot 150',company:'Rohini Engineering and Builders · Pokhara Ward 14',status:'Front-only setback · Owner house concept · 3D/2D · engineering HOLD',workspaceEngineVersion:'1.4.0',defaultLevel:'site',
+  editions:[
+   {id:'drive-current',kind:'source-family',lifecycle:'SOURCE_REVIEW',snapshotPolicy:'SOURCE_POINTER',predecessorId:'owner-concept-v2',sourceRef:'data/projects/14-amrit-hardware-1/plot-150-working.json',engine:'plot-boundary',name:'Current Google Docs SVG — working source',basis:'20 November 2026 owner west/front-only setback and cardinal side correction. One stable editable native Google Doc supplies the SHA-versioned SVG and its 3D JSON, imported by reviewed GitHub Actions; no legal setback, structural or tank design approval.',levels:[level('site','Plot 150 · Current owner plan','House rectangle, west-only road setback, three underground service reservations; drawing review only')]},
+   {id:'owner-concept-v2',kind:'design-option',lifecycle:'SOURCE_REVIEW',snapshotPolicy:'PROJECT_CONTROLLED_SOURCE',predecessorId:'pdf-trace-v1',sourceRef:'data/projects/14-amrit-hardware-1/plot-150-owner-concept-v2.json',engine:'plot-boundary',name:'v2 · Owner revised house and services',basis:'20 November 2026 source-controlled version. West/front setback only; left=NORTH, top/rear=EAST, right=SOUTH, road/bottom=WEST. Rectangular 4.50 × 9.50 m house, underground water, septic, soak reservations. Owner concept only.',levels:[level('site','v2 · Owner drawing','Historical v2 owner concept preserved as Git SVG/JSON source snapshot')]},
+   {id:'pdf-trace-v1',kind:'source-family',lifecycle:'SOURCE_REVIEW',snapshotPolicy:'SOURCE_POINTER',predecessorId:null,
    sourceRef:'data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json',engine:'plot-boundary',name:'Plot 150 · Dimensioned PDF trace v1',
    basis:'19 November 2026 vector-PDF source. Four red plot edges 21 ft 6 in, 41 ft 10 in, 37 ft 2 in and 58 ft 1 in. Interior outline retained separately. Setback text 6.5 double-quote conflicts with drawn widths; no georeferencing, surveyed levels, legal setback or construction approval.',
    levels:[level('site','Plot 150 · Whole boundary','Full PDF-derived boundary and drawn internal footprint; local drawing coordinates only')]}],
-  quantities:'PDF-scaled geometry gives about 125.73 m² full plot and 72.30 m² internal outline, not an official surveyed area, BOQ or construction quantity.',
+  quantities:'PDF-derived plot ≈ 125.73 m²; front-only strip ≈ 21.84 m²; concept rectangular house footprint 42.75 m². No certified land area, BOQ or underground tank volumes.',
   programme:'Construction activity programmes belong to the separate Scheduling Desk. No schedule, activity dates or durations are admitted for this source-only plot.',
-  sourceGroups:[{title:'Plot 150 · Source-qualified drawing record',links:[
+  sourceGroups:[{title:'Plot 150 · Canonical owner SVG and source history',links:[
+   {title:'Current Google Docs SVG — controlled Git working copy',href:'../../data/projects/14-amrit-hardware-1/plot-150-working.svg',note:'Only Google Doc code is edited; imported exact SVG is Git-versioned after QA review.'},
+   {title:'Linked current source-derived JSON model for 3D',href:'../../data/projects/14-amrit-hardware-1/plot-150-working.json',note:'The 3D engine consumes the same metadata embedded in the SVG.'},
+   {title:'v2 owner front-only SVG drawing (preserved)',href:'../../data/projects/14-amrit-hardware-1/plot-150-owner-concept-v2.svg',note:'Same plot with only west-front setback and conceptual house + three services.'},
+   {title:'v2 AutoCAD 2007 DXF (preserved)',href:'../../data/projects/14-amrit-hardware-1/plot-150-owner-concept-v2.dxf',note:'Design concept, not construction issue.'},
+   {title:'Stable Google Docs to GitHub Actions setup and provenance',href:'../../governance/aad/plot150-drive-source-workflow.md',note:'Authenticated Docs API, reviewer PR, GitHub SHA snapshots and guarded Pages publication.'},
    {title:'Linked 2D and 3D plot viewer',href:'plot/',note:'Same four-corner vector geometry; 3D is a flat visualization with no terrain levels.'},
    {title:'Plot boundary model and dimension labels',href:'../../data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json',note:'PDF red path, internal outline, document SHA-256, scale reconciliation and unresolved setback annotation.'},
    {title:'CAD-compatible PDF-derived DXF trace',href:'../../data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.dxf',note:'Local-mm boundary and interior polyline layers; not a surveyed cadastral DXF.'},
