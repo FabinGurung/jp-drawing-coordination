@@ -67,6 +67,22 @@
         "Floor views",
         "Measurements"
       ]
+    },
+    {
+      "project_id": "14-amrit-hardware-1",
+      "slug": "14-amrit-hardware-1",
+      "name": "14_Amrit_Hardware_1 — Plot 150",
+      "organization": "Rohini Engineering and Builders",
+      "location": "Pokhara, Ward 14, Nepal",
+      "project_status": "Architectural concept · survey pending",
+      "portal_status": "STANDARD CLIENT STUDIO 1.5",
+      "summary": "Current owner drawing with linked site boundary, a conceptual house and reserved water, septic and soak zones. Survey and construction approvals remain pending.",
+      "href": "projects/14-amrit-hardware-1/",
+      "modules": [
+        "2D and 3D site drawing",
+        "Plot boundary",
+        "Conceptual placement"
+      ]
     }
   ]
 }

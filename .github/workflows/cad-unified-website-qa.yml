@@ -53,6 +53,9 @@ jobs:
           node tools/site/cad-standard-studio-smoke.mjs
           node tools/site/ashok-window-colours-smoke.mjs
           node tools/site/project-design-edition-contract-smoke.mjs
+          node tools/site/amrit-plot-150-v2-smoke.mjs
+          node tools/site/amrit-plot-150-v3-smoke.mjs
+          python tools/site/amrit-drive-svg-sync.py --source public/data/projects/14-amrit-hardware-1/plot-150-working.svg
           node tools/site/js-buddhal-registration-smoke.mjs
           node tools/site/ashok-column-axes-smoke.mjs
           node tools/site/ashok-register-smoke.mjs
