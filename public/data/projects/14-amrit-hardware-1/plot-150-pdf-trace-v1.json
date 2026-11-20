@@ -1,0 +1,184 @@
+{
+  "schema": "jp-cad://site-plot-boundary/1.0",
+  "project": {
+    "slug": "14-amrit-hardware-1",
+    "title": "14_Amrit_Hardware_1",
+    "company": "Rohini Engineering and Builders",
+    "locationText": "Pokhara Ward 14, Nepal",
+    "plotNumber": "150",
+    "plotNumberDevanagari": "१५०"
+  },
+  "edition": {
+    "id": "pdf-trace-v1",
+    "kind": "source-family",
+    "status": "SOURCE_REVIEW_NOT_SURVEYED",
+    "date": "2026-11-19",
+    "predecessor": null
+  },
+  "geometry": {
+    "units": "mm",
+    "coordinateSystem": "LOCAL_DRAWING_ONLY",
+    "origin": "red-boundary bottom-left vertex; +X right on PDF, +Y upward on PDF",
+    "north": "UNKNOWN",
+    "georeferenced": false,
+    "surveyVerified": false,
+    "buildingGeometryIncluded": false,
+    "outer": {
+      "vertices": [
+        [
+          2673,
+          17506
+        ],
+        [
+          9229,
+          17337
+        ],
+        [
+          10326,
+          4635
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "edgeLabels": [
+        "21'-6\"",
+        "41'-10\"",
+        "37'-2\"",
+        "58'-1\""
+      ],
+      "sourcePdfPoints": [
+        [
+          203.76,
+          157.08
+        ],
+        [
+          302.04,
+          159.6
+        ],
+        [
+          318.48,
+          350.04
+        ],
+        [
+          163.68,
+          419.52
+        ]
+      ],
+      "outlineStroke": "red source polyline"
+    },
+    "inner": {
+      "vertices": [
+        [
+          2377,
+          15537
+        ],
+        [
+          7404,
+          15400
+        ],
+        [
+          8229,
+          5867
+        ],
+        [
+          360,
+          2329
+        ]
+      ],
+      "edgeLabels": [
+        "16'-6\"",
+        "31'-5\"",
+        "28'-4\"",
+        "43'-10\""
+      ],
+      "sourcePdfPoints": [
+        [
+          199.32,
+          186.6
+        ],
+        [
+          274.68,
+          188.64
+        ],
+        [
+          287.04,
+          331.56
+        ],
+        [
+          169.08,
+          384.6
+        ]
+      ],
+      "label": "Unverified interior footprint shown in PDF",
+      "interpretation": "hatched strips bounded by red plot edges and internal black edges; not approved setback offsets"
+    },
+    "diagonal": {
+      "label": "37'-1\"",
+      "fromInnerVertex": 0,
+      "toInnerVertex": 2,
+      "dimensionStatus": "PDF_LABEL_ONLY_NOT_A_CONTROLLED_SURVEY_DISTANCE"
+    },
+    "road": {
+      "status": "ADJACENT_TO_LOWER_DIAGONAL_SIDE_IN_PDF",
+      "widthMm": null,
+      "rightOfWayMm": null,
+      "roadBoundarySurveyed": false
+    },
+    "visualization": {
+      "zMm": 0,
+      "displayOnlyEdgeHeightMm": 120,
+      "heightIsSurveyed": false
+    }
+  },
+  "measurements": {
+    "documentUnits": "feet and inches labels; setback text contains double quote symbol",
+    "outerEdges": [
+      "21'-6\"",
+      "41'-10\"",
+      "37'-2\"",
+      "58'-1\""
+    ],
+    "innerEdges": [
+      "16'-6\"",
+      "31'-5\"",
+      "28'-4\"",
+      "43'-10\""
+    ],
+    "setbackCalloutAsPrinted": "6.5\" setback",
+    "setbackInterpretation": "UNRESOLVED_DOUBLE_QUOTE_VS_DRAWN_WIDTH",
+    "declaredSurveyAreaSqm": null,
+    "derivedPlanAreaSqm": 125.73,
+    "derivedInnerPlanAreaSqm": 72.3,
+    "derivedAreaStatus": "IMAGE_VECTOR_RECONSTRUCTION_NOT_CADASTRAL_AREA"
+  },
+  "source": {
+    "documentName": "14_Amrit_Hardware_1.pdf",
+    "documentFormat": "vector PDF Microsoft Print to PDF",
+    "sha256": "bb5921eb47275f5652b8e9378d05bc048e1e220752a395a90874fac640f8c4ba",
+    "page": 1,
+    "pageSizePt": [
+      595.32,
+      841.92
+    ],
+    "originalInRestrictedDrive": true,
+    "originalImageInRestrictedDrive": true,
+    "derivation": "Red boundary QUAD path and internal black boundary line path extracted from PDF vector coordinates, anchored by four printed outer side lengths; no raster guessing for this edition.",
+    "pdfPointsPerFoot": 4.569497395,
+    "pdfPointsPerMetre": 14.991789352,
+    "apparentDimensionScale": "approximately 4.5695 PDF pt/ft",
+    "sourceRevision": "PDF uploaded 2026-11-19",
+    "status": "REFERENCE_SOURCE_NOT_FIELD_SURVEY"
+  },
+  "holds": [
+    "Setback label reads 6.5\" despite wider depicted hatched strips; do not treat as legal setback distance.",
+    "No verified north orientation or georeferenced cadastral vertices.",
+    "No surveyed levels: 3D is a planar, schematic visualization only.",
+    "No legal right-of-way width or approved building envelope provided."
+  ],
+  "links": {
+    "sourceSvg": "data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.svg",
+    "sourceDxf": "data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.dxf"
+  }
+}
