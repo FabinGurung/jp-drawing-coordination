@@ -19,7 +19,7 @@ export const PROJECTS={
    {title:'Linked current source-derived JSON model for 3D',href:'../../data/projects/14-amrit-hardware-1/plot-150-working.json',note:'The 3D engine consumes the same metadata embedded in the SVG.'},
    {title:'v2 owner front-only SVG drawing (preserved)',href:'../../data/projects/14-amrit-hardware-1/plot-150-owner-concept-v2.svg',note:'Same plot with only west-front setback and conceptual house + three services.'},
    {title:'v2 AutoCAD 2007 DXF (preserved)',href:'../../data/projects/14-amrit-hardware-1/plot-150-owner-concept-v2.dxf',note:'Design concept, not construction issue.'},
-   {title:'Stable Google Docs to GitHub Actions setup and provenance',href:'../../governance/aad/plot150-drive-source-workflow.md',note:'Authenticated Docs API, reviewer PR, GitHub SHA snapshots and guarded Pages publication.'},
+   {title:'Stable Google Docs to GitHub Actions setup and provenance',href:'https://github.com/FabinGurung/jp-drawing-coordination/blob/main/governance/aad/plot150-drive-source-workflow.md',note:'Authenticated Docs API, reviewer PR, GitHub SHA snapshots and guarded Pages publication.'},
    {title:'Linked 2D and 3D plot viewer',href:'plot/',note:'Same four-corner vector geometry; 3D is a flat visualization with no terrain levels.'},
    {title:'Plot boundary model and dimension labels',href:'../../data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json',note:'PDF red path, internal outline, document SHA-256, scale reconciliation and unresolved setback annotation.'},
    {title:'CAD-compatible PDF-derived DXF trace',href:'../../data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.dxf',note:'Local-mm boundary and interior polyline layers; not a surveyed cadastral DXF.'},
