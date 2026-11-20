@@ -52,6 +52,7 @@ function renderPlan(){
 }
 function projector(canvas){const r=canvas.getBoundingClientRect(),w=Math.max(300,r.width),h=Math.max(330,r.height),sc=Math.min(w/18,h/25)*1.6*zoom;const px=outer.map(asM),mx=(Math.min(...px.map(x=>x[0]))+Math.max(...px.map(x=>x[0])))/2,my=(Math.min(...px.map(x=>x[1]))+Math.max(...px.map(x=>x[1])))/2;
  return {w,h,point:(p,z=0)=>{const x=p[0]/1000-mx,y=p[1]/1000-my;return [w/2+(x*Math.cos(azimuth)-y*Math.sin(azimuth))*sc,h*.61+((x*Math.sin(azimuth)+y*Math.cos(azimuth))*Math.sin(elevation)-z*Math.cos(elevation))*sc];}};
+}
 function render3d(){
  const cv=$('model3d'),ctx=cv.getContext('2d');if(!ctx||!model)return;
  const {w,h,point}=projector(cv),dpr=Math.min(2,window.devicePixelRatio||1);cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
@@ -75,7 +76,6 @@ function renderInspector(){
  const rows=[];
  if(i>=0){const a=outer[i],b=outer[(i+1)%4];$('selected-title').textContent=labelSide(i)+' · '+g.outer.edgeLabels[i];$('selected-description').textContent='Plot edge recovered from the original vector PDF; direction supplied by owner, not surveyed bearing.';rows.push(['Length on original PDF',g.outer.edgeLabels[i]],['Orientation',labelSide(i)],['Local midpoint',`${round((a[0]+b[0])/2000,3)} m, ${round((a[1]+b[1])/2000,3)} m`]);}
  else {const item=selectedKey===g.house?.id?g.house:g.reservedUndergroundZones?.find(z=>z.id===selectedKey);if(item){$('selected-title').textContent=item.label;$('selected-description').textContent='Conceptual location only; building and underground services are not construction approved.';const r=item.rectMm;rows.push(['Plan size',`${round((r[2]-r[0])/1000)} × ${round((r[3]-r[1])/1000)} m`],['Local placement',`X ${round(r[0]/1000)}–${round(r[2]/1000)} m · Y ${round(r[1]/1000)}–${round(r[3]/1000)} m`],['Authority','Owner-requested concept · independent engineering HOLD']);}}
- }
  rows.push(['Survey', 'Not georeferenced or certified'],['Issue status','Preliminary source/architectural review']);
  $('selected-register').replaceChildren();for(const [key,val] of rows){let dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=key;dd.textContent=val;$('selected-register').append(dt,dd);}
  $('measurements').replaceChildren();g.outer.edgeLabels.forEach((l,j)=>{let tr=document.createElement('tr');tr.setAttribute('aria-selected',String(i===j));let b=document.createElement('button');b.textContent=labelSide(j);b.addEventListener('click',()=>select('boundary-'+j));let a=document.createElement('td');a.append(b);let c=document.createElement('td');c.textContent=l;let d=document.createElement('td');d.textContent=current()?(j===2?'Front-only offset (unverified)':'No setback drawn'):g.inner.edgeLabels[j];tr.append(a,c,d);$('measurements').append(tr);});
