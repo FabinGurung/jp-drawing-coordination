@@ -1,0 +1,345 @@
+{
+  "schema": "jp-cad://site-plot-boundary/2.0",
+  "project": {
+    "slug": "14-amrit-hardware-1",
+    "title": "14_Amrit_Hardware_1",
+    "company": "Rohini Engineering and Builders",
+    "locationText": "Pokhara Ward 14, Nepal",
+    "plotNumber": "150",
+    "plotNumberDevanagari": "१५०"
+  },
+  "edition": {
+    "id": "plot150-owner-front-only-concept-v2",
+    "kind": "design-option",
+    "status": "OWNER_ORIENTATION_AND_SETBACK_UPDATED__CONCEPT_NOT_APPROVED",
+    "date": "2026-11-20",
+    "predecessor": "pdf-trace-v1"
+  },
+  "geometry": {
+    "units": "mm",
+    "coordinateSystem": "LOCAL_DRAWING_ONLY",
+    "origin": "red-boundary bottom-left vertex; +X right on PDF, +Y upward on PDF",
+    "north": "OWNER_STATED_LEFT_SIDE_NORTH__NO_SURVEY_BEARING",
+    "georeferenced": false,
+    "surveyVerified": false,
+    "buildingGeometryIncluded": true,
+    "outer": {
+      "vertices": [
+        [
+          2673,
+          17506
+        ],
+        [
+          9229,
+          17337
+        ],
+        [
+          10326,
+          4635
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "edgeLabels": [
+        "21'-6\"",
+        "41'-10\"",
+        "37'-2\"",
+        "58'-1\""
+      ],
+      "sourcePdfPoints": [
+        [
+          203.76,
+          157.08
+        ],
+        [
+          302.04,
+          159.6
+        ],
+        [
+          318.48,
+          350.04
+        ],
+        [
+          163.68,
+          419.52
+        ]
+      ],
+      "outlineStroke": "red source polyline"
+    },
+    "inner": {
+      "vertices": [
+        [
+          2377,
+          15537
+        ],
+        [
+          7404,
+          15400
+        ],
+        [
+          8229,
+          5867
+        ],
+        [
+          360,
+          2329
+        ]
+      ],
+      "edgeLabels": [
+        "16'-6\"",
+        "31'-5\"",
+        "28'-4\"",
+        "43'-10\""
+      ],
+      "sourcePdfPoints": [
+        [
+          199.32,
+          186.6
+        ],
+        [
+          274.68,
+          188.64
+        ],
+        [
+          287.04,
+          331.56
+        ],
+        [
+          169.08,
+          384.6
+        ]
+      ],
+      "label": "Unverified interior footprint shown in PDF",
+      "interpretation": "hatched strips bounded by red plot edges and internal black edges; not approved setback offsets",
+      "displayOnCurrentDrawing": false
+    },
+    "diagonal": {
+      "label": "37'-1\"",
+      "fromInnerVertex": 0,
+      "toInnerVertex": 2,
+      "dimensionStatus": "PDF_LABEL_ONLY_NOT_A_CONTROLLED_SURVEY_DISTANCE"
+    },
+    "road": {
+      "status": "ADJACENT_TO_LOWER_DIAGONAL_SIDE_IN_PDF",
+      "widthMm": null,
+      "rightOfWayMm": null,
+      "roadBoundarySurveyed": false
+    },
+    "visualization": {
+      "zMm": 0,
+      "displayOnlyEdgeHeightMm": 120,
+      "heightIsSurveyed": false,
+      "houseStoreysConceptual": 2,
+      "houseHeightMmDisplayOnly": 6000,
+      "tankDepthsUnknown": true
+    },
+    "orientation": {
+      "leftBoundary": "NORTH",
+      "topBoundary": "EAST_REAR",
+      "rightBoundary": "SOUTH",
+      "bottomBoundary": "WEST_FRONT_ROAD",
+      "basis": "OWNER_INSTRUCTION_2026-11-20",
+      "geographicBearingVerified": false,
+      "frontEdgeIndex": 2,
+      "northEdgeIndex": 3,
+      "eastEdgeIndex": 0,
+      "southEdgeIndex": 1
+    },
+    "frontOnlySetback": {
+      "polygonMm": [
+        [
+          10145.19,
+          6728.54
+        ],
+        [
+          10326.0,
+          4635.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          355.29,
+          2326.88
+        ]
+      ],
+      "innerCutLineMm": [
+        [
+          355.29,
+          2326.88
+        ],
+        [
+          10145.19,
+          6728.54
+        ]
+      ],
+      "frontSetbackStatus": "SOURCE_DRAWN_APPROXIMATE_NOT_APPROVED",
+      "distanceMmApprox": 1977.3,
+      "drawingReference": "Original interior line Q3 to Q2, extended to the left/right red plot edges; all remaining perimeter setbacks removed by owner instruction.",
+      "measurementControl": "SCALE_DERIVED_FROM_PDF_NOT_OFFICIAL_SETBACK"
+    },
+    "buildablePolygonMm": [
+      [
+        2673.0,
+        17506.0
+      ],
+      [
+        9229.0,
+        17337.0
+      ],
+      [
+        10145.19,
+        6728.54
+      ],
+      [
+        355.29,
+        2326.88
+      ]
+    ],
+    "house": {
+      "id": "HOUSE-01",
+      "label": "Proposed rectangular house",
+      "kind": "rectangular_house_concept",
+      "rectMm": [
+        2500,
+        5600,
+        7000,
+        15100
+      ],
+      "displayHeightMm": 6000,
+      "displayStoreys": 2,
+      "heightAndStoreysAssumed": true,
+      "constructionApproved": false,
+      "foundationDesignVerified": false,
+      "roomPlanStatus": "NOT_DEFINED",
+      "dimensionLabels": [
+        "4.50 m",
+        "9.50 m"
+      ],
+      "floorAreaSqm": 42.75
+    },
+    "reservedUndergroundZones": [
+      {
+        "id": "UWT-01",
+        "label": "Underground water tank",
+        "shortLabel": "WATER TANK",
+        "kind": "underground_water_tank_reservation",
+        "rectMm": [
+          3600,
+          15500,
+          5800,
+          17000
+        ],
+        "depthMm": null,
+        "capacityL": null,
+        "approval": "HOLD"
+      },
+      {
+        "id": "ST-01",
+        "label": "Septic tank",
+        "shortLabel": "SEPTIC TANK",
+        "kind": "septic_tank_reservation",
+        "rectMm": [
+          7500,
+          7900,
+          9500,
+          10200
+        ],
+        "depthMm": null,
+        "capacityL": null,
+        "approval": "HOLD"
+      },
+      {
+        "id": "SP-01",
+        "label": "Soak pit",
+        "shortLabel": "SOAK PIT",
+        "kind": "soak_pit_reservation",
+        "rectMm": [
+          7600,
+          11100,
+          9100,
+          12800
+        ],
+        "depthMm": null,
+        "capacityL": null,
+        "approval": "HOLD"
+      }
+    ],
+    "svgView": {
+      "viewBox": [
+        0,
+        0,
+        940,
+        1370
+      ],
+      "transform": {
+        "xZero": 145,
+        "yZero": 1200,
+        "scale": 0.0605
+      }
+    }
+  },
+  "measurements": {
+    "documentUnits": "feet and inches labels; setback text contains double quote symbol",
+    "outerEdges": [
+      "21'-6\"",
+      "41'-10\"",
+      "37'-2\"",
+      "58'-1\""
+    ],
+    "innerEdges": [
+      "16'-6\"",
+      "31'-5\"",
+      "28'-4\"",
+      "43'-10\""
+    ],
+    "setbackCalloutAsPrinted": "6.5\" setback",
+    "setbackInterpretation": "OWNER_SAYS_FRONT_ONLY__DRAWN_PDF_FRONT_OFFSET_APPROX__LEGAL_WIDTH_UNVERIFIED",
+    "declaredSurveyAreaSqm": null,
+    "derivedPlanAreaSqm": 125.73,
+    "derivedInnerPlanAreaSqm": 72.3,
+    "derivedAreaStatus": "IMAGE_VECTOR_RECONSTRUCTION_NOT_CADASTRAL_AREA",
+    "derivedFrontBandAreaSqm": 21.84,
+    "derivedBuildableAreaSqm": 103.9,
+    "derivedHouseFootprintAreaSqm": 42.75,
+    "frontOffsetFromPDFReferenceApproxMm": 1977.3
+  },
+  "source": {
+    "documentName": "14_Amrit_Hardware_1.pdf",
+    "documentFormat": "vector PDF Microsoft Print to PDF",
+    "sha256": "bb5921eb47275f5652b8e9378d05bc048e1e220752a395a90874fac640f8c4ba",
+    "page": 1,
+    "pageSizePt": [
+      595.32,
+      841.92
+    ],
+    "originalInRestrictedDrive": true,
+    "originalImageInRestrictedDrive": true,
+    "derivation": "Red boundary QUAD path and internal black boundary line path extracted from PDF vector coordinates, anchored by four printed outer side lengths; no raster guessing for this edition.",
+    "pdfPointsPerFoot": 4.569497395,
+    "pdfPointsPerMetre": 14.991789352,
+    "apparentDimensionScale": "approximately 4.5695 PDF pt/ft",
+    "sourceRevision": "PDF uploaded 2026-11-19",
+    "status": "REFERENCE_SOURCE_NOT_FIELD_SURVEY",
+    "previousEdition": "data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json",
+    "ownerRevisionDate": "2026-11-20",
+    "ownerRevisionSummary": "Front-only setback + cardinal side labels + rectangle house concept + three separate underground service zones; original PDF and earlier trace unchanged."
+  },
+  "holds": [
+    "Owner clarified plot sides: left=north, rear/top=east, right=south, road/front/bottom=west; survey bearing not supplied.",
+    "Only west/road-facing front has a conceptual setback; north, south and east have NO drawn setback, but statutory requirements are NOT evaluated.",
+    "Front setback line follows source PDF original drawn interior front edge; original 6.5 double-quote notation remains ambiguous and must be verified by survey/municipality.",
+    "House rectangle 4.50×9.50 m is a conceptual candidate, not approved architecture, access, structural or fire separation; 2-storey 6m mass is visual assumption.",
+    "Water tank, septic tank and soak pit are reservations only; no design capacities, depths, setbacks, disposal/percolation, drinking-water separation or structural clearances checked.",
+    "No certified coordinates, surveyed area, true bearing, terrain elevations or legal road width."
+  ],
+  "links": {
+    "sourceSvg": "data/projects/14-amrit-hardware-1/plot-150-owner-concept-v2.svg",
+    "modelJson": "data/projects/14-amrit-hardware-1/plot-150-owner-concept-v2.json",
+    "sourceDxf": "data/projects/14-amrit-hardware-1/plot-150-owner-concept-v2.dxf",
+    "sourceModel": "data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json"
+  }
+}

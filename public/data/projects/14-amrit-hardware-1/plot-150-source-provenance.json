@@ -1,0 +1,13 @@
+{
+  "schema": "jp-cad://google-doc-svg-import/1",
+  "projectSlug": "14-amrit-hardware-1",
+  "sourceKind": "AUTHENTICATED_NATIVE_GOOGLE_DOC__STABLE_ID_IN_REPOSITORY_SECRET",
+  "sourceSha256": "0ae915b00d037c0683a5d7af11aa256391ff8b9ca0b6300719a539118c14b164",
+  "sourceBytes": 11214,
+  "sourceRevisionSnapshot": "0ae915b00d037c06",
+  "sourceSnapshotPath": "public/data/projects/14-amrit-hardware-1/snapshots/0ae915b00d037c06.svg",
+  "originalPdfSha256": "bb5921eb47275f5652b8e9378d05bc048e1e220752a395a90874fac640f8c4ba",
+  "surveyVerified": false,
+  "constructionApproved": false,
+  "publishPolicy": "GENERATE_REVIEW_PULL_REQUEST_ONLY__DO_NOT_BYPASS_MAIN_STAGING_QA"
+}
