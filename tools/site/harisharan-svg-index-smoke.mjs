@@ -1,0 +1,34 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {createHash} from 'node:crypto';
+import {assembly} from '../../public/assets/js/harisharan-takeoff.mjs';
+const prefix='public/projects/harisharan-adhikari/below-plinth-svg/';
+const json=p=>JSON.parse(fs.readFileSync(p,'utf8'));
+const source=json('public/data/projects/harisharan-adhikari/takeoff.json');
+const a=assembly(source), registry=json(prefix+'registry.json'),manifest=json(prefix+'manifest.json');
+assert.equal(source.issueForConstruction,false);
+assert.deepEqual([a.nodes.length,a.plinth.length,a.straps.length],[18,27,12]);
+assert.equal(registry.entries.length,115);
+assert.equal(manifest.entries.length,115);
+assert.deepEqual(registry.counts,{PB:27,ST:12,COL:18,PAD:18,PCC:18,DOWEL:18,HOLD:4});
+assert.equal(new Set(registry.entries.map(x=>x.id)).size,115);
+assert.equal(manifest.sameAsPriorChatZip,'NOT_VERIFIED__DO_NOT_ASSUME_BYTE_PARITY');
+assert.equal(manifest.engineeringApproval,false);
+for(const r of registry.entries){
+ const f=prefix+r.href;const bytes=fs.readFileSync(f);const s=bytes.toString('utf8');
+ const item=manifest.entries.find(x=>x.id===r.id);
+ assert.ok(item,'missing manifest '+r.id);
+ assert.equal(item.sha256,createHash('sha256').update(bytes).digest('hex'),'hash '+r.id);
+ assert.equal(item.bytes,bytes.length,'size '+r.id);
+ assert.match(s,/^<\?xml version="1.0"/);
+ assert.match(s,/<svg /);
+ assert.match(s,new RegExp('<title id="title">'+r.id.replaceAll('-','\\-')+' '));
+ assert.match(s,/ENGINEERING HOLD - NOT FOR CONSTRUCTION/);
+ assert.match(s,/PLAN \/ GRID/);assert.match(s,/LONGITUDINAL ELEVATION/);assert.match(s,/TRANSVERSE SECTION/);
+ assert.match(s,/CHECKED \/ APPROVED: PENDING/);
+ assert.ok(!s.includes('drive.google.com')&&!s.includes('docs.google.com'));
+}
+const page=fs.readFileSync(prefix+'index.html','utf8');
+assert.match(page,/searchParams/);
+assert.match(page,/manifest\.json/);
+console.log('HARISHARAN_SVG_115_RECONSTRUCTED_REVIEW_QA_PASS',JSON.stringify(registry.counts));
