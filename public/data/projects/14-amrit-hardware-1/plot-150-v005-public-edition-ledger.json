@@ -1,0 +1,23 @@
+{
+  "schema": "jp-cad://a7-aad-plot150-edition/2",
+  "project": "14_Amrit_Hardware_1",
+  "plot": "150",
+  "enumeration": "AAD-14-AMRIT-P150-V005",
+  "predecessor": "AAD-14-AMRIT-P150-V004",
+  "approvedGeometryEdition": "AAD-14-AMRIT-P150-V004",
+  "originalBoundaryChanged": false,
+  "roomGeometryChanged": false,
+  "unitsDisplay": "feet/inches + square feet",
+  "palette": [
+    "#000000",
+    "#ffffff"
+  ],
+  "differentiation": "hatches only",
+  "sourceSvgSha256": "3bce9ade10bb9a52e596f8fa08ff363cf6fb3ecbfe23ed5524de96aad4bf9195",
+  "sourceThreeJsSha256": "7bec044eb39d1af9d188b6770abfb0d13c06acdb370c68f3e1b463537e8b62c0",
+  "threeJsLibrary": "npm:three@0.181.2",
+  "surveyVerified": false,
+  "constructionApproved": false,
+  "reviewWorkflow": "Google Docs source to reviewed PR to staged QA to Pages",
+  "status": "REVIEW_PR_REQUIRED"
+}
