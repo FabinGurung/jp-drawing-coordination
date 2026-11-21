@@ -9,18 +9,19 @@
     "plotNumberDevanagari": "१५०"
   },
   "edition": {
-    "id": "plot150-owner-water-tank-inside-v3",
-    "enumeration": "AAD-14-AMRIT-P150-V003",
-    "versionSequence": 3,
-    "kind": "owner-concept-drawing-revision",
-    "status": "WATER_TANK_REPOSITIONED_WITHIN_ORIGINAL_BOUNDARY__CONCEPT_NOT_APPROVED",
+    "id": "plot150-two-bedroom-threejs-v4",
+    "enumeration": "AAD-14-AMRIT-P150-V004",
+    "versionSequence": 4,
+    "kind": "architectural-concept-ground-floor",
+    "status": "TWO_BEDROOM_ROOM_PLAN_CONCEPT__ENGINEERING_HOLD",
     "date": "2026-11-20",
-    "predecessor": "plot150-owner-front-only-concept-v2",
-    "canonicalSource": "NATIVE_GOOGLE_DOC_SAME_ID",
+    "predecessor": "plot150-owner-water-tank-inside-v3",
+    "canonicalSource": "EXISTING_STABLE_NATIVE_GOOGLE_DOC_SVG_PLUS_SEPARATE_STABLE_NATIVE_THREEJS_GOOGLE_DOC",
     "lineage": [
       "pdf-trace-v1",
       "plot150-owner-front-only-concept-v2",
-      "plot150-owner-water-tank-inside-v3"
+      "plot150-owner-water-tank-inside-v3",
+      "plot150-two-bedroom-threejs-v4"
     ],
     "sourceBoundaryPolicy": "ORIGINAL_PDF_QUADRILATERAL_UNCHANGED"
   },
@@ -210,76 +211,533 @@
     ],
     "house": {
       "id": "HOUSE-01",
-      "label": "Proposed rectangular house",
-      "kind": "rectangular_house_concept",
-      "rectMm": [
-        2500,
-        5600,
-        7000,
-        15100
+      "label": "Rectangular ground-floor house concept",
+      "kind": "rotated_rectangular_floor_plan",
+      "rectLocalMm": [
+        0,
+        0,
+        6300,
+        10100
       ],
-      "displayHeightMm": 6000,
-      "displayStoreys": 2,
+      "polygonMm": [
+        [
+          2789.868,
+          17382.947
+        ],
+        [
+          9087.776,
+          17220.601
+        ],
+        [
+          8827.505,
+          7123.955
+        ],
+        [
+          2529.597,
+          7286.302
+        ]
+      ],
+      "widthMm": 6300,
+      "depthMm": 10100,
+      "floorAreaSqm": 63.63,
+      "displayHeightMm": 3000,
+      "displayStoreys": 1,
       "heightAndStoreysAssumed": true,
       "constructionApproved": false,
       "foundationDesignVerified": false,
-      "roomPlanStatus": "NOT_DEFINED",
+      "roomPlanStatus": "ARCHITECTURAL_CONCEPT_ONLY__TWO_BEDROOMS",
       "dimensionLabels": [
-        "4.50 m",
-        "9.50 m"
+        "6.30 m",
+        "10.10 m"
       ],
-      "floorAreaSqm": 42.75
-    },
-    "reservedUndergroundZones": [
-      {
-        "id": "UWT-01",
-        "label": "Underground water tank",
-        "shortLabel": "WATER TANK",
-        "kind": "underground_water_tank_reservation",
-        "rectMm": [
-          3600,
-          15550,
-          5800,
-          16850
+      "plan": {
+        "frameMm": {
+          "origin": [
+            2789.8678,
+            17382.9475
+          ],
+          "uAxis": [
+            0.9996679150852169,
+            -0.025769352905643937
+          ],
+          "vAxis": [
+            -0.025769352905643937,
+            -0.9996679150852169
+          ],
+          "width": 6300,
+          "depth": 10100
+        },
+        "wallHeightMmDisplayOnly": 2800,
+        "rooms": [
+          {
+            "id": "LIVING",
+            "label": "Living room",
+            "rectLocalMm": [
+              0,
+              7200,
+              6300,
+              10100
+            ],
+            "fill": "#f5e3d8",
+            "containedIn": null,
+            "areaSqmGross": 18.27
+          },
+          {
+            "id": "KITCHEN",
+            "label": "Kitchen",
+            "rectLocalMm": [
+              3400,
+              4200,
+              6300,
+              7200
+            ],
+            "fill": "#e5f0df",
+            "containedIn": null,
+            "areaSqmGross": 8.7
+          },
+          {
+            "id": "STAIRS",
+            "label": "Staircase",
+            "rectLocalMm": [
+              0,
+              4200,
+              2450,
+              7200
+            ],
+            "fill": "#dedff0",
+            "containedIn": null,
+            "areaSqmGross": 7.35
+          },
+          {
+            "id": "PASSAGE",
+            "label": "Connecting passage",
+            "rectLocalMm": [
+              2450,
+              4200,
+              3400,
+              7200
+            ],
+            "fill": "#f2efe7",
+            "containedIn": null,
+            "areaSqmGross": 2.85
+          },
+          {
+            "id": "REARHALL",
+            "label": "Bedroom lobby",
+            "rectLocalMm": [
+              0,
+              3250,
+              6300,
+              4200
+            ],
+            "fill": "#f2efe7",
+            "containedIn": null,
+            "areaSqmGross": 5.985
+          },
+          {
+            "id": "BED-01",
+            "label": "Bedroom 1 · primary",
+            "rectLocalMm": [
+              0,
+              0,
+              3650,
+              3250
+            ],
+            "fill": "#dcebea",
+            "containedIn": null,
+            "areaSqmGross": 11.863
+          },
+          {
+            "id": "BED-02",
+            "label": "Bedroom 2 · compact",
+            "rectLocalMm": [
+              3650,
+              0,
+              6300,
+              3250
+            ],
+            "fill": "#e0e9f3",
+            "containedIn": null,
+            "areaSqmGross": 8.613
+          },
+          {
+            "id": "BATH-01",
+            "label": "Attached bath",
+            "rectLocalMm": [
+              0,
+              0,
+              1500,
+              1900
+            ],
+            "fill": "#d7e9ee",
+            "containedIn": "BED-01",
+            "areaSqmGross": 2.85
+          }
         ],
-        "depthMm": null,
-        "capacityL": null,
-        "approval": "HOLD",
-        "sourceNote": "v3 water-tank rectangle moved/reduced toward the plot interior; inside immutable red PDF-derived cadastral outline. Original rear boundary not enlarged. Placement only: clearance and tank capacity unapproved.",
-        "rearMarginApproxMm": null,
-        "displayFootprintAreaSqm": 2.86
-      },
-      {
-        "id": "ST-01",
-        "label": "Septic tank",
-        "shortLabel": "SEPTIC TANK",
-        "kind": "septic_tank_reservation",
-        "rectMm": [
-          7500,
-          7900,
-          9500,
-          10200
+        "wallSegments": [
+          {
+            "id": "W-01",
+            "kind": "outer",
+            "aLocalMm": [
+              0,
+              0
+            ],
+            "bLocalMm": [
+              6300,
+              0
+            ],
+            "label": ""
+          },
+          {
+            "id": "W-02",
+            "kind": "outer",
+            "aLocalMm": [
+              6300,
+              0
+            ],
+            "bLocalMm": [
+              6300,
+              10100
+            ],
+            "label": ""
+          },
+          {
+            "id": "W-03",
+            "kind": "outer",
+            "aLocalMm": [
+              0,
+              10100
+            ],
+            "bLocalMm": [
+              2850,
+              10100
+            ],
+            "label": "West road-facing entry"
+          },
+          {
+            "id": "W-04",
+            "kind": "outer",
+            "aLocalMm": [
+              3950,
+              10100
+            ],
+            "bLocalMm": [
+              6300,
+              10100
+            ],
+            "label": "West road-facing entry"
+          },
+          {
+            "id": "W-05",
+            "kind": "outer",
+            "aLocalMm": [
+              0,
+              0
+            ],
+            "bLocalMm": [
+              0,
+              10100
+            ],
+            "label": ""
+          },
+          {
+            "id": "W-06",
+            "kind": "partition",
+            "aLocalMm": [
+              3650,
+              0
+            ],
+            "bLocalMm": [
+              3650,
+              3250
+            ],
+            "label": ""
+          },
+          {
+            "id": "W-07",
+            "kind": "partition",
+            "aLocalMm": [
+              1500,
+              0
+            ],
+            "bLocalMm": [
+              1500,
+              800
+            ],
+            "label": "Bedroom 1 -> bath"
+          },
+          {
+            "id": "W-08",
+            "kind": "partition",
+            "aLocalMm": [
+              1500,
+              1600
+            ],
+            "bLocalMm": [
+              1500,
+              1900
+            ],
+            "label": "Bedroom 1 -> bath"
+          },
+          {
+            "id": "W-09",
+            "kind": "partition",
+            "aLocalMm": [
+              0,
+              1900
+            ],
+            "bLocalMm": [
+              1500,
+              1900
+            ],
+            "label": ""
+          },
+          {
+            "id": "W-10",
+            "kind": "partition",
+            "aLocalMm": [
+              0,
+              3250
+            ],
+            "bLocalMm": [
+              2450,
+              3250
+            ],
+            "label": "Bedroom doorways"
+          },
+          {
+            "id": "W-11",
+            "kind": "partition",
+            "aLocalMm": [
+              3250,
+              3250
+            ],
+            "bLocalMm": [
+              4750,
+              3250
+            ],
+            "label": "Bedroom doorways"
+          },
+          {
+            "id": "W-12",
+            "kind": "partition",
+            "aLocalMm": [
+              5550,
+              3250
+            ],
+            "bLocalMm": [
+              6300,
+              3250
+            ],
+            "label": "Bedroom doorways"
+          },
+          {
+            "id": "W-13",
+            "kind": "partition",
+            "aLocalMm": [
+              0,
+              4200
+            ],
+            "bLocalMm": [
+              2450,
+              4200
+            ],
+            "label": "Passage to bedroom lobby"
+          },
+          {
+            "id": "W-14",
+            "kind": "partition",
+            "aLocalMm": [
+              3400,
+              4200
+            ],
+            "bLocalMm": [
+              6300,
+              4200
+            ],
+            "label": "Passage to bedroom lobby"
+          },
+          {
+            "id": "W-15",
+            "kind": "partition",
+            "aLocalMm": [
+              2450,
+              4200
+            ],
+            "bLocalMm": [
+              2450,
+              5350
+            ],
+            "label": "Stair access"
+          },
+          {
+            "id": "W-16",
+            "kind": "partition",
+            "aLocalMm": [
+              2450,
+              6150
+            ],
+            "bLocalMm": [
+              2450,
+              7200
+            ],
+            "label": "Stair access"
+          },
+          {
+            "id": "W-17",
+            "kind": "partition",
+            "aLocalMm": [
+              3400,
+              4200
+            ],
+            "bLocalMm": [
+              3400,
+              5350
+            ],
+            "label": "Kitchen access"
+          },
+          {
+            "id": "W-18",
+            "kind": "partition",
+            "aLocalMm": [
+              3400,
+              6150
+            ],
+            "bLocalMm": [
+              3400,
+              7200
+            ],
+            "label": "Kitchen access"
+          },
+          {
+            "id": "W-19",
+            "kind": "partition",
+            "aLocalMm": [
+              0,
+              7200
+            ],
+            "bLocalMm": [
+              2450,
+              7200
+            ],
+            "label": "Passage to living"
+          },
+          {
+            "id": "W-20",
+            "kind": "partition",
+            "aLocalMm": [
+              3400,
+              7200
+            ],
+            "bLocalMm": [
+              6300,
+              7200
+            ],
+            "label": "Passage to living"
+          }
         ],
-        "depthMm": null,
-        "capacityL": null,
-        "approval": "HOLD"
-      },
-      {
-        "id": "SP-01",
-        "label": "Soak pit",
-        "shortLabel": "SOAK PIT",
-        "kind": "soak_pit_reservation",
-        "rectMm": [
-          7600,
-          11100,
-          9100,
-          12800
+        "doorOpenings": [
+          {
+            "id": "D-01",
+            "aLocalMm": [
+              2850,
+              10100
+            ],
+            "bLocalMm": [
+              3950,
+              10100
+            ],
+            "type": "unverified_concept_door"
+          },
+          {
+            "id": "D-02",
+            "aLocalMm": [
+              1500,
+              800
+            ],
+            "bLocalMm": [
+              1500,
+              1600
+            ],
+            "type": "unverified_concept_door"
+          },
+          {
+            "id": "D-03",
+            "aLocalMm": [
+              2450,
+              3250
+            ],
+            "bLocalMm": [
+              3250,
+              3250
+            ],
+            "type": "unverified_concept_door"
+          },
+          {
+            "id": "D-04",
+            "aLocalMm": [
+              4750,
+              3250
+            ],
+            "bLocalMm": [
+              5550,
+              3250
+            ],
+            "type": "unverified_concept_door"
+          },
+          {
+            "id": "D-05",
+            "aLocalMm": [
+              2450,
+              4200
+            ],
+            "bLocalMm": [
+              3400,
+              4200
+            ],
+            "type": "unverified_concept_door"
+          },
+          {
+            "id": "D-06",
+            "aLocalMm": [
+              2450,
+              5350
+            ],
+            "bLocalMm": [
+              2450,
+              6150
+            ],
+            "type": "unverified_concept_door"
+          },
+          {
+            "id": "D-07",
+            "aLocalMm": [
+              3400,
+              5350
+            ],
+            "bLocalMm": [
+              3400,
+              6150
+            ],
+            "type": "unverified_concept_door"
+          },
+          {
+            "id": "D-08",
+            "aLocalMm": [
+              2450,
+              7200
+            ],
+            "bLocalMm": [
+              3400,
+              7200
+            ],
+            "type": "unverified_concept_door"
+          }
         ],
-        "depthMm": null,
-        "capacityL": null,
-        "approval": "HOLD"
+        "stairFlight": "SCHEMATIC_NOT_ENGINEERED"
       }
-    ],
+    },
+    "reservedUndergroundZones": [],
     "svgView": {
       "viewBox": [
         0,
@@ -316,10 +774,17 @@
     "derivedAreaStatus": "IMAGE_VECTOR_RECONSTRUCTION_NOT_CADASTRAL_AREA",
     "derivedFrontBandAreaSqm": 21.84,
     "derivedBuildableAreaSqm": 103.9,
-    "derivedHouseFootprintAreaSqm": 42.75,
+    "derivedHouseFootprintAreaSqm": 63.63,
     "frontOffsetFromPDFReferenceApproxMm": 1977.3,
     "waterTankConceptFootprintSqm": 2.86,
-    "rearBoundaryExtended": false
+    "rearBoundaryExtended": false,
+    "roomAreasIndicativeOnly": true,
+    "eastRearWidthUsedApproxMm": 6300,
+    "eastRearSourceEdgeLengthApproxMm": 6558.2,
+    "eastEdgeSideMarginsApproxMm": [
+      120,
+      138.2
+    ]
   },
   "source": {
     "documentName": "14_Amrit_Hardware_1.pdf",
@@ -340,23 +805,21 @@
     "status": "REFERENCE_SOURCE_NOT_FIELD_SURVEY",
     "previousEdition": "data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json",
     "ownerRevisionDate": "2026-11-20",
-    "ownerRevisionSummary": "v3: reposition underground water tank entirely within unmodified source plot, with additional visible rear margin; retire duplicate v2 export copies to restricted Drive archive; same canonical Google Doc ID remains authoritative.",
+    "ownerRevisionSummary": "v4: remove all underground-service symbols, keep original source plot and west/front-only setback, fit 6.30×10.10m rectangular one-storey conceptual plan aligned to east boundary; two bedrooms, attached bath, kitchen, staircase, living, circulation. Same SVG-derived model drives real Three.js 3D with walls/doors/rooms.",
     "sourceBoundaryEditStatus": "UNCHANGED_ORIGINAL_VECTOR_PDF_PLOT_150; NO_CADASTRAL_EXTENSION",
-    "versionControlPolicy": "A7_AAD_EDITION_V003__ONE_STABLE_GOOGLE_DOC__HASH_SNAPSHOTS__REVIEWED_GITHUB_COMMIT"
+    "versionControlPolicy": "A7_AAD_EDITION_V004__TWO_STABLE_NATIVE_DOCS_SVG_AND_THREEJS__SHA_SNAPSHOTS__REVIEWED_GITHUB_BUILD"
   },
   "holds": [
-    "Owner clarified plot sides: left=north, rear/top=east, right=south, road/front/bottom=west; survey bearing not supplied.",
-    "Only west/road-facing front has a conceptual setback; north, south and east have NO drawn setback, but statutory requirements are NOT evaluated.",
-    "Front setback line follows source PDF original drawn interior front edge; original 6.5 double-quote notation remains ambiguous and must be verified by survey/municipality.",
-    "House rectangle 4.50×9.50 m is a conceptual candidate, not approved architecture, access, structural or fire separation; 2-storey 6m mass is visual assumption.",
-    "Water tank, septic tank and soak pit are reservations only; no design capacities, depths, setbacks, disposal/percolation, drinking-water separation or structural clearances checked.",
-    "No certified coordinates, surveyed area, true bearing, terrain elevations or legal road width.",
-    "v3: A visible rear-margin adjustment does not permit movement of the registered cadastral boundary; any lot extension requires certified survey evidence and a separately reviewed boundary revision."
+    "North=left, south=right, east=rear/top, west=front/road/bottom per owner only; not verified compass bearings.",
+    "West/front setback only drawn as owner concept; all legal setbacks, roadway and approvals must be independently checked.",
+    "East width used almost entirely in conceptual footprint; 120mm edge margin in model is NOT an approved boundary clearance or permissible construction setback.",
+    "Ground floor with two bedrooms, attached bath, kitchen, living, stairs and passages: no plumbing, structural, daylight/egress, fire, circulation, window or stair-code design approval.",
+    "No water tank, septic tank or soak pit included in this edition. Wastewater/water systems remain unresolved; absence in drawing is not permission to omit them.",
+    "3D partition walls / stair treads display only with 2.8m illustration height; no engineered stair risers, beam/column or floor levels."
   ],
   "links": {
-    "sourceSvg": "data/projects/14-amrit-hardware-1/plot-150-owner-concept-v3.svg",
-    "modelJson": "data/projects/14-amrit-hardware-1/plot-150-owner-concept-v3.json",
-    "sourceDxf": "data/projects/14-amrit-hardware-1/plot-150-owner-concept-v3.dxf",
+    "sourceSvg": "data/projects/14-amrit-hardware-1/plot-150-working.svg",
+    "modelJson": "data/projects/14-amrit-hardware-1/plot-150-working.json",
     "sourceModel": "data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json"
   }
 }

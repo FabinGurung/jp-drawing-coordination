@@ -1,0 +1,54 @@
+{
+  "schema": "jp-cad://a7-aad-plot150-edition/2",
+  "project": "14_Amrit_Hardware_1",
+  "plot": "150",
+  "enumeration": "AAD-14-AMRIT-P150-V004",
+  "status": "ARCHITECTURAL_CONCEPT_NOT_APPROVED",
+  "date": "2026-11-20",
+  "predecessor": "AAD-14-AMRIT-P150-V003",
+  "historicalFrozen": [
+    "pdf-trace-v1",
+    "AAD-14-AMRIT-P150-V002",
+    "AAD-14-AMRIT-P150-V003"
+  ],
+  "sourceSvgSha256": "bff13c3203749783acab72b17880d5fef14a892c16deedaf9f0fe4ff323344ab",
+  "sourceThreeJsSha256": "e85febeeb94287b91cf5cda3e504e74a47e7def3fac78b1e666ed52557e42a41",
+  "threeJsLibrary": "npm:three@0.181.2",
+  "threeRuntime": "Vite local dependency bundle + WebGL2; SVG/JSON one room/wall geometry",
+  "sourceCustody": {
+    "svg": "one permanent native Google Doc (same document ID as V003)",
+    "three": "one separate permanent native Google Doc; same ID across future renderer revisions",
+    "git": "reviewed SHA snapshots and source code",
+    "A7": "immutable edition ledger and memory palace index"
+  },
+  "changes": [
+    "Remove display of all water, septic and soak zones; unresolved construction-services hold retained",
+    "Use 6300mm of 6558mm east source-PDF width",
+    "Rectangular single-storey concept aligned with east edge, 6300 x 10100mm",
+    "2 bedrooms, attached master bathroom, kitchen, staircase, living and corridors",
+    "3D uses actual Three.js floor and wall meshes derived from exactly the same SVG model metadata"
+  ],
+  "originalPlotBoundaryChanged": false,
+  "westFrontOnlySetbackChanged": false,
+  "surveyVerified": false,
+  "constructionApproved": false,
+  "releaseState": "REVIEW_PR_REQUIRED",
+  "threejsSourceSnapshots": "snapshots/threejs-e85febeeb94287b9.mjs",
+  "svgSnapshot": "snapshots/bff13c3203749783.svg",
+  "planning": {
+    "eastPlotSideSourceLengthMmApprox": 6558.18,
+    "eastHouseWidthMm": 6300,
+    "widthShareApproxPercent": 96.06,
+    "footprintAreaSqm": 63.63,
+    "compactBedroomAreaSqm": 8.613,
+    "bathGrossSqm": 2.85
+  },
+  "engineeringHolds": [
+    "survey cadastral boundary and bearings",
+    "legal setbacks and road right of way",
+    "room circulation, window/daylight/fire egress",
+    "stair riser/tread/landing and all storey heights",
+    "structure/columns/foundations",
+    "potable water, wastewater, septic and soak pit still need design; drawings omit service reservations only"
+  ]
+}
