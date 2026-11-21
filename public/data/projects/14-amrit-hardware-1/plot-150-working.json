@@ -9,21 +9,23 @@
     "plotNumberDevanagari": "१५०"
   },
   "edition": {
-    "id": "plot150-two-bedroom-threejs-v4",
-    "enumeration": "AAD-14-AMRIT-P150-V004",
-    "versionSequence": 4,
-    "kind": "architectural-concept-ground-floor",
-    "status": "TWO_BEDROOM_ROOM_PLAN_CONCEPT__ENGINEERING_HOLD",
-    "date": "2026-11-20",
-    "predecessor": "plot150-owner-water-tank-inside-v3",
+    "id": "plot150-two-bedroom-monochrome-feet-v5",
+    "enumeration": "AAD-14-AMRIT-P150-V005",
+    "versionSequence": 5,
+    "kind": "architectural-concept-ground-floor-monochrome-feet",
+    "status": "V004_APPROVED_GEOMETRY__V005_BLACK_WHITE_FEET_ONLY__ENGINEERING_HOLD",
+    "date": "2026-11-21",
+    "predecessor": "plot150-two-bedroom-threejs-v4",
     "canonicalSource": "EXISTING_STABLE_NATIVE_GOOGLE_DOC_SVG_PLUS_SEPARATE_STABLE_NATIVE_THREEJS_GOOGLE_DOC",
     "lineage": [
       "pdf-trace-v1",
       "plot150-owner-front-only-concept-v2",
       "plot150-owner-water-tank-inside-v3",
-      "plot150-two-bedroom-threejs-v4"
+      "plot150-two-bedroom-threejs-v4",
+      "plot150-two-bedroom-monochrome-feet-v5"
     ],
-    "sourceBoundaryPolicy": "ORIGINAL_PDF_QUADRILATERAL_UNCHANGED"
+    "sourceBoundaryPolicy": "ORIGINAL_PDF_QUADRILATERAL_UNCHANGED",
+    "displayPolicy": "FEET_INCHES_AND_SQUARE_FEET__BLACK_WHITE_ONLY__HATCHED_ZONES"
   },
   "geometry": {
     "units": "mm",
@@ -76,7 +78,7 @@
           419.52
         ]
       ],
-      "outlineStroke": "red source polyline"
+      "outlineStroke": "black monochrome current view; original source was red polyline, unchanged geometrically"
     },
     "inner": {
       "vertices": [
@@ -247,8 +249,8 @@
       "foundationDesignVerified": false,
       "roomPlanStatus": "ARCHITECTURAL_CONCEPT_ONLY__TWO_BEDROOMS",
       "dimensionLabels": [
-        "6.30 m",
-        "10.10 m"
+        "20′-8″",
+        "33′-2″"
       ],
       "plan": {
         "frameMm": {
@@ -278,9 +280,10 @@
               6300,
               10100
             ],
-            "fill": "#f5e3d8",
+            "fill": "#ffffff",
             "containedIn": null,
-            "areaSqmGross": 18.27
+            "areaSqmGross": 18.27,
+            "areaSqFtGross": 196.66
           },
           {
             "id": "KITCHEN",
@@ -291,9 +294,10 @@
               6300,
               7200
             ],
-            "fill": "#e5f0df",
+            "fill": "#ffffff",
             "containedIn": null,
-            "areaSqmGross": 8.7
+            "areaSqmGross": 8.7,
+            "areaSqFtGross": 93.65
           },
           {
             "id": "STAIRS",
@@ -304,9 +308,10 @@
               2450,
               7200
             ],
-            "fill": "#dedff0",
+            "fill": "#ffffff",
             "containedIn": null,
-            "areaSqmGross": 7.35
+            "areaSqmGross": 7.35,
+            "areaSqFtGross": 79.11
           },
           {
             "id": "PASSAGE",
@@ -317,9 +322,10 @@
               3400,
               7200
             ],
-            "fill": "#f2efe7",
+            "fill": "#ffffff",
             "containedIn": null,
-            "areaSqmGross": 2.85
+            "areaSqmGross": 2.85,
+            "areaSqFtGross": 30.68
           },
           {
             "id": "REARHALL",
@@ -330,9 +336,10 @@
               6300,
               4200
             ],
-            "fill": "#f2efe7",
+            "fill": "#ffffff",
             "containedIn": null,
-            "areaSqmGross": 5.985
+            "areaSqmGross": 5.985,
+            "areaSqFtGross": 64.42
           },
           {
             "id": "BED-01",
@@ -343,9 +350,10 @@
               3650,
               3250
             ],
-            "fill": "#dcebea",
+            "fill": "#ffffff",
             "containedIn": null,
-            "areaSqmGross": 11.863
+            "areaSqmGross": 11.863,
+            "areaSqFtGross": 127.69
           },
           {
             "id": "BED-02",
@@ -356,9 +364,10 @@
               6300,
               3250
             ],
-            "fill": "#e0e9f3",
+            "fill": "#ffffff",
             "containedIn": null,
-            "areaSqmGross": 8.613
+            "areaSqmGross": 8.613,
+            "areaSqFtGross": 92.71
           },
           {
             "id": "BATH-01",
@@ -369,9 +378,10 @@
               1500,
               1900
             ],
-            "fill": "#d7e9ee",
+            "fill": "#ffffff",
             "containedIn": "BED-01",
-            "areaSqmGross": 2.85
+            "areaSqmGross": 2.85,
+            "areaSqFtGross": 30.68
           }
         ],
         "wallSegments": [
@@ -753,7 +763,7 @@
     }
   },
   "measurements": {
-    "documentUnits": "feet and inches labels; setback text contains double quote symbol",
+    "documentUnits": "Feet/inches and square feet for ALL visible dimensions; internal geometry in mm",
     "outerEdges": [
       "21'-6\"",
       "41'-10\"",
@@ -784,7 +794,10 @@
     "eastEdgeSideMarginsApproxMm": [
       120,
       138.2
-    ]
+    ],
+    "displayHouseAreaSqFt": 684.91,
+    "displayPlotAreaSqFt": 1353.35,
+    "displayFrontBandSqFt": 235.08
   },
   "source": {
     "documentName": "14_Amrit_Hardware_1.pdf",
@@ -804,10 +817,10 @@
     "sourceRevision": "PDF uploaded 2026-11-19",
     "status": "REFERENCE_SOURCE_NOT_FIELD_SURVEY",
     "previousEdition": "data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json",
-    "ownerRevisionDate": "2026-11-20",
-    "ownerRevisionSummary": "v4: remove all underground-service symbols, keep original source plot and west/front-only setback, fit 6.30×10.10m rectangular one-storey conceptual plan aligned to east boundary; two bedrooms, attached bath, kitchen, staircase, living, circulation. Same SVG-derived model drives real Three.js 3D with walls/doors/rooms.",
+    "ownerRevisionDate": "2026-11-21",
+    "ownerRevisionSummary": "V005 monochrome pure black-and-white SVG hatch graphics, matched Three.js black-and-white scene, and all visible lengths/areas in ft-in / sq ft. Approved V004 geometry unchanged, original PDF boundary preserved. Engineering approvals remain on hold.",
     "sourceBoundaryEditStatus": "UNCHANGED_ORIGINAL_VECTOR_PDF_PLOT_150; NO_CADASTRAL_EXTENSION",
-    "versionControlPolicy": "A7_AAD_EDITION_V004__TWO_STABLE_NATIVE_DOCS_SVG_AND_THREEJS__SHA_SNAPSHOTS__REVIEWED_GITHUB_BUILD"
+    "versionControlPolicy": "A7_AAD_EDITION_V005__V004_FROZEN__SAME_TWO_LIVE_GOOGLE_DOC_IDS__EXACT_SHA_SOURCE_SNAPSHOTS__QA_THEN_PAGES"
   },
   "holds": [
     "North=left, south=right, east=rear/top, west=front/road/bottom per owner only; not verified compass bearings.",
@@ -815,11 +828,23 @@
     "East width used almost entirely in conceptual footprint; 120mm edge margin in model is NOT an approved boundary clearance or permissible construction setback.",
     "Ground floor with two bedrooms, attached bath, kitchen, living, stairs and passages: no plumbing, structural, daylight/egress, fire, circulation, window or stair-code design approval.",
     "No water tank, septic tank or soak pit included in this edition. Wastewater/water systems remain unresolved; absence in drawing is not permission to omit them.",
-    "3D partition walls / stair treads display only with 2.8m illustration height; no engineered stair risers, beam/column or floor levels."
+    "3D partition walls / stair treads display only with 2.8m illustration height; no engineered stair risers, beam/column or floor levels.",
+    "V005 display-only transformation: visible dimensions feet/inches, visible areas square feet, pure black/white with hatching; underlying mm coordinates kept to avoid numerical conversion drift."
   ],
   "links": {
     "sourceSvg": "data/projects/14-amrit-hardware-1/plot-150-working.svg",
     "modelJson": "data/projects/14-amrit-hardware-1/plot-150-working.json",
     "sourceModel": "data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json"
+  },
+  "display": {
+    "dimensionUnits": "feet-inches",
+    "areaUnits": "sq ft",
+    "palette": [
+      "#000000",
+      "#ffffff"
+    ],
+    "hatchOnly": true,
+    "internalGeometryUnits": "mm",
+    "drawingScaleStatus": "PDF_DERIVED_UNVERIFIED"
   }
 }

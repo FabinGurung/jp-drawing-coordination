@@ -1,4 +1,4 @@
-/** A7/A9 Plot 150 shared 2D SVG / Three.js 3D reader (V004).
+/** A7/A9 Plot 150 shared 2D SVG / Three.js 3D reader (V005).
  * SVG embeds canonical JSON; a single serialized model controls SVG hit regions,
  * Three.js walls/rooms, measurements, inspector and edition history.
  * The complete Three.js implementation lives in a separate permanent Google Doc,
@@ -13,10 +13,12 @@ const svgUrl=new URL(sourceUrl.href.replace(/\.json(?:\?.*)?$/,'.svg'));
 const NS='http://www.w3.org/2000/svg';
 const svgEl=(tag,attrs={})=>{const e=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,v);return e;};
 const fmt=(n,d=2)=>Number(n).toFixed(d);
+const ftIn=(mm)=>{const total=Math.round(mm/25.4);return `${Math.floor(total/12)}′-${total%12}″`;};
+const sqFt=(sqm)=>`${(sqm*10.76391041671).toFixed(1)} sq ft`; 
 const area=pts=>Math.abs(pts.reduce((s,p,i)=>s+p[0]*pts[(i+1)%pts.length][1]-pts[(i+1)%pts.length][0]*p[1],0)/2)/1e6;
 const rectCorners=r=>[[r[0],r[1]],[r[2],r[1]],[r[2],r[3]],[r[0],r[3]]];
 let model=null,outer=[],selectedId='HOUSE-01',layout='split',panel='views',phase='site',three=null,threeStatus='NOT_LOADED';
-const isNew=()=>model?.edition?.enumeration==='AAD-14-AMRIT-P150-V004';
+const isNew=()=>Boolean(model?.geometry?.house?.plan?.wallSegments);
 const side=i=>['East · Rear','South · Right','West · Road/front','North · Left'][i]||'Boundary';
 const rooms=()=>model?.geometry?.house?.plan?.rooms||[];
 const elements=()=>[
@@ -30,7 +32,7 @@ function checked(m){
  if(!['jp-cad://site-plot-boundary/1.0','jp-cad://site-plot-boundary/2.0'].includes(m?.schema))throw Error('Unsupported source model');
  if(m.geometry.units!=='mm'||m.geometry.georeferenced||m.geometry.surveyVerified)throw Error('Unknown or falsely certified coordinates');
  if(m.geometry.outer.vertices.length!==4)throw Error('Plot vertices missing');
- if(isNew()&&!m.geometry.house?.plan?.wallSegments)throw Error('V004 room/wall model missing');
+ if(isNew()&&!m.geometry.house?.plan?.wallSegments)throw Error('V005 room/wall model missing');
 }
 function pos(p){const t=model.geometry.svgView.transform;return[t.xZero+p[0]*t.scale,t.yZero-p[1]*t.scale];}
 function fromLocal(p){const f=model.geometry.house.plan.frameMm;return[f.origin[0]+p[0]*f.uAxis[0]+p[1]*f.vAxis[0],f.origin[1]+p[0]*f.uAxis[1]+p[1]*f.vAxis[1]];}
@@ -62,20 +64,20 @@ function renderInspector(){
  if(selectedId.startsWith('boundary-')){
   const i=Number(selectedId.slice(9)),a=outer[i],b=outer[(i+1)%4];
   title=side(i)+' · '+g.outer.edgeLabels[i];desc='Printed dimension from original vector PDF; owner-stated compass side, not a surveyed bearing.';
-  rows=[['Original PDF length',g.outer.edgeLabels[i]],['PDF-derived local midpoint',fmt((a[0]+b[0])/2000,3)+' m, '+fmt((a[1]+b[1])/2000,3)+' m']];
+  rows=[['Original PDF length',g.outer.edgeLabels[i]],['Measurement units','Feet and inches only']];
  }else{
   const room=rooms().find(x=>x.id===selectedId);
   const item=room||((g.reservedUndergroundZones||[]).find(x=>x.id===selectedId))||g.house;
   title=item.label||'House';
-  if(room){const r=room.rectLocalMm;rows=[['Concept dimensions',`${fmt((r[2]-r[0])/1000)} × ${fmt((r[3]-r[1])/1000)} m`],['Gross zone area',`${fmt(room.areaSqmGross)} m²`]];if(room.containedIn)rows.push(['Access','Attached to Bedroom 1 only']);desc='Corresponding 2D zone and genuine Three.js 3D floor, enclosed by identical wall coordinates.';}
-  else if(item.rectMm){const r=item.rectMm;rows=[['Concept dimensions',`${fmt((r[2]-r[0])/1000)} × ${fmt((r[3]-r[1])/1000)} m`]];desc='Historical design reservation; not present in v004.';}
-  else{rows=[['House footprint',`${fmt(g.house.floorAreaSqm)} m²`]];desc='Rectangular ground-floor design option; no construction clearance or structural plan.';}
+  if(room){const r=room.rectLocalMm;rows=[['Concept dimensions',`${ftIn(r[2]-r[0])} × ${ftIn(r[3]-r[1])}`],['Gross zone area',sqFt(room.areaSqmGross)]];if(room.containedIn)rows.push(['Access','Attached to Bedroom 1 only']);desc='Corresponding 2D zone and genuine Three.js 3D floor, enclosed by identical wall coordinates.';}
+  else if(item.rectMm){const r=item.rectMm;rows=[['Concept dimensions',`${ftIn(r[2]-r[0])} × ${ftIn(r[3]-r[1])}`]];desc='Historical design reservation; not present in v004.';}
+  else{rows=[['House footprint',sqFt(g.house.floorAreaSqm)]];desc='Rectangular ground-floor design option; no construction clearance or structural plan.';}
  }
  rows.push(['Survey status','Not verified'],['Design status','Concept · Engineering HOLD']);
  $('selected-title').textContent=title;$('selected-description').textContent=desc;$('selected-register').replaceChildren();
  for(const [key,val] of rows){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=key;dd.textContent=val;$('selected-register').append(dt,dd);}
  $('measurements').replaceChildren();g.outer.edgeLabels.forEach((label,i)=>{const tr=document.createElement('tr');tr.setAttribute('aria-selected',String(selectedId===`boundary-${i}`));const a=document.createElement('td'),b=document.createElement('td'),c=document.createElement('td'),button=document.createElement('button');button.textContent=side(i);button.addEventListener('click',()=>select(`boundary-${i}`));a.append(button);b.textContent=label;c.textContent=i===2?'Front-only offset (unverified)':'No setback drawn';tr.append(a,b,c);$('measurements').append(tr);});
- $('area').textContent=`PDF-derived plot ≈ ${fmt(area(outer))} m² · source-drawn front band ≈ ${fmt(area(g.frontOnlySetback?.polygonMm||[]))} m² · concept house ≈ ${fmt(g.house?.floorAreaSqm||0)} m². None are certified quantities.`;
+ $('area').textContent=`PDF-derived plot ≈ ${sqFt(area(outer))} · front band ≈ ${sqFt(area(g.frontOnlySetback?.polygonMm||[]))} · house ≈ ${sqFt(g.house?.floorAreaSqm||0)}. Not surveyed or approved.`;
 }
 function buttons(){document.querySelectorAll('[data-layout]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.layout===layout)));$('views').className='views '+(layout==='source'?'plan':layout);$('plan-pane').hidden=layout==='building';$('model-pane').hidden=layout==='plan'||layout==='source';three?.resize();}
 function setPanel(p){panel=p;event();}
@@ -94,7 +96,7 @@ async function start(){
   buttons();renderPlan();renderInspector();
   try{
    // This is a local Vite output of installed npm three@0.181.2, not a remote CDN.
-   const module=await import(new URL('assets/plot150-three.v004.js',root).href);
+   const module=await import(new URL('assets/plot150-three.v005.js',root).href);
    if(typeof module.mountPlot150Three!=='function')throw Error('Bundled Three.js entry is missing');
    three=module.mountPlot150Three({canvas:$('model3d'),model,onSelect:select});
    three.setSelection(selectedId);threeStatus='THREEJS';

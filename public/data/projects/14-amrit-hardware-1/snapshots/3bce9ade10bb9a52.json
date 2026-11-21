@@ -1,0 +1,850 @@
+{
+  "schema": "jp-cad://site-plot-boundary/2.0",
+  "project": {
+    "slug": "14-amrit-hardware-1",
+    "title": "14_Amrit_Hardware_1",
+    "company": "Rohini Engineering and Builders",
+    "locationText": "Pokhara Ward 14, Nepal",
+    "plotNumber": "150",
+    "plotNumberDevanagari": "१५०"
+  },
+  "edition": {
+    "id": "plot150-two-bedroom-monochrome-feet-v5",
+    "enumeration": "AAD-14-AMRIT-P150-V005",
+    "versionSequence": 5,
+    "kind": "architectural-concept-ground-floor-monochrome-feet",
+    "status": "V004_APPROVED_GEOMETRY__V005_BLACK_WHITE_FEET_ONLY__ENGINEERING_HOLD",
+    "date": "2026-11-21",
+    "predecessor": "plot150-two-bedroom-threejs-v4",
+    "canonicalSource": "EXISTING_STABLE_NATIVE_GOOGLE_DOC_SVG_PLUS_SEPARATE_STABLE_NATIVE_THREEJS_GOOGLE_DOC",
+    "lineage": [
+      "pdf-trace-v1",
+      "plot150-owner-front-only-concept-v2",
+      "plot150-owner-water-tank-inside-v3",
+      "plot150-two-bedroom-threejs-v4",
+      "plot150-two-bedroom-monochrome-feet-v5"
+    ],
+    "sourceBoundaryPolicy": "ORIGINAL_PDF_QUADRILATERAL_UNCHANGED",
+    "displayPolicy": "FEET_INCHES_AND_SQUARE_FEET__BLACK_WHITE_ONLY__HATCHED_ZONES"
+  },
+  "geometry": {
+    "units": "mm",
+    "coordinateSystem": "LOCAL_DRAWING_ONLY",
+    "origin": "red-boundary bottom-left vertex; +X right on PDF, +Y upward on PDF",
+    "north": "OWNER_STATED_LEFT_SIDE_NORTH__NO_SURVEY_BEARING",
+    "georeferenced": false,
+    "surveyVerified": false,
+    "buildingGeometryIncluded": true,
+    "outer": {
+      "vertices": [
+        [
+          2673,
+          17506
+        ],
+        [
+          9229,
+          17337
+        ],
+        [
+          10326,
+          4635
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "edgeLabels": [
+        "21'-6\"",
+        "41'-10\"",
+        "37'-2\"",
+        "58'-1\""
+      ],
+      "sourcePdfPoints": [
+        [
+          203.76,
+          157.08
+        ],
+        [
+          302.04,
+          159.6
+        ],
+        [
+          318.48,
+          350.04
+        ],
+        [
+          163.68,
+          419.52
+        ]
+      ],
+      "outlineStroke": "black monochrome current view; original source was red polyline, unchanged geometrically"
+    },
+    "inner": {
+      "vertices": [
+        [
+          2377,
+          15537
+        ],
+        [
+          7404,
+          15400
+        ],
+        [
+          8229,
+          5867
+        ],
+        [
+          360,
+          2329
+        ]
+      ],
+      "edgeLabels": [
+        "16'-6\"",
+        "31'-5\"",
+        "28'-4\"",
+        "43'-10\""
+      ],
+      "sourcePdfPoints": [
+        [
+          199.32,
+          186.6
+        ],
+        [
+          274.68,
+          188.64
+        ],
+        [
+          287.04,
+          331.56
+        ],
+        [
+          169.08,
+          384.6
+        ]
+      ],
+      "label": "Unverified interior footprint shown in PDF",
+      "interpretation": "hatched strips bounded by red plot edges and internal black edges; not approved setback offsets",
+      "displayOnCurrentDrawing": false
+    },
+    "diagonal": {
+      "label": "37'-1\"",
+      "fromInnerVertex": 0,
+      "toInnerVertex": 2,
+      "dimensionStatus": "PDF_LABEL_ONLY_NOT_A_CONTROLLED_SURVEY_DISTANCE"
+    },
+    "road": {
+      "status": "ADJACENT_TO_LOWER_DIAGONAL_SIDE_IN_PDF",
+      "widthMm": null,
+      "rightOfWayMm": null,
+      "roadBoundarySurveyed": false
+    },
+    "visualization": {
+      "zMm": 0,
+      "displayOnlyEdgeHeightMm": 120,
+      "heightIsSurveyed": false,
+      "houseStoreysConceptual": 2,
+      "houseHeightMmDisplayOnly": 6000,
+      "tankDepthsUnknown": true
+    },
+    "orientation": {
+      "leftBoundary": "NORTH",
+      "topBoundary": "EAST_REAR",
+      "rightBoundary": "SOUTH",
+      "bottomBoundary": "WEST_FRONT_ROAD",
+      "basis": "OWNER_INSTRUCTION_2026-11-20",
+      "geographicBearingVerified": false,
+      "frontEdgeIndex": 2,
+      "northEdgeIndex": 3,
+      "eastEdgeIndex": 0,
+      "southEdgeIndex": 1
+    },
+    "frontOnlySetback": {
+      "polygonMm": [
+        [
+          10145.19,
+          6728.54
+        ],
+        [
+          10326.0,
+          4635.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          355.29,
+          2326.88
+        ]
+      ],
+      "innerCutLineMm": [
+        [
+          355.29,
+          2326.88
+        ],
+        [
+          10145.19,
+          6728.54
+        ]
+      ],
+      "frontSetbackStatus": "SOURCE_DRAWN_APPROXIMATE_NOT_APPROVED",
+      "distanceMmApprox": 1977.3,
+      "drawingReference": "Original interior line Q3 to Q2, extended to the left/right red plot edges; all remaining perimeter setbacks removed by owner instruction.",
+      "measurementControl": "SCALE_DERIVED_FROM_PDF_NOT_OFFICIAL_SETBACK"
+    },
+    "buildablePolygonMm": [
+      [
+        2673.0,
+        17506.0
+      ],
+      [
+        9229.0,
+        17337.0
+      ],
+      [
+        10145.19,
+        6728.54
+      ],
+      [
+        355.29,
+        2326.88
+      ]
+    ],
+    "house": {
+      "id": "HOUSE-01",
+      "label": "Rectangular ground-floor house concept",
+      "kind": "rotated_rectangular_floor_plan",
+      "rectLocalMm": [
+        0,
+        0,
+        6300,
+        10100
+      ],
+      "polygonMm": [
+        [
+          2789.868,
+          17382.947
+        ],
+        [
+          9087.776,
+          17220.601
+        ],
+        [
+          8827.505,
+          7123.955
+        ],
+        [
+          2529.597,
+          7286.302
+        ]
+      ],
+      "widthMm": 6300,
+      "depthMm": 10100,
+      "floorAreaSqm": 63.63,
+      "displayHeightMm": 3000,
+      "displayStoreys": 1,
+      "heightAndStoreysAssumed": true,
+      "constructionApproved": false,
+      "foundationDesignVerified": false,
+      "roomPlanStatus": "ARCHITECTURAL_CONCEPT_ONLY__TWO_BEDROOMS",
+      "dimensionLabels": [
+        "20′-8″",
+        "33′-2″"
+      ],
+      "plan": {
+        "frameMm": {
+          "origin": [
+            2789.8678,
+            17382.9475
+          ],
+          "uAxis": [
+            0.9996679150852169,
+            -0.025769352905643937
+          ],
+          "vAxis": [
+            -0.025769352905643937,
+            -0.9996679150852169
+          ],
+          "width": 6300,
+          "depth": 10100
+        },
+        "wallHeightMmDisplayOnly": 2800,
+        "rooms": [
+          {
+            "id": "LIVING",
+            "label": "Living room",
+            "rectLocalMm": [
+              0,
+              7200,
+              6300,
+              10100
+            ],
+            "fill": "#ffffff",
+            "containedIn": null,
+            "areaSqmGross": 18.27,
+            "areaSqFtGross": 196.66
+          },
+          {
+            "id": "KITCHEN",
+            "label": "Kitchen",
+            "rectLocalMm": [
+              3400,
+              4200,
+              6300,
+              7200
+            ],
+            "fill": "#ffffff",
+            "containedIn": null,
+            "areaSqmGross": 8.7,
+            "areaSqFtGross": 93.65
+          },
+          {
+            "id": "STAIRS",
+            "label": "Staircase",
+            "rectLocalMm": [
+              0,
+              4200,
+              2450,
+              7200
+            ],
+            "fill": "#ffffff",
+            "containedIn": null,
+            "areaSqmGross": 7.35,
+            "areaSqFtGross": 79.11
+          },
+          {
+            "id": "PASSAGE",
+            "label": "Connecting passage",
+            "rectLocalMm": [
+              2450,
+              4200,
+              3400,
+              7200
+            ],
+            "fill": "#ffffff",
+            "containedIn": null,
+            "areaSqmGross": 2.85,
+            "areaSqFtGross": 30.68
+          },
+          {
+            "id": "REARHALL",
+            "label": "Bedroom lobby",
+            "rectLocalMm": [
+              0,
+              3250,
+              6300,
+              4200
+            ],
+            "fill": "#ffffff",
+            "containedIn": null,
+            "areaSqmGross": 5.985,
+            "areaSqFtGross": 64.42
+          },
+          {
+            "id": "BED-01",
+            "label": "Bedroom 1 · primary",
+            "rectLocalMm": [
+              0,
+              0,
+              3650,
+              3250
+            ],
+            "fill": "#ffffff",
+            "containedIn": null,
+            "areaSqmGross": 11.863,
+            "areaSqFtGross": 127.69
+          },
+          {
+            "id": "BED-02",
+            "label": "Bedroom 2 · compact",
+            "rectLocalMm": [
+              3650,
+              0,
+              6300,
+              3250
+            ],
+            "fill": "#ffffff",
+            "containedIn": null,
+            "areaSqmGross": 8.613,
+            "areaSqFtGross": 92.71
+          },
+          {
+            "id": "BATH-01",
+            "label": "Attached bath",
+            "rectLocalMm": [
+              0,
+              0,
+              1500,
+              1900
+            ],
+            "fill": "#ffffff",
+            "containedIn": "BED-01",
+            "areaSqmGross": 2.85,
+            "areaSqFtGross": 30.68
+          }
+        ],
+        "wallSegments": [
+          {
+            "id": "W-01",
+            "kind": "outer",
+            "aLocalMm": [
+              0,
+              0
+            ],
+            "bLocalMm": [
+              6300,
+              0
+            ],
+            "label": ""
+          },
+          {
+            "id": "W-02",
+            "kind": "outer",
+            "aLocalMm": [
+              6300,
+              0
+            ],
+            "bLocalMm": [
+              6300,
+              10100
+            ],
+            "label": ""
+          },
+          {
+            "id": "W-03",
+            "kind": "outer",
+            "aLocalMm": [
+              0,
+              10100
+            ],
+            "bLocalMm": [
+              2850,
+              10100
+            ],
+            "label": "West road-facing entry"
+          },
+          {
+            "id": "W-04",
+            "kind": "outer",
+            "aLocalMm": [
+              3950,
+              10100
+            ],
+            "bLocalMm": [
+              6300,
+              10100
+            ],
+            "label": "West road-facing entry"
+          },
+          {
+            "id": "W-05",
+            "kind": "outer",
+            "aLocalMm": [
+              0,
+              0
+            ],
+            "bLocalMm": [
+              0,
+              10100
+            ],
+            "label": ""
+          },
+          {
+            "id": "W-06",
+            "kind": "partition",
+            "aLocalMm": [
+              3650,
+              0
+            ],
+            "bLocalMm": [
+              3650,
+              3250
+            ],
+            "label": ""
+          },
+          {
+            "id": "W-07",
+            "kind": "partition",
+            "aLocalMm": [
+              1500,
+              0
+            ],
+            "bLocalMm": [
+              1500,
+              800
+            ],
+            "label": "Bedroom 1 -> bath"
+          },
+          {
+            "id": "W-08",
+            "kind": "partition",
+            "aLocalMm": [
+              1500,
+              1600
+            ],
+            "bLocalMm": [
+              1500,
+              1900
+            ],
+            "label": "Bedroom 1 -> bath"
+          },
+          {
+            "id": "W-09",
+            "kind": "partition",
+            "aLocalMm": [
+              0,
+              1900
+            ],
+            "bLocalMm": [
+              1500,
+              1900
+            ],
+            "label": ""
+          },
+          {
+            "id": "W-10",
+            "kind": "partition",
+            "aLocalMm": [
+              0,
+              3250
+            ],
+            "bLocalMm": [
+              2450,
+              3250
+            ],
+            "label": "Bedroom doorways"
+          },
+          {
+            "id": "W-11",
+            "kind": "partition",
+            "aLocalMm": [
+              3250,
+              3250
+            ],
+            "bLocalMm": [
+              4750,
+              3250
+            ],
+            "label": "Bedroom doorways"
+          },
+          {
+            "id": "W-12",
+            "kind": "partition",
+            "aLocalMm": [
+              5550,
+              3250
+            ],
+            "bLocalMm": [
+              6300,
+              3250
+            ],
+            "label": "Bedroom doorways"
+          },
+          {
+            "id": "W-13",
+            "kind": "partition",
+            "aLocalMm": [
+              0,
+              4200
+            ],
+            "bLocalMm": [
+              2450,
+              4200
+            ],
+            "label": "Passage to bedroom lobby"
+          },
+          {
+            "id": "W-14",
+            "kind": "partition",
+            "aLocalMm": [
+              3400,
+              4200
+            ],
+            "bLocalMm": [
+              6300,
+              4200
+            ],
+            "label": "Passage to bedroom lobby"
+          },
+          {
+            "id": "W-15",
+            "kind": "partition",
+            "aLocalMm": [
+              2450,
+              4200
+            ],
+            "bLocalMm": [
+              2450,
+              5350
+            ],
+            "label": "Stair access"
+          },
+          {
+            "id": "W-16",
+            "kind": "partition",
+            "aLocalMm": [
+              2450,
+              6150
+            ],
+            "bLocalMm": [
+              2450,
+              7200
+            ],
+            "label": "Stair access"
+          },
+          {
+            "id": "W-17",
+            "kind": "partition",
+            "aLocalMm": [
+              3400,
+              4200
+            ],
+            "bLocalMm": [
+              3400,
+              5350
+            ],
+            "label": "Kitchen access"
+          },
+          {
+            "id": "W-18",
+            "kind": "partition",
+            "aLocalMm": [
+              3400,
+              6150
+            ],
+            "bLocalMm": [
+              3400,
+              7200
+            ],
+            "label": "Kitchen access"
+          },
+          {
+            "id": "W-19",
+            "kind": "partition",
+            "aLocalMm": [
+              0,
+              7200
+            ],
+            "bLocalMm": [
+              2450,
+              7200
+            ],
+            "label": "Passage to living"
+          },
+          {
+            "id": "W-20",
+            "kind": "partition",
+            "aLocalMm": [
+              3400,
+              7200
+            ],
+            "bLocalMm": [
+              6300,
+              7200
+            ],
+            "label": "Passage to living"
+          }
+        ],
+        "doorOpenings": [
+          {
+            "id": "D-01",
+            "aLocalMm": [
+              2850,
+              10100
+            ],
+            "bLocalMm": [
+              3950,
+              10100
+            ],
+            "type": "unverified_concept_door"
+          },
+          {
+            "id": "D-02",
+            "aLocalMm": [
+              1500,
+              800
+            ],
+            "bLocalMm": [
+              1500,
+              1600
+            ],
+            "type": "unverified_concept_door"
+          },
+          {
+            "id": "D-03",
+            "aLocalMm": [
+              2450,
+              3250
+            ],
+            "bLocalMm": [
+              3250,
+              3250
+            ],
+            "type": "unverified_concept_door"
+          },
+          {
+            "id": "D-04",
+            "aLocalMm": [
+              4750,
+              3250
+            ],
+            "bLocalMm": [
+              5550,
+              3250
+            ],
+            "type": "unverified_concept_door"
+          },
+          {
+            "id": "D-05",
+            "aLocalMm": [
+              2450,
+              4200
+            ],
+            "bLocalMm": [
+              3400,
+              4200
+            ],
+            "type": "unverified_concept_door"
+          },
+          {
+            "id": "D-06",
+            "aLocalMm": [
+              2450,
+              5350
+            ],
+            "bLocalMm": [
+              2450,
+              6150
+            ],
+            "type": "unverified_concept_door"
+          },
+          {
+            "id": "D-07",
+            "aLocalMm": [
+              3400,
+              5350
+            ],
+            "bLocalMm": [
+              3400,
+              6150
+            ],
+            "type": "unverified_concept_door"
+          },
+          {
+            "id": "D-08",
+            "aLocalMm": [
+              2450,
+              7200
+            ],
+            "bLocalMm": [
+              3400,
+              7200
+            ],
+            "type": "unverified_concept_door"
+          }
+        ],
+        "stairFlight": "SCHEMATIC_NOT_ENGINEERED"
+      }
+    },
+    "reservedUndergroundZones": [],
+    "svgView": {
+      "viewBox": [
+        0,
+        0,
+        940,
+        1370
+      ],
+      "transform": {
+        "xZero": 145,
+        "yZero": 1200,
+        "scale": 0.0605
+      }
+    }
+  },
+  "measurements": {
+    "documentUnits": "Feet/inches and square feet for ALL visible dimensions; internal geometry in mm",
+    "outerEdges": [
+      "21'-6\"",
+      "41'-10\"",
+      "37'-2\"",
+      "58'-1\""
+    ],
+    "innerEdges": [
+      "16'-6\"",
+      "31'-5\"",
+      "28'-4\"",
+      "43'-10\""
+    ],
+    "setbackCalloutAsPrinted": "6.5\" setback",
+    "setbackInterpretation": "OWNER_SAYS_FRONT_ONLY__DRAWN_PDF_FRONT_OFFSET_APPROX__LEGAL_WIDTH_UNVERIFIED",
+    "declaredSurveyAreaSqm": null,
+    "derivedPlanAreaSqm": 125.73,
+    "derivedInnerPlanAreaSqm": 72.3,
+    "derivedAreaStatus": "IMAGE_VECTOR_RECONSTRUCTION_NOT_CADASTRAL_AREA",
+    "derivedFrontBandAreaSqm": 21.84,
+    "derivedBuildableAreaSqm": 103.9,
+    "derivedHouseFootprintAreaSqm": 63.63,
+    "frontOffsetFromPDFReferenceApproxMm": 1977.3,
+    "waterTankConceptFootprintSqm": 2.86,
+    "rearBoundaryExtended": false,
+    "roomAreasIndicativeOnly": true,
+    "eastRearWidthUsedApproxMm": 6300,
+    "eastRearSourceEdgeLengthApproxMm": 6558.2,
+    "eastEdgeSideMarginsApproxMm": [
+      120,
+      138.2
+    ],
+    "displayHouseAreaSqFt": 684.91,
+    "displayPlotAreaSqFt": 1353.35,
+    "displayFrontBandSqFt": 235.08
+  },
+  "source": {
+    "documentName": "14_Amrit_Hardware_1.pdf",
+    "documentFormat": "vector PDF Microsoft Print to PDF",
+    "sha256": "bb5921eb47275f5652b8e9378d05bc048e1e220752a395a90874fac640f8c4ba",
+    "page": 1,
+    "pageSizePt": [
+      595.32,
+      841.92
+    ],
+    "originalInRestrictedDrive": true,
+    "originalImageInRestrictedDrive": true,
+    "derivation": "Red boundary QUAD path and internal black boundary line path extracted from PDF vector coordinates, anchored by four printed outer side lengths; no raster guessing for this edition.",
+    "pdfPointsPerFoot": 4.569497395,
+    "pdfPointsPerMetre": 14.991789352,
+    "apparentDimensionScale": "approximately 4.5695 PDF pt/ft",
+    "sourceRevision": "PDF uploaded 2026-11-19",
+    "status": "REFERENCE_SOURCE_NOT_FIELD_SURVEY",
+    "previousEdition": "data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json",
+    "ownerRevisionDate": "2026-11-21",
+    "ownerRevisionSummary": "V005 monochrome pure black-and-white SVG hatch graphics, matched Three.js black-and-white scene, and all visible lengths/areas in ft-in / sq ft. Approved V004 geometry unchanged, original PDF boundary preserved. Engineering approvals remain on hold.",
+    "sourceBoundaryEditStatus": "UNCHANGED_ORIGINAL_VECTOR_PDF_PLOT_150; NO_CADASTRAL_EXTENSION",
+    "versionControlPolicy": "A7_AAD_EDITION_V005__V004_FROZEN__SAME_TWO_LIVE_GOOGLE_DOC_IDS__EXACT_SHA_SOURCE_SNAPSHOTS__QA_THEN_PAGES"
+  },
+  "holds": [
+    "North=left, south=right, east=rear/top, west=front/road/bottom per owner only; not verified compass bearings.",
+    "West/front setback only drawn as owner concept; all legal setbacks, roadway and approvals must be independently checked.",
+    "East width used almost entirely in conceptual footprint; 120mm edge margin in model is NOT an approved boundary clearance or permissible construction setback.",
+    "Ground floor with two bedrooms, attached bath, kitchen, living, stairs and passages: no plumbing, structural, daylight/egress, fire, circulation, window or stair-code design approval.",
+    "No water tank, septic tank or soak pit included in this edition. Wastewater/water systems remain unresolved; absence in drawing is not permission to omit them.",
+    "3D partition walls / stair treads display only with 2.8m illustration height; no engineered stair risers, beam/column or floor levels.",
+    "V005 display-only transformation: visible dimensions feet/inches, visible areas square feet, pure black/white with hatching; underlying mm coordinates kept to avoid numerical conversion drift."
+  ],
+  "links": {
+    "sourceSvg": "data/projects/14-amrit-hardware-1/plot-150-working.svg",
+    "modelJson": "data/projects/14-amrit-hardware-1/plot-150-working.json",
+    "sourceModel": "data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json"
+  },
+  "display": {
+    "dimensionUnits": "feet-inches",
+    "areaUnits": "sq ft",
+    "palette": [
+      "#000000",
+      "#ffffff"
+    ],
+    "hatchOnly": true,
+    "internalGeometryUnits": "mm",
+    "drawingScaleStatus": "PDF_DERIVED_UNVERIFIED"
+  }
+}

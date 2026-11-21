@@ -5,31 +5,34 @@ const archive={title:'Earlier interface record',href:'record.html',note:'Retaine
 export const PROJECTS={
  '14-amrit-hardware-1':{
   name:'14_Amrit_Hardware_1 · Plot 150',company:'Rohini Engineering and Builders · Pokhara Ward 14',
-  status:'V004 · Two-bedroom ground-floor concept · Three.js 3D · engineering HOLD',workspaceEngineVersion:'1.4.0',defaultLevel:'site',
+  status:'Ground floor · 2 bedrooms · Black and white · Feet only',workspaceEngineVersion:'1.4.0',defaultLevel:'site',
   editions:[
-   {id:'owner-concept-v4',kind:'design-option',lifecycle:'SOURCE_REVIEW',snapshotPolicy:'SOURCE_POINTER',predecessorId:'owner-concept-v3',
+   {id:'owner-concept-v5',kind:'design-option',lifecycle:'SOURCE_REVIEW',snapshotPolicy:'SOURCE_POINTER',predecessorId:'owner-concept-v4',
     sourceRef:'data/projects/14-amrit-hardware-1/plot-150-working.json',engine:'plot-boundary',
-    name:'Current · Two-bedroom ground floor',basis:'20 November 2026 · Same SVG room coordinates form the 2D drawing and real Three.js 3D walls. Rectangular 6.30 × 10.10 m ground floor uses almost the full east/rear plot width. Living room, two bedrooms, one attached bathroom, kitchen, staircase and connecting hall. Original plot unchanged; architectural and site approvals pending.',
-    levels:[level('site','Ground floor · Two bedrooms','Linked SVG and Three.js; no underground-service locations drawn in this edition')]},
+    name:'Current · Black & white floor plan',basis:'21 November 2026. Approved previous floor-plan geometry preserved exactly. Rooms, doors, and 3D walls match the same source SVG. Black ink on white background; hatch-only zones. All visible lengths are in feet and inches; areas are in square feet. Municipal and structural approvals remain pending.',
+    levels:[level('site','Ground floor · Two bedrooms','Monochrome SVG and real Three.js floor and walls; front setback drawing only')]},
+   {id:'owner-concept-v4',kind:'design-option',lifecycle:'SOURCE_REVIEW',snapshotPolicy:'PROJECT_CONTROLLED_SOURCE',predecessorId:'owner-concept-v3',
+    sourceRef:'data/projects/14-amrit-hardware-1/plot-150-owner-concept-v4.json',engine:'plot-boundary',
+    name:'Previous approved layout · Archive',basis:'Previously approved two-bedroom ground-floor geometry; frozen and preserved as historical source evidence.',
+    levels:[level('site','Previous two-bedroom option','Archived predecessor, unchanged')]},
    {id:'owner-concept-v3',kind:'design-option',lifecycle:'SOURCE_REVIEW',snapshotPolicy:'PROJECT_CONTROLLED_SOURCE',predecessorId:'owner-concept-v2',
     sourceRef:'data/projects/14-amrit-hardware-1/plot-150-owner-concept-v3.json',engine:'plot-boundary',
-    name:'Earlier · House and water tank',basis:'Earlier source-controlled option from 20 November 2026. Historical underground-service reservations are no longer part of the current floor plan.',
-    levels:[level('site','Earlier layout','Previous design option retained for comparison')]},
+    name:'Earlier house and water-tank option',basis:'Older conceptual layout. Underground reservations in this archived edition are no longer displayed in the current plan.',
+    levels:[level('site','Earlier option','Archived source material')]},
    {id:'owner-concept-v2',kind:'design-option',lifecycle:'SOURCE_REVIEW',snapshotPolicy:'PROJECT_CONTROLLED_SOURCE',predecessorId:'pdf-trace-v1',
     sourceRef:'data/projects/14-amrit-hardware-1/plot-150-owner-concept-v2.json',engine:'plot-boundary',
-    name:'Earlier · Initial house concept',basis:'Earlier concept: only the west/front-road setback shown, with owner-stated directions. Previous service footprints retained in history.',
-    levels:[level('site','Earlier layout','Archived owner concept')]},
+    name:'Initial owner house option',basis:'Historical concept, preserved in the archive.',
+    levels:[level('site','Initial concept','Archived source material')]},
    {id:'pdf-trace-v1',kind:'source-family',lifecycle:'SOURCE_REVIEW',snapshotPolicy:'SOURCE_POINTER',predecessorId:null,
     sourceRef:'data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.json',engine:'plot-boundary',
-    name:'Original · Plot outline',basis:'Four original PDF-derived plot edges 21 ft 6 in, 41 ft 10 in, 37 ft 2 in and 58 ft 1 in; not a certified cadastral survey.',
-    levels:[level('site','Original plot outline','PDF-derived dimensions only')]}],
-  quantities:'Drawing-derived plot approximately 125.73 m²; rectangular ground-floor house footprint 63.63 m². No certified land area, bill or construction quantities.',
-  programme:'Activities and dates remain in the separate Scheduling Desk; this floor-plan option does not imply a programme.',
-  sourceGroups:[{title:'Plot 150 · Floor plan and earlier versions',links:[
-   {title:'Current two-bedroom floor plan',href:'../../data/projects/14-amrit-hardware-1/plot-150-working.svg',note:'View this SVG with its linked Three.js model.'},
-   {title:'Previous house option',href:'../../data/projects/14-amrit-hardware-1/plot-150-owner-concept-v3.svg',note:'Preserved historical scheme, not the current plan.'},
-   {title:'Original plot outline',href:'../../data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.svg',note:'PDF-derived boundary, not a land survey.'},
-   {title:'Interactive 2D and 3D floor plan',href:'plot/',note:'Both views use the identical room and wall geometry.'}
+    name:'Original dimensioned plot outline',basis:'Original PDF-based plot boundary. Four printed sides in feet/inches; land survey and statutory setback not certified.',
+    levels:[level('site','Original plot','Unchanged original boundary')]}],
+  quantities:'Drawing-derived plot about 1,353 sq ft; rectangular ground-floor footprint about 685 sq ft. Unverified, not certified construction quantities.',
+  programme:'Construction scheduling belongs to the separate Scheduling Desk.',
+  sourceGroups:[{title:'Plot 150 · Current floor plan',links:[
+   {title:'Ground-floor drawing (SVG)',href:'../../data/projects/14-amrit-hardware-1/plot-150-working.svg',note:'Pure black and white with hatch patterns and feet/inches.'},
+   {title:'Interactive 2D and 3D drawing',href:'plot/',note:'Click a room in the 2D drawing or orbit the Three.js view.'},
+   {title:'Original dimensioned site boundary',href:'../../data/projects/14-amrit-hardware-1/plot-150-pdf-trace-v1.svg',note:'Original plot outline, not a surveyed or approved cadastral map.'}
   ]}]
  },
  'ashok-adhikari':{
