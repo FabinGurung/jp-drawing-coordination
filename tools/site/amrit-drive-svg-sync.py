@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""A7/A9 Plot 150 v004: verified native Google Docs SVG + Three.js to reviewed Git snapshots.
+"""A7/A9 Plot 150 v005: verified native Google Docs SVG + Three.js to reviewed Git snapshots.
 No direct GitHub Pages mutation; never publish Google credentials. This is a source reviewer,
 not an architectural, structural, cadastral or sanitation approval system.
 """
@@ -8,7 +8,7 @@ from xml.etree import ElementTree as ET
 ROOT=pathlib.Path(__file__).resolve().parents[2]
 PROJECT=ROOT/'public/data/projects/14-amrit-hardware-1'
 SVGNS='{http://www.w3.org/2000/svg}'
-V4='AAD-14-AMRIT-P150-V004'
+V4='AAD-14-AMRIT-P150-V005'
 def die(text):raise ValueError(text)
 def inside(p,poly):
  x,y=p
@@ -38,10 +38,11 @@ def validate_svg(source):
  except Exception as e:die('Metadata must be JSON '+str(e))
  if model.get('schema')!='jp-cad://site-plot-boundary/2.0' or model.get('project',{}).get('slug')!='14-amrit-hardware-1' or model.get('project',{}).get('plotNumber')!='150':die('Wrong source model')
  if model.get('edition',{}).get('enumeration')!=V4:die('Wrong edition: please produce reviewed next-version migration')
+ if model.get('display',{}).get('palette')!=['#000000','#ffffff'] or model.get('display',{}).get('dimensionUnits')!='feet-inches' or model.get('display',{}).get('areaUnits')!='sq ft':die('V005 monochrome/imperial contract invalid')
  g=model['geometry'];baseline=json.loads((PROJECT/'plot-150-pdf-trace-v1.json').read_text())
  if g['outer']['vertices']!=baseline['geometry']['outer']['vertices'] or g['outer']['edgeLabels']!=baseline['geometry']['outer']['edgeLabels']:die('Original plot dimensions must not change')
  if g.get('georeferenced') is not False or g.get('surveyVerified') is not False:die('Unsupported survey claim')
- if g.get('reservedUndergroundZones')!=[]:die('v004 forbids water/septic/soak reservations')
+ if g.get('reservedUndergroundZones')!=[]:die('v005 forbids water/septic/soak reservations')
  if {x['id'] for x in g['house']['plan']['rooms']}!={'LIVING','KITCHEN','STAIRS','PASSAGE','REARHALL','BED-01','BED-02','BATH-01'}:die('Required room set differs from approved concept')
  house=g['house'];plan=house['plan'];frame=plan['frameMm']
  if house['widthMm']!=6300 or house['depthMm']!=10100 or abs(house['floorAreaSqm']-63.63)>.001:die('Concept dimensions inconsistent')
@@ -54,12 +55,18 @@ def validate_svg(source):
   if key not in ids:die('Missing 2D SVG room/wall layer '+key)
  for key in ['UWT-01','ST-01','SP-01']:
   if key in ids:die('Underground service still shown in v004')
+ visible=source.split('</metadata>')[-1]
+ if re.search(r'\d+(?:\.\d+)?\s*m²|\d+(?:\.\d+)?\s*m(?![a-z])',visible):die('Metric dimensions leaked into public drawing')
+ for token in re.findall(r'#[0-9a-fA-F]{3,8}\b',source):
+  if token.lower() not in ('#000000','#ffffff'):die('Non-monochrome SVG color '+token)
  return model
 def validate_three(code):
  if len(code.encode('utf8'))>120000:die('Three source too large')
  for expect in ["from 'three'","from 'three/addons/controls/OrbitControls.js'",'export function mountPlot150Three','plan.wallSegments','plan.rooms','AAD-14-AMRIT-P150-V004']:
   if expect not in code:die('Invalid Three.js source: '+expect)
  if re.search(r'\b(?:eval|new Function|XMLHttpRequest|fetch\s*\(|import\s*\(\s*["\']https?://)\b',code):die('Unexpected remote or dynamic execution in Three source')
+ for token in re.findall(r'#[0-9a-fA-F]{3,8}\b',code):
+  if token.lower() not in ('#000000','#ffffff'):die('Non-monochrome Three.js source '+token)
  return True
 def google_doc_text(doc_env):
  doc=os.getenv(doc_env,'').strip();credentials=os.getenv('CAD_GOOGLE_SERVICE_ACCOUNT_JSON','').strip()
