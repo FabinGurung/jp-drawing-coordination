@@ -1,0 +1,75 @@
+{
+  "schema": "jp-cad://pokhara-codal-source-custody/1",
+  "version": "V000001",
+  "reviewed_on": "2026-11-17",
+  "jurisdiction": "Pokhara Metropolitan City, Kaski, Gandaki, Nepal",
+  "authority_scope": "Human-authored source/index in AEC Drive 02_LOCAL_BYLAWS; CAD consumes reviewed source references, not owns legal originals",
+  "source_2081": {
+    "id": "PMC-BUILDING-INFRA-2080-A1-2081",
+    "pdf_drive_id": "1VVklkANVN8a37AR-jiT_e2CXyFyCW-Bc",
+    "pdf_drive_url": "https://drive.google.com/file/d/1VVklkANVN8a37AR-jiT_e2CXyFyCW-Bc/view",
+    "pdf_pages": 139,
+    "sha256": "f8f25a43f15ae55574c4f01a2dbb1704df523803532da66d1019d4e4587cb731",
+    "status": "EXACT_PDF_BYTES_VERIFIED_FIRST_AMENDMENT_2081",
+    "text_encoding": "LEGACY_GLYPHS_NOT_UNICODE_NEPALI",
+    "risk": "2083 THIRD AMENDMENT NOT YET RECONCILED",
+    "sections": {
+      "setback": {
+        "id": "19",
+        "pdf_page_1_based": 29,
+        "printed_page": 28
+      },
+      "road_row": {
+        "id": "20",
+        "pdf_page_1_based": 31,
+        "printed_page": 30
+      },
+      "road_exceptions": {
+        "pdf_pages_1_based": [
+          32,
+          33
+        ]
+      }
+    }
+  },
+  "source_2080": {
+    "title": "Pokhara Standards 2080 original",
+    "status": "MIRROR_KNOWN_OFFICIAL_BINARY_NOT_ARCHIVED",
+    "mirror_url": "https://www.onlinekhabar.com/wp-content/uploads/2024/02/%E0%A5%A7%E0%A5%A6.-%E0%A4%AA%E0%A5%8B%E0%A4%96%E0%A4%B0%E0%A4%BE-%E0%A4%AE%E0%A4%B9%E0%A4%BE%E0%A4%A8%E0%A4%97%E0%A4%B0%E0%A4%AA%E0%A4%BE%E0%A4%B2%E0%A4%BF%E0%A4%95%E0%A4%BE-%E0%A4%AD%E0%A4%B5%E0%A4%A8-%E0%A4%A4%E0%A4%A5%E0%A4%BE-%E0%A4%AA%E0%A5%82%E0%A4%B0%E0%A5%8D%E0%A4%B5%E0%A4%BE%E0%A4%A7%E0%A4%BE%E0%A4%B0-%E0%A4%A8%E0%A4%BF%E0%A4%B0%E0%A5%8D%E0%A4%AE%E0%A4%BE%E0%A4%A3-%E0%A4%AE%E0%A4%BE%E0%A4%AA%E0%A4%A6%E0%A4%A3%E0%A5%8D%E0%A4%A1-%E0%A5%A8%E0%A5%A6%E0%A5%AE%E0%A5%A6.pdf"
+  },
+  "source_2083": {
+    "title": "Pokhara Building and Infrastructure Standards third amendment 2083",
+    "published": "2026-10-14",
+    "status": "OFFICIAL_LISTING_VERIFIED_PDF_CLAUSES_UNRETRIEVED",
+    "official_listing": "https://pokharamun.gov.np/act-law-directives?page=2"
+  },
+  "readable": {
+    "index": "https://docs.google.com/document/d/17FlIn4nd3_2ejsftRcm1_tGmZkUmpZj8LM2u7--UmvQ/edit",
+    "english_2081_draft": "https://docs.google.com/document/d/1aX9D6O8C1ai-bUY5Vaqsie6CCdpnCUDBpPx5R2gGJao/edit"
+  },
+  "machine_draft": {
+    "folder": "https://drive.google.com/drive/folders/1BKLwVgyaiamTOf50-0asj2Q7DeVHqec9",
+    "source_manifest": "https://drive.google.com/file/d/1tCLg13DiuR8m85O2Llb6YNw19oKriLi9/view",
+    "page_jsonl": "https://drive.google.com/file/d/113cm8QExBtAbjbwZ_mvfME7um8WltdtP/view",
+    "clauses_jsonl": "https://drive.google.com/file/d/1nRfALsKVKtBiizx2c8UThRE9XcGLYLkp/view",
+    "clauses_json": "https://drive.google.com/file/d/1VRLBeZnOs32RnxuJrsqeLe5qKhUZbvGx/view",
+    "qa_report": "https://drive.google.com/file/d/1_gM5wMsdmqL0_KT1PEaj07GQmk8qmp_D/view",
+    "page_records": 139,
+    "clause_records": 44
+  },
+  "cad_policy": {
+    "automatic_numeric_compliance": "BLOCKED_PENDING_2083_AND_SITE_EVIDENCE",
+    "human_reading": "DRAFT_REFERENCE_ONLY",
+    "reviewed_pages": [
+      29,
+      31
+    ],
+    "original_pdf_bytes_preserved": true,
+    "project_geometry_modified": false,
+    "drawings_authority": "Project source drawings remain individually authoritative"
+  },
+  "audit": {
+    "previous_source_register_preserved": "https://drive.google.com/file/d/1_QFm98-tVJ5h3GSVt7hSPuGuF0Cim202/view",
+    "legacy_bylaws_folder": "https://drive.google.com/drive/folders/1PjWo8K6qJxUXK9M1Il4HGOOr0eO_B9PT"
+  }
+}
