@@ -56,6 +56,7 @@ jobs:
           node tools/site/amrit-plot-150-v2-smoke.mjs
           node tools/site/amrit-plot-150-v3-smoke.mjs
           node tools/site/amrit-plot-150-v4-smoke.mjs
+          node tools/site/amrit-plot-150-v5-smoke.mjs
           python tools/site/amrit-drive-svg-sync.py --source public/data/projects/14-amrit-hardware-1/plot-150-working.svg
           node tools/site/js-buddhal-registration-smoke.mjs
           node tools/site/ashok-column-axes-smoke.mjs
@@ -94,6 +95,7 @@ jobs:
           for i in $(seq 1 20); do curl -fsS http://127.0.0.1:5191/JP_Computer-Aided-Drawings/projects/ashok-adhikari/ >/dev/null && break; sleep 2; done
           node tools/site/cad-design-studio-sandbox-browser.mjs
           node tools/site/amrit-plot-150-v4-browser.mjs
+          node tools/site/amrit-plot-150-v5-browser.mjs
           node tools/site/aad-edit-handover-browser-smoke.mjs
           node tools/site/aad-cross-project-edit-browser.mjs
           node tools/site/project-workspace-browser.mjs
