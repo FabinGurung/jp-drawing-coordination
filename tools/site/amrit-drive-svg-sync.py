@@ -121,7 +121,7 @@ def main():
  prior=json.loads(prov_file.read_text()) if prov_file.exists() else {}
  jssource=ROOT/'src/plot150-three.mjs'
  threehash=hashlib.sha256(jssource.read_bytes()).hexdigest() if jssource.exists() else prior.get('threeJsSourceSha256')
- prior.update({'schema':'jp-cad://google-doc-svg-import/2','projectSlug':'14-amrit-hardware-1','sourceKind':'AUTHENTICATED_NATIVE_GOOGLE_DOC__STABLE_ID_IN_REPOSITORY_SECRET','sourceSha256':sha,'sourceBytes':len(code.encode()),'sourceRevisionSnapshot':sha[:16],'sourceSnapshotPath':str(snapshot.relative_to(ROOT)),'originalPdfSha256':model['source']['sha256'],'surveyVerified':False,'constructionApproved':False,'aadEdition':V4,'previousEdition':model['edition']['predecessor'],'threeJsSourceSha256':threehash,'publishPolicy':'REVIEW_PULL_REQUEST_ONLY_DO_NOT_BYPASS_MAIN_STAGING_QA'})
+ prior.update({'schema':'jp-cad://google-doc-svg-import/2','projectSlug':'14-amrit-hardware-1','sourceKind':'AUTHENTICATED_NATIVE_GOOGLE_DOC__STABLE_ID_IN_REPOSITORY_SECRET','sourceSha256':sha,'sourceBytes':len(code.encode()),'sourceRevisionSnapshot':sha[:16],'sourceSnapshotPath':str(snapshot.relative_to(ROOT)),'originalPdfSha256':model['source']['sha256'],'surveyVerified':False,'constructionApproved':False,'aadEdition':model['edition']['enumeration'],'previousEdition':model['edition']['predecessor'],'threeJsSourceSha256':threehash,'publishPolicy':'REVIEW_PULL_REQUEST_ONLY_DO_NOT_BYPASS_MAIN_STAGING_QA'})
  prov_file.write_text(json.dumps(prior,indent=2)+'\n')
 if __name__=='__main__':
  try:main()
