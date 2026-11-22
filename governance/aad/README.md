@@ -8,6 +8,16 @@ their one canonical Google Doc; this repo does not mirror their private IDs.
 
 **Canonical writer and version history:** this repository, `FabinGurung/JP_Computer-Aided-Drawings`. The machine contract is [aad-domain-template.v0.1.json](aad-domain-template.v0.1.json). The public-facing guide is [../../public/guide/index.html](../../public/guide/index.html).
 
+## Drawing Docs and Sheets
+
+The project’s Drawing Control Doc and Drawing Source Register Sheet live together under 01_JP → 09 GitHub Repositories → jp-drawing-coordination → Company → 02 Project 2D and 3D Sources. These two records link to one another. Existing drawings, engineering Docs and CAD code Docs keep their own identities and source roles.
+
+Use the Doc for drawing intent, approvals and unresolved questions. Enter proposed edits in the Sheet with the base edition, level, source object, old and proposed values, units and evidence. Its source index records each preserved asset, its SHA-256 and the Git commit. The source-bytes tab carries exact source files as numbered gzip and Base64 parts. Reassemble a file in ascending part order and check its digest before using a recovered copy.
+
+An authorized editor or AI reads the pair, reconciles the proposal with the original evidence and prepares a reviewed CAD pull request. Existing Actions validate the derived assets, and Pages publishes the approved main-branch build. Keep the Drive links in the access-controlled 01_JP directory. The current transfer is a review step. Automation that reads private Drive files needs separately configured repository access.
+
+The project registry distinguishes live model editions from source-only entries. Keep Ramachandra and JS Buddhal at their recorded admission stages until verified project geometry is available.
+
 ## Shared edition and template inheritance — 2026-11-13
 
 The version-first **Design edition / source version** selector is governed by the [CAD machine edition contract](../../public/data/cad/design-edition-contract.v1.json) (workspace interface v1.4.0) and [edition lifecycle operator guide](design-edition-lifecycle.v1.md). The canonical reusable domain template is updated to **0.3.4** at the existing stable path. Each real project inherits the same studio and navigation engine; source-admitted project geometry stays project-specific. Only a new real design changes the edition options; a color/UI/schema update or milestone does not invent a new architectural edition.
