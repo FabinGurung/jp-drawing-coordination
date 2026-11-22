@@ -19,12 +19,10 @@ Project `14_Amrit_Hardware_1`, Plot 150, Rohini Engineering and Builders, Pokhar
 
 ## Geometry and drawing-status rules
 
-- Original four PDF sides: east/rear 21'-6", south/right 41'-10", west/road/front 37'-2", north/left 58'-1". Directions reflect **owner statements**, not a verified survey bearing.
-- **Only west/front road boundary** has a drawn setback band; north, south and east have **no setback marked in the owner concept**. This is not a determination of Pokhara municipal setback legality.
-- The front line was extended from the original PDF's internally drawn front boundary; its approximately 1.98 m displayed offset is a PDF drawing interpretation only. The original text `6.5"` remains an unresolved annotation requiring clarification.
-- Rectangular house: concept `4.50 × 9.50 m` (42.75 m² footprint). The display-only G+1 mass 6 m high does not specify approved storeys, architectural room layout, structural member sizes or construction heights.
-- Blue dashed footprints reserve an underground water tank, septic tank and soak pit. **Capacities, depths, soil absorption, drinking-water separation, contamination risk, groundwater and footing clearances are not validated.** They are not field setting-out or construction instructions.
-- `amrit-drive-svg-sync.py` rejects changes to the original plot boundary and malformed/externally linked SVG. For new cadastral measurements, open a separate source-controlled survey-reconciliation review instead of changing source vertices silently.
+- The PDF trace remains the original plot-boundary reference. The current plan uses the edition identified in [the published source provenance](../../public/data/projects/14-amrit-hardware-1/plot-150-source-provenance.json).
+- The SVG and linked 3D model use the same registered site and building geometry. The source adapter validates the edition, original plot corners, display units and plan contents before writing a review update.
+- Earlier concepts preserve their own drawings and source files. Requests to change boundary vertices need separate survey reconciliation.
+- The current project view preserves the recorded survey and construction approval statuses.
 
 ## End-to-end data flow
 
