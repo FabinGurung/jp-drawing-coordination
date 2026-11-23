@@ -227,6 +227,8 @@ jobs:
           test -s dist/cad/demo.json
           test -s dist/cad/web-ifc.wasm
           echo "FIVE_ENGINE_BROWSER_PUBLICATION_GATE_PASS"
+      - name: Install the registered Google Drive source gallery
+        run: python3 .github/source-gallery/install.py dist jp-drawing-coordination
       - name: Stamp deployed asset checksums, source commit and upstream QA run into Pages
         env:
           EXPECTED_SOURCE_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
