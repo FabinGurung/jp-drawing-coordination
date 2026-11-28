@@ -366,7 +366,5 @@ body[data-studio-template="standard-client-v1"] [data-west-open="packages"],
 body[data-studio-template="standard-client-v1"] .pw-footer {display:none!important}
 
 /* Client-only navigation. Historical editions remain selectable; internal tools are not client tabs. */
-body[data-studio-template="standard-client-v1"] .pw-chapter-bar,
 body[data-studio-template="standard-client-v1"] #pw-context,
-body[data-studio-template="standard-client-v1"] .pw-heading #pw-chapter-title,
-body[data-studio-template="standard-client-v1"] .pw-west-controls #pw-open-element-register {display:none!important}
+body[data-studio-template="standard-client-v1"] .pw-heading #pw-chapter-title {display:none!important}
