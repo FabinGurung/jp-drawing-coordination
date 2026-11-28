@@ -1,0 +1,38 @@
+name: AAD R02 — controlled Drive archive transfer
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/research/preserve_bimcraft_drive.py'
+      - '.github/workflows/aad-bimcraft-drive.yml'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  transfer:
+    if: github.head_ref == 'research/aad11-bimcraft-preservation' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Download original immutable artifact and verify SHA-256
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl --fail --location --retry 2 -H "Authorization: Bearer $GH_TOKEN" -H 'Accept: application/vnd.github+json' -o "$RUNNER_TEMP/bimcraft.zip" https://api.github.com/repos/FabinGurung/jp-drawing-coordination/actions/artifacts/15162666779/zip
+          echo "fdbceebc6e8a1b230b8ae49695fe23ab48677b81e73e79efb4f21b2a78cd8be9  $RUNNER_TEMP/bimcraft.zip" | sha256sum -c -
+      - name: Renew temporary verified backup (not permanent Drive storage)
+        uses: actions/upload-artifact@v4
+        with:
+          name: bimcraft-verified-outer-backup
+          path: ${{ runner.temp }}/bimcraft.zip
+          compression-level: 0
+          retention-days: 30
+      - name: Install Google API authentication library
+        run: python3 -m pip install --disable-pip-version-check google-auth requests
+      - name: Attempt authorized transfer and independent binary readback
+        env:
+          CAD_GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.CAD_GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: python3 tools/research/preserve_bimcraft_drive.py "$RUNNER_TEMP/bimcraft.zip"

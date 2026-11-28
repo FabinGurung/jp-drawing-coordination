@@ -1,0 +1,31 @@
+name: AAD research — BIMcraft archive verification
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/research/verify_bimcraft_archive.py'
+      - '.github/workflows/aad-bimcraft-preservation.yml'
+permissions:
+  contents: read
+jobs:
+  preserve:
+    if: github.head_ref == 'research/aad11-bimcraft-preservation'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Download pinned public source (no upstream code execution)
+        run: |
+          mkdir -p "$RUNNER_TEMP/bimcraft"
+          curl --fail --location --retry 2 --max-time 900 -o "$RUNNER_TEMP/bimcraft/source.zip" https://codeload.github.com/getcadcraft/bimcraft/zip/79b603f6683f2f000b9e8346c1fc92cf466ab01d
+      - name: Verify complete Git blob inventory and archive digest
+        run: python3 tools/research/verify_bimcraft_archive.py "$RUNNER_TEMP/bimcraft/source.zip" "$RUNNER_TEMP/bimcraft/receipt.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bimcraft-pinned-source-verified
+          path: ${{ runner.temp }}/bimcraft/
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7

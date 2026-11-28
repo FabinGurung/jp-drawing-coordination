@@ -1,0 +1,72 @@
+name: AAD R03 — independent BIMcraft synthetic model
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/research/jp_bimcraft_synthetic.mjs'
+      - '.github/workflows/aad-bimcraft-synthetic.yml'
+permissions:
+  contents: read
+jobs:
+  evaluate:
+    if: github.head_ref == 'research/aad11-bimcraft-preservation'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify JP generator baseline and mutation
+        run: |
+          mkdir -p "$RUNNER_TEMP/evidence"
+          python3 tools/open_architecture/generate_v02.py --out "$RUNNER_TEMP/evidence/jp" --acceptance-check
+      - name: Download pinned public source and verify before execution
+        run: |
+          curl --fail --location --retry 2 -o "$RUNNER_TEMP/source.zip" https://codeload.github.com/getcadcraft/bimcraft/zip/79b603f6683f2f000b9e8346c1fc92cf466ab01d
+          python3 tools/research/verify_bimcraft_archive.py "$RUNNER_TEMP/source.zip" "$RUNNER_TEMP/evidence/archive-receipt.json"
+          unzip -q "$RUNNER_TEMP/source.zip" -d "$RUNNER_TEMP/upstream"
+      - name: Prepare native upstream harness and run independent suite
+        working-directory: ${{ runner.temp }}/upstream/bimcraft-79b603f6683f2f000b9e8346c1fc92cf466ab01d
+        run: |
+          set -o pipefail
+          npm test -- --only test-bimcraft.mjs --oracles 2>&1 | tee "$RUNNER_TEMP/evidence/upstream-tests.log"
+      - name: Exercise JP fixture via native authoring and IFC reopen
+        if: success()
+        working-directory: ${{ runner.temp }}/upstream/bimcraft-79b603f6683f2f000b9e8346c1fc92cf466ab01d
+        env:
+          JP_SYNTHETIC_MODEL: ${{ github.workspace }}/models/open-architecture-engine-v0.2/poc-model.json
+          JP_EVIDENCE: ${{ runner.temp }}/evidence
+        run: |
+          set -o pipefail
+          cp "$GITHUB_WORKSPACE/tools/research/jp_bimcraft_synthetic.mjs" .cc-test/tools/bimcraft-test/jp-aad-test.mjs
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('.cc-test/bin/test-bimcraft.mjs')
+          s=p.read_text()
+          marker="if (args.includes('--model'))"
+          assert s.count(marker)==1
+          p.write_text(s.replace(marker,"if (args.includes('--jp-aad')) process.exit(await (await import(path.join(ROOT, 'tools/bimcraft-test/jp-aad-test.mjs'))).jpAadMode({ APP, WebIFC, IfcModel, quiet }));\n"+marker))
+          PY
+          cd .cc-test
+          CC_DEVSHELL=1 node bin/test-bimcraft.mjs --jp-aad 2>&1 | tee "$JP_EVIDENCE/jp-native.log"
+          failures=0
+          printf 'mode,exit_code\n' > "$JP_EVIDENCE/native-mode-results.csv"
+          for mode in model bcf clash qto section; do
+            set +e
+            CC_DEVSHELL=1 node bin/test-bimcraft.mjs --"$mode" 2>&1 | tee "$JP_EVIDENCE/upstream-$mode.log"
+            status=${PIPESTATUS[0]}
+            set -e
+            printf '%s,%s\n' "$mode" "$status" >> "$JP_EVIDENCE/native-mode-results.csv"
+            if [ "$status" -ne 0 ]; then failures=$((failures+1)); fi
+          done
+          cat "$JP_EVIDENCE/native-mode-results.csv"
+          test "$failures" -eq 0
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: aad-r03-r05-synthetic-evidence
+          path: ${{ runner.temp }}/evidence
+          retention-days: 30
