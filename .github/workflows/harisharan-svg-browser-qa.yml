@@ -1,0 +1,76 @@
+name: Harisharan below-plinth SVG browser and print QA
+on:
+  pull_request:
+    paths:
+      - 'public/projects/harisharan-adhikari/below-plinth-svg/**'
+      - 'public/projects/harisharan-adhikari/index.html'
+      - 'tools/site/harisharan-svg-index-smoke.mjs'
+      - 'tools/site/harisharan-svg-browser-smoke.mjs'
+      - '.github/workflows/harisharan-svg-browser-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-member-sheets:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: 'npm'}
+      - run: npm ci
+      - name: Verify 115 individual SVGs and SHA-256 manifest
+        run: node tools/site/harisharan-svg-index-smoke.mjs
+      - name: Parse every SVG as XML and verify printable accessibility metadata
+        run: |
+          python - <<'PY'
+          import json, pathlib, xml.etree.ElementTree as ET
+          root = pathlib.Path('public/projects/harisharan-adhikari/below-plinth-svg')
+          registry = json.loads((root/'registry.json').read_text())
+          manifest = json.loads((root/'manifest.json').read_text())
+          assert len(registry['entries']) == len(manifest['entries']) == 115
+          expected = {r['id'] for r in registry['entries']}
+          assert len(expected) == 115
+          observed = set()
+          for f in (root/'sheets').glob('*.svg'):
+              tree = ET.parse(f)
+              svg = tree.getroot()
+              assert svg.tag == '{http://www.w3.org/2000/svg}svg', f
+              assert svg.attrib.get('role') == 'img', f
+              assert svg.attrib.get('aria-labelledby') == 'title desc', f
+              assert svg.find('{http://www.w3.org/2000/svg}title') is not None, f
+              assert svg.find('{http://www.w3.org/2000/svg}desc') is not None, f
+              assert svg.attrib.get('viewBox') == '0 0 1120 790', f
+              assert not any(e.tag.lower().endswith('script') for e in svg.iter()), f
+              observed.add(f.stem)
+          assert observed == expected, (sorted(expected-observed), sorted(observed-expected))
+          print('HARISHARAN_115_SVG_XML_ACCESSIBILITY_PASS', len(observed))
+          PY
+      - name: Build current renamed GitHub Pages base
+        run: npm run build -- --base=/jp-drawing-coordination/
+      - name: Install Chromium for browser and print QA
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Validate desktop/mobile filters, SVG previews, print and screenshots
+        env:
+          PROJECT_SITE_URL: http://127.0.0.1:5191/jp-drawing-coordination/
+        run: |
+          (npm run preview -- --host 127.0.0.1 --port 5191 --base=/jp-drawing-coordination/ > /tmp/harisharan-svg-preview.log 2>&1 &)
+          for i in $(seq 1 25); do curl -fsS http://127.0.0.1:5191/jp-drawing-coordination/projects/harisharan-adhikari/below-plinth-svg/ >/dev/null && break; sleep 2; done
+          node tools/site/harisharan-svg-browser-smoke.mjs
+      - name: Archive QA screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: harisharan-svg-115-browser-qa
+          path: /tmp/harisharan-svg-review-*.png
+          if-no-files-found: warn
+
+      - name: Archive 115 editable SVGs and source-qualified index
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: harisharan-svg-115-reconstructed-review-bundle
+          path: |
+            public/projects/harisharan-adhikari/below-plinth-svg/
+          if-no-files-found: error

@@ -22,3 +22,6 @@ const files=['public/data/projects/harisharan-adhikari/takeoff.json','public/ass
 for(const f of files)assert.ok(!/drive\.google\.com|docs\.google\.com|tecarchengineering@|9769494047/.test(fs.readFileSync(f,'utf8')),`Private source leak in ${f}`);
 assert.equal(JSON.parse(fs.readFileSync('public/data/projects.json')).projects.filter(n=>n.slug==='harisharan-adhikari').length,1);
 console.log('HARISHARAN_MATERIAL_SOURCE_QA_PASS',JSON.stringify({steelNetKg:result.totalSteel,cementScenarioBags:result.cementBags,rccScenarioM3:result.rcc,pccM3:result.pcc,engineeringApproved:false}));
+
+// Keep the 115-sheet derived SVG review register in both staging and production gates.
+await import('./harisharan-svg-index-smoke.mjs');
