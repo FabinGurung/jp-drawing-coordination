@@ -30,8 +30,9 @@ const shell=readFileSync(resolve(root,"assets/js/cad-site-shell.js"),"utf8");
 assert(!shell.includes('["Knowledge Centre","knowledge-centre/"]'),"Internal knowledge must stay out of client primary navigation");
 assert(!shell.includes('["Shared CAD rules","memory-wall/"]'),"Archived developer rules must not be in primary project navigation");
 for(const p of [
- "index.html","memory-wall/index.html","memory-wall/pages/index.html",
+ "memory-wall/index.html","memory-wall/pages/index.html",
  "templates/project-workspace/control-tower/index.html"
 ])assert(readFileSync(resolve(root,"..",p==="index.html"?"index.html":"public/"+p),"utf8").includes("knowledge-centre/"),"missing return route in "+p);
+assert(!readFileSync(resolve("index.html"),"utf8").includes("knowledge-centre/"),"client homepage must not advertise internal knowledge");
 assert(existsSync(resolve("governance/aad/project-room-inheritance.v0.1.md")),"missing project room design reference");
 console.log("CAD_KNOWLEDGE_CENTRE_STATIC_PASS", ids.length,"sections",dest.length,"internal links");
