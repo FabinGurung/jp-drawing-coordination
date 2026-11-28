@@ -272,7 +272,7 @@ function refreshAshokInspector(){
  if(!ashokWorkspace||panel==='packages')return;
  const container=$('pw-inspector');
  if(!['views','boq'].includes(panel)){
-  container.innerHTML='<section class="pw-client-inspector"><h2>'+esc(panel==='sources'?'Sources & records':panel==='packages'?'Site packages':'Project reference')+'</h2><p>Open a document or package in the centre to read its full information.</p><a href="'+esc(new URL('memory-wall/level-1/',root).href)+'">CAD memory wall · Level 1</a></section>';
+  container.innerHTML='<section class="pw-client-inspector"><h2>'+esc(panel==='sources'?'Documents':'Help')+'</h2></section>';
   return;
  }
  const row=clientRowFor(api?.getState?.()),info=row?.technical||{};
@@ -361,9 +361,9 @@ async function sources(){
   if(/(?:\/memory-wall\/|record\.html|source-review\/|engineering-review\/)/i.test(href))return false;
   return !/(?:database|source axis|QA record|model source|provenance|engineering normalization|revision history|memory wall|release milestone|source register|audit|history|ledger|checkpoint|archive|technical record|engineering evidence|source intake|source fingerprint|assumption|review record)/i.test(title);
  };
- return '<section class="pw-card"><h2>Project documents</h2><p>Open the available drawings and supporting documents below.</p></section>'+
- groups.map((g,i)=>{
-  const links=g.links.filter(clientLink); if(!links.length)return '';
+ const visibleGroups=groups.map((g,i)=>({i,links:g.links.filter(clientLink)})).filter(g=>g.links.length);
+ return '<section class="pw-card" id="pw-client-documents"><h2>Project documents</h2><p>'+(visibleGroups.length?'Available drawings and supporting documents.':'No separate client documents are available yet.')+'</p></section>'+
+ visibleGroups.map(({i,links})=>{
   return '<section class="pw-card" id="pw-source-'+i+'"><h2>Drawings and references</h2>'+
    (links.length?'<div class="pw-resource-grid">'+links.map(l=>'<article class="pw-resource"><a href="'+esc(new URL(l.href,location.href).href)+'" target="_blank" rel="noopener">'+esc(l.title)+'</a>'+
    (l.image?'<img loading="lazy" src="'+esc(new URL(l.href,location.href).href)+'" alt="'+esc(l.title)+'">':'')+'</article>').join('')+'</div>':
