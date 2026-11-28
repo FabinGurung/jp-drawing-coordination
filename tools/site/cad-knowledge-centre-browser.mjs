@@ -13,7 +13,7 @@ try{
   assert.equal(await page.locator("h1").count(),1,device+" requires one heading");
   assert.equal(await page.locator(".kc-section").count(),6,device+" requires six clear sections");
   assert.equal(await page.locator("#cad-global-navigation").count(),1,device+" missing shared shell");
-  assert.equal(await page.locator('#cad-global-navigation a[aria-current="page"]').count(),1,device+" current page nav wrong");
+  assert.equal(await page.locator('#cad-global-navigation a[href$="knowledge-centre/"]').count(),0,device+" internal reference must not be in client primary navigation");
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
   assert(overflow<=2,device+" horizontal overflow: "+overflow);
   assert.equal(errors.length,0,device+" JavaScript errors: "+errors.join("; "));
