@@ -80,10 +80,10 @@ for page in current_pages:
 home=(root/"index.html").read_text()
 for anchor in ('id="projects"','id="projectSearch"','id="loadState"','id="cards"','href="./projects/"','href="./guide/"'):
     assert anchor in home,("missing project-first public navigation",anchor)
-assert "Your building projects" in home and "Clear 2D and 3D drawings" in home,"public homepage must focus on real projects"
+assert "Building drawings" in home and "floor plans, 3D model and measurements" in home,"public homepage must focus on real projects"
 assert "cad/aad/" not in home and 'id="capabilities"' not in home,"editor/prototype UI must not be promoted in client homepage"
 nav=(root/"assets/js/cad-site-shell.js").read_text()
-assert '["Projects","projects/"]' in nav and '["Knowledge Centre","knowledge-centre/"]' in nav,"project navigation must be clear"
+assert '["Projects","projects/"]' in nav and '["Knowledge Centre","knowledge-centre/"]' not in nav,"client navigation must exclude internal knowledge"
 assert '["Design Studio","cad/aad/"]' not in nav and 'cad-global-more' not in nav,"legacy developer navigation must be retired"
 assert "/blob/" not in home and "/tree/" not in home,"GitHub source control links are not client navigation"
 

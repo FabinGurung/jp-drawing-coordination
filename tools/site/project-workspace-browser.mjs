@@ -35,7 +35,7 @@ try{
    }
    await chapter(p,'views');await p.locator('#pw-layout').selectOption('plan');assert.equal(await fr.locator(har?'#viewport':'#viewport3d').isVisible(),false);await p.locator('#pw-layout').selectOption('split');if(har){await p.locator('#pw-fit').click();const proof=await p.evaluate(()=>window.ProjectWorkspace.getDrawing().getViewProof());assert.equal(proof.outside,0,'Fit must keep the actual model inside the viewport');}
    assert.equal(await p.locator('iframe').evaluate(f=>f.contentDocument.documentElement.scrollWidth<=f.contentWindow.innerWidth+2),true,'engine overflow '+slug+'/'+width);
-  }else{assert.match(await p.locator('#pw-content').innerText(),/not been admitted|No admitted/);await chapter(p,'boq');assert.match(await p.locator('#pw-content').innerText(),/unknown|pending/);await chapter(p,'more');assert.match(await p.locator('#pw-content').innerText(),/Scheduling/);}
+  }else{assert.match(await p.locator('#pw-content').innerText(),/Floor plan pending/);assert.match(await p.locator('#pw-content').innerText(),/3D model pending/);await chapter(p,'boq');assert.match(await p.locator('#pw-content').innerText(),/unknown|pending/);await chapter(p,'more');assert.match(await p.locator('#pw-content').innerText(),/Scheduling/);}
 
   // The packages are now a separate fifth chapter. The original frozen
   // source viewers are linked in place; the east and south panes are real UI.
@@ -82,7 +82,7 @@ try{
   await chapter(p,'views');
   if(!sourceOnly(slug))await ready(p,slug);
 
-  await chapter(p,'sources');await p.locator('#pw-source-0').waitFor();assert.ok(await p.locator('.pw-resource').count()>0);if(slug==='harisharan-adhikari'||slug==='narayani-parajuli')assert.doesNotMatch(await p.locator('#pw-content').innerText(),/4\.2 · Detailed material module|4\.2 · Work-package records/);assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2));
+  await chapter(p,'sources');await p.locator('#pw-client-documents').waitFor();if(slug==='narayani-parajuli'){assert.match(await p.locator('#pw-client-documents').innerText(),/No separate client documents/);assert.equal(await p.locator('.pw-resource').count(),0);}else assert.ok(await p.locator('.pw-resource').count()>0);assert.equal(await p.locator('#pw-inspector a[href*="memory-wall"]').count(),0);if(slug==='harisharan-adhikari'||slug==='narayani-parajuli')assert.doesNotMatch(await p.locator('#pw-content').innerText(),/4\.2 · Detailed material module|4\.2 · Work-package records/);assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2));
   await chapter(p,'views');await p.screenshot({path:`/tmp/project-standard-${slug}-${width}.png`});await p.reload({waitUntil:'networkidle'});await ready(p,slug);assert.equal(await p.locator('#pw-layout').inputValue(),'split');assert.deepEqual(errors,[]);await p.close();console.log('PROJECT_STANDARD_BROWSER_PASS',slug,width);
  }
  const p=await browser.newPage();await p.goto(base+'projects/harisharan-adhikari/#materials');await p.waitForURL('**/plinth/#materials');assert.match(await p.title(),/Harisharan/);await p.close();

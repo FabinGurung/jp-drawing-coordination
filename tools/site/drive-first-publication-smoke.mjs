@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const read=p=>fs.readFileSync(p,'utf8');
+const p=JSON.parse(read('public/data/projects.json')).projects;
+const h=read('public/projects/index.html');
+const cards=[...h.matchAll(/class="primary" href="\.\/([a-z0-9-]+)\/">Open project/g)].map(x=>x[1]);
+assert.equal(p.length,6);assert.equal(new Set(cards).size,cards.length);assert.deepEqual(cards.sort(),p.map(x=>x.slug).sort());
+assert.ok(h.includes('>'+p.length+' listed'));
+for(const x of p)assert.ok(fs.existsSync('public/'+x.href+'index.html'));
+const workflow=read('.github/workflows/amrit-drive-svg-review.yml');assert.match(workflow,/No public URL\/token fallback is permitted\.'\s+exit 1/);
+console.log('CAD_DRIVE_FIRST_REGISTRY_AND_FAIL_CLOSED_PASS');

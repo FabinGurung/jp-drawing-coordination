@@ -364,3 +364,7 @@ body[data-studio-template="standard-client-v1"] .pw-client-technical,
 body[data-studio-template="standard-client-v1"] #pw-tab-packages,
 body[data-studio-template="standard-client-v1"] [data-west-open="packages"],
 body[data-studio-template="standard-client-v1"] .pw-footer {display:none!important}
+
+/* Client-only navigation. Historical editions remain selectable; internal tools are not client tabs. */
+body[data-studio-template="standard-client-v1"] #pw-context,
+body[data-studio-template="standard-client-v1"] .pw-heading #pw-chapter-title {display:none!important}

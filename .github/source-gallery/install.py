@@ -26,7 +26,7 @@ def install(site, slug):
         raise ValueError(f'Pages build missing: {site}')
     script = f'<script defer {MARKER} src="/{slug}/source-gallery.js"></script>'
     processed = 0
-    for page in site.rglob('*.html'):
+    for page in [site / 'projects' / 'index.html']:
         original = page.read_bytes().decode('utf-8')
         revised = inject(original, script)
         if revised != original:

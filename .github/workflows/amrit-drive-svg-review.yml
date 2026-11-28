@@ -24,7 +24,8 @@ jobs:
             echo 'ready=yes' >> "$GITHUB_OUTPUT"
           else
             echo 'ready=no' >> "$GITHUB_OUTPUT"
-            echo '::notice::Set CAD_PLOT150_GOOGLE_DOC_ID, CAD_PLOT150_THREEJS_DOC_ID and CAD_GOOGLE_SERVICE_ACCOUNT_JSON and share the native Google Doc with that service account. No public URL/token fallback is permitted.'
+            echo '::error::Set CAD_PLOT150_GOOGLE_DOC_ID, CAD_PLOT150_THREEJS_DOC_ID and CAD_GOOGLE_SERVICE_ACCOUNT_JSON and share the native Google Doc with that service account. No public URL/token fallback is permitted.'
+            exit 1
           fi
       - uses: actions/checkout@v4
         if: steps.setup.outputs.ready == 'yes'

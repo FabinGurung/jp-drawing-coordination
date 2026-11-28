@@ -1,6 +1,6 @@
 {
   "schema": "a9-project-drawings://public-project-registry/0.2",
-  "generated_at_npt": "2026-11-19",
+  "generated_at_npt": "2026-11-28",
   "policy": "Public-safe project metadata only. A9-governed Google Drive remains engineering/project authority. Private Drive IDs, private source URLs, internal checkpoint links and unapproved contact details are excluded.",
   "projects": [
     {
@@ -82,6 +82,21 @@
         "2D and 3D site drawing",
         "Plot boundary",
         "Conceptual placement"
+      ]
+    },
+    {
+      "project_id": "js-buddha-jewelers",
+      "slug": "js-buddha-jewelers",
+      "name": "JS Buddhal Jewelers",
+      "organization": "Fishtail Builders",
+      "location": "Ward 11",
+      "project_status": "Drawings pending correction",
+      "portal_status": "STANDARD CLIENT STUDIO 1.5",
+      "summary": "Project information and A4 drawing guidance. Corrected drawing issue pending.",
+      "href": "projects/js-buddha-jewelers/",
+      "modules": [
+        "Project drawings",
+        "A4 printing"
       ]
     }
   ]

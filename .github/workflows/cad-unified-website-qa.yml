@@ -51,6 +51,7 @@ jobs:
           node tools/site/ashok-v37-architectural-sheet-smoke.mjs
           node tools/site/cad-client-workspace-smoke.mjs
           node tools/site/cad-standard-studio-smoke.mjs
+          node tools/site/drive-first-publication-smoke.mjs
           node tools/site/ashok-window-colours-smoke.mjs
           node tools/site/project-design-edition-contract-smoke.mjs
           node tools/site/amrit-plot-150-v2-smoke.mjs
@@ -130,6 +131,8 @@ jobs:
           python tools/open_architecture/generate_poc.py
           python tools/open_architecture/generate_v02.py --acceptance-check
           git diff --exit-code -- public/research/open-architecture-engine-v0.1 public/research/open-architecture-engine-v0.2
+      - name: Verify client-only archive redirects in the final staging artifact
+        run: python3 tools/site/retire-client-archive-routes.py dist
       - uses: actions/upload-artifact@v4
         with:
           name: cad-unified-site-staging
