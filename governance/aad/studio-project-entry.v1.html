@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{{PROJECT_TITLE}} · CAD Studio</title>
-<meta name="description" content="Source-governed project drawings and 2D/3D workspace.">
-<link rel="stylesheet" href="../../assets/css/project-workspace.css">
-</head><body data-workspace-engine="1.4.0" data-project="{{PROJECT_SLUG}}">
-<div id="project-app"><p class="loading">Loading {{PROJECT_TITLE}}…</p></div>
-<noscript>JavaScript is required. <a href="../">All projects</a>.</noscript>
-<script type="module" src="../../assets/js/project-workspace.mjs"></script>
+<title>{{PROJECT_TITLE}} · JP Drawings</title>
+<meta name="description" content="Building drawings, floor plans, 3D views and measurements.">
+<link rel="stylesheet" href="../../assets/css/project-workspace.css?v=client-1.6">
+</head><body data-cad-route="projects/{{PROJECT_SLUG}}/" data-workspace-engine="1.4.0" data-entry-template="client-1.6" data-client-theme="{{PROJECT_THEME}}" data-project="{{PROJECT_SLUG}}">
+<div id="project-app"><p class="loading">Loading drawings…</p></div>
+<noscript><p>JavaScript is required to view drawings. <a href="../">All projects</a>.</p></noscript>
+<script type="module" src="../../assets/js/project-workspace.mjs?v=client-1.6"></script>
 </body></html>

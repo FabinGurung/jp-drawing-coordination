@@ -368,3 +368,8 @@ body[data-studio-template="standard-client-v1"] .pw-footer {display:none!importa
 /* Client-only navigation. Historical editions remain selectable; internal tools are not client tabs. */
 body[data-studio-template="standard-client-v1"] #pw-context,
 body[data-studio-template="standard-client-v1"] .pw-heading #pw-chapter-title {display:none!important}
+
+/* Plot 150 preserves the approved monochrome presentation in the shared shell. */
+body[data-client-theme="monochrome"],body[data-client-theme="monochrome"] *{color:#000!important;background-color:#fff!important;border-color:#000!important;box-shadow:none!important;text-shadow:none!important}
+body[data-client-theme="monochrome"] :is(header,nav,main,article,aside,section,button,a,input,select){background:#fff!important}
+body[data-client-theme="monochrome"] :is(button[aria-pressed="true"],button[aria-selected="true"],[aria-current="page"]){background:#000!important;color:#fff!important}

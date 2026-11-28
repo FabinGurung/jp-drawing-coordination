@@ -28,10 +28,10 @@ jobs:
           # Poll this exact presentation before checking routes to avoid stale CDN content.
           for attempt in $(seq 1 20); do
             if curl --max-time 15 -fsSL "${BASE}" -o /tmp/cad-root.html &&
-               grep -q 'Your building projects' /tmp/cad-root.html; then break; fi
+               grep -q 'Building drawings' /tmp/cad-root.html; then break; fi
             echo "Client homepage propagation wait: $attempt"; sleep 10
           done
-          grep -q 'Your building projects' /tmp/cad-root.html
+          grep -q 'Building drawings' /tmp/cad-root.html
           grep -q 'href="./projects/"' /tmp/cad-root.html
           grep -q 'href="./guide/"' /tmp/cad-root.html
           ! grep -q 'href="./cad/brief/"' /tmp/cad-root.html
@@ -47,8 +47,8 @@ jobs:
           grep -q 'data-project="14-amrit-hardware-1"' /tmp/cad-plot150-client.html
           echo "CAD_CLIENT_FIRST_LIVE_NAV_AND_PROJECT_ROUTES_PASS"
           curl -fsSL "${BASE}guide/" -o /tmp/cad-guide.html
-          grep -q 'AI-Aided Drawing' /tmp/cad-guide.html
-          grep -q '07 · TRACE' /tmp/cad-guide.html
+          grep -q 'How to use the drawings' /tmp/cad-guide.html
+          grep -q 'not construction approval' /tmp/cad-guide.html
           curl -fsSL "${BASE}cad/brief/" -o /tmp/cad-brief.html
           grep -q 'AI-AIDED DRAWING' /tmp/cad-brief.html
           grep -q 'How It Works' /tmp/cad-brief.html

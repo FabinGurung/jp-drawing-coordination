@@ -4,7 +4,7 @@ const level=(id,name,note='')=>({id,name,note});
 const archive={title:'Earlier interface record',href:'record.html',note:'Retained navigation, explanations and source links. Interface history is not a new design edition.'};
 export const PROJECTS={
  '14-amrit-hardware-1':{
-  name:'14_Amrit_Hardware_1 · Plot 150',company:'Rohini Engineering and Builders · Pokhara Ward 14',
+  name:'14_Amrit_Hardware_1 · Plot 150',clientTheme:'monochrome',company:'Rohini Engineering and Builders · Pokhara Ward 14',
   status:'Ground floor · 2 bedrooms · Black and white · Feet only',workspaceEngineVersion:'1.4.0',defaultLevel:'site',
   editions:[
    {id:'owner-concept-v5',kind:'design-option',lifecycle:'SOURCE_REVIEW',snapshotPolicy:'SOURCE_POINTER',predecessorId:'owner-concept-v4',
