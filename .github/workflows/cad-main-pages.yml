@@ -80,6 +80,7 @@ jobs:
           node tools/site/ashok-v37-architectural-sheet-smoke.mjs
           node tools/site/cad-client-workspace-smoke.mjs
           node tools/site/cad-standard-studio-smoke.mjs
+          node tools/site/generate-standard-studio-entries.mjs --check
           node tools/site/ashok-window-colours-smoke.mjs
           node tools/site/project-design-edition-contract-smoke.mjs
           node tools/site/amrit-plot-150-v2-smoke.mjs
@@ -159,6 +160,7 @@ jobs:
           node tools/site/aad-edit-handover-browser-smoke.mjs
           node tools/site/aad-cross-project-edit-browser.mjs
           node tools/site/project-workspace-browser.mjs
+          node tools/site/cad-six-project-template-browser.mjs
           node tools/site/cad-control-tower-browser.mjs
           node tools/site/cad-source-axis-contract-browser.mjs
           node tools/site/ashok-grid-browser.mjs

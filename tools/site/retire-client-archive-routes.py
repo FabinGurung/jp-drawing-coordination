@@ -8,6 +8,9 @@ SLUGS = ("narayani-parajuli","ashok-adhikari","harisharan-adhikari","14-amrit-ha
 ROUTES = {p: "projects/index.html" for p in ("memory-wall/index.html","memory-wall/level-1/index.html","memory-wall/pages/index.html","releases/index.html","knowledge-centre/index.html","source/index.html")}
 ROUTES.update({f"projects/{s}/memory-wall/index.html": f"projects/{s}/index.html" for s in SLUGS})
 ROUTES.update({f"projects/{s}/record.html": f"projects/{s}/index.html" for s in ("narayani-parajuli","ashok-adhikari","ramachandra-devkota")})
+# The exact research, starter and template source is preserved in Drive.
+ROUTES.update({p:"projects/index.html" for p in ("research/index.html","research/open-architecture-engine-v0.1/index.html","research/open-architecture-engine-v0.2/index.html","research/open-architecture-engine/index.html","research/open-architecture-engine/v0.2/index.html","templates/project-workspace/index.html","templates/project-workspace/control-tower/index.html","projects/example-empty/index.html")})
+ARCHIVED_RESEARCH_ASSETS = tuple("research/open-architecture-engine-v0.2/"+p for p in ("dimensions.json","manifest.json","model.gltf","plan.dxf","plan.svg","rooms.json"))
 def retire(root):
     for src,dest in ROUTES.items():
         if not (root/src).is_file() or not (root/dest).is_file():
@@ -17,6 +20,10 @@ def retire(root):
         url=html.escape(os.path.relpath(root/dest,p.parent).replace(os.sep,"/"),quote=True)
         p.write_text(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url={url}"><title>JP Drawings</title></head><body><a href="{url}">Open drawings</a></body></html>\n',encoding="utf-8")
         assert p.stat().st_size < 500
+    for asset in ARCHIVED_RESEARCH_ASSETS:
+        p=root/asset
+        if not p.is_file(): raise SystemExit(f"Missing archived research asset: {asset}")
+        p.unlink()
     print(f"CAD_CLIENT_ARCHIVE_REDIRECT_PASS {len(ROUTES)} archived HTML routes; geometry unchanged")
 if __name__=="__main__":
     p=argparse.ArgumentParser();p.add_argument("root",type=Path);retire(p.parse_args().root)
