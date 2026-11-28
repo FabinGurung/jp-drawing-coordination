@@ -131,6 +131,8 @@ jobs:
           python tools/open_architecture/generate_poc.py
           python tools/open_architecture/generate_v02.py --acceptance-check
           git diff --exit-code -- public/research/open-architecture-engine-v0.1 public/research/open-architecture-engine-v0.2
+      - name: Verify client-only archive redirects in the final staging artifact
+        run: python3 tools/site/retire-client-archive-routes.py dist
       - uses: actions/upload-artifact@v4
         with:
           name: cad-unified-site-staging

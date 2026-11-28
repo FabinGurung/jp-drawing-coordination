@@ -32,9 +32,9 @@ try{
   if(sheet!==1)throw Error(title+" missing one shared stylesheet");
   // The shell is inserted by a deferred script. A partial/placeholder nav can
   // appear before its nested anchors are initialized under a busy CI browser.
-  await p.waitForFunction(()=>document.querySelectorAll("#cad-global-navigation a").length>=7,null,{timeout:15000});
+  await p.waitForFunction(()=>document.querySelectorAll("#cad-global-navigation a").length===4,null,{timeout:15000});
   const menu=await p.locator("#cad-global-navigation a").count();
-  if(menu<7)throw Error(title+" missing global navigation");
+  if(menu!==4)throw Error(title+" missing global navigation");
   if(await p.locator('#cad-global-navigation .cad-global-links > a[href$="/cad/"]').count()!==0)
     throw Error(title+" incorrectly promotes legacy CAD editor to primary navigation");
   if(await p.locator('#cad-global-navigation .cad-global-links > a[href$="/cad/brief/"]').count()!==0)
@@ -49,7 +49,8 @@ try{
  await p.locator("#projectSearch").fill("narayani");
  if(await p.locator("#cards .project-card").count()!==1)throw Error("Client project search broken");
  if(await p.locator("#cards .project-card .stage").first().innerText()!=="Fishtail Builders")throw Error("Backend IDs leaked into public card");
- if((await p.locator("#cad-global-navigation .cad-global-links > a").count())<4)throw Error("Project navigation incomplete");
+ if((await p.locator("#cad-global-navigation .cad-global-links > a").count())!==2)throw Error("Client navigation must contain Projects and Guide only");
+ if(await p.locator("#cad-global-navigation .cad-global-links > a").allTextContents().then(x=>x.join("|"))!=="Projects|Guide")throw Error("Unexpected primary menu");
  if(errors.length)throw Error("Page errors: "+JSON.stringify(errors));
  await p.screenshot({path:"/tmp/cad-project-first-home.png",fullPage:true});
  const mobile=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1});

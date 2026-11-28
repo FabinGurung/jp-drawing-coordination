@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const config = {"cards": [{"title": "Drawing project directory", "kind": "Source directory", "url": "/jp-drawing-coordination/projects/"}, {"title": "Registered 2D and 3D drawing sources", "kind": "Google Drive · sign in", "url": "https://drive.google.com/drive/u/0/search?q=jp-drawing-coordination"}, {"title": "Drawing source guidance", "kind": "Source directory", "url": "/jp-drawing-coordination/knowledge-centre/"}]};
+  const config = {"cards": [{"title": "Drawing project directory", "kind": "Source directory", "url": "/jp-drawing-coordination/projects/"}, {"title": "Registered 2D and 3D drawing sources", "kind": "Google Drive · sign in", "url": "https://drive.google.com/drive/u/0/search?q=jp-drawing-coordination"}]};
   if (!config.cards?.length || document.querySelector('jp-source-gallery')) return;
 
   const component = document.createElement('jp-source-gallery');

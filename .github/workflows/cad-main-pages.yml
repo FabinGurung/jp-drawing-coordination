@@ -227,6 +227,8 @@ jobs:
           test -s dist/cad/demo.json
           test -s dist/cad/web-ifc.wasm
           echo "FIVE_ENGINE_BROWSER_PUBLICATION_GATE_PASS"
+      - name: Retire archived internal pages from the client deployment
+        run: python3 tools/site/retire-client-archive-routes.py dist
       - name: Install the registered Google Drive source gallery
         run: python3 .github/source-gallery/install.py dist jp-drawing-coordination
       - name: Stamp deployed asset checksums, source commit and upstream QA run into Pages
